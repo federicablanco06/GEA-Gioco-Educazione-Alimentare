@@ -1,0 +1,120 @@
+%	Prova essay
+\documentclass[a4paper, 12pt]{article}
+
+\usepackage[protrusion=true,expansion=true]{microtype} % Better typography
+\usepackage{graphicx} 
+\usepackage{subfig}
+\usepackage{wrapfig} %in-line image
+
+\usepackage[dvipsnames]{xcolor}
+\usepackage{listings}
+\usepackage[italian]{babel}
+
+
+\usepackage[T1]{fontenc}
+
+\usepackage[hyphens]{url}
+\usepackage{quoting}
+%\usepackage[unicode,pdftex,plainpages=false,linktoc=all, hyperindex,citecolor=green,urlcolor=blue ]{hyperref}
+\quotingsetup{font=small}
+
+\usepackage[%printonlyused
+]{acronym}
+
+\makeatletter
+\newcommand{\myparagraph}[1]{\paragraph{#1}\mbox{}\\}
+\renewcommand\@biblabel[1]{\textbf{#1.}} % Change the square brackets for each bibliography item from '[1]' to '1.'
+\renewcommand{\@listI}{\itemsep=0pt} % Reduce the space between items in the itemize and enumerate environments and the bibliography
+
+% \renewcommand{\abstractname}{\large Introduction} %%Renaming the abstract
+
+%-----title at right corner---------------------------------------
+\renewcommand{\maketitle}{ 
+\begin{figure}[h]
+\centering
+\includegraphics[width=7cm]{Images/LogoPolimi}\\[.5cm]
+\end{figure}
+
+\vspace{50pt}
+
+\begin{flushright} % Right align
+\@date 
+
+{\huge\@title} % Increase the font size of the title
+\vspace{140pt} % Some vertical space between the title and author name
+
+
+\begin{tabular}{ l l c}
+\large Blanco &  \large Federica & \large 875487\\
+\large Pennati & \large Giulia & \large 882962\\
+\end{tabular}
+
+\vspace{40pt} % Some vertical space between the author block and abstract
+\end{flushright}
+\centering
+\textsl{\large Advanced User Interface Project}\\
+2017/2018
+}
+
+
+\title{\textbf{GEA}\\[3mm]
+Gioco Educazione Alimentare}
+
+\author{Blanco Federica\\Pennati Giulia%\textsc{Nomi} % Author -> fix with more names
+} 
+
+\date{INSERIREMO DATA CONSEGNA} % Date
+
+%----------------------------------------------------------------------------------------
+
+\begin{document}
+
+\begin{titlepage}
+
+\thispagestyle{empty}
+\maketitle % Print the title section
+
+\end{titlepage}
+
+
+%\input{Acronym.tex}
+%\renewcommand{\abstractname}{Summary} % Uncomment to change the name of the abstract to something else
+%\vspace{30pt} % Some vertical space between the abstract and first section
+\thispagestyle{empty}
+\tableofcontents
+\clearpage 
+\thispagestyle{empty}
+\listoffigures
+\clearpage 
+\listoftables
+\clearpage 
+
+\newpage
+\pagenumbering{arabic}
+\input{Sections/Introduzione.tex}
+\newpage
+\input{Sections/StatoArte.tex}
+\newpage
+\input{Sections/Bisogni.tex}
+\newpage
+\input{Sections/Requisiti.tex}
+\newpage
+\input{Sections/Design.tex}
+\newpage
+\input{Sections/Tecnologia.tex}
+\newpage
+\input{Sections/Valutazione}
+\newpage
+\input{Sections/DocumentazioneTecnica}
+\newpage
+
+\input{Sections/Appendice.tex}
+
+%----------------------------------------------------------------------------------------
+%\newpage
+%\pagestyle{empty}
+%\bibliographystyle{unsrt}
+%\bibliography{sample}
+%----------------------------------------------------------------------------------------
+
+\end{document}

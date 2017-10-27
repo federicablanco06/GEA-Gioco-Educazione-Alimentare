@@ -1,0 +1,11 @@
+\select@language {italian}
+\select@language {italian}
+\contentsline {section}{\numberline {1}Introduzione}{1}
+\contentsline {section}{\numberline {2}Stato dell'Arte}{2}
+\contentsline {section}{\numberline {3}Bisogni}{3}
+\contentsline {section}{\numberline {4}Requisiti}{4}
+\contentsline {section}{\numberline {5}Design}{5}
+\contentsline {section}{\numberline {6}Tecnologia}{6}
+\contentsline {section}{\numberline {7}Valutazione}{7}
+\contentsline {section}{\numberline {8}Documentazione Tecnica}{8}
+\contentsline {section}{\numberline {9}Appendice}{9}
