@@ -1,0 +1,25 @@
+\section{Implementazione} \label{sec:tecn}
+
+\subsection{Architettura hardware} \label{subsec:hard}
+I terapisti hanno bisogno di poter vedere quello che il bambino compie durante l'esperienza di gioco per cui abbiamo la necessità di replicare lo schermo dello smartphone su pc. Per questo la nostra architettura necessita l'utilizzo del dispositivo Google Chromecast che comunica con lo smartphone tramite Wi-Fi e viene inserito nella porta \acs{hdmi} del pc; smartphone e visore comunicano tramite \acs{usb}.
+\vspace{70pt}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{Images/hardware}
+\caption{Architettura hardware}
+\label{fig:hardware}
+\end{figure}
+\clearpage
+
+\subsection{Architettura software} \label{subsec:soft}
+L'architettura software prevede la comunicazione di tre moduli principali: l'applicazione \acs{gea}, con cui il terapista (nella scelta iniziale del livello di difficoltà) comunica, che è collegata al programma di gestione di orientamento visivo (necessario per captare i movimenti e il focus del bambino) del \acs{vr} e che trasferisce i dati al \acs{pc} del terapista che può quindi monitorare l'avanzamento del gioco e dare perciò eventuali suggerimenti al paziente.
+\vspace{70pt}
+\begin{figure}[htbp]
+\centering
+\includegraphics[width=\textwidth]{Images/software}
+\caption{Architettura software}
+\label{fig:software}
+\end{figure}
+\clearpage
+
+\subsection{Linguaggi di programmazione e software utilizzati} \label{subsec:ling}
