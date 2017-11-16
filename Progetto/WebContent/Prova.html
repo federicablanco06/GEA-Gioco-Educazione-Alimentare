@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html>
+  <head>
+    <title>Prova</title>
+    <meta name="description" content="Prova">
+    <script src="https://aframe.io/releases/0.7.0/aframe.min.js"></script>
+    <script src="https://unpkg.com/aframe-event-set-component@3.0.3/dist/aframe-event-set-component.min.js"></script>
+      
+  </head>
+  <body>
+    <a-scene>
+      <a-sky color="#009933"></a-sky>
+      <a-text value="GEA" color="#FF0000"
+        position="-0.5 3.5 -3" scale="1.5 1.5 1.5" wrap-count="30"></a-text>
+        <a-curvedimage src="/Progetto/WebContent/Images/pat.png" height="3.0" radius="3" theta-length="50"
+                 rotation="0 100 0" scale="1 1 1" position="1 2 -5"></a-curvedimage>
+        <a-text value="Opzione1" color="#FF0000"
+        position="-2.5 2.5 -3" scale="1.5 1.5 1.5" wrap-count="45" event-set__enter="_event: mouseenter; color: #8FF7FF"
+             event-set__leave="_event: mouseleave; color: #4CC3D9"></a-text>
+        <a-text value="Opzione2" color="#FF0000"
+        position="-2.5 1.5 -3" scale="1.5 1.5 1.5" wrap-count="45"></a-text>
+   
+        <a-camera>
+        <a-cursor></a-cursor>
+      </a-camera>
+      
+    </a-scene>
+  </body>
+</html>
