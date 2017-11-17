@@ -1,0 +1,39 @@
+@charset "ISO-8859-1";
+
+body {
+	background-color: #14e21e;
+}
+
+.contenitore {
+	background-color: #f2f087;
+	border-style: solid;
+	border-width: 10px;
+	border-color: #f2ba21;
+	width: 90%;
+	height: 90%;
+	margin: auto;
+}
+
+#title {
+	font-size: 40px;
+	text-align: center;
+}
+
+#mascotte {
+	height: 200px;
+	width: 20%;
+}
+#icon {
+	width: 200px;
+	height: 200px;
+}
+
+#cont {
+	float: left;
+}
+
+.scelta {
+	height: auto;
+	width: 20%;
+	float: left;
+}
