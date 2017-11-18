@@ -20,6 +20,7 @@ body {
 	display: block;
 	margin-left: 25%;
 	width: 25%;
+	margin-bottom: 5%;
 }
 
 .elements {
@@ -49,4 +50,6 @@ body {
 	padding-top: 5%;
 	padding-left: 5%;
 	border-width: 2px;
+	border-style: dotted;
+	border-color: white;
 }
