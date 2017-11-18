@@ -25,18 +25,21 @@ body {
 
 .elements {
 	float: left;
-	width: 80%;
+	width: 75%;
 }
 
 #mascotte {
-	width: 20%;
+	width: 23%;
 	height: auto;
 	display: block;
 	float: left;
+	padding-left: 2%;
 }
 #icon {
 	width: 50%;
 	height: auto;
+	margin: auto;
+	display: block;
 }
 
 #cont {
@@ -49,7 +52,10 @@ body {
 	float: left;
 	padding-top: 5%;
 	padding-left: 5%;
+	padding-bottom: 5%;
 	border-width: 2px;
 	border-style: dotted;
 	border-color: white;
+	margin-left: 5%;
+	margin-bottom: 5%;
 }
