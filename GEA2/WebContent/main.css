@@ -18,9 +18,13 @@ body {
 
 #title {
 	display: block;
-	margin: auto;
+	margin-left: 25%;
 	width: 25%;
-	height: auto;
+}
+
+.elements {
+	float: left;
+	width: 80%;
 }
 
 #mascotte {
@@ -44,4 +48,5 @@ body {
 	float: left;
 	padding-top: 5%;
 	padding-left: 5%;
+	border-width: 2px;
 }
