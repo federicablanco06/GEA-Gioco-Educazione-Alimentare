@@ -13,6 +13,7 @@ body {
 	width: 90%;
 	height: 90%;
 	margin: auto;
+	overflow: auto;
 }
 
 #title {
@@ -26,6 +27,7 @@ body {
 	width: 20%;
 	height: auto;
 	display: block;
+	float: left;
 }
 #icon {
 	width: 50%;
