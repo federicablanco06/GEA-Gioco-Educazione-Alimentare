@@ -1,15 +1,18 @@
 \select@language {italian}
 \select@language {italian}
-\contentsline {figure}{\numberline {1}{\ignorespaces Schermata iniziale mockup\relax }}{6}
-\contentsline {figure}{\numberline {2}{\ignorespaces Scelta livello difficolt\IeC {\`a} mockup\relax }}{7}
-\contentsline {figure}{\numberline {3}{\ignorespaces Impara con la piramide mockup\relax }}{8}
-\contentsline {figure}{\numberline {4}{\ignorespaces Piramide mockup\relax }}{9}
-\contentsline {figure}{\numberline {5}{\ignorespaces Piramide proseguimento mockup\relax }}{10}
-\contentsline {figure}{\numberline {6}{\ignorespaces E' sano o no? mockup\relax }}{11}
-\contentsline {figure}{\numberline {7}{\ignorespaces Schermata "E' sano o no?" mockup\relax }}{12}
-\contentsline {figure}{\numberline {8}{\ignorespaces Scelta cibo "spazzatura" mockup\relax }}{13}
-\contentsline {figure}{\numberline {9}{\ignorespaces A tavola! mockup\relax }}{14}
-\contentsline {figure}{\numberline {10}{\ignorespaces Schermata "A tavola!" mockup\relax }}{15}
-\contentsline {figure}{\numberline {11}{\ignorespaces Scelta pasto mockup\relax }}{16}
-\contentsline {figure}{\numberline {12}{\ignorespaces Architettura hardware\relax }}{17}
-\contentsline {figure}{\numberline {13}{\ignorespaces Architettura software\relax }}{18}
+\contentsline {figure}{\numberline {1}{\ignorespaces Diagramma di flusso generale\relax }}{5}
+\contentsline {figure}{\numberline {2}{\ignorespaces Diagramma di flusso del gioco "Impara con la piramide"\relax }}{6}
+\contentsline {figure}{\numberline {3}{\ignorespaces Diagramma di flusso dei giochi "E' sano o no?" e "A tavola!"\relax }}{7}
+\contentsline {figure}{\numberline {4}{\ignorespaces Schermata iniziale mockup\relax }}{10}
+\contentsline {figure}{\numberline {5}{\ignorespaces Scelta livello difficolt\IeC {\`a} mockup\relax }}{11}
+\contentsline {figure}{\numberline {6}{\ignorespaces Impara con la piramide mockup\relax }}{12}
+\contentsline {figure}{\numberline {7}{\ignorespaces Piramide mockup\relax }}{13}
+\contentsline {figure}{\numberline {8}{\ignorespaces Piramide proseguimento mockup\relax }}{14}
+\contentsline {figure}{\numberline {9}{\ignorespaces E' sano o no? mockup\relax }}{15}
+\contentsline {figure}{\numberline {10}{\ignorespaces Schermata "E' sano o no?" mockup\relax }}{16}
+\contentsline {figure}{\numberline {11}{\ignorespaces Scelta cibo "spazzatura" mockup\relax }}{17}
+\contentsline {figure}{\numberline {12}{\ignorespaces A tavola! mockup\relax }}{18}
+\contentsline {figure}{\numberline {13}{\ignorespaces Schermata "A tavola!" mockup\relax }}{19}
+\contentsline {figure}{\numberline {14}{\ignorespaces Scelta pasto mockup\relax }}{20}
+\contentsline {figure}{\numberline {15}{\ignorespaces Architettura hardware\relax }}{21}
+\contentsline {figure}{\numberline {16}{\ignorespaces Architettura software\relax }}{22}
