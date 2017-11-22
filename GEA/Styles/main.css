@@ -3,6 +3,7 @@
 body {
 	background-color: #14e21e;
 	height: 90%;
+    font-family: century gothic;
 }
 
 .contenitore {
@@ -37,7 +38,11 @@ body {
 }
 #icon {
 	width: 90%;
-	margin: auto;
+    
+}
+#image_text {
+    text-align: center;
+    color: #FF000;
 }
 
 #cont {
@@ -45,6 +50,7 @@ body {
 }
 
 .scelta {
+    background-color: #FFCC66;
 	height: auto;
 	width: 20%;
 	float: left;
@@ -52,7 +58,7 @@ body {
 	padding-left: 5%;
 	padding-bottom: 5%;
 	border-width: 2px;
-	border-style: dotted;
+	border-style: solid;
 	border-color: white;
 	margin-left: 5%;
 	margin-bottom: 5%;
