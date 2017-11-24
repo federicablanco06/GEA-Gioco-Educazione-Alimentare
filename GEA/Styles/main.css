@@ -2,8 +2,14 @@
 
 body {
 	background-color: #14e21e;
-	height: 90%;
     font-family: century gothic;
+}
+p {
+    display: inline;
+}
+
+#masc_loc {
+    margin-top: 5%;
 }
 
 .contenitore {
@@ -12,7 +18,6 @@ body {
 	border-width: 10px;
 	border-color: #f2ba21;
 	width: 90%;
-	height: 90%;
 	margin: auto;
 	overflow: auto;
 }
@@ -37,12 +42,14 @@ body {
 	padding-left: 2%;
 }
 #icon {
-	width: 90%;
+	width: 75%;
+    margin: auto;
     
 }
 #image_text {
+    margin: auto;
     text-align: center;
-    color: #FF000;
+    color: #FF0000;
 }
 
 #cont {
