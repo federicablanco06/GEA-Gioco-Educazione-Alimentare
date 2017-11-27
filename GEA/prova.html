@@ -5,21 +5,20 @@
 <meta name="description" content="Prova">
 <script src="Script/aframe.min.js"></script>
 
+<!-- Prove per l'interazione oggetto visore-->
 
 </head>
 <body>
-	<a-scene> <a-sky color="#009933"></a-sky> <a-text value="GEA"
-		color="#FF0000" position="-0.5 3.5 -3" scale="1.5 1.5 1.5"
-		wrap-count="30"></a-text> <a-curvedimage src="pat.png" height="3.0"
-		radius="3" theta-length="50" rotation="0 100 0" scale="1 1 1"
-		position="1 2 -5"></a-curvedimage> <a-entity
-		geometry="primitive: plane; width: auto; height: auto"
-		material="color: blue" text="width: 4; value: Opzione1."
-		position="-2.5 2.5 -3"></a-entity> <a-entity
-		geometry="primitive: plane; width: auto; height: auto"
-		material="color: blue" text="width: 4; value: Opzione2."
-		position="-2.5 1.5 -3"></a-entity> <a-circle width="auto"
-		height="auto" src="pasta.png" position="-2.5 0.2 -3"></a-circle> <a-camera>
-	<a-cursor></a-cursor> </a-camera> </a-scene>
+	<a-scene> 
+        <a-box width="1" height="1" depth="1" position="0 7 3" rotation="45 45 45" scale="1 2.5 1" color="blue">
+            <a-animation attribute="rotation" begin="click" repeat="indefinite" to="0 360 0"></a-animation>
+        
+        </a-box>
+    
+        <a-camera position="0 7 5">
+            <a-cursor color="red">
+            </a-cursor>
+        </a-camera> 
+    </a-scene>
 </body>
 </html>

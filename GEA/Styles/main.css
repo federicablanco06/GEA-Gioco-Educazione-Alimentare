@@ -91,3 +91,22 @@ p {
     border-color: #C200FF;
 }
 
+
+#spiega_text {
+    display: block;
+    color: #FF0000;
+    font-size: 20px;
+    margin-left: 50%;
+    margin-top: 17%;
+}
+
+#back {
+    font-size: 12px;
+    padding: 1.5%;
+    margin-left: 85%;
+    margin-top: 4%;
+    width: 115px;
+    background-color: #CCFFFF;
+    border-style: solid;
+    border-color: #0033FF;
+}
