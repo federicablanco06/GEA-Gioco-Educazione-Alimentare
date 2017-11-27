@@ -4,18 +4,15 @@ function clickLinks () {
         var url= window.location.href;
         
         //extraction of string after #
-        var args= url.split('#')[1];
-        var page= args.split('&')[0];
+        var page= url.split('#')[1];
         
         if (page!='') {
-            manager(args);
+            manager(page);
         }
     };
 }
 
 //page change manager
-function manager (args) {
-    var page= args.split('&')[0];
-    
-    $(".contenitore").load(page+".html");
+function manager (args) {    
+    $(".contenitore").load(args+".html");
 }
