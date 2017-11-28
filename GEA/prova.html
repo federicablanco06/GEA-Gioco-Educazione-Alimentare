@@ -9,14 +9,16 @@
 
 </head>
 <body>
-	<a-scene> 
-        <a-box width="1" height="1" depth="1" position="0 7 3" rotation="45 45 45" scale="1 2.5 1" color="blue">
-            <a-animation attribute="rotation" begin="click" repeat="indefinite" to="0 360 0"></a-animation>
+	<a-scene>
+        <a-sky color="#14E21E"></a-sky>
+        <<a-plane src="Immagini/prova.png" position="0 1.5 -4" width="12" height="6"></a-plane>
+        <a-circle radius="0.5" color="white" position="0 0.8 -3" src="Immagini/Play.jpg">
+            <a-animation attribute="geometry.radius" begin="click" to="0.7" ></a-animation>
         
-        </a-box>
+        </a-circle>
     
-        <a-camera position="0 7 5">
-            <a-cursor color="red">
+        <a-camera>
+            <a-cursor color="black">
             </a-cursor>
         </a-camera> 
     </a-scene>
