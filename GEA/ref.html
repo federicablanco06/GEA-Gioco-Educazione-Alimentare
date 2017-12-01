@@ -8,12 +8,16 @@
     <a-scene>
         <a-sky color="black"></a-sky>
         <rw-room position="-2 0 -2" material="color:#ffff99" width="50%">
-            <rw-wall position="4 0 0"></rw-wall>
-            <rw-wall position="4 0 4"></rw-wall>
-            <rw-wall position="0 0 4"></rw-wall>
-            <rw-wall position="0 0 0"></rw-wall>
-            <rw-ceiling material="background-image: Immagini/floor.png"></rw-ceiling>
-            <rw-floor material="Immagini/pat.png"></rw-floor>
+            <rw-wall position="4 0 0" material="color:blue"></rw-wall> <!--sta a destra-->
+            <rw-wall position="4 0 4" material="color:red"></rw-wall> <!-- sta dietro-->
+            <rw-wall position="0 0 4" material="color:#33CC00"></rw-wall> <!--sta a sinistra-->
+            <rw-wall position="0 0 0" material="color:grey"></rw-wall> <!--è quella che sta di fronte-->
+            <a-image position="2 1.5 0.01" material="src:Immagini/paint2.png; width:10px; height:8px"></a-image> <!--QUADRO-->
+            <a-box position="3.99 1.5 2" material="src:Immagini/mensola.jpg; repeat:9" depth="1px" height="0.03px" width="1.5px"></a-box> <!--MENSOLA-->
+            <a-sphere position="2 3.37 2" color="white"></a-sphere>  <!--LAMPADARIO-->
+            <a-image position="0.001 1 2" rotation="0 90 0" material="src:Immagini/geamasc.png" width="1px" height="1.5px"></a-image> <!--CALENDARIO-->
+            <rw-ceiling material="color:yellow"></rw-ceiling>  <!--soffitto-->
+            <rw-floor material="src:Immagini/floor.jpg; repeat: 2"></rw-floor> <!--pavimento-->
         </rw-room>
        
     </a-scene>
