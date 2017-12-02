@@ -8,18 +8,36 @@
     <a-scene>
         <a-sky color="black"></a-sky>
         <rw-room position="-5 0 -5" material="color:#ffff99" width="50px" height="6.5px" large="50px">
+            
+            <!--CARATTERISTICHE STANZA-->
             <rw-wall position="10 0 0" material="color:#D2B06A"></rw-wall> <!--sta a destra-->
             <rw-wall position="10 0 10" material="color:#D8BFD8"></rw-wall> <!-- sta dietro-->
             <rw-wall position="0 0 10" material="color:#ABCDEF"></rw-wall> <!--sta a sinistra-->
             <rw-wall position="0 0 0" material="color:#7BA05B"></rw-wall> <!--è quella che sta di fronte-->
-            <a-image position="0.001 4 5" rotation="0 90 0" material="src:Immagini/paint2.png" width="2px" height="1.5px"></a-image> <!--QUADRO-->
-            <a-box position="9.99 3 5" material="src:Immagini/mensola.jpg; repeat:9" depth="2px" height="0.03px" width="2.5px"></a-box> <!--MENSOLA-->
-            <a-sphere position="5 6.37 5" color="white"></a-sphere>  <!--LAMPADARIO-->
             <rw-ceiling material="color:#FFFF66"></rw-ceiling>  <!--soffitto-->
             <rw-floor material="src:Immagini/floor.jpg; repeat: 2"></rw-floor> <!--pavimento-->  
-           <a-entity collada-model="url(Immagini/fridge/fridge.dae)" position="4 0 0.1" scale="2 2 1"></a-entity>
+            
+            
+            <!--DECORAZIONI STANZA-->
+            
+            <!--quadro-->
+            <a-image position="0.001 4 5" rotation="0 90 0" material="src:Immagini/paint2.png" width="2px" height="1.5px"></a-image> 
+            
+            <!--mensola-->
+            <a-box position="9.99 3 5" material="src:Immagini/mensola.jpg; repeat:9" depth="2px" height="0.03px" width="2.5px"></a-box>
+            
+            <!--lampadario-->
+            <a-sphere position="5 6.37 5" color="white"></a-sphere>
+            
+            <!--frigorifero-->
+            <a-entity collada-model="url(Immagini/fridge/fridge.dae)" position="4 0 0.1" scale="2 2 1"></a-entity>
+            
+            <!--cucina ad angolo-->
+            <a-entity collada-model="url(Immagini/cucina/kitchen.dae)" position="1 0 8.8" rotation="0 0 0" scale="3 2 1"></a-entity>
+            
+            <!--tasto play-->
             <a-image position="5.05 3.5 0.3" material="src:Immagini/play.png"></a-image>
-            <a-entity collada-model="url(Immagini/cucina/model.dae)" position="1 0 8.8" rotation="0 0 0" scale="3 2 1"></a-entity>
+            
         </rw-room>    
     </a-scene>
 </body>
