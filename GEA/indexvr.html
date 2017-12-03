@@ -7,12 +7,13 @@
     <!--SCRIPT-->
   <script src="Script/aframe.min.js"></script> 
   <script src="https://unpkg.com/aframe-room-component/dist/aframe-room-component.min.js"></script>
+  <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="Script/vrprimaryScript.js"></script>
 </head>
     
     <!--BODY-->
 <body>
-    <a-scene id="vrscene">
+    <a-scene>
         <a-sky color="black"></a-sky>
         <rw-room position="-7.5 0 -7.5" material="color:#ffff99" width="50px" height="6.5px" large="50px">
             
@@ -56,6 +57,15 @@
             
             <!--tasto play-->
             <a-image position="7.15 2.5 1.3" material="src:Immagini/play.png"></a-image>
+            
+            <!--Scritte di spiegazione gioco-->
+            
+            <a-entity id="gioco1" text="value: Completa la piramide!;" position="7.15 4 1.3" scale="10 10 10" visible="false"></a-entity>
+            
+            <a-entity id="gioco2" text="value: Trascina nella pattumiera \n il cibo spazzatura!;" position="7.15 4 1.3" scale="10 10 10" visible="false"></a-entity>
+            
+            <a-entity id="gioco3" text="value: Abbina la pietanza \n al pasto della giornata \n o viceversa!;" position="7.15 4 1.3" scale="10 10 10" visible="false"></a-entity>
+                        
                         
         </rw-room>    
     </a-scene>

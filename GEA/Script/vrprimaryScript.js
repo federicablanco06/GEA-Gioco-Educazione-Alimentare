@@ -1,23 +1,25 @@
 $(function vrprimary() {
+    //prendo l'url
     var url = window.location.search;
-    var url1= url.split("?")[1];
-    var gioco= url1.split("&")[0];
-    var diff= url1.split("&")[1];
-    
+    //elimino ?
+    var url1 = url.split("?")[1];
+    //separo i due parametri
+    var gioco = url1.split("&")[0];
+    var diff = url1.split("&")[1];
+    //estraggo i valori dei due parametri
     var Gioco = gioco.split("=")[1];
     var Diff = diff.split("=")[1];
-    window.alert("ciao" Gioco Diff);
-    
-    	
+        
+    //abilito la scritta di spiegazione in base al gioco selezionato	
     switch(Gioco) {
-        case 1:
-            $.get("gioco1.html?Diff="+ Diff);
+        case "1":
+            document.getElementById("gioco1").setAttribute("visible",true);
             break;
-        case 2:
-            $.get("gioco2.html?Diff="+ Diff);
+        case "2":
+            document.getElementById("gioco2").setAttribute("visible",true);            
             break;
-        case 3:
-            $.get("gioco3.html?Diff="+ Diff);
+        case "3":
+            document.getElementById("gioco3").setAttribute("visible",true);
             break;            
     }
     
