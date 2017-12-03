@@ -9,10 +9,13 @@ function clickLinks () {
         if (page!='') {
             manager(page);
         }
+        
+        }
     };
-}
+
 
 //page change manager
 function manager (args) {    
     $(".contenitore").load(args+".html");
 }
+
