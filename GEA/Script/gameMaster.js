@@ -8,6 +8,30 @@ function gameSetter(Gioco, Diff) {
 }
 
 function gameStarter() {
-   document.getElementById('gioco'+num_gioco).setAttribute("visible", false);
     
+    //quando premo play nascondo la descrizione del gioco
+    document.getElementById('gioco'+num_gioco).setAttribute("visible", false);
+    
+    //successivamente carico gli elementi del gioco stesso
+    if(num_gioco='1')
+        piramide(diff);
+    else if (num_gioco='2')
+        sano(diff);
+    else 
+        tavola(diff);
+    
+    
+    
+}
+
+function sano(diff) {
+    //da fare
+}
+
+function piramide(diff) {
+    //da fare
+}
+
+function tavola(diff) {
+    //da fare
 }
