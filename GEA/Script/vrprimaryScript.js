@@ -16,7 +16,10 @@ $(function vrprimary() {
             document.getElementById("gioco1").setAttribute("visible",true);
             break;
         case "2":
-            document.getElementById("gioco2").setAttribute("visible",true);            
+            document.getElementById("gioco2").setAttribute("visible",true);  
+            $.getScript('Script/gameMaster.js', function() {
+                gameStart(Gioco, Diff);
+            });
             break;
         case "3":
             document.getElementById("gioco3").setAttribute("visible",true);
@@ -24,3 +27,7 @@ $(function vrprimary() {
     }
     
 });
+
+function gameStart() {
+    
+}

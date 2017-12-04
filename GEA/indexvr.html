@@ -9,6 +9,7 @@
   <script src="https://unpkg.com/aframe-room-component/dist/aframe-room-component.min.js"></script>
   <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
   <script src="Script/vrprimaryScript.js"></script>
+  <script src="Script/gameMaster.js"></script>
 </head>
     
     <!--BODY-->
@@ -56,7 +57,10 @@
             <a-entity collada-model="url(Immagini/cucina/door.dae)" position="0.2 0 5.5" scale="1.9 2.1 1.8" rotation="0 90 0"></a-entity>
             
             <!--tasto play-->
-            <a-image position="7.15 2.5 1.3" material="src:Immagini/play.png"></a-image>
+            <a-circle radius="0.5" id="playbutton" onclick="gameStart()" position="7.15 2.5 1.3" material="src:Immagini/play.png">
+            <a-animation attribute="geometry.radius" begin="click" to="0.7" ></a-animation>        
+            </a-circle>
+            <!--<a-image id="playbutton" position="7.15 2.5 1.3" material="src:Immagini/play.png"></a-image>-->
             
             <!--Scritte di spiegazione gioco-->
             
@@ -67,7 +71,14 @@
             <a-entity id="gioco3" text="value: Abbina la pietanza \n al pasto della giornata \n o viceversa!;" position="7.15 4 1.3" scale="10 10 10" visible="false"></a-entity>
                         
                         
-        </rw-room>    
+        </rw-room>   
+        
+        
+        <!--cursore-->
+         <a-camera>
+            <a-cursor color="black">
+            </a-cursor>
+        </a-camera> 
     </a-scene>
 </body>
     
