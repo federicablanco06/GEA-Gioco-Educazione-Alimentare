@@ -8,5 +8,5 @@ function gameSetting(Gioco, Diff) {
 }
 
 function gameStarter() {
-    document.getElementById('gioco'+diff).setAttribute("visible", false);
+    document.getElementById('gioco2').setAttribute("visible", false);
 }
