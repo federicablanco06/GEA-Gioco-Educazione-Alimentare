@@ -9,8 +9,9 @@ function gameSetter(Gioco, Diff) {
 
 function gameStarter() {
     
-    //quando premo play nascondo la descrizione del gioco
+    //quando premo play nascondo la descrizione del gioco e il tasto stesso
     document.getElementById('gioco'+num_gioco).setAttribute("visible", false);
+    document.getElementById('playbutton').setAttribute("visible", false);
     
     //successivamente carico gli elementi del gioco stesso
     if(num_gioco='1')
