@@ -21,7 +21,7 @@ else {
     //echo "Successful connection"; // connection ok
 
     //# extract results mysqli_result::fetch_array
-    $query = "SELECT id, img, diff, corr FROM Sano";
+    $query = "SELECT id, img, diff, corr, idcoppia FROM Sano";
     //query execution
     $result = $mysqli->query($query);
 
