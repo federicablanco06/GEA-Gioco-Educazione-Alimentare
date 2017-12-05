@@ -34,14 +34,19 @@ function getSano(difficulty) {
             //smistamento in base a correttezza
             var corretto=[];
             var sbagliato=[];
+            
+            console.log("elemento 0 " + difficultyArray[0]);
+            console.log("\n correttezza " + difficultyArray[0].corr);
+            
+            //C'E' UN ERRORE QUI NON VENGONO RIEMPITI GLI ARRAY
             for(var j=0; j<difficultyArray.lenght; j++) {
                 if(difficultyArray[i].corr==1)
-                    coretto.push(difficultyArray[i]);
+                    corretto.push(difficultyArray[i]);
                 else
                     sbagliato.push(difficultyArray[i]);
             }
-            console.log(corretto);
-            console.log(sbagliato);
+            console.log("array1 " + corretto);
+            console.log("array2 " + sbagliato);
             
             //scelgo random le due immagini
             var rdm1=  Math.floor(Math.random() * (corretto.lenght)) + 1;
