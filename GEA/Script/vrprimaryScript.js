@@ -22,6 +22,7 @@ $(function vrprimary() {
             document.getElementById("gioco3").setAttribute("visible",true);
             break;            
     }
+    
     //frammento di script per passare al game master il contesto gioco-difficoltà da eseguire
     $.getScript('Script/gameMaster.js', function() {
         gameSetter(Gioco, Diff);
