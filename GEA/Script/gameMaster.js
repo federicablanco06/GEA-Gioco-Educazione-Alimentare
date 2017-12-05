@@ -16,10 +16,12 @@ function gameStarter() {
     }, 1000);
     
     //successivamente carico gli elementi del gioco stesso
-    if(num_gioco='1')
+    if(num_gioco=='1')
         piramide(diff);
-    else if (num_gioco='2')
+    else if (num_gioco=='2') {
+        console.log("SONO FINTEEEH(?)");
         sano(diff);
+    }
     else 
         tavola(diff);
     
@@ -27,13 +29,26 @@ function gameStarter() {
     
 }
 
-function sano(diff) {
-    //da fare
-}
-
 function piramide(diff) {
     //da fare
 }
+
+
+//funzione coordinatrice del gioco2
+function sano(diff) {
+    //variabili temporaneamente settate, poi saranno estratte da database
+    var elm1= 'Immagini/mela.png';
+    var elm2= 'Immagini/patatine.png';
+    
+    //variabili di gioco
+    document.getElementById('table').after('<a-image position="4.7 1.5 4.5" material="src:'+ elm1 +'" scale="0.7 0.7 0.7"></a-image>');
+    document.getElementById('table').after('<a-image position="5.9 1.5 4.5" material="src:'+ elm2 +'" scale="0.7 0.7 0.7"></a-image>');
+    
+    //cestino
+    document.getElementById('table').after('<a-entity collada-model="url(Immagini/bin/bin.dae)" position="7 0 4.5" scale="2 1.3 2"></a-entity>');
+    
+}
+
 
 function tavola(diff) {
     //da fare
