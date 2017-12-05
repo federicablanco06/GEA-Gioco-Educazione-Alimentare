@@ -39,6 +39,19 @@ function getSano(difficulty) {
                     sbagliato.push(difficultyArray[i]);
             }
             
+            //scelgo random le due immagini
+            var rdm1=  Math.floor(Math.random() * (corretto.lenght)) + min;
+            var rdm2=  Math.floor(Math.random() * (sbagliato.lenght)) + min;
+            
+            var risultati=[];
+            risultati.push(corretto[rdm1]);
+            risultati.push(sbagliato[rdm2]);
+            
+            
+            //e infine le mando al game master
+            return risultati;
+            
+            
         },
          
          
