@@ -22,26 +22,30 @@ function getSano(difficulty) {
                 content += value;
             });
             
+            
             //in base alla difficoltà richiesta, avrò estrazioni differenti all'array json            
             //smistamento in base a difficoltà
-            var difficultyArray;
+            var difficultyArray=[];
             for(var i=0; i<json.length; i++) {
                 if(json[i].diff==difficulty) 
                     difficultyArray.push(json[i]);
             }
             
             //smistamento in base a correttezza
-            var corretto, sbagliato;
+            var corretto=[];
+            var sbagliato=[];
             for(var j=0; j<difficultyArray.lenght; j++) {
                 if(difficultyArray[i].corr==1)
                     coretto.push(difficultyArray[i]);
                 else
                     sbagliato.push(difficultyArray[i]);
             }
+            console.log(corretto);
+            console.log(sbagliato);
             
             //scelgo random le due immagini
-            var rdm1=  Math.floor(Math.random() * (corretto.lenght)) + min;
-            var rdm2=  Math.floor(Math.random() * (sbagliato.lenght)) + min;
+            var rdm1=  Math.floor(Math.random() * (corretto.lenght)) + 1;
+            var rdm2=  Math.floor(Math.random() * (sbagliato.lenght)) + 1;
             
             var risultati=[];
             risultati.push(corretto[rdm1]);

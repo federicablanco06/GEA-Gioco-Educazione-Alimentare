@@ -41,16 +41,15 @@ function sano(diff) {
     //chiamata allo script gestore di php
     $.getScript('Script/ajaxCall.js', function() {  
         //risultati contiene due elementi random, uno corretto e uno sbagliato presi dal database con la giusta difficoltà
-        var risultati = getSano(diff);
-        console.log("risultati" + risultati);
+        var risultati = getSano(diff); //per ora non funziona
         
         //variabili temporaneamente settate, poi saranno estratte da database
         var elm1= 'Immagini/mela.png';
         var elm2= 'Immagini/patatine.png';
 
         //variabili di gioco
-        $('#table').after('<a-image class="sano" position="4.7 1.5 4.5" material="src:'+ risultati[0].img +'" scale="0.7 0.7 0.7"></a-image>');
-        $('#table').after('<a-image class="sano" position="5.9 1.5 4.5" material="src:'+ risultati[1].img +'" scale="0.7 0.7 0.7"></a-image>');
+        $('#table').after('<a-image class="sano" position="4.7 1.5 4.5" material="src:'+ elm1 +'" scale="0.7 0.7 0.7"></a-image>');
+        $('#table').after('<a-image class="sano" position="5.9 1.5 4.5" material="src:'+ elm2 +'" scale="0.7 0.7 0.7"></a-image>');
     });
 }
 
