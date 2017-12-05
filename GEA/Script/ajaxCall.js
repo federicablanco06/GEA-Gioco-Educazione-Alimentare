@@ -9,7 +9,6 @@ function getSano(difficulty) {
      $.ajax({
         method: "POST",
         crossDomain: true, //localhost purposes
-         
         //estrazione elementi chiamati dalla query del database
         url: "http://gea.altervista.org/PHP/getSano.php", //Relative or absolute path to file.php file
         data: {id: diff},
@@ -64,8 +63,8 @@ function getSano(difficulty) {
             var elm2= sba.img;
 
             //variabili di gioco
-            $('#table').after('<a-image class="sano" position="4.7 1.5 4.5" material="src:'+ elm1 +'" scale="0.7 0.7 0.7"></a-image>');
-            $('#table').after('<a-image class="sano" position="5.9 1.5 4.5" material="src:'+ elm2 +'" scale="0.7 0.7 0.7"></a-image>');
+            $('#table').after('<a-image class="sano" position="6.7 1.5 4.5" material="src:'+ elm1 +'" scale="0.7 0.7 0.7"></a-image>');
+            $('#table').after('<a-image class="sano" position="7.9 1.5 4.5" material="src:'+ elm2 +'" scale="0.7 0.7 0.7"></a-image>');
             
             //e infine le mando al game master
             return [corr, sba];

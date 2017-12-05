@@ -4,7 +4,7 @@
  * Configuration file
  * Author: Pennati Giulia, Blanco Federica
  */
-
+header('Access-Control-Allow-Origin: *');
 
 define('DB_HOST', 'localhost');
 define('DB_USER', 'gea');

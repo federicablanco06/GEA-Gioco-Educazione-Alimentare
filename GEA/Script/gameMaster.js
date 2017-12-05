@@ -1,9 +1,11 @@
 var num_gioco, diff;
 
+
 function gameSetter(Gioco, Diff) {
     //settaggio variabili globali di gioco
     num_gioco = Gioco;
-    diff = Diff;    
+    diff = Diff;
+    
     
 }
 
@@ -35,7 +37,7 @@ function piramide(diff) {
 //funzione coordinatrice del gioco2
 function sano(diff) {    
      //cestino
-    $('#table').after('<a-entity class="sano" collada-model="url(Immagini/bin/bin.dae)" position="7 0 4.5" scale="2 1.3 2"></a-entity>');
+    $('#table').after('<a-entity class="sano" collada-model="url(Immagini/bin/bin.dae)" position="8.7 0 4.5" scale="2 1.3 2"></a-entity>');
     
     
     //chiamata allo script gestore di php
