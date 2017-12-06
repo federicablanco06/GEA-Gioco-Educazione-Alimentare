@@ -67,8 +67,8 @@ function gameSano1() {
     var xCestino = document.getElementById("cestino").getAttribute("position").x;
     var xImg = posizione.x;
     
-    if(xImg < xCestino) {
-        document.getElementById("elm1").setAttribute("position", {x:xImg+0.3, y:posizione.y, z:posizione.z});
+    if(xImg < xCestino+0.2) {
+        document.getElementById("elm1").setAttribute("position", {x:xImg+0.2, y:2, z:posizione.z});
     }
     
     
