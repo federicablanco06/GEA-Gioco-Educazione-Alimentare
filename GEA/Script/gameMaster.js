@@ -52,28 +52,32 @@ function sano(diff) {
         elem1=elm1;
         elem2=elm2;
         
+        console.log("ELEMENTI " + elem1 + " " + elem2);
+        
         //variabili di gioco
         $('#table').after('<a-image class="sano" id="elm1" onclick="gameSano(\'elm1\')" position="6.7 1.5 4.5" material="src:'+ elm1 +'" scale="0.7 0.7 0.7"></a-image>');
         $('#table').after('<a-image class="sano" id="elm2" onclick="gameSano(\'elm2\')" position="7.9 1.5 4.5" material="src:'+ elm2 +'" scale="0.7 0.7 0.7"></a-image>');
-        pos1= document.getElementById("elm1").getAttribute("position");
-        pos2= document.getElementById("elm2").getAttribute("position");
         
-        console.log("posizione 1 " + pos1.x + pos1.y + pos1.z);
+        console.log("DOPO INSERIMENTO " + document.getElementById("elm1").getAttribute("class"));
         
+        //setto le posizioni originali come variabili globali (array pos1=[x, y, z])
+        pos1= document.getElementById("elm1").getAttribute('position').split(' ');
+        pos2= document.getElementById("elm2").getAttribute('position').split(' ');
         
+        console.log("POSIZIONE QUINDIH " + pos1[0]);
         
+                
         
     });
 }
 
-function gameSano(id) {
-    console.log("capiamo cosa sia " + id);
+
+function gameSano(id) {  
     
     var posizione = document.getElementById(id).getAttribute('position');
+    console.log("posizione da gameSano " + posizione);
     var xCestino = document.getElementById("cestino").getAttribute("position").x;
     var xImg = posizione.x;
-    
-    console.log("tentativo di this " + xImg);
     
     //se l'altro elemento è stato spostato torna alla sua posizione originaria
    /* if(document.getElementById("elm2").getAttribute("position").y != pos2.y){
