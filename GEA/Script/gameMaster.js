@@ -13,15 +13,15 @@ function gameSetter(Gioco, Diff) {
 function gameStarter() {
     
     //quando premo play nascondo la descrizione del gioco e il tasto stesso (dopo 1 sec)
-    document.getElementById('gioco'+num_gioco).setAttribute("visible", false);
-    setTimeout(function() {
+    document.getElementById('gioco' + num_gioco).setAttribute("visible", false);
+    setTimeout(function () {
         document.getElementById('playbutton').setAttribute("visible", false);
     }, 1000);
     
     //successivamente carico gli elementi del gioco stesso
-    if(num_gioco=='1')
+    if (num_gioco == '1')
         piramide(diff);
-    else if (num_gioco=='2') 
+    else if (num_gioco == '2') 
         sano(diff);
     else 
         tavola(diff);
@@ -44,11 +44,15 @@ function sano(diff) {
     //chiamata allo script gestore di php
     $.getScript('Script/ajaxCall.js', function() {  
         //risultati contiene due elementi random, uno corretto e uno sbagliato presi dal database con la giusta difficoltà
-       // var risultati  = getSano(diff); //per ora non funziona
+        //var dfd = $.Deferred();
+        var risultati  = getSano(diff);
+        //dfd.resolve;
+        
+        console.log("FATTO GET PRIMA")
       
         //variabili temporaneamente settate, poi saranno estratte da database
-        var elm1= 'Immagini/mela.png';
-        var elm2= 'Immagini/patatine.png';
+        var elm1= ['Immagini/mela.png', '1'];
+        var elm2= ['Immagini/patatine.png', '0'];
         
         //oggetto contenente l'elemento e il suo identificativo grafico, necessario per il feedback
         alt = [
@@ -57,8 +61,8 @@ function sano(diff) {
         ];
      
         //variabili di gioco
-        $('#table').after('<a-image class="sano" id="elm1" onclick="choiceSano(\'elm1\')" position="6.7 1.5 4.5" material="src:'+ elm1 +'" scale="0.7 0.7 0.7"></a-image>');
-        $('#table').after('<a-image class="sano" id="elm2" onclick="choiceSano(\'elm2\')" position="7.9 1.5 4.5" material="src:'+ elm2 +'" scale="0.7 0.7 0.7"></a-image>');
+        /*$('#table').after('<a-image class="sano" id="elm1" onclick="choiceSano(\'elm1\')" position="6.7 1.5 4.5" material="src:'+ elm1[0] +'" scale="0.7 0.7 0.7"></a-image>');
+        $('#table').after('<a-image class="sano" id="elm2" onclick="choiceSano(\'elm2\')" position="7.9 1.5 4.5" material="src:'+ elm2[0] +'" scale="0.7 0.7 0.7"></a-image>');*/
         
         //setto le posizioni originali come variabili globali (array pos1=[x, y, z])
         pos1= document.getElementById("elm1").getAttribute('position').split(' ');
@@ -114,9 +118,24 @@ function feedbackSano(id) {
             break;
         }        
     }
-    //console.log("ELEMENTO " + element);
+    console.log("ELEMENTO " + element);
     
-    //TODO feedback
+    if(element[1]=='1'){
+        console.log("VEROOOO");
+        $('#table').after('<a-image class="feedbackcorr" id="feedcorr"  position="8.7 4 2" material="src:Immagini/happy.png" scale="3 3 3" visible="false"></a-image>');
+        setTimeout(function() {
+            document.getElementById("feedcorr").setAttribute("visible", true);
+        }, 2000);
+        
+    }
+    else{
+        console.log("FALSOOOO");
+        $('#table').after('<a-image class="feedbacksba" id="feedsba"  position="8.7 4 2" material="src:Immagini/sad.png" scale="3 3 3" visible="false"></a-image>');
+        setTimeout(function() {
+            document.getElementById("feedsba").setAttribute("visible", true);
+        }, 2000);
+        
+    }
     
     
 }
