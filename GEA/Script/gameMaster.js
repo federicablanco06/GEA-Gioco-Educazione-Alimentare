@@ -1,6 +1,6 @@
 var num_gioco, diff; //variabili globali gioco
 var pos1, pos2;
-var alternative;
+var alt;
 
 function gameSetter(Gioco, Diff) {
     //settaggio variabili globali di gioco
@@ -51,12 +51,10 @@ function sano(diff) {
         var elm2= 'Immagini/patatine.png';
         
         //oggetto contenente l'elemento e il suo identificativo grafico, necessario per il feedback
-        alternative = [
+        alt = [
             {dbelement: elm1, graphicid: 'elm1'},
             {dbelement: elm2, graphicid: 'elm2'}
         ];
-        
-        console.log("ALTERNATIVE DI GIOCO", alternative, alternative[0].graphicid); 
      
         //variabili di gioco
         $('#table').after('<a-image class="sano" id="elm1" onclick="choiceSano(\'elm1\')" position="6.7 1.5 4.5" material="src:'+ elm1 +'" scale="0.7 0.7 0.7"></a-image>');
@@ -105,10 +103,20 @@ function choiceSano(id) {
  
 }
 
-/*FUNZIONE PRINCIPALE CONTROLLER FEEDBACK*/
+//funzione controllore del risultato
 function feedbackSano(id) {
-    document.
-    console.log("HELLOOOOO IT'S MEEEE(?)" + id)
+    var element;
+    
+    //innanzitutto ripesco l'elemento associato alla scelta grazie alla variabile alt
+    for(var i=0; i< alt.length; i++) {
+        if (alt[i].graphicid == id) {
+            element=alt[i].dbelement;
+            break;
+        }        
+    }
+    
+    console.log("ELEMENTO " + element);
+    
 }
 
 function tavola(diff) {
