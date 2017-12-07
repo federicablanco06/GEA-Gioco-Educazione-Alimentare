@@ -49,6 +49,8 @@ function sano(diff) {
         //variabili temporaneamente settate, poi saranno estratte da database
         var elm1= 'Immagini/mela.png';
         var elm2= 'Immagini/patatine.png';
+        
+        //oggetto contenente l'elemento e il suo identificativo, necessario per il feedback
         elem1=elm1;
         elem2=elm2;
      
@@ -92,16 +94,16 @@ function choiceSano(id) {
         document.getElementById(id).setAttribute("position", {x: xCestino+0.2, y: 1.5, z: posizione.z});
         setTimeout(function() {
             document.getElementById(id).setAttribute("visible", false);
-        }, 500);
+        }, 1000);
         
-        feedbackSano(id);
+        feedbackSano('elem'+id); //sicuramente questo non va, bisogna fare binding dell'elemento elm1 visuale con quello del db
     } 
  
 }
 
 /*FUNZIONE PRINCIPALE CONTROLLER FEEDBACK*/
 function feedbackSano(id) {
-    //TODO
+    console.log("HELLOOOOO IT'S MEEEE(?)" + id)
 }
 
 function tavola(diff) {
