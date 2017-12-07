@@ -51,39 +51,38 @@ function sano(diff) {
         var elm2= 'Immagini/patatine.png';
         elem1=elm1;
         elem2=elm2;
-        
-        console.log("ELEMENTI " + elem1 + " " + elem2);
-        
+     
         //variabili di gioco
-        $('#table').after('<a-image class="sano" id="elm1" onclick="gameSano(\'elm1\')" position="6.7 1.5 4.5" material="src:'+ elm1 +'" scale="0.7 0.7 0.7"></a-image>');
-        $('#table').after('<a-image class="sano" id="elm2" onclick="gameSano(\'elm2\')" position="7.9 1.5 4.5" material="src:'+ elm2 +'" scale="0.7 0.7 0.7"></a-image>');
-        
-        console.log("DOPO INSERIMENTO " + document.getElementById("elm1").getAttribute("class"));
+        $('#table').after('<a-image class="sano" id="elm1" onclick="choiceSano(\'elm1\')" position="6.7 1.5 4.5" material="src:'+ elm1 +'" scale="0.7 0.7 0.7"></a-image>');
+        $('#table').after('<a-image class="sano" id="elm2" onclick="choiceSano(\'elm2\')" position="7.9 1.5 4.5" material="src:'+ elm2 +'" scale="0.7 0.7 0.7"></a-image>');
         
         //setto le posizioni originali come variabili globali (array pos1=[x, y, z])
         pos1= document.getElementById("elm1").getAttribute('position').split(' ');
         pos2= document.getElementById("elm2").getAttribute('position').split(' ');
         
-        console.log("POSIZIONE QUINDIH " + pos1[0]);
-        
-                
-        
     });
 }
 
 
-function gameSano(id) {  
+//funzione per la gestione della scelta in Sano
+function choiceSano(id) {  
     
+    //recupero coordinata x del cestino e dell'elemento cliccato
     var posizione = document.getElementById(id).getAttribute('position');
-    console.log("posizione da gameSano " + posizione);
     var xCestino = document.getElementById("cestino").getAttribute("position").x;
     var xImg = posizione.x;
     
+    //recupero il numero dell'id che ha generato il click
+    var num = parseInt(id.charAt(id.length-1));
+
     //se l'altro elemento è stato spostato torna alla sua posizione originaria
-   /* if(document.getElementById("elm2").getAttribute("position").y != pos2.y){
-        document.getElementById("elm2").setAttribute("position", {x:pos2.x, y: pos2.y, z: pos2.z});
-    }*/
-    
+    if(num==1)
+        document.getElementById("elm2").setAttribute("position", {x: parseFloat(pos2[0]), y: parseFloat(pos2[1]), z: parseFloat(pos2[2])});
+    else if(num=2)
+        document.getElementById("elm1").setAttribute("position", {x: parseFloat(pos1[0]), y: parseFloat(pos1[1]), z: parseFloat(pos1[2])});
+    else 
+        console.log('errore');
+       
     //sposto se non arriva al cestino
     if(xImg < xCestino+0.2) {
         document.getElementById(id).setAttribute("position", {x:xImg+0.2, y:2.5, z:posizione.z});
