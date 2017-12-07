@@ -1,6 +1,6 @@
 var num_gioco, diff; //variabili globali gioco
-var elem1, elem2; //variabili globali scelta di sano
 var pos1, pos2;
+var alternative;
 
 function gameSetter(Gioco, Diff) {
     //settaggio variabili globali di gioco
@@ -50,9 +50,13 @@ function sano(diff) {
         var elm1= 'Immagini/mela.png';
         var elm2= 'Immagini/patatine.png';
         
-        //oggetto contenente l'elemento e il suo identificativo, necessario per il feedback
-        elem1=elm1;
-        elem2=elm2;
+        //oggetto contenente l'elemento e il suo identificativo grafico, necessario per il feedback
+        alternative = [
+            {dbelement: elm1, graphicid: 'elm1'},
+            {dbelement: elm2, graphicid: 'elm2'}
+        ];
+        
+        console.log("ALTERNATIVE DI GIOCO", alternative, alternative[0].graphicid); 
      
         //variabili di gioco
         $('#table').after('<a-image class="sano" id="elm1" onclick="choiceSano(\'elm1\')" position="6.7 1.5 4.5" material="src:'+ elm1 +'" scale="0.7 0.7 0.7"></a-image>');
@@ -96,13 +100,14 @@ function choiceSano(id) {
             document.getElementById(id).setAttribute("visible", false);
         }, 1000);
         
-        feedbackSano('elem'+id); //sicuramente questo non va, bisogna fare binding dell'elemento elm1 visuale con quello del db
+        feedbackSano(id); //sicuramente questo non va, bisogna fare binding dell'elemento elm1 visuale con quello del db
     } 
  
 }
 
 /*FUNZIONE PRINCIPALE CONTROLLER FEEDBACK*/
 function feedbackSano(id) {
+    document.
     console.log("HELLOOOOO IT'S MEEEE(?)" + id)
 }
 
