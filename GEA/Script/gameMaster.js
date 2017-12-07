@@ -83,21 +83,26 @@ function choiceSano(id) {
     else 
         console.log('errore');
        
-    //sposto se non arriva al cestino
-    if(xImg < xCestino+0.2) {
+    //sposto se non arriva al cestino, fase di scelta iniziata
+    if(xImg < xCestino+0.2)
         document.getElementById(id).setAttribute("position", {x:xImg+0.2, y:2.5, z:posizione.z});
-    }
     
-    
-    
-    
+    //butto nel cestino (si avvicina al cestino e sparisce dopo timeout) nonappena raggiungo il cestino stesso e parte la valutazione per feedback
+    else {
+        document.getElementById(id).setAttribute("position", {x: xCestino+0.2, y: 1.5, z: posizione.z});
+        setTimeout(function() {
+            document.getElementById(id).setAttribute("visible", false);
+        }, 500);
+        
+        feedbackSano(id);
+    } 
+ 
 }
 
-/*FUNZIONE CONTROLLER*/
-
-
-
-/*FINE FUNZIONE CONTROLLER*/
+/*FUNZIONE PRINCIPALE CONTROLLER FEEDBACK*/
+function feedbackSano(id) {
+    //TODO
+}
 
 function tavola(diff) {
     //da fare
