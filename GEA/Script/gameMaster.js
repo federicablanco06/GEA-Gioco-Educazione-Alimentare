@@ -98,7 +98,7 @@ function choiceSano(id) {
             document.getElementById(id).setAttribute("visible", false);
         }, 1000);
         
-        feedbackSano(id); //sicuramente questo non va, bisogna fare binding dell'elemento elm1 visuale con quello del db
+        feedbackSano(id); 
     } 
  
 }
@@ -114,8 +114,10 @@ function feedbackSano(id) {
             break;
         }        
     }
+    //console.log("ELEMENTO " + element);
     
-    console.log("ELEMENTO " + element);
+    //TODO feedback
+    
     
 }
 
