@@ -53,8 +53,8 @@ function sano(diff) {
         elem2=elm2;
         
         //variabili di gioco
-        $('#table').after('<a-image class="sano" id="elm1" onclick="gameSano1()" position="6.7 1.5 4.5" material="src:'+ elm1 +'" scale="0.7 0.7 0.7"></a-image>');
-        $('#table').after('<a-image class="sano" id="elm2" onclick="gameSano2()" position="7.9 1.5 4.5" material="src:'+ elm2 +'" scale="0.7 0.7 0.7"></a-image>');
+        $('#table').after('<a-image class="sano" id="elm1" onclick="gameSano(\'elm1\')" position="6.7 1.5 4.5" material="src:'+ elm1 +'" scale="0.7 0.7 0.7"></a-image>');
+        $('#table').after('<a-image class="sano" id="elm2" onclick="gameSano(\'elm2\')" position="7.9 1.5 4.5" material="src:'+ elm2 +'" scale="0.7 0.7 0.7"></a-image>');
         pos1= document.getElementById("elm1").getAttribute("position");
         pos2= document.getElementById("elm2").getAttribute("position");
         
@@ -66,40 +66,28 @@ function sano(diff) {
     });
 }
 
-function gameSano1() {
-    var posizione = document.getElementById("elm1").getAttribute("position");  
+function gameSano(id) {
+    console.log("capiamo cosa sia " + id);
+    
+    var posizione = document.getElementById(id).getAttribute('position');
     var xCestino = document.getElementById("cestino").getAttribute("position").x;
     var xImg = posizione.x;
     
+    console.log("tentativo di this " + xImg);
+    
     //se l'altro elemento è stato spostato torna alla sua posizione originaria
-    if(document.getElementById("elm2").getAttribute("position").y != pos2.y){
+   /* if(document.getElementById("elm2").getAttribute("position").y != pos2.y){
         document.getElementById("elm2").setAttribute("position", {x:pos2.x, y: pos2.y, z: pos2.z});
-    }
+    }*/
     
     //sposto se non arriva al cestino
     if(xImg < xCestino+0.2) {
-        document.getElementById("elm1").setAttribute("position", {x:xImg+0.2, y:2.5, z:posizione.z});
+        document.getElementById(id).setAttribute("position", {x:xImg+0.2, y:2.5, z:posizione.z});
     }
     
     
     
     
-}
-
-function gameSano2() {
-     var posizione = document.getElementById("elm2").getAttribute("position");  
-    var xCestino = document.getElementById("cestino").getAttribute("position").x;
-    var xImg = posizione.x;
-    
-    //se l'altro elemento è stato spostato torna alla sua posizione originaria
-    if(document.getElementById("elm1").getAttribute("position").y != pos1.y){
-        document.getElementById("elm1").setAttribute("position", {x:pos1.x, y: pos1.y, z: pos1.z});
-    }
-    
-    //sposto se non arriva al cestino
-    if(xImg < xCestino+0.2) {
-        document.getElementById("elm2").setAttribute("position", {x:xImg+0.2, y:2.5, z:posizione.z});
-    }
 }
 
 /*FUNZIONE CONTROLLER*/
