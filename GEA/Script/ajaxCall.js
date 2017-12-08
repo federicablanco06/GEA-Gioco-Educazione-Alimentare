@@ -23,7 +23,6 @@ function getSanoAjax(difficulty, callback) {
                 content += value;
             });
             
-            
             //in base alla difficoltà richiesta, avrò estrazioni differenti all'array json            
             //smistamento in base a difficoltà e correttezza
             var corrdifficultyArray = [];
@@ -36,26 +35,46 @@ function getSanoAjax(difficulty, callback) {
                         sbadifficultyArray.push(json[i]);
                 }
             }
-                         
-            //scelgo random le due immagini
-            function getRandomInt(min, max) {
-                return Math.floor(Math.random() * (max - min + 1)) + min;
-            }
-            var rand1= getRandomInt(0,corrdifficultyArray.length-1);
-            var corr = corrdifficultyArray[rand1];
-                        
-            if(corr.idcoppia == null){
-            var rand2= getRandomInt(0,sbadifficultyArray.length-1);
-            var sba = sbadifficultyArray[rand2];
-            }
-            else{
-                for (var t = 0; t<sbadifficultyArray.length; t++) {
-                if(sbadifficultyArray[t].idcoppia == corr.idcoppia){ 
-                    var sba = sbadifficultyArray[t];
-                    break;
+            var ok = false;
+            var corr, sba;
+          //  do {
+                //scelgo random le due immagini
+                function getRandomInt(min, max) {
+                    return Math.floor(Math.random() * (max - min + 1)) + min;
+                }
+                
+                //estrazione valore corretto
+                var rand1= getRandomInt(0,corrdifficultyArray.length-1);
+                corr = corrdifficultyArray[rand1];
+
+                if(corr.idcoppia == null){
+                    var rand2= getRandomInt(0,sbadifficultyArray.length-1);
+                    sba = sbadifficultyArray[rand2];
+                }
+                else{
+                    for (var t = 0; t<sbadifficultyArray.length; t++) {
+                    if(sbadifficultyArray[t].idcoppia == corr.idcoppia){ 
+                        var sba = sbadifficultyArray[t];
+                        break;
+                        }
                     }
                 }
-            }
+                
+               /* //controllo id su corr
+                var allOkCorr = 0;
+                var allOkSba = 0;
+                for (var i=0; i<alreadyUsedIds.length; i++) {
+                    if(corr.id != alreadyUsedIds[i])
+                        allOkCorr++;
+                    if(sba.id != alreadyUsedIds[i])
+                        allOkSba++;                        
+                }
+                if(allOkCorr==alreadyUsedIds.length && allOkSba==alreadyUsedIds.length)
+                    ok = true;
+                    */
+                
+          //  }   
+           // while(ok);
             
             //array dei risultati estratti da database
             var rst=[corr, sba];
