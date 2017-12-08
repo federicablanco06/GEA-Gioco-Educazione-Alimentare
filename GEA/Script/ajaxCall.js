@@ -5,6 +5,7 @@
  * Authors: Pennati Giulia, Blanco Federica
  */
 
+
 function getSanoAjax(difficulty, callback) {
      $.ajax({
         method: "POST",

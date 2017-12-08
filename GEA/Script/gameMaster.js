@@ -181,6 +181,10 @@ function finalPoints(arrayPts, game) {
         $('#table').after(' <a-entity id="finalpts" text="value: Hai realizzato: \n' + parseInt(totPts) + ' punti su ' + maxPts + ';" position="10.5 4 2" scale="10 10 10"></a-entity>');
     }, 5000);
     
+    setTimeout(function() {
+        location.href='index.html';
+    }, 5000);
+    
     
 }
 
