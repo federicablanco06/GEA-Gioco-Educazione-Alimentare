@@ -5,9 +5,6 @@
  * Authors: Pennati Giulia, Blanco Federica
  */
 
-var elm1;
-var elm2;
-
 function getSano(difficulty) {
      $.ajax({
         method: "POST",
@@ -58,16 +55,18 @@ function getSano(difficulty) {
                 }
             }
             
-            elm1= corr.img;
-            elm2= sba.img;
+            //array dei risultati estratti da database
+            var rst=[corr, sba];
+            //array degli elementi mescolati
+            var selms= shuffle(rst);
             
 
             //variabili di gioco
-            $('#table').after('<a-image class="sano" id="elm1" position="6.7 1.5 4.5" material="src:http://gea.altervista.org/'+elm1+'" scale="0.7 0.7 0.7" crossorigin></a-image>');
-            $('#table').after('<a-image class="sano" id="elm2" position="7.9 1.5 4.5" material="src:http://gea.altervista.org/'+elm2+'" scale="0.7 0.7 0.7" crossorigin></a-image>');
+            $('#table').after('<a-image class="sano" id="elm1" position="6.7 1.5 4.5" material="src:http://gea.altervista.org/'+selms[0].img+'" scale="0.7 0.7 0.7" crossorigin></a-image>');
+            $('#table').after('<a-image class="sano" id="elm2" position="7.9 1.5 4.5" material="src:http://gea.altervista.org/'+selms[1].img+'" scale="0.7 0.7 0.7" crossorigin></a-image>');
             
             //e infine le mando al game master
-            return [corr, sba];
+            return selms;
             
             
         },
@@ -79,6 +78,26 @@ function getSano(difficulty) {
             console.log("Error");
         }
     });
+}
+
+function shuffle(array) {
+    let counter = array.length;
+
+    // While there are elements in the array
+    while (counter > 0) {
+        // Pick a random index
+        let index = Math.floor(Math.random() * counter);
+
+        // Decrease counter by 1
+        counter--;
+
+        // And swap the last element with it
+        let temp = array[counter];
+        array[counter] = array[index];
+        array[index] = temp;
+    }
+
+    return array;
 }
 
 

@@ -48,7 +48,7 @@ function sano(diff) {
         var risultati  = getSano(diff);
         //dfd.resolve;
         
-        console.log("FATTO GET PRIMA")
+        console.log("FATTO GET PRIMA " + risultati[0]);
       
         //variabili temporaneamente settate, poi saranno estratte da database
         var elm1= ['Immagini/mela.png', '1'];
