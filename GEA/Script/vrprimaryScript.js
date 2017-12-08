@@ -29,7 +29,3 @@ $(function vrprimary() {
     });
     
 });
-
-function gameStart() {
-    
-}

@@ -12,6 +12,11 @@ p {
     margin-top: 5%;
 }
 
+#loading {
+    margin: auto;
+    padding-top: 40%;
+}
+
 .contenitore {
 	background-color: #f2f087;
 	border-style: solid;

@@ -1,6 +1,7 @@
 var num_gioco, diff; //variabili globali gioco
 var pos1, pos2;
 var alt;
+var sanoPts=[];
 
 function gameSetter(Gioco, Diff) {
     //settaggio variabili globali di gioco
@@ -38,7 +39,8 @@ function piramide(diff) {
 //funzione coordinatrice del gioco2
 function sano(diff) {    
      //cestino
-    $('#table').after('<a-entity class="sano" id="cestino" collada-model="url(Immagini/bin/bin.dae)" position="8.7 0 4.5" scale="2 1.3 2"></a-entity>');
+    if(sanoPts.length==0) 
+        $('#table').after('<a-entity class="sano" id="cestino" collada-model="url(Immagini/bin/bin.dae)" position="8.7 0 4.5" scale="2 1.3 2"></a-entity>');
     
     
     //chiamata allo script gestore di php
@@ -53,8 +55,8 @@ function sano(diff) {
             elm1 = risultati[0];
             elm2 = risultati[1]; 
 
-            console.log("FATTO GET PRIMA SISISIS ");
-            console.log("ELMS " + elm1 + elm2);
+            //console.log("FATTO GET PRIMA SISISIS ");
+            //console.log("ELMS " + elm1 + elm2);
 
             //variabili temporaneamente settate, poi saranno estratte da database
             //var elm1= ['Immagini/mela.png', '1'];
@@ -111,9 +113,9 @@ function choiceSano(id) {
         document.getElementById(id).setAttribute("position", {x: xCestino+0.2, y: 1.5, z: posizione.z});
         setTimeout(function() {
             document.getElementById(id).setAttribute("visible", false);
+            document.getElementById(aelem).setAttribute("visible", false);
         }, 1000);
         
-        document.getElementById(aelem).setAttribute("visible", false);
         feedbackSano(id); 
     } 
  
@@ -135,20 +137,65 @@ function feedbackSano(id) {
     
     if(element.corr=='0'){
         console.log("VEROOOO");
-        $('#table').after('<a-image class="feedbackcorr" id="feedcorr"  position="5.5 3.5 2" material="src:Immagini/happy.png" scale="3 3 3" visible="false"></a-image>');
+        $('#table').after('<a-image class="currentsano sano" id="feedcorr"  position="5.5 3.5 2" material="src:Immagini/happy.png" scale="3 3 3" visible="false"></a-image>');
         setTimeout(function() {
             document.getElementById("feedcorr").setAttribute("visible", true);
         }, 2000);
         
+        //aggiungo il punteggio 1
+        sanoPts.push('1');
+        
     }
     else{
         console.log("FALSOOOO");
-        $('#table').after('<a-image class="feedbacksba" id="feedsba"  position="5.5 3.5 2" material="src:Immagini/sad.png" scale="3 3 3" visible="false"></a-image>');
+        $('#table').after('<a-image class="currentsano sano" id="feedsba"  position="5.5 3.5 2" material="src:Immagini/sad.png" scale="3 3 3" visible="false"></a-image>');
         setTimeout(function() {
             document.getElementById("feedsba").setAttribute("visible", true);
         }, 2000);
         
+        //aggiungo il punteggio 0
+        sanoPts.push('0');
+        
     }
+    //tre turni di gioco
+    if(sanoPts.length<3) {
+        //prima di partire con un altro turno rimuovo gli elementi
+       setTimeout(function() {
+            $('.currentsano').remove();
+            sano(diff);
+       }, 5000); 
+    }
+    //calcolo punteggio finale
+    else
+        finalPoints(sanoPts, num_gioco);
+    
+}
+
+//funzione per il calcolo del punteggio finale
+function finalPoints(arrayPts, game) {   
+    //rimuovo il contesto di sano
+    console.log('SITUAZIONE PUNTI ' + sanoPts);
+    setTimeout(function() {
+        $('.sano').remove();
+    }, 4500); 
+    
+    // calcolo il punteggio totale
+    var totPts = 0;
+    for(var i=0; i<arrayPts.length; i++) 
+        totPts = totPts+parseInt(arrayPts[i]);
+    
+    //poi vedo il punteggio massimo in base al gioco
+    var maxPts;
+    if(game=='1')
+        maxPts=5;
+    else
+        maxPts=3;
+    
+    //poi appare la mascotte indicante i punti finali
+    setTimeout(function() {
+        $('#table').after(' <a-image id="finalpts" position="4 3 2" material="src:Immagini/geamasc.png" scale="3 4.5 1"></a-image>');
+        $('#table').after(' <a-entity id="finalpts" text="value: Hai realizzato: \n' + parseInt(totPts) + ' punti su ' + maxPts + ';" position="10.5 4 2" scale="10 10 10"></a-entity>');
+    }, 5000);
     
     
 }
