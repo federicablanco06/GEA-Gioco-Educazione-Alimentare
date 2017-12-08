@@ -85,15 +85,20 @@ function choiceSano(id) {
     var posizione = document.getElementById(id).getAttribute('position');
     var xCestino = document.getElementById("cestino").getAttribute("position").x;
     var xImg = posizione.x;
+    var aelem;
     
     //recupero il numero dell'id che ha generato il click
     var num = parseInt(id.charAt(id.length-1));
 
     //se l'altro elemento è stato spostato torna alla sua posizione originaria
-    if(num==1)
+    if(num==1) {
         document.getElementById("elm2").setAttribute("position", {x: parseFloat(pos2[0]), y: parseFloat(pos2[1]), z: parseFloat(pos2[2])});
-    else if(num=2)
+        aelem = 'elm2';
+    }
+    else if(num=2) {
         document.getElementById("elm1").setAttribute("position", {x: parseFloat(pos1[0]), y: parseFloat(pos1[1]), z: parseFloat(pos1[2])});
+        aelem = 'elm1';
+    }
     else 
         console.log('errore');
        
@@ -108,6 +113,7 @@ function choiceSano(id) {
             document.getElementById(id).setAttribute("visible", false);
         }, 1000);
         
+        document.getElementById(aelem).setAttribute("visible", false);
         feedbackSano(id); 
     } 
  
@@ -116,7 +122,6 @@ function choiceSano(id) {
 //funzione controllore del risultato
 function feedbackSano(id) {    
     //faccio sparire le scelte prima di dare feedback
-    $('.elms').css("display", "none");
     var element;
     
     //innanzitutto ripesco l'elemento associato alla scelta grazie alla variabile alt
