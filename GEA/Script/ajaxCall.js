@@ -67,7 +67,7 @@ function getSanoAjax(difficulty, callback) {
             document.getElementById('elm1').setAttribute("visible", true);
             document.getElementById('elm2').setAttribute("visible", true);
             
-            //e infine le mando al game maste
+            //e infine le mando al game master
             callback(selms);
             
         },

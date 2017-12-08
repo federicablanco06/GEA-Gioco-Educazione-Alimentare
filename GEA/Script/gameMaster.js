@@ -28,7 +28,6 @@ function gameStarter() {
         tavola(diff);
     
     
-    
 }
 
 function piramide(diff) {
@@ -46,31 +45,19 @@ function sano(diff) {
     //chiamata allo script gestore di php
     $.getScript('Script/ajaxCall.js', function() {  
         //risultati contiene due elementi random, uno corretto e uno sbagliato presi dal database con la giusta difficoltà
-        //var dfd = $.Deferred();
         var risultati;
         var elm1, elm2;
-        //dfd.resolve;
         
         getSanoAjax(diff, function(risultati) {
             elm1 = risultati[0];
             elm2 = risultati[1]; 
 
-            //console.log("FATTO GET PRIMA SISISIS ");
-            //console.log("ELMS " + elm1 + elm2);
-
-            //variabili temporaneamente settate, poi saranno estratte da database
-            //var elm1= ['Immagini/mela.png', '1'];
-           // var elm2= ['Immagini/patatine.png', '0'];
 
             //oggetto contenente l'elemento e il suo identificativo grafico, necessario per il feedback
             alt = [
                 {dbelement: elm1, graphicid: 'elm1'},
                 {dbelement: elm2, graphicid: 'elm2'}
             ];
-
-            //variabili di gioco
-            /*$('#table').after('<a-image class="sano" id="elm1" onclick="choiceSano(\'elm1\')" position="6.7 1.5 4.5" material="src:'+ elm1[0] +'" scale="0.7 0.7 0.7"></a-image>');
-            $('#table').after('<a-image class="sano" id="elm2" onclick="choiceSano(\'elm2\')" position="7.9 1.5 4.5" material="src:'+ elm2[0] +'" scale="0.7 0.7 0.7"></a-image>');*/
 
             //setto le posizioni originali come variabili globali (array pos1=[x, y, z])
             pos1= document.getElementById("elm1").getAttribute('position').split(' ');
@@ -133,10 +120,9 @@ function feedbackSano(id) {
             break;
         }        
     }
-    console.log("ELEMENTO " + element + " " + element.img + element.corr);
     
     if(element.corr=='0'){
-        console.log("VEROOOO");
+
         $('#table').after('<a-image class="currentsano sano" id="feedcorr"  position="5.5 3.5 2" material="src:Immagini/happy.png" scale="3 3 3" visible="false"></a-image>');
         setTimeout(function() {
             document.getElementById("feedcorr").setAttribute("visible", true);
@@ -147,7 +133,6 @@ function feedbackSano(id) {
         
     }
     else{
-        console.log("FALSOOOO");
         $('#table').after('<a-image class="currentsano sano" id="feedsba"  position="5.5 3.5 2" material="src:Immagini/sad.png" scale="3 3 3" visible="false"></a-image>');
         setTimeout(function() {
             document.getElementById("feedsba").setAttribute("visible", true);
@@ -174,7 +159,6 @@ function feedbackSano(id) {
 //funzione per il calcolo del punteggio finale
 function finalPoints(arrayPts, game) {   
     //rimuovo il contesto di sano
-    console.log('SITUAZIONE PUNTI ' + sanoPts);
     setTimeout(function() {
         $('.sano').remove();
     }, 4500); 
