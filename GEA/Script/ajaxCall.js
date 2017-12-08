@@ -42,7 +42,7 @@ function getSanoAjax(difficulty, callback) {
             var rand1= getRandomInt(0,corrdifficultyArray.length-1);
             var corr = corrdifficultyArray[rand1];
                         
-            if(corr.idcoppia == ""){
+            if(corr.idcoppia == null){
             var rand2= getRandomInt(0,sbadifficultyArray.length-1);
             var sba = sbadifficultyArray[rand2];
             }
