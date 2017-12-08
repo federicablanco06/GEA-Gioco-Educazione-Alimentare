@@ -62,8 +62,8 @@ function getSanoAjax(difficulty, callback) {
             
 
             //variabili di gioco
-            $('#table').after('<a-image class="sano" id="elm1" onclick="choiceSano(\'elm1\')" position="6.7 1.5 4.5" material="src:http://gea.altervista.org/'+selms[0].img+'" scale="0.7 0.7 0.7" crossorigin></a-image>');
-            $('#table').after('<a-image class="sano" id="elm2" onclick="choiceSano(\'elm2\')" position="7.9 1.5 4.5" material="src:http://gea.altervista.org/'+selms[1].img+'" scale="0.7 0.7 0.7" crossorigin></a-image>');
+            $('#table').after('<a-image class="sano elms" id="elm1" onclick="choiceSano(\'elm1\')" position="6.7 1.5 4.5" material="src:http://gea.altervista.org/'+selms[0].img+'" scale="0.7 0.7 0.7" crossorigin></a-image>');
+            $('#table').after('<a-image class="sano elms" id="elm2" onclick="choiceSano(\'elm2\')" position="7.9 1.5 4.5" material="src:http://gea.altervista.org/'+selms[1].img+'" scale="0.7 0.7 0.7" crossorigin></a-image>');
             
             //e infine le mando al game maste
             console.log("STO PER FARE RETURN");

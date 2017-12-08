@@ -114,7 +114,9 @@ function choiceSano(id) {
 }
 
 //funzione controllore del risultato
-function feedbackSano(id) {
+function feedbackSano(id) {    
+    //faccio sparire le scelte prima di dare feedback
+    $('.elms').css("display", "none");
     var element;
     
     //innanzitutto ripesco l'elemento associato alla scelta grazie alla variabile alt
@@ -124,11 +126,11 @@ function feedbackSano(id) {
             break;
         }        
     }
-    console.log("ELEMENTO " + element);
+    console.log("ELEMENTO " + element + " " + element.img + element.corr);
     
-    if(element[1]=='1'){
+    if(element.corr=='0'){
         console.log("VEROOOO");
-        $('#table').after('<a-image class="feedbackcorr" id="feedcorr"  position="8.7 4 2" material="src:Immagini/happy.png" scale="3 3 3" visible="false"></a-image>');
+        $('#table').after('<a-image class="feedbackcorr" id="feedcorr"  position="5.5 3.5 2" material="src:Immagini/happy.png" scale="3 3 3" visible="false"></a-image>');
         setTimeout(function() {
             document.getElementById("feedcorr").setAttribute("visible", true);
         }, 2000);
@@ -136,7 +138,7 @@ function feedbackSano(id) {
     }
     else{
         console.log("FALSOOOO");
-        $('#table').after('<a-image class="feedbacksba" id="feedsba"  position="8.7 4 2" material="src:Immagini/sad.png" scale="3 3 3" visible="false"></a-image>');
+        $('#table').after('<a-image class="feedbacksba" id="feedsba"  position="5.5 3.5 2" material="src:Immagini/sad.png" scale="3 3 3" visible="false"></a-image>');
         setTimeout(function() {
             document.getElementById("feedsba").setAttribute("visible", true);
         }, 2000);
