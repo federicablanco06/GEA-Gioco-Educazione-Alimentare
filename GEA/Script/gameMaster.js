@@ -38,8 +38,12 @@ function piramide(diff) {
 //funzione coordinatrice del gioco2
 function sano(diff) {    
      //cestino
-    if(sanoPts.length==0) 
-        $('#table').after('<a-entity class="sano" id="cestino" collada-model="url(Immagini/bin/bin.dae)" position="8.7 0 4.5" scale="2 1.3 2"></a-entity>');
+    if(sanoPts.length==0) {
+        setTimeout(function() {
+            $('#table').after('<a-entity class="sano" id="cestino" collada-model="url(Immagini/bin/bin.dae)" position="8.7 0 4.5" scale="2 1.3 2"></a-entity>');
+            $('#table').after('<a-image class="sano" position="4 4 0.5" scale="5 4 3" material="src:Immagini/sanospieg.png"></a-image>');
+        }, 1000);
+    }
     
     
     //chiamata allo script gestore di php
@@ -123,7 +127,7 @@ function feedbackSano(id) {
     
     if(element.corr=='0'){
 
-        $('#table').after('<a-image class="currentsano sano" id="feedcorr"  position="5.5 3.5 2" material="src:Immagini/happy.png" scale="3 3 3" visible="false"></a-image>');
+        $('#table').after('<a-image class="currentsano sano" id="feedcorr"  position="8.2 3.5 2" material="src:Immagini/happy.png" scale="3 3 3" visible="false"></a-image>');
         setTimeout(function() {
             document.getElementById("feedcorr").setAttribute("visible", true);
         }, 2000);
@@ -133,7 +137,7 @@ function feedbackSano(id) {
         
     }
     else{
-        $('#table').after('<a-image class="currentsano sano" id="feedsba"  position="5.5 3.5 2" material="src:Immagini/sad.png" scale="3 3 3" visible="false"></a-image>');
+        $('#table').after('<a-image class="currentsano sano" id="feedsba"  position="8.2 3.5 2" material="src:Immagini/sad.png" scale="3 3 3" visible="false"></a-image>');
         setTimeout(function() {
             document.getElementById("feedsba").setAttribute("visible", true);
         }, 2000);
