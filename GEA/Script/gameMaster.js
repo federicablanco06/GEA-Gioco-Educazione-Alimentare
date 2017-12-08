@@ -45,29 +45,35 @@ function sano(diff) {
     $.getScript('Script/ajaxCall.js', function() {  
         //risultati contiene due elementi random, uno corretto e uno sbagliato presi dal database con la giusta difficoltà
         //var dfd = $.Deferred();
-        var risultati  = getSano(diff);
+        var risultati;
+        var elm1, elm2;
         //dfd.resolve;
         
-        console.log("FATTO GET PRIMA " + risultati[0]);
-      
-        //variabili temporaneamente settate, poi saranno estratte da database
-        var elm1= ['Immagini/mela.png', '1'];
-        var elm2= ['Immagini/patatine.png', '0'];
-        
-        //oggetto contenente l'elemento e il suo identificativo grafico, necessario per il feedback
-        alt = [
-            {dbelement: elm1, graphicid: 'elm1'},
-            {dbelement: elm2, graphicid: 'elm2'}
-        ];
-     
-        //variabili di gioco
-        /*$('#table').after('<a-image class="sano" id="elm1" onclick="choiceSano(\'elm1\')" position="6.7 1.5 4.5" material="src:'+ elm1[0] +'" scale="0.7 0.7 0.7"></a-image>');
-        $('#table').after('<a-image class="sano" id="elm2" onclick="choiceSano(\'elm2\')" position="7.9 1.5 4.5" material="src:'+ elm2[0] +'" scale="0.7 0.7 0.7"></a-image>');*/
-        
-        //setto le posizioni originali come variabili globali (array pos1=[x, y, z])
-        pos1= document.getElementById("elm1").getAttribute('position').split(' ');
-        pos2= document.getElementById("elm2").getAttribute('position').split(' ');
-        
+        getSanoAjax(diff, function(risultati) {
+            elm1 = risultati[0];
+            elm2 = risultati[1]; 
+
+            console.log("FATTO GET PRIMA SISISIS ");
+            console.log("ELMS " + elm1 + elm2);
+
+            //variabili temporaneamente settate, poi saranno estratte da database
+            //var elm1= ['Immagini/mela.png', '1'];
+           // var elm2= ['Immagini/patatine.png', '0'];
+
+            //oggetto contenente l'elemento e il suo identificativo grafico, necessario per il feedback
+            alt = [
+                {dbelement: elm1, graphicid: 'elm1'},
+                {dbelement: elm2, graphicid: 'elm2'}
+            ];
+
+            //variabili di gioco
+            /*$('#table').after('<a-image class="sano" id="elm1" onclick="choiceSano(\'elm1\')" position="6.7 1.5 4.5" material="src:'+ elm1[0] +'" scale="0.7 0.7 0.7"></a-image>');
+            $('#table').after('<a-image class="sano" id="elm2" onclick="choiceSano(\'elm2\')" position="7.9 1.5 4.5" material="src:'+ elm2[0] +'" scale="0.7 0.7 0.7"></a-image>');*/
+
+            //setto le posizioni originali come variabili globali (array pos1=[x, y, z])
+            pos1= document.getElementById("elm1").getAttribute('position').split(' ');
+            pos2= document.getElementById("elm2").getAttribute('position').split(' ');
+        });
     });
 }
 
