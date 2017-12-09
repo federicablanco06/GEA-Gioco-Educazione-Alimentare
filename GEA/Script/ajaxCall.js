@@ -5,7 +5,10 @@
  * Authors: Pennati Giulia, Blanco Federica
  */
 
-var alreadyUsedIds = [];
+var corrdifficultyArray = [];
+var sbadifficultyArray = [];
+var ok = false;
+var corr, sba;
 
 function getSanoAjax(difficulty, callback) {
      $.ajax({
@@ -25,8 +28,6 @@ function getSanoAjax(difficulty, callback) {
             
             //in base alla difficoltà richiesta, avrò estrazioni differenti all'array json            
             //smistamento in base a difficoltà e correttezza
-            var corrdifficultyArray = [];
-            var sbadifficultyArray = [];
             for (var i = 0; i<json.length; i++) {
                 if(json[i].diff == difficulty && json[i].corr == '1') 
                     corrdifficultyArray.push(json[i]);
@@ -35,57 +36,66 @@ function getSanoAjax(difficulty, callback) {
                         sbadifficultyArray.push(json[i]);
                 }
             }
-            var ok = false;
-            var corr, sba;
-          //  do {
-                //scelgo random le due immagini
-                function getRandomInt(min, max) {
-                    return Math.floor(Math.random() * (max - min + 1)) + min;
+            //Invoco la funzione per estrarre le immagini in base a idcoppia
+            estrazione();
+            
+            //Funzione per numero intero random
+            function getRandomInt(min, max) {
+                 return Math.floor(Math.random() * (max - min + 1)) + min;
+            }
+            
+            //Funzione che controlla l'id delle immagini estratte in modo che durante
+            //la partita non si abbiano mai le stesse immagini: se array è vuoto vanno
+            //sicuramente bene, se non lo è faccio check e nel caso in cui trovo un doppione
+            //invoco la funzione estrazione() per fare una nuova estrazione
+            function controllo(){
+                if(alreadyUsedIds.length == "0"){
+                    alreadyUsedIds.push(corr.id);
+                    alreadyUsedIds.push(sba.id);
+                    ok = true;
+                    return ok;
+                    }
+                else{
+                    for (var i=0; i<alreadyUsedIds.length; i++) {
+                        if(corr.id == alreadyUsedIds[i])
+                            estrazione();
+                        if(sba.id == alreadyUsedIds[i])
+                            estrazione();                        
+                    }
+                    alreadyUsedIds.push(corr.id);
+                    alreadyUsedIds.push(sba.id);
+                    ok = true;
+                    return ok;
                 }
-                
-                //estrazione valore corretto
+            } 
+            
+            //Funzione che estrae immagine corretta e errata: estraggo random la corretta, se ha idcoppia
+            //null estraggo a caso anche sbagliata altrimenti estraggo quella con idcoppia uguale; quando
+            //estraggo la sbagliata invoco controllo() per verificare
+            function estrazione(){
                 var rand1= getRandomInt(0,corrdifficultyArray.length-1);
                 corr = corrdifficultyArray[rand1];
-
                 if(corr.idcoppia == null){
                     var rand2= getRandomInt(0,sbadifficultyArray.length-1);
                     sba = sbadifficultyArray[rand2];
+                    controllo();
                 }
                 else{
                     for (var t = 0; t<sbadifficultyArray.length; t++) {
                     if(sbadifficultyArray[t].idcoppia == corr.idcoppia){ 
-                        var sba = sbadifficultyArray[t];
-                        break;
+                        sba = sbadifficultyArray[t];
+                        controllo();
                         }
                     }
                 }
-                
-               /* //controllo id su corr
-                var allOkCorr = 0;
-                var allOkSba = 0;
-                for (var i=0; i<alreadyUsedIds.length; i++) {
-                    if(corr.id != alreadyUsedIds[i])
-                        allOkCorr++;
-                    if(sba.id != alreadyUsedIds[i])
-                        allOkSba++;                        
-                }
-                if(allOkCorr==alreadyUsedIds.length && allOkSba==alreadyUsedIds.length)
-                    ok = true;
-                    */
-                
-          //  }   
-           // while(ok);
+            }
             
             //array dei risultati estratti da database
             var rst=[corr, sba];
             //array degli elementi mescolati
             var selms= shuffle(rst);
-            //memorizzo gli id usati per il giro successivo
-            alreadyUsedIds.push(corr.id);
-            alreadyUsedIds.push(sba.id);
             
-
-            //variabili di gioco
+             //variabili di gioco
             $('#table').after('<a-image class="currentsano sano elms" id="elm1" onmouseenter="choiceSano(\'elm1\')" position="6.7 1.5 4.5" material="src:http://gea.altervista.org/'+selms[0].img+'" scale="0.7 0.7 0.7" crossorigin="anonymous"></a-image>');
             $('#table').after('<a-image class="currentsano sano elms" id="elm2" onmouseenter="choiceSano(\'elm2\')" position="7.9 1.5 4.5" material="src:http://gea.altervista.org/'+selms[1].img+'" scale="0.7 0.7 0.7" crossorigin="anonymous"></a-image>');
             document.getElementById('elm1').setAttribute("visible", true);
@@ -105,24 +115,20 @@ function getSanoAjax(difficulty, callback) {
     });
 }
 
+//Funzione per mescolare la posizione della immagine corretta ed errata random
 function shuffle(array) {
     let counter = array.length;
-
-    // While there are elements in the array
+ // While there are elements in the array
     while (counter > 0) {
         // Pick a random index
         let index = Math.floor(Math.random() * counter);
-
-        // Decrease counter by 1
         counter--;
-
         // And swap the last element with it
         let temp = array[counter];
         array[counter] = array[index];
         array[index] = temp;
     }
-
-    return array;
+ return array;
 }
 
 
