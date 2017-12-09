@@ -19,13 +19,18 @@ function gameStarter() {
         document.getElementById('playbutton').setAttribute("visible", false);
     }, 1000);
     
-    //successivamente carico gli elementi del gioco stesso
-    if (num_gioco == '1')
+    
+    setTimeout(function () {
+         if (num_gioco == '1')
         piramide(diff);
     else if (num_gioco == '2') 
         sano(diff);
     else 
         tavola(diff);
+        
+    }, 2000);
+    //successivamente carico gli elementi del gioco stesso
+   
     
     
 }
