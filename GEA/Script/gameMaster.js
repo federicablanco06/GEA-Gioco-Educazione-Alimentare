@@ -2,24 +2,11 @@ var num_gioco, diff; //variabili globali gioco
 var pos1, pos2;
 var alt;
 var sanoPts=[];
-var alreadyUsedIds = [];
 
 function gameSetter(Gioco, Diff) {
     //settaggio variabili globali di gioco
     num_gioco = Gioco;
     diff = Diff;
-    
-    //inizializzazione variabili di gioco (nel caso una partita sia già stata fatta) 
-    sanoPts=[];
-    pos1=null;
-    pos2=null;
-    $.getScript('Script/ajaxCall.js', function() {
-        alreadyUsedIds=[];
-        corrdifficultyArray=[];
-        sbadifficultyArray=[];
-        ok=false;
-        alt=null;
-    });
     
     
 }
@@ -32,18 +19,13 @@ function gameStarter() {
         document.getElementById('playbutton').setAttribute("visible", false);
     }, 1000);
     
-    
-    setTimeout(function () {
-         if (num_gioco == '1')
+    //successivamente carico gli elementi del gioco stesso
+    if (num_gioco == '1')
         piramide(diff);
     else if (num_gioco == '2') 
         sano(diff);
     else 
         tavola(diff);
-        
-    }, 2000);
-    //successivamente carico gli elementi del gioco stesso
-   
     
     
 }
@@ -214,5 +196,3 @@ function finalPoints(arrayPts, game) {
 function tavola(diff) {
     //da fare
 }
-
-
