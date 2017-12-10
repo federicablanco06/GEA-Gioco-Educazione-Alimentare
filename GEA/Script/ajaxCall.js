@@ -35,6 +35,31 @@ function getSanoAjax(difficulty, callback) {
                         sbadifficultyArray.push(json[i]);
                 }
             }
+            
+            for (var i=0; i<corrdifficultyArray.length; i++) console.log("CORR PRIMA"+corrdifficultyArray[i].id);
+            for (var i=0; i<sbadifficultyArray.length; i++) console.log("SBA PRIMA"+sbadifficultyArray[i].id);
+            for (var i=0; i<alreadyUsedIds.length; i++) console.log("ALREADY PRIMA"+alreadyUsedIds[i]);
+           
+            for (var i=0; i<alreadyUsedIds.length; i++) {
+                console.log("ALREADY"+alreadyUsedIds[i]);
+                var index = corrdifficultyArray.map(function(x) {return x.id; }).indexOf(alreadyUsedIds[i]);
+               if(index != -1){
+                    console.log("INDICE"+index);
+                    corrdifficultyArray.splice(index,1);
+                    for (var i=0; i<corrdifficultyArray.length; i++) 
+                    {console.log("CORR DOPO"+corrdifficultyArray[i].id);}
+                }
+            }
+            
+            for (var f=0; f<alreadyUsedIds.length; f++) {
+                console.log("ALREADY2"+alreadyUsedIds[f]);
+             var index1 = sbadifficultyArray.map(function(x) {return x.id; }).indexOf(alreadyUsedIds[f]);
+                if(index1 != -1){
+                    console.log("INDICE"+index1);
+                    sbadifficultyArray.splice(index1,1);
+                    for (var i=0; i<sbadifficultyArray.length; i++) console.log("SBA DOPO"+sbadifficultyArray[i].id);
+                }
+            }
             //Invoco la funzione per estrarre le immagini in base a idcoppia
             estrazione();
                         
@@ -44,8 +69,8 @@ function getSanoAjax(difficulty, callback) {
             var selms= shuffle(rst);
             
              //variabili di gioco
-            $('#table').after('<a-image class="currentsano sano elms" id="elm1" onmouseenter="choiceSano(\'elm1\')" position="6.7 1.5 4.5" material="src:http://gea.altervista.org/'+selms[0].img+'" scale="0.7 0.7 0.7" crossorigin="anonymous"></a-image>');
-            $('#table').after('<a-image class="currentsano sano elms" id="elm2" onmouseenter="choiceSano(\'elm2\')" position="7.9 1.5 4.5" material="src:http://gea.altervista.org/'+selms[1].img+'" scale="0.7 0.7 0.7" crossorigin="anonymous"></a-image>');
+            $('#table').after('<a-image class="currentsano sano elms" id="elm1" onmouseenter="choiceSano(\'elm1\')" position="6.7 1.5 4.5" material="src:'+selms[0].img+'" scale="0.7 0.7 0.7" crossorigin="anonymous"></a-image>');
+            $('#table').after('<a-image class="currentsano sano elms" id="elm2" onmouseenter="choiceSano(\'elm2\')" position="7.9 1.5 4.5" material="src:'+selms[1].img+'" scale="0.7 0.7 0.7" crossorigin="anonymous"></a-image>');
             document.getElementById('elm1').setAttribute("visible", true);
             document.getElementById('elm2').setAttribute("visible", true);
             
@@ -91,45 +116,21 @@ function getRandomInt(min, max) {
 function estrazione(){
     var rand1= getRandomInt(0,corrdifficultyArray.length-1);
     corr = corrdifficultyArray[rand1];
+    console.log("CORR ESTRATTO"+corr.id);
+    alreadyUsedIds.push(corr.id);
     if(corr.idcoppia == ""){
         var rand2= getRandomInt(0,sbadifficultyArray.length-1);
         sba = sbadifficultyArray[rand2];
-        controllo();
+        console.log("SBA ESTRATTO"+sba.id);
+        alreadyUsedIds.push(sba.id);
     }
     else{
         for (var t = 0; t<sbadifficultyArray.length; t++) {
         if(sbadifficultyArray[t].idcoppia == corr.idcoppia){ 
             sba = sbadifficultyArray[t];
-            controllo();
+            console.log("SBA ESTRATTO"+sba.id);
+            alreadyUsedIds.push(sba.id);
             }
         }
     }
 }
-
-
-//Funzione che controlla l'id delle immagini estratte in modo che durante
-//la partita non si abbiano mai le stesse immagini: se array è vuoto vanno
-//sicuramente bene, se non lo è faccio check e nel caso in cui trovo un doppione
-//invoco la funzione estrazione() per fare una nuova estrazione
-function controllo(){
-    if(alreadyUsedIds.length == "0"){
-        alreadyUsedIds.push(corr.id);
-        alreadyUsedIds.push(sba.id);
-        ok = true;
-        return ok;
-        }
-    else{
-        for (var i=0; i<alreadyUsedIds.length; i++) {
-            if(corr.id == alreadyUsedIds[i])
-                estrazione();
-            if(sba.id == alreadyUsedIds[i])
-                estrazione();                        
-        }
-        alreadyUsedIds.push(corr.id);
-        alreadyUsedIds.push(sba.id);
-        ok = true;
-        return ok;
-    }
-} 
-
-
