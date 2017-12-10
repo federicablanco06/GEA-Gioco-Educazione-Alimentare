@@ -66,8 +66,8 @@ function getSanoAjax(difficulty, callback) {
             alreadyUsedIds.push(sba.id);
 
             //variabili di gioco
-            $('#table').after('<a-image class="currentsano sano elms" id="elm1" onclick="choiceSano(\'elm1\')" position="6.7 1.5 4.5" material="src:'+selms[0].img+'" scale="0.7 0.7 0.7" crossorigin></a-image>');
-            $('#table').after('<a-image class="currentsano sano elms" id="elm2" onclick="choiceSano(\'elm2\')" position="7.9 1.5 4.5" material="src:'+selms[1].img+'" scale="0.7 0.7 0.7" crossorigin></a-image>');
+            $('#table').after('<a-image class="currentsano sano elms" id="elm1" onmouseenter="choiceSano(\'elm1\')" position="6.7 1.5 4.5" material="src:'+selms[0].img+'" scale="0.7 0.7 0.7" crossorigin></a-image>');
+            $('#table').after('<a-image class="currentsano sano elms" id="elm2" onmouseenter="choiceSano(\'elm2\')" position="7.9 1.5 4.5" material="src:'+selms[1].img+'" scale="0.7 0.7 0.7" crossorigin></a-image>');
             document.getElementById('elm1').setAttribute("visible", true);
             document.getElementById('elm2').setAttribute("visible", true);
             
