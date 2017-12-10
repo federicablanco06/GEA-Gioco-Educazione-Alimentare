@@ -7,6 +7,7 @@
 
 var corrdifficultyArray = [];
 var sbadifficultyArray = [];
+var alreadyUsedIds = [];
 var ok = false;
 var corr, sba;
 
@@ -38,58 +39,7 @@ function getSanoAjax(difficulty, callback) {
             }
             //Invoco la funzione per estrarre le immagini in base a idcoppia
             estrazione();
-            
-            //Funzione per numero intero random
-            function getRandomInt(min, max) {
-                 return Math.floor(Math.random() * (max - min + 1)) + min;
-            }
-            
-            //Funzione che controlla l'id delle immagini estratte in modo che durante
-            //la partita non si abbiano mai le stesse immagini: se array è vuoto vanno
-            //sicuramente bene, se non lo è faccio check e nel caso in cui trovo un doppione
-            //invoco la funzione estrazione() per fare una nuova estrazione
-            function controllo(){
-                if(alreadyUsedIds.length == "0"){
-                    alreadyUsedIds.push(corr.id);
-                    alreadyUsedIds.push(sba.id);
-                    ok = true;
-                    return ok;
-                    }
-                else{
-                    for (var i=0; i<alreadyUsedIds.length; i++) {
-                        if(corr.id == alreadyUsedIds[i])
-                            estrazione();
-                        if(sba.id == alreadyUsedIds[i])
-                            estrazione();                        
-                    }
-                    alreadyUsedIds.push(corr.id);
-                    alreadyUsedIds.push(sba.id);
-                    ok = true;
-                    return ok;
-                }
-            } 
-            
-            //Funzione che estrae immagine corretta e errata: estraggo random la corretta, se ha idcoppia
-            //null estraggo a caso anche sbagliata altrimenti estraggo quella con idcoppia uguale; quando
-            //estraggo la sbagliata invoco controllo() per verificare
-            function estrazione(){
-                var rand1= getRandomInt(0,corrdifficultyArray.length-1);
-                corr = corrdifficultyArray[rand1];
-                if(corr.idcoppia == null){
-                    var rand2= getRandomInt(0,sbadifficultyArray.length-1);
-                    sba = sbadifficultyArray[rand2];
-                    controllo();
-                }
-                else{
-                    for (var t = 0; t<sbadifficultyArray.length; t++) {
-                    if(sbadifficultyArray[t].idcoppia == corr.idcoppia){ 
-                        sba = sbadifficultyArray[t];
-                        controllo();
-                        }
-                    }
-                }
-            }
-            
+                        
             //array dei risultati estratti da database
             var rst=[corr, sba];
             //array degli elementi mescolati
@@ -130,5 +80,58 @@ function shuffle(array) {
     }
  return array;
 }
+
+//Funzione per numero intero random
+function getRandomInt(min, max) {
+     return Math.floor(Math.random() * (max - min + 1)) + min;
+}
+
+
+//Funzione che estrae immagine corretta e errata: estraggo random la corretta, se ha idcoppia
+//null estraggo a caso anche sbagliata altrimenti estraggo quella con idcoppia uguale; quando
+//estraggo la sbagliata invoco controllo() per verificare
+function estrazione(){
+    var rand1= getRandomInt(0,corrdifficultyArray.length-1);
+    corr = corrdifficultyArray[rand1];
+    if(corr.idcoppia == null){
+        var rand2= getRandomInt(0,sbadifficultyArray.length-1);
+        sba = sbadifficultyArray[rand2];
+        controllo();
+    }
+    else{
+        for (var t = 0; t<sbadifficultyArray.length; t++) {
+        if(sbadifficultyArray[t].idcoppia == corr.idcoppia){ 
+            sba = sbadifficultyArray[t];
+            controllo();
+            }
+        }
+    }
+}
+
+
+//Funzione che controlla l'id delle immagini estratte in modo che durante
+//la partita non si abbiano mai le stesse immagini: se array è vuoto vanno
+//sicuramente bene, se non lo è faccio check e nel caso in cui trovo un doppione
+//invoco la funzione estrazione() per fare una nuova estrazione
+function controllo(){
+    if(alreadyUsedIds.length == "0"){
+        alreadyUsedIds.push(corr.id);
+        alreadyUsedIds.push(sba.id);
+        ok = true;
+        return ok;
+        }
+    else{
+        for (var i=0; i<alreadyUsedIds.length; i++) {
+            if(corr.id == alreadyUsedIds[i])
+                estrazione();
+            if(sba.id == alreadyUsedIds[i])
+                estrazione();                        
+        }
+        alreadyUsedIds.push(corr.id);
+        alreadyUsedIds.push(sba.id);
+        ok = true;
+        return ok;
+    }
+} 
 
 
