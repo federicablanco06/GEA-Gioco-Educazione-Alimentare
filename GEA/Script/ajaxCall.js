@@ -7,7 +7,6 @@
 
 var corrdifficultyArray = [];
 var sbadifficultyArray = [];
-var alreadyUsedIds = [];
 var ok = false;
 var corr, sba;
 
@@ -92,7 +91,7 @@ function getRandomInt(min, max) {
 function estrazione(){
     var rand1= getRandomInt(0,corrdifficultyArray.length-1);
     corr = corrdifficultyArray[rand1];
-    if(corr.idcoppia == null){
+    if(corr.idcoppia == ""){
         var rand2= getRandomInt(0,sbadifficultyArray.length-1);
         sba = sbadifficultyArray[rand2];
         controllo();

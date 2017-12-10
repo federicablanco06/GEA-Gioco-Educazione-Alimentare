@@ -2,6 +2,7 @@ var num_gioco, diff; //variabili globali gioco
 var pos1, pos2;
 var alt;
 var sanoPts=[];
+var alreadyUsedIds = [];
 
 function gameSetter(Gioco, Diff) {
     //settaggio variabili globali di gioco
