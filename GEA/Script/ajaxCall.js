@@ -5,7 +5,6 @@
  * Authors: Pennati Giulia, Blanco Federica
  */
 
-var alreadyUsedIds = [];
 
 function getSanoAjax(difficulty, callback) {
      $.ajax({
@@ -36,8 +35,12 @@ function getSanoAjax(difficulty, callback) {
                         sbadifficultyArray.push(json[i]);
                 }
             }
-            var rand1= 0;
             
+            for (var i=0; i<alreadyUsedIds.length; i++) console.log("ALREADY PRIMA"+alreadyUsedIds[i]);
+            usedIdRemover(corrdifficultyArray);
+            usedIdRemover(sbadifficultyArray);
+            
+            var rand1= 0;            
             //check su null
             do {
                 console.log("ENTRATO IN CORR!");
@@ -79,9 +82,6 @@ function getSanoAjax(difficulty, callback) {
             var rst=[corr, sba];
             //array degli elementi mescolati
             var selms= shuffle(rst);
-            //memorizzo gli id usati per il giro successivo
-            alreadyUsedIds.push(corr.id);
-            alreadyUsedIds.push(sba.id);
 
             //variabili di gioco
             $('#table').after('<a-image class="currentsano sano elms" id="elm1" onmouseenter="choiceSano(\'elm1\')" position="6.7 1.5 4.5" material="src:'+selms[0].img+'" scale="0.7 0.7 0.7" crossorigin></a-image>');
