@@ -13,6 +13,9 @@ function gameSetter(Gioco, Diff) {
 
 function gameStarter() {
     
+    //evito che play venga cliccato due volte
+    document.getElementById('playbutton').removeAttribute('onmouseenter');
+    
     //quando premo play nascondo la descrizione del gioco e il tasto stesso (dopo 1 sec)
     document.getElementById('gioco' + num_gioco).setAttribute("visible", false);
     setTimeout(function () {
