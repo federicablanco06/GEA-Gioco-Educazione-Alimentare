@@ -36,11 +36,13 @@ function getSanoAjax(difficulty, callback) {
                 }
             }
             
-            for (var i=0; i<corrdifficultyArray.length; i++) console.log("CORR PRIMA"+corrdifficultyArray[i].id);
-            for (var i=0; i<sbadifficultyArray.length; i++) console.log("SBA PRIMA"+sbadifficultyArray[i].id);
-            for (var i=0; i<alreadyUsedIds.length; i++) console.log("ALREADY PRIMA"+alreadyUsedIds[i]);
+           // for (var i=0; i<corrdifficultyArray.length; i++) console.log("CORR PRIMA"+corrdifficultyArray[i].id);
+           // for (var i=0; i<sbadifficultyArray.length; i++) console.log("SBA PRIMA"+sbadifficultyArray[i].id);
+           // for (var i=0; i<alreadyUsedIds.length; i++) console.log("ALREADY PRIMA"+alreadyUsedIds[i]);
            
-            for (var i=0; i<alreadyUsedIds.length; i++) {
+            usedIdRemover(corrdifficultyArray);
+            usedIdRemover(sbadifficultyArray);
+          /*  for (var i=0; i<alreadyUsedIds.length; i++) {
                 console.log("ALREADY"+alreadyUsedIds[i]);
                 var index = corrdifficultyArray.map(function(x) {return x.id; }).indexOf(alreadyUsedIds[i]);
                if(index != -1){
@@ -59,7 +61,8 @@ function getSanoAjax(difficulty, callback) {
                     sbadifficultyArray.splice(index1,1);
                     for (var i=0; i<sbadifficultyArray.length; i++) console.log("SBA DOPO"+sbadifficultyArray[i].id);
                 }
-            }
+            }*/
+            
             //Invoco la funzione per estrarre le immagini in base a idcoppia
             estrazione();
                         
@@ -111,26 +114,56 @@ function getRandomInt(min, max) {
 
 
 //Funzione che estrae immagine corretta e errata: estraggo random la corretta, se ha idcoppia
-//null estraggo a caso anche sbagliata altrimenti estraggo quella con idcoppia uguale; quando
-//estraggo la sbagliata invoco controllo() per verificare
+//0 estraggo a caso anche sbagliata altrimenti estraggo quella con idcoppia uguale;
 function estrazione(){
-    var rand1= getRandomInt(0,corrdifficultyArray.length-1);
+    var rand1 = 0;
+    do {
+        console.log("ENTRATO IN CORR!");
+        rand1= getRandomInt(0,corrdifficultyArray.length-1);
+    }
+    while (corrdifficultyArray[rand1]==null);
+    
     corr = corrdifficultyArray[rand1];
     console.log("CORR ESTRATTO"+corr.id);
+    console.log("pusho " + corr.id);
     alreadyUsedIds.push(corr.id);
-    if(corr.idcoppia == ""){
-        var rand2= getRandomInt(0,sbadifficultyArray.length-1);
+    if(corr.idcoppia == '0'){
+        var rand2 = 0;
+        do {
+            console.log("ENTRATO IN SBA!");
+            rand2= getRandomInt(0, sbadifficultyArray.length-1);
+        }
+        while (sbadifficultyArray[rand2]==null);
+        
         sba = sbadifficultyArray[rand2];
-        console.log("SBA ESTRATTO"+sba.id);
+        console.log("SBA ESTRATTO "+sba.id);
+        console.log("pusho sba " + sba.id);
         alreadyUsedIds.push(sba.id);
     }
     else{
+        console.log("entro qui ")
         for (var t = 0; t<sbadifficultyArray.length; t++) {
-        if(sbadifficultyArray[t].idcoppia == corr.idcoppia){ 
+            
+        if(sbadifficultyArray[t]!= null && sbadifficultyArray[t].idcoppia == corr.idcoppia){ 
             sba = sbadifficultyArray[t];
-            console.log("SBA ESTRATTO"+sba.id);
+            console.log("SBA ESTRATTO "+sba.id);
             alreadyUsedIds.push(sba.id);
             }
         }
     }
+}
+
+//funzione che setta a null gli elementi già utilizzati in una precedente interazione della stessa partita
+function usedIdRemover(array) {    
+for(var j=0; j<array.length; j++) {
+    console.log("ma ci entri qui o no1");
+        for(k=0; k<alreadyUsedIds.length; k++){
+            if(array[j].id == alreadyUsedIds[k]) {
+                console.log("HO TROVATO UN ID GIA' USATO MANNAGGIA NUMERO " + array[j].id);
+                array[j]=null;
+                console.log("ORA E' " + array[j]);
+                break;
+            }
+        }
+    }    
 }
