@@ -105,6 +105,8 @@ function choiceSano(id) {
     //butto nel cestino (si avvicina al cestino e sparisce dopo timeout) nonappena raggiungo il cestino stesso e parte la valutazione per feedback
     else {
         document.getElementById(id).setAttribute("position", {x: xCestino+0.2, y: 1.5, z: posizione.z});
+        document.getElementById(id).removeAttribute('onmouseenter');
+        document.getElementById(aelem).removeAttribute('onmouseenter');
         setTimeout(function() {
             document.getElementById(id).setAttribute("visible", false);
             document.getElementById(aelem).setAttribute("visible", false);
