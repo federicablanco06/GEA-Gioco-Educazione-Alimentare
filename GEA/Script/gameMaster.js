@@ -2,12 +2,23 @@ var num_gioco, diff; //variabili globali gioco
 var pos1, pos2;
 var alt;
 var sanoPts=[];
-var alreadyUsedIds = [];
 
 function gameSetter(Gioco, Diff) {
     //settaggio variabili globali di gioco
     num_gioco = Gioco;
     diff = Diff;
+    
+    //inizializzazione variabili di gioco (nel caso una partita sia già stata fatta) 
+    sanoPts=[];
+    pos1=null;
+    pos2=null;
+    $.getScript('Script/ajaxCall.js', function() {
+        alreadyUsedIds=[];
+        corrdifficultyArray=[];
+        sbadifficultyArray=[];
+        ok=false;
+        alt=null;
+    });
     
     
 }

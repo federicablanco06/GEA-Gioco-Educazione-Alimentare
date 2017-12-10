@@ -26,7 +26,6 @@ function getSanoAjax(difficulty, callback) {
             $.each(json[0], function (key, value) {
                 content += value;
             });
-            
             //in base alla difficoltà richiesta, avrò estrazioni differenti all'array json            
             //smistamento in base a difficoltà e correttezza
             for (var i = 0; i<json.length; i++) {
