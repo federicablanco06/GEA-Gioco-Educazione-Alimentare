@@ -35,7 +35,8 @@ function gameStarter() {
 }
 
 function piramide(diff) {
-    //da fare
+    //inizia il gioco facendo sparire il tavolo (il gioco utilizzerà principalmente il muro)
+    document.getElementById('table').setAttribute("visible", false);
 }
 
 
