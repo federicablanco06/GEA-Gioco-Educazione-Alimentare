@@ -62,27 +62,29 @@ function piramide(diff) {
     }, 3000);
     
     $.getScript('Script/ajaxCall.js', function() {
-        //risultati contiene due elementi random, uno corretto e uno sbagliato presi dal database con la giusta difficoltà
+        //risultati contiene tre elementi random, uno corretto e due sbagliati presi dal database con la giusta difficoltà
         var risultati;
         var pir1, pir2, pir3;
         
         //gestore di estrazione e posizionamento immagini
-        getPiramideAjax(diff, function(risultati) {
+        getPiramideAjax(diff, livello, function(risultati) {
             pir1 = risultati[0];
             pir2 = risultati[1]; 
-            pir3 = risultati[3]; 
+            pir3 = risultati[2]; 
 
 
             //oggetto contenente l'elemento e il suo identificativo grafico, necessario per il feedback
             alt = [
-                {dbelement: elm1, graphicid: 'pir1'},
-                {dbelement: elm2, graphicid: 'pir2'}
+                {dbelement: scelta1, graphicid: 'pir1'},
+                {dbelement: scelta2, graphicid: 'pir2'},
+                {dbelement: scelta3, graphicid: 'pir3'}
             ];
         });
     });
 }
 
 
+function choicePiramide(id){}
 //funzione coordinatrice del gioco2
 function sano(diff) {    
      //cestino
