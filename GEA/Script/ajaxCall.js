@@ -103,6 +103,11 @@ function getSanoAjax(difficulty, callback) {
     });
 }
 
+//funzione per la gestione dei valori estratti da database per la piramide
+function getPiramideAjax(diff, callback) {
+    
+}
+
 //scelgo random le due immagini
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;

@@ -60,6 +60,26 @@ function piramide(diff) {
     setTimeout(function() {
         $('#table').after('<a-image class="piramide" id="cursore" position="0.6 1.1 0.2" material="src: Immagini/arrow.png" scale="0.5 0.5 0.5"></a-image>');
     }, 3000);
+    
+    $.getScript('Script/ajaxCall.js', function() {
+        //risultati contiene due elementi random, uno corretto e uno sbagliato presi dal database con la giusta difficoltà
+        var risultati;
+        var pir1, pir2, pir3;
+        
+        //gestore di estrazione e posizionamento immagini
+        getPiramideAjax(diff, function(risultati) {
+            pir1 = risultati[0];
+            pir2 = risultati[1]; 
+            pir3 = risultati[3]; 
+
+
+            //oggetto contenente l'elemento e il suo identificativo grafico, necessario per il feedback
+            alt = [
+                {dbelement: elm1, graphicid: 'pir1'},
+                {dbelement: elm2, graphicid: 'pir2'}
+            ];
+        });
+    });
 }
 
 
