@@ -54,6 +54,12 @@ function piramide(diff) {
     setTimeout(function(){
         $('#table').after('<a-image class="piramide" id="lev5" position="3.53 4.5 0.1" material="src: Immagini/piramide/piano5.png" rotation="0 0 0" scale="5.75 1.3 2"></a-image>');
     }, 2500);
+    
+    
+    //cursore indicante livello in oggetto
+    setTimeout(function() {
+        $('#table').after('<a-image class="piramide" id="cursore" position="0.6 1.1 0.2" material="src: Immagini/arrow.png" scale="0.5 0.5 0.5"></a-image>');
+    }, 3000);
 }
 
 
