@@ -151,12 +151,16 @@ function getPiramideAjax(diff, livello, callback) {
             var rst=[corr, sba1, sba2];
             //array degli elementi mescolati
             var mesco= shuffle(rst);
+            
+            console.log("SCELTA1"+mesco[0].img);
+            console.log("SCELTA2"+mesco[1].img);
+            console.log("SCELTA3"+mesco[2].img);
 
             //variabili di gioco
             document.getElementById("mobile").setAttribute("visible",true);
-            $('#table').after('<a-image class="currentpiramide piramide scelta" id="scelta1" onmouseenter="choicePiramide(\'scelta1\')" position="7.9 1.5 4.5" material="src:'+mesco[0].img+'" scale="0.7 0.7 0.7" crossorigin></a-image>');
-            $('#table').after('<a-image class="currentpiramide piramide scelta" id="scelta2" onmouseenter="choicePiramide(\'scelta2\')" position="7.9 2.5 4.5" material="src:'+mesco[1].img+'" scale="0.7 0.7 0.7" crossorigin></a-image>');
-            $('#table').after('<a-image class="currentpiramide piramide scelta" id="scelta3" onmouseenter="choicePiramide(\'scelta3\')" position="7.9 3.5 4.5" material="src:'+mesco[2].img+'" scale="0.7 0.7 0.7" crossorigin></a-image>');
+            $('#table').after('<a-image class="currentpiramide piramide scelta" id="scelta1" onmouseenter="choicePiramide(\'scelta1\')" position="7.9 0.7 4.5" material="src:'+mesco[0].img+'" scale="0.7 0.7 0.7" crossorigin></a-image>');
+            $('#table').after('<a-image class="currentpiramide piramide scelta" id="scelta2" onmouseenter="choicePiramide(\'scelta2\')" position="7.9 1.4 4.5" material="src:'+mesco[1].img+'" scale="0.7 0.7 0.7" crossorigin></a-image>');
+            $('#table').after('<a-image class="currentpiramide piramide scelta" id="scelta3" onmouseenter="choicePiramide(\'scelta3\')" position="7.9 2.3 4.5" material="src:'+mesco[2].img+'" scale="0.7 0.7 0.7" crossorigin></a-image>');
             document.getElementById('scelta1').setAttribute("visible", true);
             document.getElementById('scelta2').setAttribute("visible", true);
             document.getElementById('scelta3').setAttribute("visible", true);
