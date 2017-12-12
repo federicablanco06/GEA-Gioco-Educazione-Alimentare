@@ -105,7 +105,7 @@ function getSanoAjax(difficulty, callback) {
 
 //funzione per la gestione dei valori estratti da database per la piramide
 function getPiramideAjax(diff, callback) {
-    
+    //TODO
 }
 
 //scelgo random le due immagini

@@ -1,7 +1,7 @@
 <?php
 /*
  * GEA - AUI project 2017-2018
- * getSano.php
+ * getPiramide.php
  * Query for "Impara con la piramide!" images 
  * Authors: Pennati Giulia, Blanco Federica
  */
