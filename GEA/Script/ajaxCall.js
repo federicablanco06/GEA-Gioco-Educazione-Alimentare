@@ -104,8 +104,79 @@ function getSanoAjax(difficulty, callback) {
 }
 
 //funzione per la gestione dei valori estratti da database per la piramide
-function getPiramideAjax(diff, callback) {
-    //TODO
+function getPiramideAjax(diff, livello, callback) {
+     $.ajax({
+        method: "POST",
+        crossDomain: true, //localhost purposes
+        //estrazione elementi chiamati dalla query del database
+        url: "http://gea.altervista.org/PHP/getPiramide.php", //Relative or absolute path to file.php file
+        data: {id: diff},
+         
+        //trasmissione dati riuscita
+        success: function (response) {
+            var json = JSON.parse(response);
+            var content = '';
+            $.each(json[0], function (key, value) {
+                content += value;
+            });
+            
+            
+            //in base alla difficoltà richiesta, avrò estrazioni differenti all'array json            
+            //smistamento in base a difficoltà e livello in considerazione
+            var corrArray = [];
+            var sbaArray = [];
+            for (var i = 0; i<json.length; i++) {
+                if(json[i].diff == diff && json[i].livello == livello) 
+                    corrArray.push(json[i]);
+                else{
+                    if(json[i].diff == diff && json[i].livello != livello)
+                        sbaArray.push(json[i]);
+                }
+            }
+            
+           //estraggo risposta corretta
+            var rand1 = getRandomInt(0,corrArray.length-1);
+            var corr = corrArray[rand1];
+            
+            //estraggo i due risultati errati
+            var rand2 = getRandomInt(0,sbaArray.length-1);
+            var sba1 = sbaArray[rand2];
+            var rand3 = getRandomInt(0,sbaArray.length-1);
+            while(rand3 == rand2){
+                rand3 = getRandomInt(0,sbaArray.length-1);
+            }
+            var sba2 = sbaArray[rand3];
+            
+            //array dei risultati estratti da database
+            var rst=[corr, sba1, sba2];
+            //array degli elementi mescolati
+            var mesco= shuffle(rst);
+            
+            console.log("SCELTA1"+mesco[0].img);
+            console.log("SCELTA2"+mesco[1].img);
+            console.log("SCELTA3"+mesco[2].img);
+
+            //variabili di gioco
+            document.getElementById("mobile").setAttribute("visible",true);
+            $('#table').after('<a-image class="currentpiramide piramide scelta" id="scelta1" onmouseenter="choicePiramide(\'scelta1\')" position="7.9 0.7 4.5" material="src:'+mesco[0].img+'" scale="0.7 0.7 0.7" crossorigin></a-image>');
+            $('#table').after('<a-image class="currentpiramide piramide scelta" id="scelta2" onmouseenter="choicePiramide(\'scelta2\')" position="7.9 1.4 4.5" material="src:'+mesco[1].img+'" scale="0.7 0.7 0.7" crossorigin></a-image>');
+            $('#table').after('<a-image class="currentpiramide piramide scelta" id="scelta3" onmouseenter="choicePiramide(\'scelta3\')" position="7.9 2.3 4.5" material="src:'+mesco[2].img+'" scale="0.7 0.7 0.7" crossorigin></a-image>');
+            document.getElementById('scelta1').setAttribute("visible", true);
+            document.getElementById('scelta2').setAttribute("visible", true);
+            document.getElementById('scelta3').setAttribute("visible", true);
+            
+            //e infine le mando al game master
+            callback(mesco);
+            
+        },
+         
+         
+        //trasmissione dati fallita
+        error: function(request,error)
+        {
+            console.log("Error");
+        }
+    });
 }
 
 //scelgo random le due immagini
@@ -136,12 +207,9 @@ function shuffle(array) {
 //funzione che setta a null gli elementi già utilizzati in una precedente interazione della stessa partita
 function usedIdRemover(array) {    
 for(var j=0; j<array.length; j++) {
-    console.log("ma ci entri qui o no1");
         for(k=0; k<alreadyUsedIds.length; k++){
             if(array[j].id == alreadyUsedIds[k]) {
-                console.log("HO TROVATO UN ID GIA' USATO MANNAGGIA NUMERO " + array[j].id);
                 array[j]=null;
-                console.log("ORA E' " + array[j]);
                 break;
             }
         }

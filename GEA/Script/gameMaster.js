@@ -37,6 +37,7 @@ function gameStarter() {
 function piramide(diff) {
     //inizia il gioco facendo sparire il tavolo (il gioco utilizzerà principalmente il muro)
     document.getElementById('table').setAttribute("visible", false);
+    var livello;
     
     //appaiono a scala i piani della piramide sul muro
     setTimeout(function(){
@@ -58,31 +59,51 @@ function piramide(diff) {
     
     //cursore indicante livello in oggetto
     setTimeout(function() {
-        $('#table').after('<a-image class="piramide" id="cursore" position="0.6 1.1 0.2" material="src: Immagini/arrow.png" scale="0.5 0.5 0.5"></a-image>');
+        $('#table').after('<a-image class="piramide" id="cursore" position="0.6 1 0.2" material="src: Immagini/arrow.png" scale="0.5 0.5 0.5"></a-image>');
     }, 3000);
     
-    $.getScript('Script/ajaxCall.js', function() {
-        //risultati contiene due elementi random, uno corretto e uno sbagliato presi dal database con la giusta difficoltà
+    setTimeout(function(){
+        var ylevel1 = document.getElementById("lev1").getAttribute("position").y;
+        var ylevel2 = document.getElementById("lev2").getAttribute("position").y;
+        var ylevel3 = document.getElementById("lev3").getAttribute("position").y;
+        var ylevel4 = document.getElementById("lev4").getAttribute("position").y;
+        var ylevel5 = document.getElementById("lev5").getAttribute("position").y;
+        var ycursor = document.getElementById("cursore").getAttribute("position").y;
+        if(ycursor-ylevel1=="0") livello="1";
+        if(ycursor-ylevel2=="0") livello="2";
+        if(ycursor-ylevel3=="0") livello="3";
+        if(ycursor-ylevel4=="0") livello="4";
+        if(ycursor-ylevel5=="0") livello="5";
+    },4000);
+   
+    
+    setTimeout(function(){
+         $.getScript('Script/ajaxCall.js', function() {
+        //risultati contiene tre elementi random, uno corretto e due sbagliati presi dal database con la giusta difficoltà
         var risultati;
         var pir1, pir2, pir3;
         
         //gestore di estrazione e posizionamento immagini
-        getPiramideAjax(diff, function(risultati) {
+        getPiramideAjax(diff, livello, function(risultati) {
             pir1 = risultati[0];
             pir2 = risultati[1]; 
-            pir3 = risultati[3]; 
+            pir3 = risultati[2]; 
 
 
             //oggetto contenente l'elemento e il suo identificativo grafico, necessario per il feedback
             alt = [
-                {dbelement: elm1, graphicid: 'pir1'},
-                {dbelement: elm2, graphicid: 'pir2'}
+                {dbelement: scelta1, graphicid: 'pir1'},
+                {dbelement: scelta2, graphicid: 'pir2'},
+                {dbelement: scelta3, graphicid: 'pir3'}
             ];
         });
     });
+    },4100);
+   
 }
 
 
+function choicePiramide(id){}
 //funzione coordinatrice del gioco2
 function sano(diff) {    
      //cestino
