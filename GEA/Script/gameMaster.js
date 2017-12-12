@@ -1,15 +1,15 @@
 var num_gioco, diff; //variabili globali gioco
 var pos1, pos2;
 var alt;
-var sanoPts=[];
+var sanoPts = [];
 var alreadyUsedIds = [];
+var livello;
+var piramidePts = [];
 
 function gameSetter(Gioco, Diff) {
     //settaggio variabili globali di gioco
     num_gioco = Gioco;
-    diff = Diff;
-    
-    
+    diff = Diff;  
 }
 
 function gameStarter() {
@@ -30,14 +30,15 @@ function gameStarter() {
         sano(diff);
     else 
         tavola(diff);
-    
-    
+        
 }
 
+
+
+//funzione coordinatrice del gioco1
 function piramide(diff) {
     //inizia il gioco facendo sparire il tavolo (il gioco utilizzerà principalmente il muro)
     document.getElementById('table').setAttribute("visible", false);
-    var livello;
     
     //appaiono a scala i piani della piramide sul muro
     setTimeout(function(){
@@ -102,8 +103,93 @@ function piramide(diff) {
    
 }
 
+//funzione per la gestione della scelta in piramide
+function choicePiramide(id){
+    //variabili per id non selezionati 
+    var aelem1;
+    var aelem2;
+    
+    //recupero il numero dell'id che ha generato il click
+    var num = parseInt(id.charAt(id.length-1));
+    
+    if(num == 1){
+        aelem1 = 'scelta2';
+        aelem2 = 'scelta3';
+    }
+    else{
+        if(num == 2){
+            aelem1 = 'scelta1';
+            aelem2 = 'scelta3';
+        }
+        else{
+            aelem1 = 'scelta1';
+            aelem2 = 'scelta2';
+        }
+    }
 
-function choicePiramide(id){}
+    document.getElementById(id).removeAttribute('onmouseenter');
+    document.getElementById(aelem1).removeAttribute('onmouseenter');
+    document.getElementById(aelem2).removeAttribute('onmouseenter');
+    setTimeout(function() {
+        document.getElementById(id).setAttribute("visible", false);
+        document.getElementById(aelem1).setAttribute("visible", false);
+        document.getElementById(aelem2).setAttribute("visible", false);
+        }, 1000);
+    
+    feedbackPiramide(id); 
+}
+
+//funzione controllore del risultato di piramide
+function feedbackPiramide(id){
+     //faccio sparire le scelte prima di dare feedback
+    var element;
+    
+    //innanzitutto ripesco l'elemento associato alla scelta grazie alla variabile alt
+    for(var i=0; i< alt.length; i++) {
+        if (alt[i].graphicid == id) {
+            element=alt[i].dbelement;
+            break;
+        }        
+    }
+    
+    if(element.livello==livello){
+
+        $('#table').after('<a-image class="currentpiramide piramide" id="feedcorrpir"  position="8.2 3.5 2" material="src:Immagini/happy.png" scale="3 3 3" visible="false"></a-image>');
+        setTimeout(function() {
+            document.getElementById("feedcorrpir").setAttribute("visible", true);
+        }, 2000);
+        
+        //aggiungo il punteggio 1
+        piramidePts.push('1');
+        
+    }
+    else{
+        $('#table').after('<a-image class="currentpiramide piramide" id="feedsbapir"  position="8.2 3.5 2" material="src:Immagini/sad.png" scale="3 3 3" visible="false"></a-image>');
+        setTimeout(function() {
+            document.getElementById("feedsbapir").setAttribute("visible", true);
+        }, 2000);
+        
+        //aggiungo il punteggio 0
+        piramidePts.push('0');
+        
+    }
+    
+     //cinque turni di gioco
+    if(piramidePts.length<5) {
+        //prima di partire con un altro turno rimuovo gli elementi
+       setTimeout(function() {
+            $('.currentpiramide').remove();
+            piramide(diff);
+       }, 5000); 
+    }
+    //calcolo punteggio finale
+    else
+        finalPoints(piramidePts, num_gioco);
+    
+}
+
+
+
 //funzione coordinatrice del gioco2
 function sano(diff) {    
      //cestino
@@ -138,7 +224,6 @@ function sano(diff) {
         });
     });
 }
-
 
 //funzione per la gestione della scelta in Sano
 function choiceSano(id) {  
@@ -183,7 +268,7 @@ function choiceSano(id) {
  
 }
 
-//funzione controllore del risultato
+//funzione controllore del risultato di sano
 function feedbackSano(id) {    
     //faccio sparire le scelte prima di dare feedback
     var element;
@@ -231,12 +316,36 @@ function feedbackSano(id) {
     
 }
 
+
+
+
+//funzione coordinatrice del gioco3
+function tavola(diff) {
+    //da fare
+}
+
+
 //funzione per il calcolo del punteggio finale
 function finalPoints(arrayPts, game) {   
-    //rimuovo il contesto di sano
-    setTimeout(function() {
-        $('.sano').remove();
-    }, 4500); 
+    //rimuovo il contesto del gioco in considerazione
+    if(game == '1'){
+        setTimeout(function() {
+        $('.piramide').remove();
+        }, 4500); 
+     }
+    else{
+        if(game == '2'){
+            setTimeout(function() {
+            $('.sano').remove();
+            }, 4500); 
+         }
+        else{
+            setTimeout(function() {
+            $('.tavola').remove();
+            }, 4500); 
+        }
+    }
+    
     
     // calcolo il punteggio totale
     var totPts = 0;
@@ -264,6 +373,5 @@ function finalPoints(arrayPts, game) {
     
 }
 
-function tavola(diff) {
-    //da fare
-}
+
+
