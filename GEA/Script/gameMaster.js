@@ -353,7 +353,7 @@ function finalPoints(arrayPts, game) {
     //poi appare la mascotte indicante i punti finali
     setTimeout(function() {
         $('#table').after(' <a-image id="finalpts" position="4 3 2" material="src:Immagini/geamasc.png" scale="3 4.5 1"></a-image>');
-        $('#table').after(' <a-entity id="finalpts" text="value: You realized: \n' + parseInt(totPts) + ' points of ' + maxPts + ';" position="10.5 4 2" scale="10 10 10"></a-entity>');
+        $('#table').after(' <a-entity id="finalpts" text="value: Hai realizzato: \n' + parseInt(totPts) + ' punti su ' + maxPts + ';" position="10.5 4 2" scale="10 10 10"></a-entity>');
     }, 5000);
     
     //fine del gioco
