@@ -3,7 +3,7 @@ var pos1, pos2;
 var alt;
 var sanoPts = [];
 var alreadyUsedIds = [];
-var livello;
+var livello = "1";
 var piramidePts = [];
 
 function gameSetter(Gioco, Diff) {
@@ -25,7 +25,7 @@ function gameStarter() {
     
     //successivamente carico gli elementi del gioco stesso
     if (num_gioco == '1')
-        piramide(diff);
+        piramide(diff, livello);
     else if (num_gioco == '2') 
         sano(diff);
     else 
@@ -36,7 +36,7 @@ function gameStarter() {
 
 
 //funzione coordinatrice del gioco1
-function piramide(diff) {
+function piramide(diff,live) {
     //inizia il gioco facendo sparire il tavolo (il gioco utilizzerà principalmente il muro)
     document.getElementById('table').setAttribute("visible", false);
     
@@ -57,26 +57,13 @@ function piramide(diff) {
         $('#table').after('<a-image class="piramide" id="lev5" position="3.53 4.5 0.1" material="src: Immagini/piramide/piano5.png" rotation="0 0 0" scale="5.75 1.3 2"></a-image>');
     }, 2500);
     
-    
-    //cursore indicante livello in oggetto
-    setTimeout(function() {
-        $('#table').after('<a-image class="piramide" id="cursore" position="0.6 1 0.2" material="src: Immagini/arrow.png" scale="0.5 0.5 0.5"></a-image>');
-    }, 3000);
-    
-    setTimeout(function(){
-        var ylevel1 = document.getElementById("lev1").getAttribute("position").y;
-        var ylevel2 = document.getElementById("lev2").getAttribute("position").y;
-        var ylevel3 = document.getElementById("lev3").getAttribute("position").y;
-        var ylevel4 = document.getElementById("lev4").getAttribute("position").y;
-        var ylevel5 = document.getElementById("lev5").getAttribute("position").y;
-        var ycursor = document.getElementById("cursore").getAttribute("position").y;
-        if(ycursor-ylevel1=="0") livello="1";
-        if(ycursor-ylevel2=="0") livello="2";
-        if(ycursor-ylevel3=="0") livello="3";
-        if(ycursor-ylevel4=="0") livello="4";
-        if(ycursor-ylevel5=="0") livello="5";
-    },4000);
    
+    //cursore indicante livello in oggetto la sua coordinata y dipende dal livello in considerazione
+    setTimeout(function() {
+        var y = document.getElementById("lev"+livello).getAttribute("position").y;
+        $('#table').after('<a-image class="piramide" id="cursore" position="0.6 \'y\' 0.2" material="src: Immagini/arrow.png" scale="0.5 0.5 0.5" visible="true"></a-image>');
+        document.getElementById("cursore").setAttribute("position", {x: "0.6", y: parseFloat(y), z: "0.2"} );
+    }, 3000);
     
     setTimeout(function(){
          $.getScript('Script/ajaxCall.js', function() {
@@ -135,6 +122,7 @@ function choicePiramide(id){
         document.getElementById(aelem1).setAttribute("visible", false);
         document.getElementById(aelem2).setAttribute("visible", false);
         document.getElementById("mobile").setAttribute("visible",false);
+        document.getElementById("cursore").setAttribute("visible",false);
         }, 1000);
     
     feedbackPiramide(id); 
@@ -180,7 +168,9 @@ function feedbackPiramide(id){
         //prima di partire con un altro turno rimuovo gli elementi
        setTimeout(function() {
             $('.currentpiramide').remove();
-            piramide(diff);
+           var numero = parseInt(livello) + 1;
+            livello = numero.toString();
+            piramide(diff,livello);
        }, 5000); 
     }
     //calcolo punteggio finale

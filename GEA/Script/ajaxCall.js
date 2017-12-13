@@ -36,33 +36,28 @@ function getSanoAjax(difficulty, callback) {
                 }
             }
             
-            for (var i=0; i<alreadyUsedIds.length; i++) console.log("ALREADY PRIMA"+alreadyUsedIds[i]);
             usedIdRemover(corrdifficultyArray);
             usedIdRemover(sbadifficultyArray);
             
             var rand1= 0;            
             //check su null
             do {
-                console.log("ENTRATO IN CORR!");
                 rand1= getRandomInt(0,corrdifficultyArray.length-1);
             }
             while (corrdifficultyArray[rand1]==null);
             
             //estraggo il valore dall'array e pusho il suo id in quelli già usati
             var corr = corrdifficultyArray[rand1];
-            console.log("pusho " + corr.id);
             alreadyUsedIds.push(corr.id);
             
             //caso in cui non ci sono coppie predefinite
             if(corr.idcoppia == '0'){
                 var rand2 = 0;
                 do {
-                    console.log("ENTRATO IN SBA!");
                     rand2= getRandomInt(0, sbadifficultyArray.length-1);
                  }
                 while (sbadifficultyArray[rand2]==null);
                 var sba = sbadifficultyArray[rand2];
-                console.log("pusho sba " + sba.id);
                 alreadyUsedIds.push(sba.id);
             }
             
@@ -71,7 +66,6 @@ function getSanoAjax(difficulty, callback) {
                 for (var t = 0; t<sbadifficultyArray.length; t++) {
                 if(sbadifficultyArray[t]!= null && sbadifficultyArray[t].idcoppia == corr.idcoppia){ 
                     var sba = sbadifficultyArray[t];
-                    console.log("pusho sba " + sba.id);
                     alreadyUsedIds.push(sba.id);
                     break;
                     }
