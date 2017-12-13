@@ -154,40 +154,40 @@ function getPiramideAjax(diff, livello, callback) {
 
             //variabili di gioco
             document.getElementById("mobile").setAttribute("visible",true);
-            $('#table').after('<a-image class="currentpiramide piramide scelta" id="scelta1" position="7.9 0.7 4.5" material="src:'+mesco[0].img+'" scale="0.7 0.7 0.7" crossorigin></a-image>');
-            $('#table').after('<a-image class="currentpiramide piramide scelta" id="scelta2" position="7.9 1.4 4.5" material="src:'+mesco[1].img+'" scale="0.7 0.7 0.7" crossorigin> </a-image>');
-            $('#table').after('<a-image class="currentpiramide piramide scelta" id="scelta3" position="7.9 2.3 4.5" material="src:'+mesco[2].img+'" scale="0.7 0.7 0.7" crossorigin> </a-image>');
-            document.getElementById('scelta1').setAttribute("visible", true);
-            document.getElementById('scelta2').setAttribute("visible", true);
-            document.getElementById('scelta3').setAttribute("visible", true);
+            $('#table').after('<a-image class="currentpiramide piramide scelta" id="pir1"  position="7.9 0.7 4.5" material="src:'+mesco[0].img+'" scale="0.7 0.7 0.7" crossorigin></a-image>');
+            $('#table').after('<a-image class="currentpiramide piramide scelta" id="pir2"  position="7.9 1.4 4.5" material="src:'+mesco[1].img+'" scale="0.7 0.7 0.7" crossorigin> </a-image>');
+            $('#table').after('<a-image class="currentpiramide piramide scelta" id="pir3"  position="7.9 2.3 4.5" material="src:'+mesco[2].img+'" scale="0.7 0.7 0.7" crossorigin> </a-image>');
+            document.getElementById('pir1').setAttribute("visible", true);
+            document.getElementById('pir2').setAttribute("visible", true);
+            document.getElementById('pir3').setAttribute("visible", true);
             //funzioni per far partire choicePiramide dopo tot tempo che si è sull'immagine
-            $( "#scelta1" ).on({
-                mouseenter: function() {
+            $( "#pir1" ).on({
+                click: function() {
                     $(this).data('timer', setTimeout(function() {
-                        choicePiramide(scelta1);
+                        choicePiramide("pir1");
                     }, 3000));
                 },
-                mouseleave: function() {
+                mouseup: function() {
                     clearTimeout( $(this).data('timer') );
                 }
             });
-            $( "#scelta2" ).on({
-                mouseenter: function() {
+            $( "#pir2" ).on({
+                click: function() {
                     $(this).data('timer', setTimeout(function() {
-                        choicePiramide(scelta2);
+                        choicePiramide("pir2");
                     }, 3000));
                 },
-                mouseleave: function() {
+                mouseup: function() {
                     clearTimeout( $(this).data('timer') );
                 }
             });
-            $( "#scelta3" ).on({
-                mouseenter: function() {
+            $( "#pir3" ).on({
+                click: function() {
                     $(this).data('timer', setTimeout(function() {
-                        choicePiramide(scelta3);
+                        choicePiramide("pir3");
                     }, 3000));
                 },
-                mouseleave: function() {
+                mouseup: function() {
                     clearTimeout( $(this).data('timer') );
                 }
             });

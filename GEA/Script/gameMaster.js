@@ -93,9 +93,9 @@ function piramide(diff) {
 
             //oggetto contenente l'elemento e il suo identificativo grafico, necessario per il feedback
             alt = [
-                {dbelement: scelta1, graphicid: 'pir1'},
-                {dbelement: scelta2, graphicid: 'pir2'},
-                {dbelement: scelta3, graphicid: 'pir3'}
+                {dbelement: pir1, graphicid: 'pir1'},
+                {dbelement: pir2, graphicid: 'pir2'},
+                {dbelement: pir3, graphicid: 'pir3'}
             ];
         });
     });
@@ -105,7 +105,7 @@ function piramide(diff) {
 
 //funzione per la gestione della scelta in piramide
 function choicePiramide(id){
-    //variabili per id non selezionati 
+    //variabili per id non selezionati
     var aelem1;
     var aelem2;
     
@@ -113,17 +113,17 @@ function choicePiramide(id){
     var num = parseInt(id.charAt(id.length-1));
     
     if(num == 1){
-        aelem1 = 'scelta2';
-        aelem2 = 'scelta3';
+        aelem1 = 'pir2';
+        aelem2 = 'pir3';
     }
     else{
         if(num == 2){
-            aelem1 = 'scelta1';
-            aelem2 = 'scelta3';
+            aelem1 = 'pir1';
+            aelem2 = 'pir3';
         }
         else{
-            aelem1 = 'scelta1';
-            aelem2 = 'scelta2';
+            aelem1 = 'pir1';
+            aelem2 = 'pir2';
         }
     }
 
@@ -134,6 +134,7 @@ function choicePiramide(id){
         document.getElementById(id).setAttribute("visible", false);
         document.getElementById(aelem1).setAttribute("visible", false);
         document.getElementById(aelem2).setAttribute("visible", false);
+        document.getElementById("mobile").setAttribute("visible",false);
         }, 1000);
     
     feedbackPiramide(id); 
