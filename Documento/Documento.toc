@@ -28,7 +28,7 @@
 \contentsline {subsubsection}{\numberline {5.3.1}Linguaggi di programmazione}{26}
 \contentsline {subsubsection}{\numberline {5.3.2}Software}{26}
 \contentsline {section}{\numberline {6}Valutazione}{27}
-\contentsline {section}{\numberline {7}Documentazione Tecnica}{28}
+\contentsline {section}{\numberline {7}Sviluppi Futuri}{28}
 \contentsline {section}{\numberline {8}Appendice}{29}
 \contentsline {subsection}{\numberline {8.1}Tool utilizzati}{29}
 \contentsline {subsection}{\numberline {8.2}Acronimi}{29}
