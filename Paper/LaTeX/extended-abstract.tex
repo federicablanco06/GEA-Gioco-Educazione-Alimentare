@@ -10,77 +10,54 @@
 \usepackage{ccicons}  % for Creative Commons citation icons
 \usepackage{ragged2e} % for tighter hyphenation
 
+
 % Some optional stuff you might like/need.
 % \usepackage{marginnote} 
 % \usepackage[shortlabels]{enumitem}
 % \usepackage{paralist}
 % \usepackage[utf8]{inputenc} % for a UTF8 editor only
 
-%% EXAMPLE BEGIN -- HOW TO OVERRIDE THE DEFAULT COPYRIGHT STRIP --
-% \copyrightinfo{Permission to make digital or hard copies of all or
-% part of this work for personal or classroom use is granted without
-% fee provided that copies are not made or distributed for profit or
-% commercial advantage and that copies bear this notice and the full
-% citation on the first page. Copyrights for components of this work
-% owned by others than ACM must be honored. Abstracting with credit is
-% permitted. To copy otherwise, or republish, to post on servers or to
-% redistribute to lists, requires prior specific permission and/or a
-% fee. Request permissions from permissions@acm.org.\\
-% {\emph{CHI'14}}, April 26--May 1, 2014, Toronto, Canada. \\
-% Copyright \copyright~2014 ACM ISBN/14/04...\$15.00. \\
-% DOI string from ACM form confirmation}
-%% EXAMPLE END
-
-% Paper metadata (use plain text, for PDF inclusion and later
-% re-using, if desired).  Use \emtpyauthor when submitting for review
-% so you remain anonymous.
 \def\plaintitle{SIGCHI Extended Abstracts Sample File: Note Initial
-  Caps} \def\plainauthor{First Author, Second Author, Third Author,
-  Fourth Author, Fifth Author, Sixth Author}
+  Caps} \def\plainauthor{First Author, Second Author}
 \def\emptyauthor{}
-\def\plainkeywords{Authors' choice; of terms; separated; by
-  semicolons; include commas, within terms only; required.}
+\def\plainkeywords{Neurodevelopmental Disorders; children; virtual reality; learning; play; alimentation; autonomy; food pyramid.}
 \def\plaingeneralterms{Documentation, Standardization}
 
-\title{SIGCHI Extended Abstracts Sample File: \underline{N}ote
-  \underline{I}nitial \underline{C}aps}
+\title{GEA - a VR Game for Nutrition Education for Children with Neurodevelopmental Disorders}
 
-\numberofauthors{6}
+\numberofauthors{2}
 % Notice how author names are alternately typesetted to appear ordered
 % in 2-column format; i.e., the first 4 autors on the first column and
 % the other 4 auhors on the second column. Actually, it's up to you to
 % strictly adhere to this author notation.
 \author{%
   \alignauthor{%
-    \textbf{First Author}\\
-    \affaddr{University of Author} \\
-    \affaddr{Authortown, CA 94022, USA} \\
-    \email{author1@anotherco.edu} }\alignauthor{%
-    \textbf{Fifth Author}\\
-    \affaddr{YetAuthorCo, Inc.}\\
-    \affaddr{Authortown, BC V6M 22P Canada}\\
-    \email{author5@anotherco.com} } \vfil \alignauthor{%
-    \textbf{Second Author}\\
-    \affaddr{VP, Authoring}\\
-    \affaddr{Authorship Holdings, Ltd.}\\
-    \affaddr{Awdur SA22 8PP, UK}\\
-    \email{author2@author.ac.uk} }\alignauthor{%
-    \textbf{Sixth Author}\\
-    \affaddr{Universit\'e de Auteur-Sud}\\
-    \affaddr{40222 Auteur France}\\
-    \email{author6@author.fr} } \vfil \alignauthor{%
-    \textbf{Third Author}\\
-    \textbf{Fourth Author}\\    
-    \affaddr{L\={e}khaka Interaction Labs}\\
-    \affaddr{Bengaluru 560 080, India}\\
-    \email{author3@anotherco.com} \\
-    \email{author4@hchi.anotherco.com} }\alignauthor{%
-    \textbf{Seventh Author}\\
-    \affaddr{Department of Skrywer}\\
-    \affaddr{University of Umbhali}\\
-    \affaddr{Cape Town, South Africa}\\
-    \email{author7@umbhaliu.ac.za} } }
-
+    \textbf{Federica Blanco}\\
+    \affaddr{Politecnico di Milano} \\
+    \email{federica.blanco@mail.polimi.it} }\alignauthor{%
+    %\textbf{Fifth Author}\\
+    %\affaddr{YetAuthorCo, Inc.}\\
+    %\affaddr{Authortown, BC V6M 22P Canada}\\
+    %\email{author5@anotherco.com} } \vfil \alignauthor{%
+    \textbf{Giulia Pennati}\\
+    \affaddr{Politecnico di Milano}\\
+    \email{giulia1.pennati@mail.polimi.it} }%\alignauthor{%
+    %\textbf{Sixth Author}\\
+    %\affaddr{Universit\'e de Auteur-Sud}\\
+    %\affaddr{40222 Auteur France}\\
+    %\email{author6@author.fr} } \vfil \alignauthor{%
+    %\textbf{Third Author}\\
+    %\textbf{Fourth Author}\\    
+    %\affaddr{L\={e}khaka Interaction Labs}\\
+    %\affaddr{Bengaluru 560 080, India}\\
+    %\email{author3@anotherco.com} \\
+    %\email{author4@hchi.anotherco.com} }\alignauthor{%
+    %\textbf{Seventh Author}\\
+    %\affaddr{Department of Skrywer}\\
+    %\affaddr{University of Umbhali}\\
+    %\affaddr{Cape Town, South Africa}\\
+    %\email{author7@umbhaliu.ac.za} } }
+    }
 % Make sure hyperref comes last of your loaded packages, to give it a
 % fighting chance of not being over-written, since its job is to
 % redefine many LaTeX commands.
@@ -121,20 +98,26 @@
 
 % Do not change the page size or page settings.
 \begin{abstract}
-  UPDATED---\today. This sample paper describes the formatting
-  requirements for SIGCHI Extended Abstract Format, and this sample
-  file offers recommendations on writing for the worldwide SIGCHI
-  readership. Please review this document even if you have submitted
-  to SIGCHI conferences before, as some format details have changed
-  relative to previous years. Abstracts should be about 150
-  words. Required.
+  	This document describes the design of GEA, a web application for children
+with NeuroDevelopmental Disorder that has been developed in cooperation
+with a team of therapists and children themselves. GEA wants to achieve the
+objective of teaching the nutrition education through a virtual reality game
+focused on food pyramid, healty food and good alimentation avoiding waste
+of real food. It is developped taking in mind the real laboratory that children
+do in the specialized center so we reproduce a smart and confortable space in
+witch they can play the three different games proposed to them. It is also
+possible to choose a level of difficulty to make a personalization based on
+child capacities. GEA has also a functionality that replicates the smartphone
+screen on a pc screen in such a way that the therapist can see what the child
+is doing so he can explain all the dubts or help if there are some difficulties.
 \end{abstract}
 
 \keywords{\plainkeywords}
 
-\category{H.5.m}{Information interfaces and presentation (e.g.,
-  HCI)}{Miscellaneous}\category{See}{\url{http://acm.org/about/class/1998/}}{for
-  full list of ACM classifiers. This section is required.}
+\category{H.5.1}{Information interfaces and presentation}{Multimedia Information Systems}
+\category{H.5.2}{Information interfaces and presentation}{User Interfaces}
+\category{K.4.2}{Computers and society}{Social Issues}
+
 
 \section{Introduction}
 This format is to be used for submissions that are published in the
@@ -150,7 +133,7 @@ Conference Publications. They will also be placed in the ACM Digital
 Library, where they will remain accessible to thousands of researchers
 and practitioners worldwide. To view the ACM's copyright and
 permissions policy, see:
-\url{http://www.acm.org/publications/policies/copyright_policy}.
+%\url{http://www.acm.org/publications/policies/copyright_policy}.
 
 \marginpar{%
   \vspace{-45pt} \fbox{%
@@ -173,26 +156,6 @@ permissions policy, see:
       to fit in this skinny space.
     \end{minipage}}\label{sec:sidebar} }
 
-\section{Page Size}
-All SIGCHI submissions should be US letter (8.5 $\times$ 11
-inches). US Letter is the standard option used by this \LaTeX\
-template.
-
-\section{Text Formatting}
-Please use an 8.5-point Verdana font, or other sans serifs font as
-close as possible in appearance to Verdana in which these guidelines
-have been set. Arial 9-point font is a reasonable substitute for
-Verdana as it has a similar x-height. Please use serif or
-non-proportional fonts only for special purposes, such as
-distinguishing \texttt{source code} text.
-
-\subsubsection{Text styles}
-The \LaTeX\ template facilitates text formatting for normal (for body
-text); heading 1, heading 2, heading 3; bullet list; numbered list;
-caption; annotation (for notes in the narrow left margin); and
-references (for bibliographic entries). Additionally, here is an
-example of footnoted\footnote{Use footnotes sparingly, if at all.}
-text. As stated in the footnote, footnotes should rarely be used.
 
 \begin{figure}
   \includegraphics[width=0.9\columnwidth]{figures/sigchi-logo}
@@ -321,7 +284,7 @@ following five steps:
 \end{itemize}
 
 For links to instructions and resources, please see:
-\url{http://chi2016.acm.org/accessibility}
+%\url{http://chi2016.acm.org/accessibility}
 
 Unfortunately good tools do not yet exist to create tagged PDF files
 from Latex. \LaTeX\ users will need to carry out all of the above
@@ -330,7 +293,7 @@ generated.
 
 For more information and links to instructions and resources, please
 see:
-\url{http://chi2016.acm.org/accessibility}.
+%\url{http://chi2016.acm.org/accessibility}.
 
 \begin{figure*}
   \centering
@@ -345,7 +308,7 @@ see:
 We recommend that you produce a PDF version of your submission well
 before the final deadline. Your PDF file must be ACM DL Compliant and
 meet stated requirements,
-\url{http://www.sheridanprinting.com/sigchi/ACM-SIG-distilling-settings.htm}.
+%\url{http://www.sheridanprinting.com/sigchi/ACM-SIG-distilling-settings.htm}.
 
 \marginpar{\vspace{-23pc}So long as you don't type outside the right
   margin or bleed into the gutter, it's okay to put annotations over
@@ -402,8 +365,8 @@ the conference. Do not include the location of the conference or the
 exact date; do include the page numbers if available. 
 
 References should be in ACM citation format:
-\url{http://www.acm.org/publications/submissions/latex_style}.  This
-includes citations to Internet
+%\url{http://www.acm.org/publications/submissions/latex_style}.  
+This includes citations to Internet
 resources~\cite{CHINOSAUR:venue,cavender:writing,psy:gangnam}
 according to ACM format, although it is often appropriate to include
 URLs directly in the text, as above. Example reference formatting for
@@ -419,7 +382,8 @@ online videos~\cite{psy:gangnam} is given here.  See the examples of
 citations at the end of this document and in the accompanying
 \texttt{BibTeX} document. This formatting is a edited version of the
 format automatically generated by the ACM Digital Library
-(\url{http://dl.acm.org}) as ``ACM Ref''. DOI and/or URL links are
+%(\url{http://dl.acm.org}) 
+as ``ACM Ref''. DOI and/or URL links are
 optional but encouraged as are full first names. Note that the
 Hyperlink style used throughout this document uses blue links;
 however, URLs in the references section may optionally appear in
