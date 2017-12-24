@@ -149,6 +149,10 @@ function feedbackPiramide(id){
             document.getElementById("feedcorrpir").setAttribute("visible", true);
         }, 2000);
         
+        setTimeout(function() {
+            document.getElementById("lev"+ livello).setAttribute("material", 'src: Immagini/piramide/piano'+livello+'g.png');
+        }, 3000);
+        
         //aggiungo il punteggio 1
         piramidePts.push('1');
         
@@ -158,6 +162,10 @@ function feedbackPiramide(id){
         setTimeout(function() {
             document.getElementById("feedsbapir").setAttribute("visible", true);
         }, 2000);
+        
+        setTimeout(function() {
+            document.getElementById("lev"+ livello).setAttribute("material", 'src: Immagini/piramide/piano'+livello+'s.png');
+        }, 3000);
         
         //aggiungo il punteggio 0
         piramidePts.push('0');
