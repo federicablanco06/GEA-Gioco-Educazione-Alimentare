@@ -6,6 +6,7 @@ var alreadyUsedIds = [];
 var livello = "1";
 var piramidePts = [];
 
+
 function gameSetter(Gioco, Diff) {
     //settaggio variabili globali di gioco
     num_gioco = Gioco;
