@@ -5,6 +5,7 @@ var sanoPts = [];
 var alreadyUsedIds = [];
 var livello = "1";
 var piramidePts = [];
+var tavolaPts = [];
 
 
 function gameSetter(Gioco, Diff) {
@@ -30,7 +31,7 @@ function gameStarter() {
     else if (num_gioco == '2') 
         sano(diff);
     else 
-        tavola(diff);
+        atavola(diff);
         
 }
 
@@ -65,7 +66,7 @@ function piramide(diff,live) {
         var y = document.getElementById("lev"+livello).getAttribute("position").y;
         $('#table').after('<a-image class="piramide" id="cursore" position="0.6 \'y\' 0.2" material="src: Immagini/arrow.png" scale="0.5 0.5 0.5" visible="true"></a-image>');
         document.getElementById("cursore").setAttribute("position", {x: "0.6", y: parseFloat(y), z: "0.2"} );
-    }, 2000);
+    }, 2500);
     
     setTimeout(function(){
          $.getScript('Script/ajaxCall.js', function() {
@@ -88,7 +89,7 @@ function piramide(diff,live) {
             ];
         });
     });
-    },4100);
+    },3500);
    
 }
 
@@ -318,12 +319,27 @@ function feedbackSano(id) {
 }
 
 
-
-
-//funzione coordinatrice del gioco3
-function tavola(diff) {
-    //da fare
+//funzione coordinatrice del gioco 3
+function atavola(diff) {    
+    //aggiungo i poster delle scelte
+    if(tavolaPts.length==0) {
+        setTimeout(function() {
+            $('#table').after('<a-image class="atavola" id="cibo1" material="src: Immagini/atavola/colazione.png" position="2 4 0.2" scale="2.2 2.2 0"></a-image>');
+            $('#table').after('<a-image class="atavola" id="cibo2" material="src: Immagini/atavola/pranzo.png" position="4.5 4 0.2" scale="2.2 2.2 0"></a-image>');
+            $('#table').after('<a-image class="atavola" id="cibo3" material="src: Immagini/atavola/merenda.png" position="7 4 0.2" scale="2.2 2.2 0"></a-image>');
+            $('#table').after('<a-image class="atavola" id="cibo4" material="src: Immagini/atavola/cena.png" position="9.5 4 0.2" scale="2.2 2.2 0"></a-image>');
+        }, 1000);
+    }
+    
+    $.getScript('Script/ajaxCall.js', function() {
+        
+        getTavolaAjax(diff, function(results) {
+            //TODO
+        });
+        
+    });
 }
+
 
 
 //funzione per il calcolo del punteggio finale

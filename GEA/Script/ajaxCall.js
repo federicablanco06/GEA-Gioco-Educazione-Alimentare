@@ -200,6 +200,11 @@ function getPiramideAjax(diff, livello, callback) {
     });
 }
 
+//gestione database di tavola
+function getTavolaAjax(diff, callback) {
+    
+}
+
 //scelgo random le due immagini
 function getRandomInt(min, max) {
     return Math.floor(Math.random() * (max - min + 1)) + min;
