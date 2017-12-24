@@ -159,7 +159,7 @@ function getPiramideAjax(diff, livello, callback) {
                 click: function() {
                     $(this).data('timer', setTimeout(function() {
                         choicePiramide("pir1");
-                    }, 3000));
+                    }, 2000));
                 },
                 mouseup: function() {
                     clearTimeout( $(this).data('timer') );
@@ -169,7 +169,7 @@ function getPiramideAjax(diff, livello, callback) {
                 click: function() {
                     $(this).data('timer', setTimeout(function() {
                         choicePiramide("pir2");
-                    }, 3000));
+                    }, 2000));
                 },
                 mouseup: function() {
                     clearTimeout( $(this).data('timer') );
@@ -179,7 +179,7 @@ function getPiramideAjax(diff, livello, callback) {
                 click: function() {
                     $(this).data('timer', setTimeout(function() {
                         choicePiramide("pir3");
-                    }, 3000));
+                    }, 2000));
                 },
                 mouseup: function() {
                     clearTimeout( $(this).data('timer') );

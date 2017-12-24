@@ -40,7 +40,8 @@ function piramide(diff,live) {
     //inizia il gioco facendo sparire il tavolo (il gioco utilizzerà principalmente il muro)
     document.getElementById('table').setAttribute("visible", false);
     
-    //appaiono a scala i piani della piramide sul muro
+    //appaiono a scala i piani della piramide sul muro, apparizione SOLO la prima volta
+    if(piramidePts.length == 0) {
     setTimeout(function(){
         $('#table').after('<a-image class="piramide" id="lev1" position="3.5 1 0.1" material="src: Immagini/piramide/piano1.png" rotation="0 0 0" scale="6 0.8 2"></a-image>');
     }, 500);
@@ -57,13 +58,13 @@ function piramide(diff,live) {
         $('#table').after('<a-image class="piramide" id="lev5" position="3.53 4.5 0.1" material="src: Immagini/piramide/piano5.png" rotation="0 0 0" scale="5.75 1.3 2"></a-image>');
     }, 2500);
     
-   
+    }
     //cursore indicante livello in oggetto la sua coordinata y dipende dal livello in considerazione
     setTimeout(function() {
         var y = document.getElementById("lev"+livello).getAttribute("position").y;
         $('#table').after('<a-image class="piramide" id="cursore" position="0.6 \'y\' 0.2" material="src: Immagini/arrow.png" scale="0.5 0.5 0.5" visible="true"></a-image>');
         document.getElementById("cursore").setAttribute("position", {x: "0.6", y: parseFloat(y), z: "0.2"} );
-    }, 3000);
+    }, 2000);
     
     setTimeout(function(){
          $.getScript('Script/ajaxCall.js', function() {
