@@ -35,6 +35,8 @@ function gameStarter() {
         
 }
 
+
+
 //funzione coordinatrice del gioco1
 function piramide(diff,live) {
     //inizia il gioco facendo sparire il tavolo (il gioco utilizzerà principalmente il muro)
@@ -188,6 +190,8 @@ function feedbackPiramide(id){
     
 }
 
+
+
 //funzione coordinatrice del gioco2
 function sano(diff) {    
      //cestino
@@ -266,7 +270,6 @@ function choiceSano(id) {
  
 }
 
-
 //funzione controllore del risultato di sano
 function feedbackSano(id) {    
     //faccio sparire le scelte prima di dare feedback
@@ -315,6 +318,7 @@ function feedbackSano(id) {
     
 }
 
+
 //funzione coordinatrice del gioco 3
 function atavola(diff) {    
     //aggiungo i poster delle scelte
@@ -326,43 +330,17 @@ function atavola(diff) {
             $('#table').after('<a-image class="atavola" id="cibo4" material="src: Immagini/atavola/cena.png" position="9.5 4 0.2" scale="2.2 2.2 0"></a-image>');
         }, 1000);
     }
-    console.log("biribi");
     
-    //estrazione elemento da db
     $.getScript('Script/ajaxCall.js', function() {
         
-        var elm;
         getTavolaAjax(diff, function(results) {
-            elm = results;
-            alt = [
-                {dbelement: elm, graphicid: 'elem'}
-            ];
-
+            //TODO
         });
         
-        console.log("biribo");
-        //funzione ritardo del click
-            $('#cibo1').after("<b>ssssssdibeleleiba</b>");
-            $( "#cibo1" ).on({
-                click: function() {
-                    $(this).data('timer', setTimeout(function() {
-                        choiceTavola("1");
-                    }, 2000));
-                },
-                mouseup: function() {
-                    console.log("sbi");
-                    clearTimeout( $(this).data('timer') );
-                }
-            });
-        
     });
-    
-    
 }
 
-function choiceTavola(momento) {
-    console.log("ciaoneee");
-}
+
 
 //funzione per il calcolo del punteggio finale
 function finalPoints(arrayPts, game) {   
@@ -411,6 +389,3 @@ function finalPoints(arrayPts, game) {
     
     
 }
-
-
-
