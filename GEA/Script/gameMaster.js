@@ -89,7 +89,7 @@ function piramide(diff,live) {
             ];
         });
     });
-    },3500);
+    },2500);
    
 }
 
@@ -331,13 +331,21 @@ function atavola(diff) {
         }, 1000);
     }
     
-    $.getScript('Script/ajaxCall.js', function() {
-        
+    $.getScript('Script/ajaxCall.js', function() {        
+       /* var elm;
         getTavolaAjax(diff, function(results) {
-            //TODO
+            elm = results;
+            alt = [
+                {dbelement: elm, graphicid: 'elem'}
+            ];
+
         });
-        
-    });
+        */
+    }); 
+}
+
+function choiceTavola(momento) {
+    console.log("ciaoneee " + momento);
 }
 
 
