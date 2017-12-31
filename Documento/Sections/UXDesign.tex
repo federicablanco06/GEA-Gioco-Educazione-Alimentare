@@ -3,9 +3,9 @@
 \subsection{Approccio generale} \label{subsec:app}
 In questa sezione mostriamo i diagrammi di flusso rappresentativi dell'intera applicazione e dei singoli giochi.
 
-La Figura \ref{fig:Diagramma di flusso generale} mostra il diagramma di flusso dell'intera applicazione: all'avvio dell'applicazione si hanno in sequenza la scelta del gioco, la scelta del livello di difficoltà e poi l'avvio della partita composta da tre sessioni di gioco. Al termine delle tre sessioni la partita viene chiusa mostrando il punteggio totalizzato.
+La Figura \ref{fig:Diagramma di flusso generale} mostra il diagramma di flusso dell'intera applicazione: all'avvio dell'applicazione si hanno in sequenza la scelta del gioco, la scelta del livello di difficoltà e poi l'avvio della partita composta da una sessione di gioco per "Impara con la piramide" mentre da tre sessioni per gli altri due giochi . Al termine delle sessioni la partita viene chiusa mostrando il punteggio totalizzato.
 
-La Figura \ref{fig:Diagramma di flusso del gioco "Impara con la piramide} mostra il diagramma di flusso del gioco "Impara con la piramide": in sequenza si hanno la visualizzazione dell'intera piramide incompleta e lo zoom sullo specifico livello da completare con l'apparizione delle due opzioni tra cui scegliere. Nel caso di scelta corretta verrà mostrato il feedback corrispondente e incrementato il punteggio, nel caso di scelta erronea verrà solamente mostrato il feedback.
+La Figura \ref{fig:Diagramma di flusso del gioco "Impara con la piramide"} mostra il diagramma di flusso del gioco "Impara con la piramide": in sequenza si hanno la visualizzazione dell'intera piramide incompleta e di un puntatore sullo specifico livello da completare con l'apparizione delle tre opzioni tra cui scegliere. Nel caso di scelta corretta verrà mostrato il feedback corrispondente e incrementato il punteggio, nel caso di scelta erronea verrà solamente mostrato il feedback.
 
 La Figura \ref{fig:Diagramma di flusso dei giochi "E' sano o no?" e "A tavola!"} mostra il diagramma di flusso dei giochi "E' sano o no?" e "A tavola!". Per entrambi verrà mostrata la schermata iniziale con le opzioni tra cui scegliere: nel caso di scelta corretta verrà mostrato il feedback corrispondente e incrementato il punteggio, nel caso di scelta erronea verrà solamente mostrato il feedback.
 
@@ -21,7 +21,7 @@ La Figura \ref{fig:Diagramma di flusso dei giochi "E' sano o no?" e "A tavola!"}
 \centering
 \includegraphics[scale=0.6]{Images/Flussopiramide}
 \caption{Diagramma di flusso del gioco "Impara con la piramide"}
-\label{fig:Diagramma di flusso del gioco "Impara con la piramide}
+\label{fig:Diagramma di flusso del gioco "Impara con la piramide"}
 \end{figure}
 \clearpage
 
@@ -36,7 +36,7 @@ La Figura \ref{fig:Diagramma di flusso dei giochi "E' sano o no?" e "A tavola!"}
 \subsection{Scenari} \label{scenari}
 Di seguito vengono riportati tre scenari a rappresentazione dei giochi che si possono fare con \acs{gea}, sono tutti e tre di tipo testuale.
 \subsubsection{Scenario 1}
-Maria, terapista di un centro terapeutico per persone con disabilità, si trova nel suo studio pronta ad accogliere Emanuele, bimbo affetto da \acs{ndd}, per proseguire il loro percorso di educazione alimentare. Durante questa fase del laboratorio Maria decide di far uso di \acs{gea}, gioco di realtà virtuale per l'educazione alimentare, partendo da un livello basso di difficoltà. All'arrivo del bambino essa dunque avvia l'applicazione sopracitata e grazie al touchscreen seleziona il gioco "Impara con la piramide" perchè ha notato che Emanuele ha difficoltà nell'imparare quali alimenti si trovano in ogni specifico livello della piramide alimentare. Seleziona poi il livello "Facile" tra quelli possibili presentati e inserisce lo smartphone nel visore che il bambino va ad indossare. Il gioco mostra ad Emanuele prima l'intera piramide, poi si va a focalizzare su uno specifico livello dando tre possibili scelte di completamento. Il bambino effettua con lo sguardo la sua scelta che risulta essere corretta per cui appare la mascotte GEA col viso sorridente a conferma.
+Maria, terapista di un centro terapeutico per persone con disabilità, si trova nel suo studio pronta ad accogliere Emanuele, bimbo affetto da \acs{ndd}, per proseguire il loro percorso di educazione alimentare. Durante questa fase del laboratorio Maria decide di far uso di \acs{gea}, gioco di realtà virtuale per l'educazione alimentare, partendo da un livello basso di difficoltà. All'arrivo del bambino essa dunque avvia l'applicazione sopracitata e grazie al touchscreen seleziona il gioco "Impara con la piramide" perchè ha notato che Emanuele ha difficoltà nell'imparare quali alimenti si trovano in ogni specifico livello della piramide alimentare. Seleziona poi il livello "Facile" tra quelli possibili presentati e inserisce lo smartphone nel visore che il bambino va ad indossare. Il gioco mostra ad Emanuele prima l'intera piramide, una freccetta che punta uno specifico livello dando tre possibili scelte di completamento. Il bambino effettua con lo sguardo la sua scelta che risulta essere corretta per cui appare la mascotte GEA col viso sorridente a conferma.
 \subsubsection{Scenario 2}
 Alessia, bambina con disabilità, si sta recando con la mamma presso il centro terapeutico in cui è in cura piena di gioia perchè è Venerdì e quindi sa che farà laboratorio di alimentazione interattivo usando un gioco chiamato \acs{gea}. Una volta arrivata indossa, come ormai ben sa, il visore passatole dalla sua terapista che aveva precedentemente selezionato il gioco "E' sano o no?" perchè Alessia pasticcia un po' troppo nella sua alimentazione. La schermata che le appare mostra nella parte sinistra due pietanze differenti e sulla parte destra una pattumiera, lo scopo del gioco è quello di "buttare", trascinandolo con lo sguardo, nella pattumiera il piatto ritenuto cibo "spazzatura". Alessia con lo sguardo butta purtroppo il cibo errato e le appare la mascotte con il volto triste ad indicare la scelta erronea.
 \clearpage
@@ -90,7 +90,7 @@ Il mockup in Figura \ref{fig:Piramide} mostra la schermata successiva a quella e
 \end{figure}
 \clearpage
 
-Il mockup in Figura \ref{fig:Piramide proseguimento} viene presentata dopo aver mostrato l'intera piramide. Qui ci si focalizza su un preciso livello della piramide alimentare che deve essere completato e si mostrano al bambino due alimenti tra cui dover scegliere per effettuare il corretto completamento.
+Il mockup in Figura \ref{fig:Piramide proseguimento} viene presentata dopo aver mostrato l'intera piramide. Qui un puntatore indicherà un preciso livello della piramide alimentare che deve essere completato e si mostrano al bambino tre alimenti tra cui dover scegliere per effettuare il corretto completamento.
 \vspace{70pt}
 \begin{figure}[htbp]
 \centering
