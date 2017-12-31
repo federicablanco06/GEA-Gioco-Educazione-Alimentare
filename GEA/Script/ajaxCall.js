@@ -231,6 +231,22 @@ function getTavolaAjax(diff, callback) {
             var elm = corrDiff[rand1];
             
             alreadyUsedIds.push(elm.id);
+            
+            //aggiungo elemento grafico
+            $('#table').after('<a-image class="atavola" id="elem" material="src: '+ elm.img +'" position="7.1 1.52 4.5" scale="0.7 0.7 0.7"></a-image>');
+            
+            //funzione ritardo del click
+            $( "#elem" ).on({
+                click: function() {
+                    $(this).data('timer', setTimeout(function() {
+                        choicePiramide("#elem");
+                    }, 2000));
+                },
+                mouseup: function() {
+                    clearTimeout( $(this).data('timer') );
+                }
+            });
+            
             //restituisco al chiamante l'elemento selezionato
             callback(elm);
     
