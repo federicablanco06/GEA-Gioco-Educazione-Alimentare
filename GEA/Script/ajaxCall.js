@@ -211,7 +211,7 @@ function getPiramideAjax(diff, livello, callback) {
          
         //trasmissione dati riuscita
         success: function (response) {
-            var json = JSON.parse(response);
+           /* var json = JSON.parse(response);
             var content = '';
             $.each(json[0], function (key, value) {
                 content += value;

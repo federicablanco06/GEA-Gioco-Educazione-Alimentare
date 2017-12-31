@@ -332,15 +332,15 @@ function atavola(diff) {
     }
     
     $.getScript('Script/ajaxCall.js', function() {        
-       /* var elm;
+        var elm;
         getTavolaAjax(diff, function(results) {
-            elm = results;
+           /* elm = results;
             alt = [
                 {dbelement: elm, graphicid: 'elem'}
-            ];
+            ];*/
 
         });
-        */
+        
     }); 
 }
 
