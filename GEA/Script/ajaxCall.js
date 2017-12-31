@@ -202,7 +202,41 @@ function getPiramideAjax(diff, livello, callback) {
 
 //gestione database di tavola
 function getTavolaAjax(diff, callback) {
+     $.ajax({
+        method: "POST",
+        crossDomain: true, //localhost purposes
+        //estrazione elementi chiamati dalla query del database
+        url: "http://gea.altervista.org/PHP/getTavola.php", //Relative or absolute path to file.php file
+        data: {id: diff},
+         
+        //trasmissione dati riuscita
+        success: function (response) {
+            var json = JSON.parse(response);
+            var content = '';
+            $.each(json[0], function (key, value) {
+                content += value;
+            });
+            
+            //estraggo dalla query solo gli elementi con la difficoltà richiesta
+            var corrDiff = [];            
+            for (var i=0; i<json.length; i++) 
+                if(json[i].diff==diff)
+                    corrDiff.push(json[i]);
+            
+            //rimuovo dalla lista dei risultati quelli già usati in precedenza
+            usedIdRemover(corrDiff);            
+            
+           //estraggo l'elemento da verificare
+            var rand1 = getRandomInt(0,corrDiff.length-1);
+            var elm = corrDiff[rand1];
+            
+            alreadyUsedIds.push(elm.id);
+            //restituisco al chiamante l'elemento selezionato
+            callback(elm);
     
+        }
+         
+     });
 }
 
 //scelgo random le due immagini
