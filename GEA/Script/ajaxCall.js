@@ -215,6 +215,40 @@ function getTavolaAjax(diff, callback) {
                 content += value;
             });
             
+            //estrazione dei dati della difficoltà richiesta
+            var corrDiff = [];
+            for (var i=0; i<json.length; i++)
+                if(json[i].diff == diff)
+                    corrDiff.push(json[i]);
+            
+            usedIdRemover(corrDiff);
+            
+            //estraggo dall'array risultante l'elemento del turno corrente
+            var rand = getRandomInt(0, corrDiff.length-1);
+            var elm = corrDiff[rand];
+            
+            alreadyUsedIds.push(elm.id);
+            
+            //inserisco l'elemento nella GUI
+            $('#table').after('<a-image class="atavola" id="elem" material="src: '+ elm.img +'" position="7.1 1.52 4.5" scale="0.7 0.7 0.7"></a-image>');
+            
+            //attivo i bottoni di scelta
+            $( '#cibo4' ).on({
+            click: function() {
+                console.log("sono stato toccato");
+                $(this).data('timer', setTimeout(function() {
+                    choiceTavola("4");
+                }, 2000));
+            },
+            mouseup: function() {
+                clearTimeout( $(this).data('timer') );
+            }
+            });
+            //TODO
+            
+            //rimando l'elemento al chiamante
+            callback(elm);
+            
         },
         
         error: function(request, error) {
