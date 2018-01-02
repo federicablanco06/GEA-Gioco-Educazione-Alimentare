@@ -200,6 +200,30 @@ function getPiramideAjax(diff, livello, callback) {
     });
 }
 
+function getTavolaAjax(diff, callback) {
+    
+    $.ajax({
+        method: "POST",
+        crossDomain: true,
+        url: "http://gea.altervista.org/PHP/getTavola.php",
+        data: {id: diff},
+        
+        success: function (response) {
+            var json = JSON.parse(response);
+            var content = '';
+            $.each(json[0], function (key, value) {
+                content += value;
+            });
+            
+        },
+        
+        error: function(request, error) {
+            console.log("Error");            
+        }
+    });
+    console.log("ci siamo");
+}
+
 //gestione database di tavola
 /*function getTavolaAjax(diff, callback) {
     $.ajax({
