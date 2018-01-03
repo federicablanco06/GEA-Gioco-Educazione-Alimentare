@@ -119,275 +119,147 @@ is doing so he can explain all the dubts or help if there are some difficulties.
 \category{K.4.2}{Computers and society}{Social Issues}
 
 
+
 \section{Introduction}
-This format is to be used for submissions that are published in the
-conference publications. We wish to give this volume a consistent,
-high-quality appearance. We therefore ask that authors follow some
-simple guidelines. In essence, you should format your paper exactly
-like this document. The easiest way to do this is to replace the
-content with your own material.
+NeuroDevelopmental Disorder, NDD, is an umbrela term for a group of disabilities that are caused by a disfunction of a part of the brain or of the nervous system and show their symptoms in the children's physical and psychological development. Among the most common diseases we find Autism Spectrum Disorder, ASD, Attention Deficit and Hyperactivity Disorder, ADHD, and Down syndrome. Children who suffer from these syndromes need help in developing cognitive abilities such as attention and language, social skills such as the ability to relate to others and personal and domestic autonomy skills.\\
+\medskip
+ Virtual Reality is nowadays easy to access because it requires the use of a smartphone, owned by the majority of the population, and a VR viewer easily available at low cost; moreover, this technology is much improved so that there are no more problems of feeling sick or difficulty in focusing. The great benefits of using Virtual Reality in an educational and rehabilitation context are now recognized worldwide and tested through various comparative tests between rehabilitation with the use of new technologies and rehabilitation with the use of classical methods.\\
+\medskip
+  Our project focuses precisely on this aspect and on the propensity of children to want to have an experience with instruments such as viewers because they are fascinating and attractive. GEA aims to help children with the use of virtual reality to develop their own and domestic autonomy in the field of nutrition, of great importance nowadays as demonstrated during the recent Expo held in Milan. Thanks to this game the children will train the memory to remember the different levels of the food pyramid, they will learn to recognize the healthy foods from the so-called "trash" and will understand how to combine a meal of the day with a dish and vice versa.
 
-\section{ACM Copyrights \& Permission}
-Accepted extended abstracts and papers will be distributed in the
-Conference Publications. They will also be placed in the ACM Digital
-Library, where they will remain accessible to thousands of researchers
-and practitioners worldwide. To view the ACM's copyright and
-permissions policy, see:
-%\url{http://www.acm.org/publications/policies/copyright_policy}.
-
-\marginpar{%
-  \vspace{-45pt} \fbox{%
+\marginpar{
+  \vspace{-360pt} 
     \begin{minipage}{0.925\marginparwidth}
-      \textbf{Good Utilization of the Side Bar} \\
-      \vspace{1pc} \textbf{Preparation:} Do not change the margin
-      dimensions and do not flow the margin text to the
-      next page. \\
-      \vspace{1pc} \textbf{Materials:} The margin box must not intrude
-      or overflow into the header or the footer, or the gutter space
-      between the margin paragraph and the main left column. The text
-      in this text box should remain the same size as the body
-      text. Use the \texttt{{\textbackslash}vspace{}} command to set
-      the margin
-      note's position. \\
-      \vspace{1pc} \textbf{Images \& Figures:} Practically anything
-      can be put in the margin if it fits. Use the
-      \texttt{{\textbackslash}marginparwidth} constant to set the
-      width of the figure, table, minipage, or whatever you are trying
-      to fit in this skinny space.
-    \end{minipage}}\label{sec:sidebar} }
+  	  \includegraphics[width=\marginparwidth, height=90px]{figures/Game.png}
+  	  \captionof{figure}{GEA home page}
+      \label{fig:home page}
+      \vspace{30pt}
+      \includegraphics[width=\marginparwidth, height=90px]{figures/Level.png}
+  	  \captionof{figure}{GEA levels of difficulty }
+      \label{fig:levels}
+    \end{minipage}}
+    
+\section{Approach}
+Our tool is named GEA, Food Education Game, that is in italian Gioco Educazione Alimentare and has been co-designed with NDD specialists from a local therapeutic center. They asked us to transform the feeding laboratory they propose to children once a week with the presence of a specialist in an interactive game.\\
+\medskip
+ This virtualization has many benefits as the viewer helps to stimulate attention and concentration without any kind of distraction due to external agents. We decided to use virtual reality also because of the ease of use of the instrumentation, as it requires little knowledge of the technology, and for the possibility of being able to reproduce the real environment of the therapy in order to have easy familiarization with the game. The smartphone set inside the VR visor displays the visual contents, splitting them into two near-identical bi-dimensional images, and the interaction is achieved through focus. The user can navigate in the virtual world by rotating his head, which will consequently rotate the virtual scene projected in the display that is a room with some kitchen stuff.\\
+\medskip
+  The effectiveness of learning by playing also lies in the ability to personalize the session based on the abilities of the individual user: for this reason, three different levels of difficulty have been inserted, among which the therapist can decide knowing the patient's knowledge. To increase personalization we have also decided to divide GEA into three mini-games as we have been told that each user has more difficulty learning one concept than another, so that in this case the therapist will decide which one experience to make the patient present at that time feel. Finally we opted for this implementation as it makes it possible to continue learning in complete autonomy when you are in any place and at any time of the day
 
 
-\begin{figure}
-  \includegraphics[width=0.9\columnwidth]{figures/sigchi-logo}
-  \caption{Insert a caption below each figure.}~\label{fig:sample}
-\end{figure}
+\section{GEA: Requirements}
+The requirements for GEA were collected through meetings with psychologists and experts in the field of neurological disorders and who propose this feeding laboratory activity to their patients. A meeting was also held with all the young people present in the local therapeutic center to discuss with them the idea behind GEA and to know directly from them what they usually do, how they do it, the greatest difficulties they encounter and what they would like expect from this application.
+\begin{enumerate}
+\item \textit{Requirement 1: Customization}\\
+      The therapist must be able to set a level of difficulty in the game based on the child's skills so 		  as to start from his level of knowledge and then gradually increase.
+\item \textit{Requirement 2: Inherent contents}\\
+	  The contents of the game must be inherent and reflect those kept during the workshop. For this 			  reason the three mini-games will be based on the food pyramid, on the recognition of healthy foods 		  and on the ability to combine dishes and meal of the day.
+\item \textit{Requirement 3: Attention to the graphics}\\
+	  Because of the various disabilities possessed by users, the game does not have to present particular 	  colors too cold or animations too abrupt or flashing as they could trigger reactions on the part of 		  the child that would ruin the therapy.
+\item \textit{Requirement 4: Graphic explanations}\\
+	  Users of GEA range in a gap of age and disability such that there is the possibility that not 			  everyone can read, for this reason we need visual explanations about the goal of the game and how to 	  do it.
+\item \textit{Requirement 5: The therapist must see}\\
+	  the therapists need to have always under control what the child is doing during the game experience 		  to know where they are improving and where they still find difficulties and to be able to follow the 	  therapy by providing the necessary explanations.
+\end{enumerate}
 
-\subsection{Language, style, and content}
-The written and spoken language of SIGCHI is English. Spelling and
-punctuation may use any dialect of English (e.g., British, Canadian,
-US, etc.) provided this is done consistently. Hyphenation is
-optional. To ensure suitability for an international audience, please
-pay attention to the following:
-
-\begin{table}
-  \centering
-  \begin{tabular}{l r r r}
-    % \toprule
-    & & \multicolumn{2}{c}{\small{\textbf{Test Conditions}}} \\
-    \cmidrule(r){3-4}
-    {\small\textit{Name}}
-    & {\small \textit{First}}
-      & {\small \textit{Second}}
-    & {\small \textit{Final}} \\
-    \midrule
-    Marsden & 223.0 & 44 & 432,321 \\
-    Nass & 22.2 & 16 & 234,333 \\
-    Borriello & 22.9 & 11 & 93,123 \\
-    Karat & 34.9 & 2200 & 103,322 \\
-    % \bottomrule
-  \end{tabular}
-  \caption{Table captions should be placed below the table. We
-    recommend table lines be 1 point, 25\% black. Minimize use of
-    table grid lines.}~\label{tab:table1}
-\end{table}
-
-\begin{itemize}\compresslist%
-\item Write in a straightforward style. Use simple sentence
-  structure. Try to avoid long sentences and complex sentence
-  structures. Use semicolons carefully.
-\item Use common and basic vocabulary (e.g., use the word ``unusual''
-  rather than the word ``arcane'').
-\item Briefly define or explain all technical terms. The terminology
-  common to your practice/discipline may be different in other design
-  practices/disciplines.
-\item Spell out all acronyms the first time they are used in your
-  text. For example, ``World Wide Web (WWW)''.
-\item Explain local references (e.g., not everyone knows all city
-  names in a particular country).
-\item Explain ``insider'' comments. Ensure that your whole audience
-  understands any reference whose meaning you do not describe (e.g.,
-  do not assume that everyone has used a Macintosh or a particular
-  application).
-\item Explain colloquial language and puns. Understanding phrases like
-  ``red herring'' requires a cultural knowledge of English. Humor and
-  irony are difficult to translate.
-\item Use unambiguous forms for culturally localized concepts, such as
-  times, dates, currencies, and numbers (e.g., ``1-5- 97'' or
-  ``5/1/97'' may mean 5 January or 1 May, and ``seven o'clock'' may
-  mean 7:00 am or 19:00). For currencies, indicate equivalences:
-  ``Participants were paid {\fontfamily{txr}\selectfont \textwon}
-  25,000, or roughly US \$22.''
-\item Be careful with the use of gender-specific pronouns (he, she)
-  and other gender-specific words (chairman, manpower,
-  man-months). Use inclusive language (e.g., she or he, they, chair,
-  staff, staff-hours, person-years) that is gender-neutral. If
-  necessary, you may be able to use ``he'' and ``she'' in alternating
-  sentences, so that the two genders occur equally
-  often~\cite{Schwartz:1995:GBF}.
-\item If possible, use the full (extended) alphabetic character set
-  for names of persons, institutions, and places (e.g.,
-  Gr{\o}nb{\ae}k, Lafreni\'ere, S\'anchez, Nguy{\~{\^{e}}}n,
-  Universit{\"a}t, Wei{\ss}enbach, Z{\"u}llighoven, \r{A}rhus, etc.).
-  These characters are already included in most versions and variants
-  of Times, Helvetica, and Arial fonts.
-\end{itemize}
-
-% \begin{figure}
-%   \includegraphics[width=.9\columnwidth]{figures/ea-figure2}
-%   \caption{If your figure has a light background, you can set its
-%     outline to light gray, like this, to make a box around
-%     it.}\label{fig:bats}
-% \end{figure}
-
-\begin{marginfigure}[-35pc]
-  \begin{minipage}{\marginparwidth}
-    \centering
-    \includegraphics[width=0.9\marginparwidth]{figures/cats}
-    \caption{In this image, the cats are tessellated within a square
-      frame. Images should also have captions and be within the
-      boundaries of the sidebar on page~\pageref{sec:sidebar}. Photo:
-      \cczero~jofish on Flickr.}~\label{fig:marginfig}
-  \end{minipage}
-\end{marginfigure}
-
-\section{Figures}
-The examples on this and following pages should help you get a feel
-for how screen-shots and other figures should be placed in the
-template. Your document may use color figures (see
-Figures~\ref{fig:sample}), which are included in the page limit; the
-figures must be usable when printed in black and white. You can use
-the \texttt{\marginpar} command to insert figures in the (left) margin
-of the document (see Figure~\ref{fig:marginfig}). Finally, be sure to
-make images large enough so the important details are legible and
-clear (see Figure~\ref{fig:cats}).
-
-\section{Tables}
-You man use tables inline with the text (see Table~\ref{tab:table1})
-or within the margin as shown in Table~\ref{tab:table2}. Try to
-minimize the use of lines (especially vertical lines). \LaTeX\ will
-set the table font and captions sizes correctly; the latter must
-remain unchanged.
-
-\section{Accessibility}
-The Executive Council of SIGCHI has committed to making SIGCHI
-conferences more inclusive for researchers, practitioners, and
-educators with disabilities. As a part of this goal, the all authors
-are asked to work on improving the accessibility of their
-submissions. Specifically, we encourage authors to carry out the
-following five steps:
-\begin{itemize}\compresslist%
-\item Add alternative text to all figures
-\item Mark table headings
-\item Generate a tagged PDF
-\item Verify the default language
-\item Set the tab order to ``Use Document Structure''
-\end{itemize}
-
-For links to instructions and resources, please see:
-%\url{http://chi2016.acm.org/accessibility}
-
-Unfortunately good tools do not yet exist to create tagged PDF files
-from Latex. \LaTeX\ users will need to carry out all of the above
-steps in the PDF directly using Adobe Acrobat, after the PDF has been
-generated.
-
-For more information and links to instructions and resources, please
-see:
-%\url{http://chi2016.acm.org/accessibility}.
-
+\section{GEA: Design}
+Starting from the above requirements GEA is designed like this: at the start of the application the main page is shown in which there is the possibility for the therapist to choose between three games, as shown in Figure \ref{fig:home page}: "Learn with the pyramid!", "Healthy or not?" and "Let's eat!"; the choice will be made via touchscreen on the smartphone. \\
+After that will appear the screen shown in Figure \ref{fig:levels} in order to be able to make, always by the expert, the choice for the level of difficulty desired between: easy, medium and difficult. The difficulty does not lie in the way the game is played or in its objective but in the type of food shown. In the screen there is also a button called "back" to give the possibility to come back if there was a wrong choice in the type of game.\\
+After the level of difficulty is selected the game starts.\\
+The environment turns out to be identical for all three games in order to be able to follow the real setting of the therapy: there is a room with a table, a fridge, a window, a door, a sofa and a kitchen in order to make the space confortable but also inherent with alimentation. In front of the user will appear a short explanation and a play button.\\
+\medskip
 \begin{figure*}
+ \begin{minipage}[c]{\columnwidth}
+   \centering
+   \includegraphics[width=8cm]{figures/Pyramid1.png}
+   \caption{"Learn with the pyramid"}
+   \label{fig:Pyramid}
+ \end{minipage}
+ \ \hspace{2mm} \hspace{3mm} \
+ \begin{minipage}[c]{\columnwidth}
   \centering
-  \includegraphics[width=1.3\columnwidth]{figures/map}
-  \caption{In this image, the map maximizes use of space. You can make
-    figures as wide as you need, up to a maximum of the full width of
-    both columns. Note that \LaTeX\ tends to render large figures on a
-    dedicated page. Image: \ccbynd~ayman on Flickr.}~\label{fig:cats}
+   \includegraphics[width=8cm]{figures/Wrong.png}
+   \caption{Wrong answer}
+   \label{fig:wrong}
+ \end{minipage}
 \end{figure*}
+\textit{\textbf{"Lear with the pyramid!"}}: this game is proposed in order to learn which food goes in which level of the pyramid. As shown in Figure \ref{fig:Pyramid}, on the screen disapear the table and appear on the wall a pyramid divided into five levels, a pointer that indicates which level you have to complete and a mobile with three options. The red circle is the pointer and you have to point to one of the food for a time interval to give the answer, this is to avoid that someone gives an answer when he is looking around. After an answer is given a feedback appears, like in Figure \ref{fig:wrong}, with a sad mascotte if it is wrong and the correspondent level coloured red or an happy mascotte if it is correct and the level coloured green.\\
+\medskip
+\marginpar{
+  \vspace{-70pt} 
+    \begin{minipage}{0.925\marginparwidth}
+  	  \includegraphics[width=\marginparwidth, height=90px]{figures/Healthy.png}
+  	  \captionof{figure}{"Healthy or not?"}
+      \label{fig:healthy}
+      \vspace{30pt}
+      \includegraphics[width=\marginparwidth, height=90px]{figures/Eat.png}
+  	  \captionof{figure}{"Let's eat!"}
+      \label{fig:eat}
+    \end{minipage}}
+\textit{\textbf{"Healthy or not?"}}: this game is proposed in order to learn if a food is healthy or not. As shown in Figure \ref{fig:healthy}, on the screen appear on the table two dishes, a bin and a visual explanation: with the eyes you have to move and throw in the bin the junk food. There are three sessions of this game and after each answer there is a feedback like before.\\
+\medskip
+\textit{\textbf{"Let's eat!"}}: this game is proposed in order to learn if in a meal of the day i can or not eat a specific dish. This game was explicitly required by young people who spoke with us because they have some difficulties to understand when they can eat something or they can not. As shown in Figure \ref{fig:eat} there are all the four meal of the day and a dish: the objective is to select the correct meal/s in which i can eat it. This game is proposed also in the vice versa mode. It is composed by three sessions and after each answer there is a feedback.\\
+\medskip
+At the end of all the sessions of the mini-games is shown the totalized points and the application comes back automatically to the home page.\\
+\medskip
+The therapist can view the entire session of play performed by the child thanks to the use of Google Chromecast which allows the replication of the smartphone screen on the PC on which it is installed.
 
-\section{Producing and Testing PDF Files}
-We recommend that you produce a PDF version of your submission well
-before the final deadline. Your PDF file must be ACM DL Compliant and
-meet stated requirements,
-%\url{http://www.sheridanprinting.com/sigchi/ACM-SIG-distilling-settings.htm}.
 
-\marginpar{\vspace{-23pc}So long as you don't type outside the right
-  margin or bleed into the gutter, it's okay to put annotations over
-  here on the left, too; this annotation is near Hawaii. You'll have
-  to manually align the margin paragraphs to your \LaTeX\ floats using
-  the \texttt{{\textbackslash}vspace{}} command.}
+\section{GEA: Implementation}
+GEA is developed as web applications, which ensures a high degree of portability of all our technology on any platform. We used standard web languages: HTML, JavaScript (for the client side) and PHP (for the server side) and a public software library, A-Frame, that is an open-source web framework for creating 3D and virtual reality applications with JavaScript and HTML (\url{https://aframe.io/}).
 
-\begin{margintable}[1pc]
-  \begin{minipage}{\marginparwidth}
-    \centering
-    \begin{tabular}{r r l}
-      & {\small \textbf{First}}
-      & {\small \textbf{Location}} \\
-      \toprule
-      Child & 22.5 & Melbourne \\
-      Adult & 22.0 & Bogot\'a \\
-      \midrule
-      Gene & 22.0 & Palo Alto \\
-      John & 34.5 & Minneapolis \\
-      \bottomrule
-    \end{tabular}
-    \caption{A simple narrow table in the left margin
-      space.}~\label{tab:table2}
-  \end{minipage}
-\end{margintable}
-Test your PDF file by viewing or printing it with the same software we
-will use when we receive it, Adobe Acrobat Reader Version 10. This is
-widely available at no cost. Note that most
-reviewers will use a North American/European version of Acrobat
-reader, so please check your PDF accordingly.
+\section{Conclusions and future work}
+Our solution turns out to be a good solution for various reasons such as:
+\begin{itemize}
+\item Virtual reality allows you to have a large database with presence of all possible foods without having to use real food that would go then wasted;
+\item GEA turns out to be a compact solution because it only needs a smartphone, now owned by the majority
+part of the population, and a VR viewer, available for purchase minimum, so easily transportable;
+\item GEA, due to the easy availability of the technology used, allows to the child to be able to continue his education in the food field even in complete autonomy at home without having to wait for go to the center on the day dedicated to the feeding laboratory;
+\item Thanks to the presence of a nice and colorful graphics this application allows you to have a fun experience motivating children in learning by playing.
+\end{itemize}
 
-\section{Acknowledgements}
-We thank all the volunteers, publications support, staff, and authors
-who wrote and provided helpful comments on previous versions of this
-document. As well authors 1, 2, and 3 gratefully acknowledge the grant
-from NSF (\#1234--2222--ABC). Author 4 for example may want to
-acknowledge a supervisor/manager from their original employer. This
-whole paragraph is just for example. Some of the references cited in
-this paper are included for illustrative purposes only.
+As emerged during the various interviews with the therapists, a possible development future in the short term of GEA will result in the introduction of the possibility of the psychologist's interaction during the game: we will then implement one function to pause the game on the smartphone inside th viewer using the PC so that the children can have the necessary explanations in case of doubt or the expert can ask the reasons for that they pushed to a certain choice rather than another and to understand so better what the subjective difficulties are.\\
+
+A further development will take place in the field of allergies: the possibility is assumed to be able to add a game that allows children to identify which ones allergens are present in various foods as essential nowadays be able to understand what to eat or not in case of symilar problems. This addition also emerged during the meetings and was requested from intolerant kids who want to learn how to manage alone this problematic.
 
 \section{References Format}
-Your references should be published materials accessible to the
-public. Internal technical reports may be cited only if they are
-easily accessible and may be obtained by any reader for a nominal
-fee. Proprietary information may not be cited. Private communications
-should be acknowledged in the main text, not referenced (e.g.,
-[Golovchinsky, personal communication]). References must be the same
-font size as other body text. References should be in alphabetical
-order by last name of first author. Use a numbered list of references
-at the end of the article, ordered alphabetically by last name of
-first author, and referenced by numbers in brackets. For papers from
-conference proceedings, include the title of the paper and the name of
-the conference. Do not include the location of the conference or the
-exact date; do include the page numbers if available. 
+%Your references should be published materials accessible to the
+%public. Internal technical reports may be cited only if they are
+%easily accessible and may be obtained by any reader for a nominal
+%fee. Proprietary information may not be cited. Private communications
+%should be acknowledged in the main text, not referenced (e.g.,
+%[Golovchinsky, personal communication]). References should be in alphabetical
+%order by last name of first author. Use a numbered list of references
+%at the end of the article, ordered alphabetically by last name of
+%first author, and referenced by numbers in brackets. For papers from
+%conference proceedings, include the title of the paper and the name of
+%the conference. Do not include the location of the conference or the
+%exact date; do include the page numbers if available. 
 
-References should be in ACM citation format:
+%References should be in ACM citation format:
 %\url{http://www.acm.org/publications/submissions/latex_style}.  
-This includes citations to Internet
-resources~\cite{CHINOSAUR:venue,cavender:writing,psy:gangnam}
-according to ACM format, although it is often appropriate to include
-URLs directly in the text, as above. Example reference formatting for
-individual journal articles~\cite{ethics}, articles in conference
-proceedings~\cite{Klemmer:2002:WSC:503376.503378},
-books~\cite{Schwartz:1995:GBF}, theses~\cite{sutherland:sketchpad},
-book chapters~\cite{winner:politics}, an entire journal
-issue~\cite{kaye:puc},
-websites~\cite{acm_categories,cavender:writing},
-tweets~\cite{CHINOSAUR:venue}, patents~\cite{heilig:sensorama}, 
-games~\cite{supermetroid:snes}, and
-online videos~\cite{psy:gangnam} is given here.  See the examples of
-citations at the end of this document and in the accompanying
-\texttt{BibTeX} document. This formatting is a edited version of the
-format automatically generated by the ACM Digital Library
+%This includes citations to Internet
+%resources~\cite{CHINOSAUR:venue,cavender:writing,psy:gangnam}
+%according to ACM format, although it is often appropriate to include
+%URLs directly in the text, as above. Example reference formatting for
+%individual journal articles~\cite{ethics}, articles in conference
+%proceedings~\cite{Klemmer:2002:WSC:503376.503378},
+%books~\cite{Schwartz:1995:GBF}, theses~\cite{sutherland:sketchpad},
+%book chapters~\cite{winner:politics}, an entire journal
+%issue~\cite{kaye:puc},
+%websites~\cite{acm_categories,cavender:writing},
+%tweets~\cite{CHINOSAUR:venue}, patents~\cite{heilig:sensorama}, 
+%games~\cite{supermetroid:snes}, and
+%online videos~\cite{psy:gangnam} is given here.  See the examples of
+%citations at the end of this document and in the accompanying
+%\texttt{BibTeX} document. This formatting is a edited version of the
+%format automatically generated by the ACM Digital Library
 %(\url{http://dl.acm.org}) 
-as ``ACM Ref''. DOI and/or URL links are
-optional but encouraged as are full first names. Note that the
-Hyperlink style used throughout this document uses blue links;
-however, URLs in the references section may optionally appear in
-black.
+%as ``ACM Ref''. DOI and/or URL links are
+%optional but encouraged as are full first names. Note that the
+%Hyperlink style used throughout this document uses blue links;
+%however, URLs in the references section may optionally appear in
+%black.
 
 \balance{} 
 
