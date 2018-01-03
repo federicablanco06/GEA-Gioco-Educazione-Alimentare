@@ -324,10 +324,10 @@ function atavola(diff) {
     //aggiungo i poster delle scelte
     if(tavolaPts.length==0) {
         setTimeout(function() {
-            $('#table').after('<a-image class="atavola" id="cibo1" material="src: Immagini/atavola/colazione.png" position="2 4 0.2" scale="2.2 2.2 0"></a-image>');
-            $('#table').after('<a-image class="atavola" id="cibo2" material="src: Immagini/atavola/pranzo.png" position="4.5 4 0.2" scale="2.2 2.2 0"></a-image>');
-            $('#table').after('<a-image class="atavola" id="cibo3" material="src: Immagini/atavola/merenda.png" position="7 4 0.2" scale="2.2 2.2 0"></a-image>');
-            $('#table').after('<a-image class="atavola" id="cibo4" material="src: Immagini/atavola/cena.png" position="9.5 4 0.2" scale="2.2 2.2 0"></a-image>');
+            $('#table').after('<a-image class="atavola clickable" id="colazione" material="src: Immagini/atavola/colazione.png" position="2 4 2" scale="2.2 2.2 0.1" onclick="choiceTavola(\'1\')"></a-image>');
+            $('#table').after('<a-image class="atavola clickable" id="pranzo" material="src: Immagini/atavola/pranzo.png" position="4.5 4 2" scale="2.2 2.2 0.1" onclick="choiceTavola(\'2\')"></a-image>');
+            $('#table').after('<a-image class="atavola clickable" id="merenda" material="src: Immagini/atavola/merenda.png" position="7 4 2" scale="2.2 2.2 0.5" onclick="choiceTavola(\'3\')"></a-image>');
+            $('#table').after('<a-image class="atavola clickable" id="cena" material="src: Immagini/atavola/cena.png" position="9.5 4 2" scale="2.2 2.2 0.7" onclick="choiceTavola(\'4\')"></a-image>');
         }, 1000);
     }
     

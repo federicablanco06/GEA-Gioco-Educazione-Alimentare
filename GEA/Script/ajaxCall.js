@@ -233,19 +233,13 @@ function getTavolaAjax(diff, callback) {
             $('#table').after('<a-image class="atavola" id="elem" material="src: '+ elm.img +'" position="7.1 1.52 4.5" scale="0.7 0.7 0.7"></a-image>');
             
             //attivo i bottoni di scelta
-            $( '#cibo4' ).on({
-            click: function() {
-                console.log("sono stato toccato");
-                $(this).data('timer', setTimeout(function() {
-                    choiceTavola("4");
-                }, 2000));
-            },
-            mouseup: function() {
-                clearTimeout( $(this).data('timer') );
-            }
-            });
             //TODO
             
+             $('.clickable').click(5000, function () {
+               // document.getElementById('elem').setAttribute('onclick', 'choiceTavola("1")');
+                console.log('sono stato premuto a lungooooh');
+            });
+
             //rimando l'elemento al chiamante
             callback(elm);
             
@@ -258,97 +252,6 @@ function getTavolaAjax(diff, callback) {
     console.log("ci siamo");
 }
 
-//gestione database di tavola
-/*function getTavolaAjax(diff, callback) {
-    $.ajax({
-        method: "POST",
-        crossDomain: true, //localhost purposes
-        //estrazione elementi chiamati dalla query del database
-        url: "http://gea.altervista.org/PHP/getTavola.php", //Relative or absolute path to file.php file
-        data: {id: diff},
-         
-        //trasmissione dati riuscita
-        success: function (response) {
-           /* var json = JSON.parse(response);
-            var content = '';
-            $.each(json[0], function (key, value) {
-                content += value;
-            });
-            
-            //estraggo dalla query solo gli elementi con la difficoltà richiesta
-            var corrDiff = [];            
-            for (var i=0; i<json.length; i++) 
-                if(json[i].diff==diff)
-                    corrDiff.push(json[i]);
-            
-            //rimuovo dalla lista dei risultati quelli già usati in precedenza
-            usedIdRemover(corrDiff);            
-            
-           //estraggo l'elemento da verificare
-            var rand1 = getRandomInt(0,corrDiff.length-1);
-            var elm = corrDiff[rand1];
-            
-            alreadyUsedIds.push(elm.id);
-            
-            //aggiungo elemento grafico
-            $('#table').after('<a-image class="atavola" id="elem" material="src: '+ elm.img +'" position="7.1 1.52 4.5" scale="0.7 0.7 0.7"></a-image>');
-            
-            /*$( "#cibo1" ).on({
-                click: function() {
-                    $(this).data('timer', setTimeout(function() {
-                        choiceTavola("1");
-                    }, 2000));
-                },
-                mouseup: function() {
-                    clearTimeout( $(this).data('timer') );
-                }
-            });
-            
-            $( "#cibo2" ).on({
-                click: function() {
-                    $(this).data('timer', setTimeout(function() {
-                        choiceTavola("2");
-                    }, 2000));
-                },
-                mouseup: function() {
-                    clearTimeout( $(this).data('timer') );
-                }
-            });
-            
-            $( "#cibo3" ).on({
-                click: function() {
-                    $(this).data('timer', setTimeout(function() {
-                        choiceTavola("3");
-                    }, 2000));
-                },
-                mouseup: function() {
-                    clearTimeout( $(this).data('timer') );
-                }
-            });
-            
-            $( "#cibo4" ).on({
-                click: function() {
-                    $(this).data('timer', setTimeout(function() {
-                        choiceTavola("4");
-                    }, 2000));
-                },
-                mouseup: function() {
-                    clearTimeout( $(this).data('timer') );
-                }
-            }); 
-
-            //restituisco al chiamante l'elemento selezionato
-            callback(elm);
-    
-        }
-          //trasmissione dati fallita
-        error: function(request,error)
-        {
-            console.log("Error");
-        }
-         
-     });
-}*/
 
 //scelgo random le due immagini
 function getRandomInt(min, max) {
