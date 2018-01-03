@@ -116,10 +116,6 @@ function choicePiramide(id){
             aelem2 = 'pir2';
         }
     }
-
-    document.getElementById(id).removeAttribute('onmouseenter');
-    document.getElementById(aelem1).removeAttribute('onmouseenter');
-    document.getElementById(aelem2).removeAttribute('onmouseenter');
     setTimeout(function() {
         document.getElementById(id).setAttribute("visible", false);
         document.getElementById(aelem1).setAttribute("visible", false);
@@ -322,14 +318,12 @@ function feedbackSano(id) {
 //funzione coordinatrice del gioco 3
 function atavola(diff) {    
     //aggiungo i poster delle scelte
-    if(tavolaPts.length==0) {
-        setTimeout(function() {
-            $('#table').after('<a-image class="atavola clickable" id="colazione" material="src: Immagini/atavola/colazione.png" position="2 4 2" scale="2.2 2.2 0.1" onclick="choiceTavola(\'1\')"></a-image>');
-            $('#table').after('<a-image class="atavola clickable" id="pranzo" material="src: Immagini/atavola/pranzo.png" position="4.5 4 2" scale="2.2 2.2 0.1" onclick="choiceTavola(\'2\')"></a-image>');
-            $('#table').after('<a-image class="atavola clickable" id="merenda" material="src: Immagini/atavola/merenda.png" position="7 4 2" scale="2.2 2.2 0.5" onclick="choiceTavola(\'3\')"></a-image>');
-            $('#table').after('<a-image class="atavola clickable" id="cena" material="src: Immagini/atavola/cena.png" position="9.5 4 2" scale="2.2 2.2 0.7" onclick="choiceTavola(\'4\')"></a-image>');
-        }, 1000);
-    }
+    setTimeout(function() {
+        $('#table').after('<a-image class="atavola clickable" id="tav1" material="src: Immagini/atavola/colazione.png" position="2 4 0.3" scale="2.2 2.2 0.1" onclick="choiceTavola(\'1\')"></a-image>');
+        $('#table').after('<a-image class="atavola clickable" id="tav2" material="src: Immagini/atavola/pranzo.png" position="4.5 4 0.3" scale="2.2 2.2 0.1" onclick="choiceTavola(\'2\')"></a-image>');
+        $('#table').after('<a-image class="atavola clickable" id="tav3" material="src: Immagini/atavola/merenda.png" position="7 4 0.3" scale="2.2 2.2 0.5" onclick="choiceTavola(\'3\')"></a-image>');
+        $('#table').after('<a-image class="atavola clickable" id="tav4" material="src: Immagini/atavola/cena.png" position="9.5 4 0.3" scale="2.2 2.2 0.7" onclick="choiceTavola(\'4\')"></a-image>');
+    }, 1000);
     
     $.getScript('Script/ajaxCall.js', function() {        
         var elm;
@@ -345,7 +339,66 @@ function atavola(diff) {
 }
 
 function choiceTavola(momento) {
-    console.log("ciaoneee " + momento);
+    
+    //rimozione della cliccabilità delle immagini
+    document.getElementById('tav1').removeAttribute('onclick');
+    document.getElementById('tav2').removeAttribute('onclick');
+    document.getElementById('tav3').removeAttribute('onclick');
+    document.getElementById('tav4').removeAttribute('onclick');
+    
+    setTimeout(function() {
+        document.getElementById('tav1').setAttribute('visible', false);
+        document.getElementById('tav2').setAttribute('visible', false);
+        document.getElementById('tav3').setAttribute('visible', false);
+        document.getElementById('tav4').setAttribute('visible', false);
+        document.getElementById('elem').setAttribute('visible', false);
+    }, 1000);
+    
+    feedbackTavola(momento);
+    
+    
+}
+
+function feedbackTavola(momentog) {
+    var element = alt[0].dbelement;
+    
+    //estrazione momenti della giornata associati all'immagine
+    var mom = [];   
+    mom.push(element.momento);    
+    if(element.momento2 != '') 
+        mom.push(element.momento2);
+    
+    //controllo correttezza risposta
+    var corr = false;
+    for(var i=0; i<mom.length; i++)
+        if(momentog == mom[i]) { 
+            corr = true;
+            break;
+        }
+    
+    //feedback
+    if(corr) {
+        setTimeout(function() {
+            $('#table').after('<a-image class="atavola" id="feed"  position="8.2 3.5 2" material="src:Immagini/happy.png" scale="3 3 3"></a-image>');
+        }, 2000);             
+        tavolaPts.push('1');
+    }
+    
+    else {
+        setTimeout(function() {
+            $('#table').after('<a-image class="atavola" id="feed" position="8.2 3.5 2" material="src:Immagini/sad.png" scale="3 3 3"></a-image>');
+        }, 2000);             
+        tavolaPts.push('0');
+    }
+    
+    //controllo numero giri fatti
+    if (tavolaPts.length<3)
+        setTimeout(function() {
+            $('.atavola').remove();
+            atavola(diff);
+        }, 5000);
+    else
+        finalPoints(tavolaPts, num_gioco);
 }
 
 
@@ -366,7 +419,7 @@ function finalPoints(arrayPts, game) {
          }
         else{
             setTimeout(function() {
-            $('.tavola').remove();
+            $('.atavola').remove();
             }, 4500); 
         }
     }

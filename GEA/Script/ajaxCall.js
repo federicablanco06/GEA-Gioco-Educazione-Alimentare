@@ -235,10 +235,7 @@ function getTavolaAjax(diff, callback) {
             //attivo i bottoni di scelta
             //TODO
             
-             $('.clickable').click(5000, function () {
-               // document.getElementById('elem').setAttribute('onclick', 'choiceTavola("1")');
-                console.log('sono stato premuto a lungooooh');
-            });
+            //$('.clickable').click(5000, function () {   });
 
             //rimando l'elemento al chiamante
             callback(elm);
