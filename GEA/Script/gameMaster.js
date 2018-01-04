@@ -377,16 +377,18 @@ function feedbackTavola(momentog) {
         }
     
     //feedback
-    if(corr) {
+    if(corr) {        
+        $('#table').after('<a-image class="atavola" id="feed"  position="8.2 3.5 2" material="src:Immagini/happy.png" scale="3 3 3" visible="false"></a-image>');
         setTimeout(function() {
-            $('#table').after('<a-image class="atavola" id="feed"  position="8.2 3.5 2" material="src:Immagini/happy.png" scale="3 3 3"></a-image>');
+            document.getElementById('feed').setAttribute('visible', true);
         }, 2000);             
         tavolaPts.push('1');
     }
     
     else {
+        $('#table').after('<a-image class="atavola" id="feed" position="8.2 3.5 2" material="src:Immagini/sad.png" scale="3 3 3" visible="false"></a-image>');
         setTimeout(function() {
-            $('#table').after('<a-image class="atavola" id="feed" position="8.2 3.5 2" material="src:Immagini/sad.png" scale="3 3 3"></a-image>');
+            document.getElementById('feed').setAttribute('visible', true);
         }, 2000);             
         tavolaPts.push('0');
     }
