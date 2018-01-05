@@ -18,6 +18,7 @@ p {
 }
 
 .contenitore {
+    padding-top: 20%;
 	background-color: #f2f087;
 	border-style: solid;
 	border-width: 10px;
@@ -110,7 +111,7 @@ p {
     padding: 1.5%;
     margin-left: 85%;
     margin-top: 4%;
-    width: 115px;
+    width: 10%;
     background-color: #CCFFFF;
     border-style: solid;
     border-color: #0033FF;
