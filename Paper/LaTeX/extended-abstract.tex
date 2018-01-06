@@ -1,6 +1,5 @@
 \documentclass{sigchi-ext}
-% Please be sure that you have the dependencies (i.e., additional
-% LaTeX packages) to compile this example.
+
 \usepackage[T1]{fontenc}
 \usepackage{textcomp}
 \usepackage[scaled=.92]{helvet} % for proper fonts
@@ -9,13 +8,7 @@
 \usepackage{booktabs} % for pretty table rules
 \usepackage{ccicons}  % for Creative Commons citation icons
 \usepackage{ragged2e} % for tighter hyphenation
-
-
-% Some optional stuff you might like/need.
-% \usepackage{marginnote} 
-% \usepackage[shortlabels]{enumitem}
-% \usepackage{paralist}
-% \usepackage[utf8]{inputenc} % for a UTF8 editor only
+\usepackage[utf8]{inputenc} 
 
 \def\plaintitle{SIGCHI Extended Abstracts Sample File: Note Initial
   Caps} \def\plainauthor{First Author, Second Author}
@@ -58,9 +51,7 @@
     %\affaddr{Cape Town, South Africa}\\
     %\email{author7@umbhaliu.ac.za} } }
     }
-% Make sure hyperref comes last of your loaded packages, to give it a
-% fighting chance of not being over-written, since its job is to
-% redefine many LaTeX commands.
+
 \definecolor{linkColor}{RGB}{6,125,233}
 \hypersetup{%
   pdftitle={\plaintitle},
@@ -92,18 +83,16 @@
 
 \maketitle
 
-% Uncomment to disable hyphenation (not recommended)
-% https://twitter.com/anjirokhan/status/546046683331973120
 \RaggedRight{} 
 
-% Do not change the page size or page settings.
+
 \begin{abstract}
   	This document describes the design of GEA, a web application for children
 with NeuroDevelopmental Disorder that has been developed in cooperation
 with a team of therapists and children themselves. GEA wants to achieve the
 objective of teaching the nutrition education through a virtual reality game
 focused on food pyramid, healthy food and good alimentation avoiding waste
-of real food. It is developed taking in mind the real laboratory that children
+of real food. It is developed keeping in mind the real laboratory that children
 do in the specialized center so we reproduce a smart and confortable space in
 witch they can play the three different games proposed to them. It is also
 possible to choose a level of difficulty to make a personalization based on
@@ -121,14 +110,8 @@ is doing so he can explain all the dubts or help if there are some difficulties.
 
 
 \section{Introduction}
-NeuroDevelopmental Disorder, NDD, is an umbrela term for a group of disabilities that are caused by a disfunction of a part of the brain or of the nervous system and show their symptoms in the children's physical and psychological development. Among the most common diseases we find Autism Spectrum Disorder, ASD, Attention Deficit and Hyperactivity Disorder, ADHD, and Down syndrome. Children who suffer from these syndromes need help in developing cognitive abilities such as attention and language, social skills such as the ability to relate to others and personal and domestic autonomy skills.\\
-\medskip
- Virtual Reality is nowadays easy to access because it requires the use of a smartphone, owned by the majority of the population, and a VR viewer easily available at low cost; moreover, this technology is much improved so that there are no more problems of feeling sick or difficulty in focusing. The great benefits of using Virtual Reality in an educational and rehabilitation context are now recognized worldwide and tested through various comparative tests between rehabilitation with the use of new technologies and rehabilitation with the use of classical methods.\\
-\medskip
-  Our project focuses precisely on this aspect and on the propensity of children to want to have an experience with instruments such as viewers because they are fascinating and attractive. GEA aims to help children with the use of virtual reality to develop their own and domestic autonomy in the field of nutrition, of great importance nowadays as demonstrated during the recent Expo held in Milan. Thanks to this game the children will train the memory to remember the different levels of the food pyramid, they will learn to recognize the healthy foods from the so-called "trash" and will understand how to combine a meal of the day with a dish and vice versa.
-
 \marginpar{
-  \vspace{-360pt} 
+  \vspace{50pt} 
     \begin{minipage}{0.925\marginparwidth}
   	  \includegraphics[width=\marginparwidth, height=90px]{figures/Game.png}
   	  \captionof{figure}{GEA home page}
@@ -138,6 +121,13 @@ NeuroDevelopmental Disorder, NDD, is an umbrela term for a group of disabilities
   	  \captionof{figure}{GEA levels of difficulty }
       \label{fig:levels}
     \end{minipage}}
+NeuroDevelopmental Disorder, NDD, is an umbrela term for a group of disabilities that are caused by a disfunction of a part of the brain or of the nervous system and show their symptoms in the children's physical and psychological development \cite{rif1}. Among the most common diseases we find Autism Spectrum Disorder, ASD, Attention Deficit and Hyperactivity Disorder, ADHD, and Down syndrome \cite{rif2}. Children who suffer from these syndromes need help in developing cognitive abilities such as attention and language, social skills such as the ability to relate to others and personal and domestic autonomy skills.\\
+\medskip
+ Virtual Reality is nowadays easy to access because it requires the use of a smartphone, owned by the majority of the population, and a VR viewer easily available at low cost; moreover, this technology is much improved so that there are no more problems of feeling sick or difficulty in focusing like in the past \cite{rif6}. The great benefits of using Virtual Reality in an educational and rehabilitation context are now recognized worldwide and tested through various comparative tests between rehabilitation with the use of new technologies and rehabilitation with the use of classical methods \cite{rif3}, \cite{rif4}, \cite{rif5}. The interest in Virtual Reality is so increased also in the field of NDD \cite{rif7}, \cite{rif8}. \\
+\medskip
+  Our project focuses precisely on this aspect and on the propensity of children to want to have an experience with instruments such as viewers because they are fascinating and attractive. GEA aims to help children with the use of virtual reality to develop their own and domestic autonomy in the field of nutrition, of great importance nowadays as demonstrated during the recent Expo held in Milan. Thanks to this game the children will train the memory to remember the different levels of the food pyramid, they will learn to recognize the healthy foods from the so-called "junk foods" and will understand how to combine a meal of the day with a dish and vice versa.
+
+
     
 \section{Approach}
 Our tool is named GEA, Food Education Game, that is in italian Gioco Educazione Alimentare and has been co-designed with NDD specialists from a local therapeutic center. They asked us to transform the feeding laboratory they propose to children once a week with the presence of a specialist in an interactive game.\\
@@ -155,7 +145,7 @@ The requirements for GEA were collected through meetings with psychologists and 
 \item \textit{Requirement 2: Inherent contents}\\
 	  The contents of the game must be inherent and reflect those kept during the workshop. For this 			  reason the three mini-games will be based on the food pyramid, on the recognition of healthy foods 		  and on the ability to combine dishes and meal of the day.
 \item \textit{Requirement 3: Attention to the graphics}\\
-	  Because of the various disabilities possessed by users, the game does not have to present particular 	  colors too cold or animations too abrupt or flashing as they could trigger reactions on the part of 		  the child that would ruin the therapy.
+	  Because of the various disabilities possessed by users, the game does not have to present particular 	  colors too cold or animations too abrupt or flashing as they could trigger reactions that would ruin 	  the therapy.
 \item \textit{Requirement 4: Graphic explanations}\\
 	  Users of GEA range in a gap of age and disability such that there is the possibility that not 			  everyone can read, for this reason we need visual explanations about the goal of the game and how to 	  do it.
 \item \textit{Requirement 5: The therapist must see}\\
@@ -186,7 +176,7 @@ The environment turns out to be identical for all three games in order to be abl
 \textit{\textbf{"Lear with the pyramid!"}}: this game is proposed in order to learn which food goes in which level of the pyramid. As shown in Figure \ref{fig:Pyramid}, on the screen disapear the table and appear on the wall a pyramid divided into five levels, a pointer that indicates which level you have to complete and a mobile with three options. The red circle is the pointer and you have to point to one of the food for a time interval to give the answer, this is to avoid that someone gives an answer when he is looking around. After an answer is given a feedback appears, like in Figure \ref{fig:wrong}, with a sad mascotte if it is wrong and the correspondent level coloured red or an happy mascotte if it is correct and the level coloured green.\\
 \medskip
 \marginpar{
-  \vspace{-70pt} 
+  \vspace{-90pt} 
     \begin{minipage}{0.925\marginparwidth}
   	  \includegraphics[width=\marginparwidth, height=90px]{figures/Healthy.png}
   	  \captionof{figure}{"Healthy or not?"}
@@ -211,7 +201,7 @@ GEA is developed as web applications, which ensures a high degree of portability
 \section{Conclusions and future work}
 Our solution turns out to be a good solution for various reasons such as:
 \begin{itemize}
-\item Virtual reality allows you to have a large database with presence of all possible foods without having to use real food that would go then wasted;
+\item Virtual reality allows you to have a large database with presence of all possible foods without having to use real food that would be then wasted;
 \item GEA turns out to be a compact solution because it only needs a smartphone, now owned by the majority
 part of the population, and a VR viewer, available for purchase minimum, so easily transportable;
 \item GEA, due to the easy availability of the technology used, allows to the child to be able to continue his education in the food field even in complete autonomy at home without having to wait for go to the center on the day dedicated to the feeding laboratory;
@@ -222,50 +212,26 @@ As emerged during the various interviews with the therapists, a possible develop
 
 A further development will take place in the field of allergies: the possibility is assumed to be able to add a game that allows children to identify which ones allergens are present in various foods as essential nowadays be able to understand what to eat or not in case of symilar problems. This addition also emerged during the meetings and was requested from intolerant kids who want to learn how to manage alone this problematic.
 
-\section{References Format}
-%Your references should be published materials accessible to the
-%public. Internal technical reports may be cited only if they are
-%easily accessible and may be obtained by any reader for a nominal
-%fee. Proprietary information may not be cited. Private communications
-%should be acknowledged in the main text, not referenced (e.g.,
-%[Golovchinsky, personal communication]). References should be in alphabetical
-%order by last name of first author. Use a numbered list of references
-%at the end of the article, ordered alphabetically by last name of
-%first author, and referenced by numbers in brackets. For papers from
-%conference proceedings, include the title of the paper and the name of
-%the conference. Do not include the location of the conference or the
-%exact date; do include the page numbers if available. 
+%\section{References Format}
 
-%References should be in ACM citation format:
-%\url{http://www.acm.org/publications/submissions/latex_style}.  
-%This includes citations to Internet
-%resources~\cite{CHINOSAUR:venue,cavender:writing,psy:gangnam}
-%according to ACM format, although it is often appropriate to include
-%URLs directly in the text, as above. Example reference formatting for
-%individual journal articles~\cite{ethics}, articles in conference
-%proceedings~\cite{Klemmer:2002:WSC:503376.503378},
-%books~\cite{Schwartz:1995:GBF}, theses~\cite{sutherland:sketchpad},
-%book chapters~\cite{winner:politics}, an entire journal
-%issue~\cite{kaye:puc},
-%websites~\cite{acm_categories,cavender:writing},
-%tweets~\cite{CHINOSAUR:venue}, patents~\cite{heilig:sensorama}, 
-%games~\cite{supermetroid:snes}, and
-%online videos~\cite{psy:gangnam} is given here.  See the examples of
-%citations at the end of this document and in the accompanying
-%\texttt{BibTeX} document. This formatting is a edited version of the
-%format automatically generated by the ACM Digital Library
-%(\url{http://dl.acm.org}) 
-%as ``ACM Ref''. DOI and/or URL links are
-%optional but encouraged as are full first names. Note that the
-%Hyperlink style used throughout this document uses blue links;
-%however, URLs in the references section may optionally appear in
-%black.
+\renewcommand\refname{}
+\begin{thebibliography}{100}
+\bibitem{rif1} EPA, "United States Environmental Protection Agency". America's Children and the Environment | Third Edition, Updated October 2015. 
+\url{https://www.epa.gov/sites/production/files/2015-10/documents/ace3_neurodevelopmental.pdf}
+\bibitem{rif2} American Psychiatric Association, 2013. Diagnostic and statistical manual of mental disorders (DSM-5®). American Psychiatric Pub. 
+\bibitem{rif3} Trevor Hall, Lin Lin, Fabrizia Mantovani, Nigel Newbutt, Thomas D. Parsons, Sarah Parsons, Giuseppe Riva, Eva Venturini, . "Virtual Reality in Pediatric Psychology"
+\url{http://pediatrics.aappublications.org/content/pediatrics/140/Supplement_2/S86.full.pdf}
+\bibitem{rif4} Denise Reid, Michelle Wang. "Virtual Reality in Pediatric Neurorehabilitation:Attention Deficit Hyperactivity Disorder, Autism and Cerebral Palsy"
+\url{https://www.karger.com/Article/Pdf/320847} 
+\bibitem{rif5} "Effectiveness of virtual reality using Wii gaming technology in children with Down syndrome", Research in Developmental Disabilities Volume 32, Issue 1, January–February 2011, Pages 312-321
+\bibitem{rif6} Strickland, D. C., Marcus, L. M., Mesibov, G. B., Hogan, K. 1996. Brief report: Two case studies using virtual reality as a learning tool for autistic children. Journal of Autism and Developmental Disorders, 26(6), 651–659
+\bibitem{rif7} Franca Garzotto, Mirko Gelsomini, and Daniele Occhiuto. 2016 (Conference Paper). Wildcard: A Wearable Virtual Reality Storytelling Tool for Children with Intellectual Developmental Disability Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC’16)
+\bibitem{rif8} Mirko Gelsomini. 2016. Best Student Research Paper Award: An Affordable Virtual Reality Learning Framework for Children with Neuro-Developmental Disorder. InProceedings of the 18th International ACM SIGACCESS Conference on Computers and Accessibility(ASSETS '16). ACM, New York, NY,USA, 343-344. DOI: https://doi.org/10.1145/2982142.2982143
+\end{thebibliography}
 
 \balance{} 
-
-\bibliographystyle{SIGCHI-Reference-Format}
-\bibliography{sample}
-
+%\bibliographystyle{SIGCHI-Reference-Format}
+%\bibliography{sample}
 \end{document}
 
 %%% Local Variables:
