@@ -12,10 +12,6 @@
         margin-top: 5%;
     }
 
-    #loading {
-        margin: auto;
-        padding-top: 40%;
-    }
 
     .contenitore {
         padding-top: 5%;
@@ -90,7 +86,7 @@
         display: block;
         color: #FF0000;
         font-size: 20px;
-        margin-left: 30%;
+        margin-left: 15%;
 
     }
     #difficulty {
@@ -117,9 +113,11 @@
     #back {
         font-size: 12px;
         padding: 1.5%;
-        margin-left: 85%;
+        margin-left: 60%;
         margin-top: 4%;
-        width: 10%;
+        width: 30%;
+        margin-bottom: 10%;
+        margin-right: 10%;
         background-color: #CCFFFF;
         border-style: solid;
         border-color: #0033FF;
