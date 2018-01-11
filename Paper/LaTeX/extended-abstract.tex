@@ -13,45 +13,26 @@
 \def\plaintitle{SIGCHI Extended Abstracts Sample File: Note Initial
   Caps} \def\plainauthor{First Author, Second Author}
 \def\emptyauthor{}
-\def\plainkeywords{Neurodevelopmental Disorders; children; virtual reality; learning; play; alimentation; autonomy; food pyramid.}
+\def\plainkeywords{Neurodevelopmental Disorders; children; virtual reality; learning; game; nutrition; autonomy; food pyramid.}
 \def\plaingeneralterms{Documentation, Standardization}
 
 \title{GEA - a VR Game for Nutrition Education for Children with Neurodevelopmental Disorders}
 
 \numberofauthors{5}
-% Notice how author names are alternately typesetted to appear ordered
-% in 2-column format; i.e., the first 4 autors on the first column and
-% the other 4 auhors on the second column. Actually, it's up to you to
-% strictly adhere to this author notation.
+
 \author{%
-  \alignauthor{%
+	\vspace{20px}
     \textbf{Federica Blanco}\\
-    \affaddr{Politecnico di Milano} \\
-    \email{federica.blanco@mail.polimi.it} }\alignauthor{%
     \textbf{Giulia Pennati}\\
-    \affaddr{Politecnico di Milano}\\
-    \email{giulia1.pennati@mail.polimi.it} } \vfil \alignauthor{%
-    \textbf{Nicolò Messina}\\
-    \affaddr{Politecnico di Milano}\\
-    \email{nicolo.messina@mail.polimi.it} }%\alignauthor{%
-    %\textbf{Sixth Author}\\
-    %\affaddr{Universit\'e de Auteur-Sud}\\
-    %\affaddr{40222 Auteur France}\\
-    %\email{author6@author.fr} } 
-%    \vfil
-    \alignauthor{%
     \textbf{Vito Matarazzo}\\
-    \affaddr{Politecnico di Milano}\\
-    \email{vito.matarazzo@mail.polimi.it}}\vfil \alignauthor{% \\
-    \textbf{Franca Garzotto}\\    
-    \affaddr{Politecnico di Milano}\\
-    \email{franca.garzotto@mail.polimi.it}} 
-    %}\alignauthor{%
-    %\textbf{Seventh Author}\\
-    %\affaddr{Department of Skrywer}\\
-    %\affaddr{University of Umbhali}\\
-    %\affaddr{Cape Town, South Africa}\\
-    %\email{author7@umbhaliu.ac.za} } }
+    \textbf{Nicolò Messina}\\
+    \textbf{Franca Garzotto}\\
+    %\vspace{70px}
+    \affaddr{Department of Electronics, Information and Bioengineerin}\\
+    \affaddr{Politecnico di Milano} \\
+    \affaddr{20133 Milano, Italy} \\
+    $\{$federica.blanco, giulia1.pennati$\}$@mail.polimi.it\\
+    $\{$vito.matarazzo, nicolo.messina, franca.garzotto$\}$@polimi.it
     }
 
 \definecolor{linkColor}{RGB}{6,125,233}
@@ -89,31 +70,54 @@
 
 
 \begin{abstract}
-  	This document describes the design of GEA, a web application for children
-with NeuroDevelopmental Disorder that has been developed in cooperation
-with a team of therapists and children themselves. GEA wants to achieve the
-objective of teaching the nutrition education through a virtual reality game
-focused on food pyramid, healthy food and good alimentation avoiding waste
-of real food. It is developed keeping in mind the real laboratory that children
-do in the specialized center so we reproduce a smart and confortable space in
-witch they can play the three different games proposed to them. It is also
-possible to choose a level of difficulty to make a personalization based on
-child capacities. GEA has also a functionality that replicates the smartphone
-screen on a pc screen in such a way that the therapist can see what the child
-is doing so he can explain all the dubts or help if there are some difficulties.
+  	This document describes the design of GEA, a web application for children with Neurodevelopmental Disorders that has been designed in collaboration with a team of therapists and children themselves. GEA wants to teach nutrition education through a virtual reality game focused on recognizing the right food for the right situation and avoiding wastes. It is based on real laboratory activities that children do in a local specialized center. We have reproduced these activities in a smart and comfortable space, in which children can play the three different games proposed. The application allows to choose the level of difficulty, in order to customize the game based on each child’s skills. GEA has also a functionality that replicates the smartphone screen on an external device so that the therapists can see what the child is doing and provide help if there are some difficulties. 
 \end{abstract}
 
 \keywords{\plainkeywords}
-
-\category{H.5.1}{Information interfaces and presentation}{Multimedia Information Systems}
-\category{H.5.2}{Information interfaces and presentation}{User Interfaces}
-\category{K.4.2}{Computers and society}{Social Issues}
+\section{ACM Classification Keywords}
+$\bullet$\textbf{Human-centered computing$\sim$Virtual reality}
+$\bullet$\textbf{Social and professional topics$\sim$People with disabilities}
+$\bullet$\textit{Social and professional topics$\sim$Children} 
+$\bullet$\textit{Applied computing$\sim$Interactive learning environments}
 
 
 
 \section{Introduction}
 \marginpar{
   \vspace{50pt} 
+    \begin{minipage}{0.925\marginparwidth}
+  	  \includegraphics[width=\marginparwidth, height=90px]{figures/piramide.jpg}
+  	  \captionof{figure}{The food pyramid, representing the optimal quantity of food to be eaten each day from each of the basic food groups}
+      \label{fig:piramide}
+      %\vspace{30pt}
+      %\includegraphics[width=\marginparwidth, height=90px]{figures/Level.png}
+  	  %\captionof{figure}{GEA levels of difficulty }
+      %\label{fig:levels}
+    \end{minipage}}
+Neurodevelopmental Disorders (NDD) is an umbrella term for a group of disabilities caused by a dysfunction of a part of the brain or of the nervous system and show their symptoms in the children’s physical and psychological development \cite{rif1}. Examples of this group of disorders are Autism Spectrum Disorder (ASD) Attention Deficit and Hyperactivity Disorder (ADHD) and Down syndrome \cite{rif2}. Children suffering from these syndromes need help in developing cognitive abilities such as attention and language, social skills such as the ability to relate to others and personal and domestic autonomies.
+\\
+\medskip
+Virtual Reality (VR) is nowadays easy to access because it requires the use of a smartphone, owned by the majority of the population, and a VR headset available at low cost; moreover, this technology has been much improved, so that the problems of past generation devices, such as weight and motion sickness \cite{rif6}, have been greatly reduced. The are many studies that applied VR in educational and rehabilitation contexts, comparing this technological approach with the traditional methods and highlighting potential benefits \cite{rif3} \cite{rif4} \cite{rif5}. The interest in VR is therefore increased also in the field of NDD \cite{rif7} \cite{rif8}.
+\\
+\medskip
+Our project falls in this area, since it aims to help children with NDD, through the use of the VR technology, in developing their autonomy and knowledge in the field of nutrition, of great importance nowadays as demonstrated during the recent Expo held in Milan \cite{rif9}.
+Thanks to the developed games, children can train their memory by remembering the different levels of the food pyramid (Figure \ref{fig:piramide}), they can learn to distinguish healthy foods from the so-called "junk foods" and can understand how to associate a meal of the day with a dish and vice versa.
+
+    
+\section{Approach}
+Our application is named GEA (Gioco Educazione Alimentare, Italian words for “Food Education Game”) and has been co-designed with NDD specialists from a local therapeutic center called \emph{Fraternità e Amicizia}. They asked us to transform the food laboratory they propose to children once a week with the presence of a specialist in an interactive digital game. In this laboratory,they perform activities such as creating a billboard with the food pyramid and pasting dishes images or cutting out unhealthy foods from a supermarket flyer. \\
+\medskip
+The creation of a learning game in VR may bring many benefits: children are usually attracted by new technologies such as VR, and the use of wearable headsets helps maintain attention and concentration since it removes the distractions of the external world. Moreover, VR devices are easy to use, as they require little knowledge of the technology behind them, and they allow to reproduce the real environment of the therapy, facilitating the familiarization with the game.\\ 
+\medskip
+Among the various types of VR viewers available today, we decided to use Google Cardboard, the cheapest solution on the market, since the game is meant to be integrated in existing therapeutic programs and widely adopted. This viewer is composed of two biconvex lenses mounted on a plastic or cardboard structure available in different colors and shapes. The smartphone set inside this structure displays the visual contents, splitting them into two near-identical bi-dimensional images, and the interaction is achieved through gaze focus. The user can navigate in the virtual world by rotating his/her head, which will consequently rotate the virtual scene projected in the display.\\
+\medskip
+The effectiveness of learning by playing also lies in the ability to personalize the game based on the abilities of the individual user: for this reason, three different levels of difficulty have been inserted, among which the therapist can decide according to the specific patient’s needs and capabilities. We have also decided to divide GEA into three different activities, as the specialists pointed out the fact that each user has more difficulties in learning one concept than another; therefore, the therapists can decide which activity to propose to their patient in each session.
+
+
+
+\section{GEA: Requirements}
+\marginpar{
+  \vspace{-30pt} 
     \begin{minipage}{0.925\marginparwidth}
   	  \includegraphics[width=\marginparwidth, height=90px]{figures/Game.png}
   	  \captionof{figure}{GEA home page}
@@ -123,43 +127,25 @@ is doing so he can explain all the dubts or help if there are some difficulties.
   	  \captionof{figure}{GEA levels of difficulty }
       \label{fig:levels}
     \end{minipage}}
-NeuroDevelopmental Disorder, NDD, is an umbrela term for a group of disabilities that are caused by a disfunction of a part of the brain or of the nervous system and show their symptoms in the children's physical and psychological development \cite{rif1}. Among the most common diseases we find Autism Spectrum Disorder, ASD, Attention Deficit and Hyperactivity Disorder, ADHD, and Down syndrome \cite{rif2}. Children who suffer from these syndromes need help in developing cognitive abilities such as attention and language, social skills such as the ability to relate to others and personal and domestic autonomy skills.\\
-\medskip
- Virtual Reality is nowadays easy to access because it requires the use of a smartphone, owned by the majority of the population, and a VR viewer easily available at low cost; moreover, this technology is much improved so that there are no more problems of feeling sick or difficulty in focusing like in the past \cite{rif6}. The great benefits of using Virtual Reality in an educational and rehabilitation context are now recognized worldwide and tested through various comparative tests between rehabilitation with the use of new technologies and rehabilitation with the use of classical methods \cite{rif3}, \cite{rif4}, \cite{rif5}. The interest in Virtual Reality is so increased also in the field of NDD \cite{rif7}, \cite{rif8}. \\
-\medskip
-  Our project focuses precisely on this aspect and on the propensity of children to want to have an experience with instruments such as viewers because they are fascinating and attractive. GEA aims to help children with the use of virtual reality to develop their own and domestic autonomy in the field of nutrition, of great importance nowadays as demonstrated during the recent Expo held in Milan \cite{rif11}. Thanks to this game the children will train the memory to remember the different levels of the food pyramid, they will learn to recognize the healthy foods from the so-called "junk foods" and will understand how to combine a meal of the day with a dish and vice versa.
-
-
-    
-\section{Approach}
-Our tool is named GEA, Food Education Game, that is in italian Gioco Educazione Alimentare and has been co-designed with NDD specialists from a local therapeutic center. They asked us to transform the feeding laboratory they propose to children once a week with the presence of a specialist in an interactive game.\\
-\medskip
- This virtualization has many benefits as the viewer helps to stimulate attention and concentration without any kind of distraction due to external agents. We decided to use virtual reality also because of the ease of use of the instrumentation, as it requires little knowledge of the technology, and for the possibility of being able to reproduce the real environment of the therapy in order to have easy familiarization with the game. The smartphone set inside the VR visor displays the visual contents, splitting them into two near-identical bi-dimensional images, and the interaction is achieved through focus. The user can navigate in the virtual world by rotating his head, which will consequently rotate the virtual scene projected in the display that is a room with some kitchen stuff.\\
-\medskip
-  The effectiveness of learning by playing also lies in the ability to personalize the session based on the abilities of the individual user: for this reason, three different levels of difficulty have been inserted, among which the therapist can decide knowing the patient's knowledge. To increase personalization we have also decided to divide GEA into three mini-games as we have been told that each user has more difficulty learning one concept than another, so that in this case the therapist will decide which one experience to make the patient present at that time feel. Finally we opted for this implementation as it makes it possible to continue learning in complete autonomy when you are in any place and at any time of the day.
-
-
-\section{GEA: Requirements}
-The requirements for GEA were collected through meetings with psychologists and experts in the field of neurological disorders and who propose this feeding laboratory activity to their patients. A meeting was also held with all the young people present in the local therapeutic center to discuss with them the idea behind GEA and to know directly from them what they usually do, how they do it, the greatest difficulties they encounter and what they would like expect from this application.
+The requirements for GEA were collected through meetings with psychologists and experts in the field of NDD. We also took part to some of the food laboratory activities organized in the therapeutic center collaborating with us. We observed how the activities are performed and we discussed with the patients (children and young adults) and the therapists of the center about the idea of realizing a VR game with the same contents and goal. Moreover, we asked them questions about what they like of the food laboratory, what are the difficulties they usually encounter, what is the patients’ relationship with technology and what they would expect from a VR game. After these meetings, we extracted the following requirements for the application to be realized:
 \begin{enumerate}
 \item \textit{Requirement 1: Customization}\\
-      The therapist must be able to set a level of difficulty in the game based on the child's skills so 		  as to start from his level of knowledge and then gradually increase.
+      The therapist must be able to set a level of difficulty in the game based on the child’s skills so as to adapt the game to his/her level of knowledge and then gradually increase the difficulty.
 \item \textit{Requirement 2: Inherent contents}\\
-	  The contents of the game must be inherent and reflect those kept during the workshop. For this 			  reason the three mini-games will be based on the food pyramid, on the recognition of healthy foods 		  and on the ability to combine dishes and meal of the day.
-\item \textit{Requirement 3: Attention to the graphics}\\
-	  Because of the various disabilities possessed by users, the game does not have to present particular 	  colors too cold or animations too abrupt or flashing as they could trigger reactions that would ruin 	  the therapy.
-\item \textit{Requirement 4: Graphic explanations}\\
-	  Users of GEA range in a gap of age and disability such that there is the possibility that not 			  everyone can read, for this reason we need visual explanations about the goal of the game and how to 	  do it.
-\item \textit{Requirement 5: The therapist must see}\\
-	  the therapists need to have always under control what the child is doing during the game experience 		  to know where they are improving and where they still find difficulties and to be able to follow the 	  therapy by providing the necessary explanations.
+	  The contents of the game must be inherent and reflect those used during the food laboratory workshops. For this reason, the developed games should be based on the food pyramid, on the recognition of healthy foods and on the ability to associate dishes and meals.
+	  \medskip
+\item \textit{Requirement 3: Simple virtual environment}\\
+	  Because of the various disabilities possessed by users, particular attention to the visualized graphics should be kept: the environment should contain only elements essential for the specific task and cold colors should be avoided, as well as unexpected or flashing animations, as they could trigger negative reactions in the users.
+\item \textit{Requirement 4: Visual explanations}\\
+	  The possible users of the game differ in age and severity of disability, so there is the possibility that not everyone can read. For this reason, each task must include visual explanations about the goal of the game and how to complete it.
+\item \textit{Requirement 5: Importance of Feedback}\\
+	  Every user’s action during the game must receive the right feedback. Giving a positive feedback when the right action is accomplished and a negative one when a mistake is made helps maintain the children attention span and their engagement in the game.
+\item \textit{Requirement 6: Session monitoring}\\
+		The therapist must always keep under control what the child is doing during the game experience, in order to follow his/her improvements and difficulties and to be able to provide the necessary explanations. 	  
 \end{enumerate}
 
 \section{GEA: Design}
-Starting from the above requirements GEA is designed like this: at the start of the application the main page is shown in which there is the possibility for the therapist to choose between three games, as shown in Figure \ref{fig:home page}: "Learn with the pyramid!", "Healthy or not?" and "Let's eat!"; the choice will be made via touchscreen on the smartphone. \\
-After that will appear the screen shown in Figure \ref{fig:levels} in order to be able to make, always by the expert, the choice for the level of difficulty desired between: easy, medium and difficult. The difficulty does not lie in the way the game is played or in its objective but in the type of food shown. In the screen there is also a button called "back" to give the possibility to come back if there was a wrong choice in the type of game.\\
-After the level of difficulty is selected the game starts.\\
-The environment turns out to be identical for all three games in order to be able to follow the real setting of the therapy: there is a room with a table, a fridge, a window, a door, a sofa and a kitchen in order to make the space confortable but also inherent with alimentation. In front of the user will appear a short explanation and a play button.\\
-\medskip
+Starting from the above requirements, we designed GEA as an easy-to-use smartphone application including an initial menu,
 \begin{figure*}
  \begin{minipage}[c]{\columnwidth}
    \centering
@@ -175,10 +161,9 @@ The environment turns out to be identical for all three games in order to be abl
    \label{fig:wrong}
  \end{minipage}
 \end{figure*}
-\textit{\textbf{"Lear with the pyramid!"}}: this game is proposed in order to learn which food goes in which level of the pyramid. As shown in Figure \ref{fig:Pyramid}, on the screen disapear the table and appear on the wall a pyramid divided into five levels, a pointer that indicates which level you have to complete and a mobile with three options. The red circle is the pointer and you have to point to one of the food for a time interval to give the answer, this is to avoid that someone gives an answer when he is looking around. After an answer is given a feedback appears, like in Figure \ref{fig:wrong}, with a sad mascotte if it is wrong and the correspondent level coloured red or an happy mascotte if it is correct and the level coloured green.\\
-\medskip
-\marginpar{
-  \vspace{-90pt} 
+ from which the therapist can select which game to launch and its level of difficulty, and three VR games, based on the real activities of the previously cited food laboratory. When the application starts, the home page is shown, with the three available games, as shown in Figure \ref{fig:home page}, "Learn with the pyramid!", "Healthy or not?" and "Let’s eat!”. After that, the therapist chooses the level of difficulty of the selected game (Figure \ref{fig:levels}). The difficulty does not lie in the way the game is played or in its objective but in the type of food shown, for example in the easy level you will find common foods such as pasta, pizza or cake while in the difficult level there will be foods such as barley, chickpeas and papaya that are less known by children. The choice of the game and the difficulty is made via touchscreen on the smartphone, before inserting it in the VR viewer: in this way, the therapist can easily setup the experience before putting the patient in the virtual environment.
+ \marginpar{
+  \vspace{-190pt} 
     \begin{minipage}{0.925\marginparwidth}
   	  \includegraphics[width=\marginparwidth, height=90px]{figures/Healthy.png}
   	  \captionof{figure}{"Healthy or not?"}
@@ -188,49 +173,45 @@ The environment turns out to be identical for all three games in order to be abl
   	  \captionof{figure}{"Let's eat!"}
       \label{fig:eat}
     \end{minipage}}
-\textit{\textbf{"Healthy or not?"}}: this game is proposed in order to learn if a food is healthy or not. As shown in Figure \ref{fig:healthy}, on the screen appear on the table two dishes, a bin and a visual explanation: with the eyes you have to move and throw in the bin the junk food. There are three sessions of this game and after each answer there is a feedback like before.\\
+When the game starts, the patient is immersed in the virtual space, which is the same for all the games and reproduces the real setting of the therapy: there is a room with a table, a fridge, a window, a door, a sofa and a kitchen, in order to keep the space as simple as possible but also inherent with nutrition. In front of the user, a short explanation for each game and a play button appear. The explanation is represented by graphical clues, to be understandable also by users who cannot read.
+Moreover, a fantasy character serving as mascot of the game (shown in Figure \ref{fig:home page}) was created, with the goal of making the application more fun and serving as visual feedback after each user’s action.\\ 
 \medskip
-\textit{\textbf{"Let's eat!"}}: this game is proposed in order to learn if in a meal of the day i can or not eat a specific dish. This game was explicitly required by young people who spoke with us because they have some difficulties to understand when they can eat something or they can not. As shown in Figure \ref{fig:eat} there are all the four meal of the day and a dish: the objective is to select the correct meal/s in which i can eat it. This game is proposed also in the vice versa mode. It is composed by three sessions and after each answer there is a feedback.\\
+\textit{\textbf{"Lear with the pyramid!"}}: this game aims to teach how to complete the food pyramid, by selecting which food goes in each level. In the virtual environment the table is substituted by a pyramid divided into five levels, with a pointer indicating which level the user is currently completing and a shelf with three options (Figure \ref{fig:Pyramid}). The red circle in the image is the pointer representing the current user’s focus point. The user has to focus on the correct choice for a certain time interval to give the answer, avoiding possible unwanted answers while the user is looking around in the environment. After an answer is given a feedback appears (Figure \ref{fig:wrong}): the game mascot appears with a sad expression if the answer is wrong and the active level of the pyramid becomes red, if the answer is correct a happy mascot is shown and the level becomes green.\\
 \medskip
-At the end of all the sessions of the mini-games is shown the totalized points and the application comes back automatically to the home page.\\
+
+\textit{\textbf{"Healthy or not?"}}: this game is proposed to train patients in recognizing if a dish is healthy or not. When the game starts, two dishes appear on the table of the virtual room, with a bin and the visual explanation of how the game works (Figure \ref{fig:healthy}): the user must select the “junk food” with the eyes and move it, by keeping the gaze focused on it, until it is thrown in the bin. There are three repetitions of this game, with different choices, and after each answer a feedback is shown, like the one described before.\\
 \medskip
-The therapist can view the entire session of play performed by the child thanks to the use of Google Chromecast which allows the replication of the smartphone screen on the PC on which it is installed \cite{rif9}.
+\textit{\textbf{"Let's eat!"}}: this game aims to teach how to associate meals of the day to specific dishes. It was created in particular for those patients who have difficulties in understanding when they can eat something or they cannot. In this case, the virtual environment presents four images representing the four main meals (breakfast, lunch, afternoon snack and dinner) and a dish (Figure \ref{fig:eat}): the goal is to select the correct meal/s in which the dish can be eaten. The choice can be also the opposite (selecting which dish corresponds to a certain meal). Like in the second game, there are three repetitions and after each answer a feedback is given.\\
+\medskip
+At the end of each session with each game the number of correct and wrong answers is shown to the user, with the total scored points.\\
+\medskip
+The therapist can see what the child is doing in the virtual environment by using a screen casting method, such as Google Chromecast \footnote{https://chromecast.com} , which allows the replication of the smartphone’s screen on an external monitor.
 
 
 \section{GEA: Implementation}
-GEA is developed as web applications, which ensures a high degree of portability of all our technology on any platform. We used standard web languages: HTML, JavaScript (for the client side) and PHP (for the server side) and a public software library, A-Frame, that is an open-source web framework for creating 3D and virtual reality applications with JavaScript and HTML \cite{rif10}.
+GEA has been developed as web applications, which ensures a high degree of portability on any platform. We used standard web languages: HTML, JavaScript (for the client side) and PHP (for the server side), with the addition of A-Frame \footnote{https://aframe.io/} , an open-source web framework for creating 3D and virtual reality applications for the web.
 
 \section{Conclusions and future work}
-Our solution turns out to be a good solution for various reasons such as:
-\begin{itemize}
-\item Virtual reality allows you to have a large database with presence of all possible foods without having to use real food that would be then wasted;
-\item GEA turns out to be a compact solution because it only needs a smartphone, now owned by the majority
-part of the population, and a VR viewer, available for purchase minimum, so easily transportable;
-\item GEA, due to the easy availability of the technology used, allows to the child to be able to continue his education in the food field even in complete autonomy at home without having to wait for go to the center on the day dedicated to the feeding laboratory;
-\item Thanks to the presence of a nice and colorful graphics this application allows you to have a fun experience motivating children in learning by playing.
-\end{itemize}
-
-As emerged during the various interviews with the therapists, a possible development future in the short term of GEA will result in the introduction of the possibility of the psychologist's interaction during the game: we will then implement one function to pause the game on the smartphone inside th viewer using the PC so that the children can have the necessary explanations in case of doubt or the expert can ask the reasons for that they pushed to a certain choice rather than another and to understand so better what the subjective difficulties are.\\
-
-A further development will take place in the field of allergies: the possibility is assumed to be able to add a game that allows children to identify which ones allergens are present in various foods as essential nowadays be able to understand what to eat or not in case of symilar problems. This addition also emerged during the meetings and was requested from intolerant kids who want to learn how to manage alone this problematic.
+Transforming traditional learning and therapeutic activities for children with NDD into interactive virtual experiences may bring new benefits in this field. VR provides a safe and controllable environment, in which children can train their cognitive and memory skills without possible distractions and with the supervision of a therapist. The increasingly low-cost of VR viewers facilitates a large-scale adoption of this type of applications, while the portability and ease of use of VR technology allows children to perform the same learning activities offered by specialized centers at any time. Using GEA, they can continue their food education with their parents at home, without having to wait for the dedicated laboratory at the therapeutic center.\\
+Moreover, the availability on the Internet allows the application to rely upon a large database of game contents, which can be extended at any time by the therapists, making the game activities virtually infinite. Finally, the presence of simple and colorful graphics makes the game more fun, motivating children in learning by playing.\\
+\medskip
+Our future work in the short term includes the execution of an empirical study at the therapeutic center collaborating with us. The goal of this study is to verify the learning benefits of the developed VR games, comparing the results with the traditional laboratory activity. Additionally, the application will be improved with new functionalities, suggested by the therapists collaborating with us. For example, the possibility for the therapist to interact during the activity, by pausing the game at any time to give children explanations and suggestions if needed. A further development can be to add new themes for the application games, such as a game about allergies, teaching children how to identify what they can eat and what they cannot.
 
 %\section{References Format}
 \renewcommand\refname{ciao}
 \begin{thebibliography}{100}
-\bibitem{rif1} EPA, "United States Environmental Protection Agency". America's Children and the Environment | Third Edition, Updated October 2015. 
+\bibitem{rif1} EPA, "United States Environmental Protection Agency". America’s Children and the Environment | Third Edition, Updated October 2015. 
 \url{https://www.epa.gov/sites/production/files/2015-10/documents/ace3_neurodevelopmental.pdf}
 \bibitem{rif2} American Psychiatric Association, 2013. Diagnostic and statistical manual of mental disorders (DSM-5®). American Psychiatric Pub. 
-\bibitem{rif3} Trevor Hall, Lin Lin, Fabrizia Mantovani, Nigel Newbutt, Thomas D. Parsons, Sarah Parsons, Giuseppe Riva, Eva Venturini, . "Virtual Reality in Pediatric Psychology"
-\url{http://pediatrics.aappublications.org/content/pediatrics/140/Supplement_2/S86.full.pdf}
-\bibitem{rif4} Denise Reid, Michelle Wang. "Virtual Reality in Pediatric Neurorehabilitation:Attention Deficit Hyperactivity Disorder, Autism and Cerebral Palsy"
+\bibitem{rif3} Trevor Hall, Lin Lin, Fabrizia Mantovani, Nigel Newbutt, Thomas D. Parsons, Sarah Parsons, Giuseppe Riva, Eva Venturini, . "Virtual Reality in Pediatric Psychology" 
+\url{http://pediatrics.aappublications.org/content/ pediatrics/140/Supplement_2/S86.full.pdf}
+\bibitem{rif4} Denise Reid, Michelle Wang. "Virtual Reality in Pediatric Neurorehabilitation:Attention Deficit Hyperactivity Disorder, Autism and Cerebral Palsy" 
 \url{https://www.karger.com/Article/Pdf/320847} 
 \bibitem{rif5} "Effectiveness of virtual reality using Wii gaming technology in children with Down syndrome", Research in Developmental Disabilities Volume 32, Issue 1, January–February 2011, Pages 312-321
-\bibitem{rif6} Strickland, D. C., Marcus, L. M., Mesibov, G. B., Hogan, K. 1996. Brief report: Two case studies using virtual reality as a learning tool for autistic children. Journal of Autism and Developmental Disorders, 26(6), 651–659
+\bibitem{rif6} Strickland, D. C., Marcus, L. M., Mesibov, G. B., Hogan, K. 1996. Brief report: Two case studies using virtual reality as a learning tool for autistic children.Journal of Autism and Developmental Disorders, 26(6), 651–659  
 \bibitem{rif7} Franca Garzotto, Mirko Gelsomini, and Daniele Occhiuto. 2016 (Conference Paper). Wildcard: A Wearable Virtual Reality Storytelling Tool for Children with Intellectual Developmental Disability Annual International Conference of the IEEE Engineering in Medicine and Biology Society (EMBC’16)
-\bibitem{rif8} Mirko Gelsomini. 2016. Best Student Research Paper Award: An Affordable Virtual Reality Learning Framework for Children with Neuro-Developmental Disorder. InProceedings of the 18th International ACM SIGACCESS Conference on Computers and Accessibility(ASSETS '16). ACM, New York, NY,USA, 343-344. DOI: \url{https://doi.org/10.1145/2982142.2982143}
-\bibitem{rif9} Google Chromecast. \url{https://chromecast.com}
-\bibitem{rif10} A-Frame. \url{https://aframe.io/}
-\bibitem{rif11} EXPO 2015, Milan. \url{www.expo2015.org/}
+\bibitem{rif8} Yufang Cheng, PhD, Cheng-Li Huang, MA, Chung-Sung Yang, PhD. 2015. Using a 3D Immersive Virtual Environment System to Enhance Social Understanding and Social Skills for Children With Autism Spectrum Disorders. Focus on Autism and Other Developmental Disabilities, 30(4), 222–236. DOI:  \url{https://doi.org/10.1177/1088357615583473 }
+\bibitem{rif9} EXPO 2015, Milan. \url{www.expo2015.org/}
 \end{thebibliography}
 
 \balance{} 
