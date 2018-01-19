@@ -1,9 +1,11 @@
 var num_gioco, diff; //variabili globali gioco
 var pos1, pos2;
 var alt;
-var sanoPts = [];
+var corrDifficultyArray = [];
+var sbaDifficultyArray = [];
 var alreadyUsedIds = [];
 var livello = "1";
+var sanoPts = [];
 var piramidePts = [];
 var tavolaPts = [];
 
@@ -41,23 +43,28 @@ function gameStarter() {
 function piramide(diff,live) {
     //inizia il gioco facendo sparire il tavolo (il gioco utilizzerà principalmente il muro)
     document.getElementById('table').setAttribute("visible", false);
+    $('#table').after('<a-image class="piramide" id="lev1" position="3.5 1 0.1" material="src: Immagini/piramide/piano1.png" rotation="0 0 0" scale="6 0.8 2" visible="false"></a-image>');
+    $('#table').after(' <a-image class="piramide" id="lev2" position="3.5 1.8 0.1" material="src: Immagini/piramide/piano2.png" rotation="0 0 0" scale="5.9 0.8 2" visible="false"></a-image>');
+    $('#table').after('<a-image class="piramide" id="lev3" position="3.45 2.6 0.1" material="src: Immagini/piramide/piano3.png" rotation="0 0 0" scale="5.8 0.8 2" visible="false"></a-image>');
+    $('#table').after('<a-image class="piramide" id="lev4" position="3.62 3.4 0.1" material="src: Immagini/piramide/piano4.png" rotation="0 0 0" scale="5.75 0.8 2" visible="false"></a-image>');
+    $('#table').after('<a-image class="piramide" id="lev5" position="3.53 4.5 0.1" material="src: Immagini/piramide/piano5.png" rotation="0 0 0" scale="5.75 1.3 2" visible="false"></a-image>');
     
     //appaiono a scala i piani della piramide sul muro, apparizione SOLO la prima volta
     if(piramidePts.length == 0) {
     setTimeout(function(){
-        $('#table').after('<a-image class="piramide" id="lev1" position="3.5 1 0.1" material="src: Immagini/piramide/piano1.png" rotation="0 0 0" scale="6 0.8 2"></a-image>');
+       document.getElementById("lev1").setAttribute("visible", true);
     }, 500);
     setTimeout(function(){
-        $('#table').after(' <a-image class="piramide" id="lev2" position="3.5 1.8 0.1" material="src: Immagini/piramide/piano2.png" rotation="0 0 0" scale="5.9 0.8 2"></a-image>');
+        document.getElementById("lev2").setAttribute("visible", true);
     }, 1000);
     setTimeout(function(){
-        $('#table').after('<a-image class="piramide" id="lev3" position="3.45 2.6 0.1" material="src: Immagini/piramide/piano3.png" rotation="0 0 0" scale="5.8 0.8 2"></a-image>');
+        document.getElementById("lev3").setAttribute("visible", true);
     }, 1500);
     setTimeout(function(){
-        $('#table').after('<a-image class="piramide" id="lev4" position="3.62 3.4 0.1" material="src: Immagini/piramide/piano4.png" rotation="0 0 0" scale="5.75 0.8 2"></a-image>');
+        document.getElementById("lev4").setAttribute("visible", true);
     }, 2000);
     setTimeout(function(){
-        $('#table').after('<a-image class="piramide" id="lev5" position="3.53 4.5 0.1" material="src: Immagini/piramide/piano5.png" rotation="0 0 0" scale="5.75 1.3 2"></a-image>');
+        document.getElementById("lev5").setAttribute("visible", true);
     }, 2500);
     
     }
@@ -189,12 +196,13 @@ function feedbackPiramide(id){
 
 
 //funzione coordinatrice del gioco2
-function sano(diff) {    
-     //cestino
+function sano(diff) {   
+    $('#table').after('<a-image class="sano" id="sanospieg" position="4 4 0.5" scale="5 4 3" material="src:Immagini/sanospieg.png" visible="false"></a-image>');
+     //cestino e spiegazione visiva
     if(sanoPts.length==0) {
         setTimeout(function() {
             $('#table').after('<a-entity class="sano" id="cestino" collada-model="url(Immagini/bin/bin.dae)" position="8.7 0 4.5" scale="2 1.3 2"></a-entity>');
-            $('#table').after('<a-image class="sano" position="4 4 0.5" scale="5 4 3" material="src:Immagini/sanospieg.png"></a-image>');
+           document.getElementById("sanospieg").setAttribute("visible", true);
         }, 1000);
     }
     
@@ -407,7 +415,9 @@ function feedbackTavola(momentog) {
 
 //funzione per il calcolo del punteggio finale
 function finalPoints(arrayPts, game) {   
-    //rimuovo il contesto del gioco in considerazione
+    $('#table').after(' <a-image id="finalpts" position="4 3 2" material="src:Immagini/geamasc.png" scale="3 4.5 1" visible= "false"></a-image>');
+    
+    //rimuovo il contesto del gioco in considerazione    
     if(game == '1'){
         setTimeout(function() {
         $('.piramide').remove();
@@ -441,7 +451,7 @@ function finalPoints(arrayPts, game) {
     
     //poi appare la mascotte indicante i punti finali
     setTimeout(function() {
-        $('#table').after(' <a-image id="finalpts" position="4 3 2" material="src:Immagini/geamasc.png" scale="3 4.5 1"></a-image>');
+        document.getElementById("finalpts").setAttribute("visible", true);
         $('#table').after(' <a-entity id="finalpts" text="value: Hai realizzato: \n' + parseInt(totPts) + ' punti su ' + maxPts + ';" position="10.5 4 2" scale="10 10 10"></a-entity>');
     }, 5000);
     

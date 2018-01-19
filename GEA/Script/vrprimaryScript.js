@@ -23,6 +23,10 @@ $(function vrprimary() {
             break;            
     }
     
+    //frammento per l'estrazione anticipata dei dati da db
+    $.getScript('Script/ajaxCall.js', function() {
+        getData(Diff, Gioco);
+    });
     //frammento di script per passare al game master il contesto gioco-difficoltà da eseguire
     $.getScript('Script/gameMaster.js', function() {
         gameSetter(Gioco, Diff);
