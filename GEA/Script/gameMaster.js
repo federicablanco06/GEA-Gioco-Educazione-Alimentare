@@ -187,7 +187,7 @@ function feedbackPiramide(id){
             $('.currentpiramide').remove();
            var numero = parseInt(livello) + 1;
             livello = numero.toString();
-            piramide(diff,livello);
+            piramide(livello);
        }, 5000); 
     }
     //calcolo punteggio finale
@@ -316,7 +316,7 @@ function feedbackSano(id) {
         //prima di partire con un altro turno rimuovo gli elementi
        setTimeout(function() {
             $('.currentsano').remove();
-            sano(diff);
+            sano();
        }, 5000); 
     }
     //calcolo punteggio finale
@@ -413,7 +413,7 @@ function feedbackTavola(momentog) {
     if (tavolaPts.length<3)
         setTimeout(function() {
             $('.atavola').remove();
-            atavola(diff);
+            atavola();
         }, 5000);
     else
         finalPoints(tavolaPts, num_gioco);

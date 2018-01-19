@@ -154,39 +154,7 @@ function getPiramideAjax(livello, callback) {
            document.getElementById('pir1').setAttribute("visible", true);
            document.getElementById('pir2').setAttribute("visible", true);
            document.getElementById('pir3').setAttribute("visible", true);
-        }, 1200); 
-
-        //funzioni per far partire choicePiramide dopo tot tempo che si è sull'immagine
-       /* $( "#pir1" ).on({
-            click: function() {
-                $(this).data('timer', setTimeout(function() {
-                    choicePiramide("pir1");
-                }, 2000));
-            },
-            mouseup: function() {
-                clearTimeout( $(this).data('timer') );
-            }
-        });
-        $( "#pir2" ).on({
-            click: function() {
-                $(this).data('timer', setTimeout(function() {
-                    choicePiramide("pir2");
-                }, 2000));
-            },
-            mouseup: function() {
-                clearTimeout( $(this).data('timer') );
-            }
-        });
-        $( "#pir3" ).on({
-            click: function() {
-                $(this).data('timer', setTimeout(function() {
-                    choicePiramide("pir3");
-                }, 2000));
-            },
-            mouseup: function() {
-                clearTimeout( $(this).data('timer') );
-            }
-        }); */
+        }, 1000); 
 
         //e infine le mando al game master
         callback(mesco);
