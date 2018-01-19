@@ -146,9 +146,9 @@ function getPiramideAjax(livello, callback) {
         var mesco= shuffle(rst);
 
         //variabili di gioco
-        $('#table').after('<a-image class="currentpiramide piramide scelta" id="pir1"  position="7.6 1.5 4.5" material="src:'+mesco[0].img+'" scale="0.7 0.7 0.7" visible="false" crossorigin></a-image>');
-        $('#table').after('<a-image class="currentpiramide piramide scelta" id="pir2"  position="8.4 1.5 4.5" material="src:'+mesco[1].img+'" scale="0.7 0.7 0.7" visible="false" crossorigin> </a-image>');
-        $('#table').after('<a-image class="currentpiramide piramide scelta" id="pir3"  position="9.2 1.5 4.5" material="src:'+mesco[2].img+'" scale="0.7 0.7 0.7" visible="false" crossorigin> </a-image>');
+        $('#table').after('<a-image class="currentpiramide piramide scelta" id="pir1"  position="7.6 1.5 4.5" material="src:'+mesco[0].img+'" scale="0.7 0.7 0.7" visible="false" onclick="choicePiramide(\'pir1\')" crossorigin></a-image>');
+        $('#table').after('<a-image class="currentpiramide piramide scelta" id="pir2"  position="8.4 1.5 4.5" material="src:'+mesco[1].img+'" scale="0.7 0.7 0.7" visible="false" onclick="choicePiramide(\'pir2\')" crossorigin> </a-image>');
+        $('#table').after('<a-image class="currentpiramide piramide scelta" id="pir3"  position="9.2 1.5 4.5" material="src:'+mesco[2].img+'" scale="0.7 0.7 0.7" visible="false" onclick="choicePiramide(\'pir3\')" crossorigin> </a-image>');
 
         setTimeout(function() {
            document.getElementById('pir1').setAttribute("visible", true);
@@ -157,7 +157,7 @@ function getPiramideAjax(livello, callback) {
         }, 1200); 
 
         //funzioni per far partire choicePiramide dopo tot tempo che si è sull'immagine
-        $( "#pir1" ).on({
+       /* $( "#pir1" ).on({
             click: function() {
                 $(this).data('timer', setTimeout(function() {
                     choicePiramide("pir1");
@@ -186,7 +186,7 @@ function getPiramideAjax(livello, callback) {
             mouseup: function() {
                 clearTimeout( $(this).data('timer') );
             }
-        });
+        }); */
 
         //e infine le mando al game master
         callback(mesco);
