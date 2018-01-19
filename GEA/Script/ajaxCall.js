@@ -198,8 +198,8 @@ function getTavolaAjax(callback) {
         usedIdRemover(corrDifficultyArray);
 
         //estraggo dall'array risultante l'elemento del turno corrente
-        var rand = getRandomInt(0, corrDiff.length-1);
-        var elm = corrDiff[rand];
+        var rand = getRandomInt(0, corrDifficultyArray.length-1);
+        var elm = corrDifficultyArray[rand];
 
         alreadyUsedIds.push(elm.id);
 
