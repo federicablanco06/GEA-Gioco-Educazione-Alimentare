@@ -29,50 +29,54 @@ function gameStarter() {
     
     //successivamente carico gli elementi del gioco stesso
     if (num_gioco == '1')
-        piramide(diff, livello);
+        piramide(livello);
     else if (num_gioco == '2') 
-        sano(diff);
+        sano();
     else 
-        atavola(diff);
+        atavola();
         
 }
 
 
 
 //funzione coordinatrice del gioco1
-function piramide(diff,live) {
-    //inizia il gioco facendo sparire il tavolo (il gioco utilizzerà principalmente il muro)
-    document.getElementById('table').setAttribute("visible", false);
-    $('#table').after('<a-image class="piramide" id="lev1" position="3.5 1 0.1" material="src: Immagini/piramide/piano1.png" rotation="0 0 0" scale="6 0.8 2" visible="false"></a-image>');
-    $('#table').after(' <a-image class="piramide" id="lev2" position="3.5 1.8 0.1" material="src: Immagini/piramide/piano2.png" rotation="0 0 0" scale="5.9 0.8 2" visible="false"></a-image>');
-    $('#table').after('<a-image class="piramide" id="lev3" position="3.45 2.6 0.1" material="src: Immagini/piramide/piano3.png" rotation="0 0 0" scale="5.8 0.8 2" visible="false"></a-image>');
-    $('#table').after('<a-image class="piramide" id="lev4" position="3.62 3.4 0.1" material="src: Immagini/piramide/piano4.png" rotation="0 0 0" scale="5.75 0.8 2" visible="false"></a-image>');
-    $('#table').after('<a-image class="piramide" id="lev5" position="3.53 4.5 0.1" material="src: Immagini/piramide/piano5.png" rotation="0 0 0" scale="5.75 1.3 2" visible="false"></a-image>');
+function piramide(live) {    
     
     //appaiono a scala i piani della piramide sul muro, apparizione SOLO la prima volta
     if(piramidePts.length == 0) {
-    setTimeout(function(){
-       document.getElementById("lev1").setAttribute("visible", true);
-    }, 500);
-    setTimeout(function(){
-        document.getElementById("lev2").setAttribute("visible", true);
-    }, 1000);
-    setTimeout(function(){
-        document.getElementById("lev3").setAttribute("visible", true);
-    }, 1500);
-    setTimeout(function(){
-        document.getElementById("lev4").setAttribute("visible", true);
-    }, 2000);
-    setTimeout(function(){
-        document.getElementById("lev5").setAttribute("visible", true);
-    }, 2500);
+        //spostamento del tavolo per rendere visibile la piramide
+        var tablePosition = document.getElementById("table").getAttribute("position");
+        document.getElementById("table").setAttribute("position", {x: tablePosition.x + 1.3, y: tablePosition.y, z: tablePosition.z});
+        $('#table').after('<a-image class="piramide" id="lev1" position="3.5 1 0.1" material="src: Immagini/piramide/piano1.png" rotation="0 0 0" scale="6 0.8 2" visible="false"></a-image>');
+        $('#table').after(' <a-image class="piramide" id="lev2" position="3.5 1.8 0.1" material="src: Immagini/piramide/piano2.png" rotation="0 0 0" scale="5.9 0.8 2" visible="false"></a-image>');
+        $('#table').after('<a-image class="piramide" id="lev3" position="3.45 2.6 0.1" material="src: Immagini/piramide/piano3.png" rotation="0 0 0" scale="5.8 0.8 2" visible="false"></a-image>');
+        $('#table').after('<a-image class="piramide" id="lev4" position="3.62 3.4 0.1" material="src: Immagini/piramide/piano4.png" rotation="0 0 0" scale="5.75 0.8 2" visible="false"></a-image>');
+        $('#table').after('<a-image class="piramide" id="lev5" position="3.53 4.5 0.1" material="src: Immagini/piramide/piano5.png" rotation="0 0 0" scale="5.75 1.3 2" visible="false"></a-image>');
+        $('#table').after('<a-image class="piramide" id="cursore" position="0.6 \'y\' 0.2" material="src: Immagini/arrow.png" scale="0.5 0.5 0.5" visible="false"></a-image>');
+
+        setTimeout(function(){
+           document.getElementById("lev1").setAttribute("visible", true);
+        }, 500);
+        setTimeout(function(){
+            document.getElementById("lev2").setAttribute("visible", true);
+        }, 1000);
+        setTimeout(function(){
+            document.getElementById("lev3").setAttribute("visible", true);
+        }, 1500);
+        setTimeout(function(){
+            document.getElementById("lev4").setAttribute("visible", true);
+        }, 2000);
+        setTimeout(function(){
+            document.getElementById("lev5").setAttribute("visible", true);
+        }, 2500);
     
     }
     //cursore indicante livello in oggetto la sua coordinata y dipende dal livello in considerazione
     setTimeout(function() {
         var y = document.getElementById("lev"+livello).getAttribute("position").y;
-        $('#table').after('<a-image class="piramide" id="cursore" position="0.6 \'y\' 0.2" material="src: Immagini/arrow.png" scale="0.5 0.5 0.5" visible="true"></a-image>');
+        document.getElementById("cursore").setAttribute("visible", true);
         document.getElementById("cursore").setAttribute("position", {x: "0.6", y: parseFloat(y), z: "0.2"} );
+        document.getElementById("table").setAttribute("visible", true);
     }, 2500);
     
     setTimeout(function(){
@@ -82,7 +86,7 @@ function piramide(diff,live) {
         var pir1, pir2, pir3;
         
         //gestore di estrazione e posizionamento immagini
-        getPiramideAjax(diff, livello, function(risultati) {
+        getPiramideAjax(livello, function(risultati) {
             pir1 = risultati[0];
             pir2 = risultati[1]; 
             pir3 = risultati[2]; 
@@ -127,7 +131,6 @@ function choicePiramide(id){
         document.getElementById(id).setAttribute("visible", false);
         document.getElementById(aelem1).setAttribute("visible", false);
         document.getElementById(aelem2).setAttribute("visible", false);
-        document.getElementById("mobile").setAttribute("visible",false);
         document.getElementById("cursore").setAttribute("visible",false);
         }, 1000);
     
@@ -194,15 +197,15 @@ function feedbackPiramide(id){
 }
 
 
-
 //funzione coordinatrice del gioco2
-function sano(diff) {   
+function sano() {   
     $('#table').after('<a-image class="sano" id="sanospieg" position="4 4 0.5" scale="5 4 3" material="src:Immagini/sanospieg.png" visible="false"></a-image>');
      //cestino e spiegazione visiva
     if(sanoPts.length==0) {
         setTimeout(function() {
             $('#table').after('<a-entity class="sano" id="cestino" collada-model="url(Immagini/bin/bin.dae)" position="8.7 0 4.5" scale="2 1.3 2"></a-entity>');
            document.getElementById("sanospieg").setAttribute("visible", true);
+            document.getElementById("table").setAttribute("visible", true);
         }, 1000);
     }
     
@@ -213,7 +216,7 @@ function sano(diff) {
         var risultati;
         var elm1, elm2;
         
-        getSanoAjax(diff, function(risultati) {
+        getSanoAjax(function(risultati) {
             elm1 = risultati[0];
             elm2 = risultati[1]; 
 
@@ -324,18 +327,23 @@ function feedbackSano(id) {
 
 
 //funzione coordinatrice del gioco 3
-function atavola(diff) {    
+function atavola() {    
     //aggiungo i poster delle scelte
+    $('#table').after('<a-image class="atavola clickable" id="tav1" material="src: Immagini/atavola/colazione.png" position="2 4 0.3" scale="2.2 2.2 0.1" onclick="choiceTavola(\'1\')" visible="false"></a-image>');
+    $('#table').after('<a-image class="atavola clickable" id="tav2" material="src: Immagini/atavola/pranzo.png" position="4.5 4 0.3" scale="2.2 2.2 0.1" onclick="choiceTavola(\'2\')" visible="false"></a-image>');
+    $('#table').after('<a-image class="atavola clickable" id="tav3" material="src: Immagini/atavola/merenda.png" position="7 4 0.3" scale="2.2 2.2 0.5" onclick="choiceTavola(\'3\')" visible="false"></a-image>');
+    $('#table').after('<a-image class="atavola clickable" id="tav4" material="src: Immagini/atavola/cena.png" position="9.5 4 0.3" scale="2.2 2.2 0.7" onclick="choiceTavola(\'4\')" visible="false"></a-image>');
     setTimeout(function() {
-        $('#table').after('<a-image class="atavola clickable" id="tav1" material="src: Immagini/atavola/colazione.png" position="2 4 0.3" scale="2.2 2.2 0.1" onclick="choiceTavola(\'1\')"></a-image>');
-        $('#table').after('<a-image class="atavola clickable" id="tav2" material="src: Immagini/atavola/pranzo.png" position="4.5 4 0.3" scale="2.2 2.2 0.1" onclick="choiceTavola(\'2\')"></a-image>');
-        $('#table').after('<a-image class="atavola clickable" id="tav3" material="src: Immagini/atavola/merenda.png" position="7 4 0.3" scale="2.2 2.2 0.5" onclick="choiceTavola(\'3\')"></a-image>');
-        $('#table').after('<a-image class="atavola clickable" id="tav4" material="src: Immagini/atavola/cena.png" position="9.5 4 0.3" scale="2.2 2.2 0.7" onclick="choiceTavola(\'4\')"></a-image>');
+        document.getElementById("tav1").setAttribute("visible", true);
+        document.getElementById("tav2").setAttribute("visible", true);
+        document.getElementById("tav3").setAttribute("visible", true);
+        document.getElementById("tav4").setAttribute("visible", true);
+        document.getElementById("table").setAttribute("visible", true);
     }, 1000);
     
     $.getScript('Script/ajaxCall.js', function() {        
         var elm;
-        getTavolaAjax(diff, function(results) {
+        getTavolaAjax(function(results) {
             elm = results;
             alt = [
                 {dbelement: elm, graphicid: 'elem'}
