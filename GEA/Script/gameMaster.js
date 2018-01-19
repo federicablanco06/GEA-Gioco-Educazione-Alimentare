@@ -40,7 +40,8 @@ function gameStarter() {
 
 
 //funzione coordinatrice del gioco1
-function piramide(live) {    
+function piramide(live) {   
+    var time = 2500;
     
     //appaiono a scala i piani della piramide sul muro, apparizione SOLO la prima volta
     if(piramidePts.length == 0) {
@@ -69,15 +70,26 @@ function piramide(live) {
         setTimeout(function(){
             document.getElementById("lev5").setAttribute("visible", true);
         }, 2500);
+        
+        setTimeout(function() {
+            var y = document.getElementById("lev"+livello).getAttribute("position").y;
+            document.getElementById("cursore").setAttribute("visible", true);
+            document.getElementById("cursore").setAttribute("position", {x: "0.6", y: parseFloat(y), z: "0.2"} );
+            document.getElementById("table").setAttribute("visible", true);
+        }, 2500);
     
     }
-    //cursore indicante livello in oggetto la sua coordinata y dipende dal livello in considerazione
-    setTimeout(function() {
-        var y = document.getElementById("lev"+livello).getAttribute("position").y;
-        document.getElementById("cursore").setAttribute("visible", true);
-        document.getElementById("cursore").setAttribute("position", {x: "0.6", y: parseFloat(y), z: "0.2"} );
-        document.getElementById("table").setAttribute("visible", true);
-    }, 2500);
+    
+    else {
+        time= 500;
+        //cursore indicante livello in oggetto la sua coordinata y dipende dal livello in considerazione
+        setTimeout(function() {
+            var y = document.getElementById("lev"+livello).getAttribute("position").y;
+            document.getElementById("cursore").setAttribute("visible", true);
+            document.getElementById("cursore").setAttribute("position", {x: "0.6", y: parseFloat(y), z: "0.2"} );
+        }, time);
+        
+    }
     
     setTimeout(function(){
          $.getScript('Script/ajaxCall.js', function() {
@@ -100,7 +112,7 @@ function piramide(live) {
             ];
         });
     });
-    },2500);
+    },time);
    
 }
 
