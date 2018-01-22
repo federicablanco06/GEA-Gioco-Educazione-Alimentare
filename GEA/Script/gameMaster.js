@@ -81,13 +81,13 @@ function piramide(live) {
     }
     
     else {
-        time= 500;
+        time = 500;
         //cursore indicante livello in oggetto la sua coordinata y dipende dal livello in considerazione
         setTimeout(function() {
             var y = document.getElementById("lev"+livello).getAttribute("position").y;
             document.getElementById("cursore").setAttribute("visible", true);
             document.getElementById("cursore").setAttribute("position", {x: "0.6", y: parseFloat(y), z: "0.2"} );
-        }, time);
+        }, 500);
         
     }
     
@@ -443,18 +443,17 @@ function finalPoints(arrayPts, game) {
         $('.piramide').remove();
         }, 4500); 
      }
-    else{
-        if(game == '2'){
-            setTimeout(function() {
+    else if(game == '2'){
+        setTimeout(function() {
             $('.sano').remove();
-            }, 4500); 
-         }
-        else{
-            setTimeout(function() {
-            $('.atavola').remove();
-            }, 4500); 
-        }
+        }, 4500); 
     }
+    else{
+        setTimeout(function() {
+            $('.atavola').remove();
+        }, 4500); 
+    }
+    
     
     
     // calcolo il punteggio totale
