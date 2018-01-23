@@ -163,24 +163,30 @@ function getPiramideAjax(livello, callback) {
 
 function getTavolaAjax(callback) {
 
-        usedIdRemover(corrDifficultyArray);
-
-        //estraggo dall'array risultante l'elemento del turno corrente
-        var rand = getRandomInt(0, corrDifficultyArray.length-1);
-        var elm = corrDifficultyArray[rand];
-
-        alreadyUsedIds.push(elm.id);
-
-        //inserisco l'elemento nella GUI
-        $('#table').after('<a-image class="atavola" id="elem" material="src: '+ elm.img +'" position="7.1 1.52 4.5" scale="0.7 0.7 0.7" visible="false"></a-image>');
+    usedIdRemover(corrDifficultyArray);
+    var rand;
     
-        setTimeout(function() {
-            document.getElementById('elem').setAttribute("visible", true);
-        }, 1000);
+    //check sul null
+    do {
+        rand = getRandomInt(0, corrDifficultyArray.length-1);
+    }
+    while (corrDifficultyArray[rand]==null);
+
+    //estraggo dall'array risultante l'elemento del turno corrente
+    var elm = corrDifficultyArray[rand];
+
+    alreadyUsedIds.push(elm.id);
+
+    //inserisco l'elemento nella GUI
+    $('#table').after('<a-image class="atavola" id="elem" material="src: '+ elm.img +'" position="7.1 1.52 4.5" scale="0.7 0.7 0.7" visible="false"></a-image>');
+
+    setTimeout(function() {
+        document.getElementById('elem').setAttribute("visible", true);
+    }, 1000);
 
 
-        //rimando l'elemento al chiamante
-        callback(elm);
+    //rimando l'elemento al chiamante
+    callback(elm);
 
 }
 
