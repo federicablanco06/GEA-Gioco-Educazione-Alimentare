@@ -2,7 +2,7 @@
 
 \usepackage[protrusion=true,expansion=true]{microtype} % Better typography
 \usepackage{graphicx} 
-\usepackage{subfig}
+\usepackage{subfigure}
 \usepackage{wrapfig} %in-line image
 
 \usepackage[dvipsnames]{xcolor}
@@ -35,11 +35,11 @@
 
 \vspace{50pt}
 
-\begin{flushright} % Right align
+\begin{flushright} 
 \@date 
 
-{\huge\@title} % Increase the font size of the title
-\vspace{140pt} % Some vertical space between the title and author name
+{\huge\@title} 
+\vspace{140pt} 
 
 
 \begin{tabular}{ l l c}
@@ -47,7 +47,7 @@
 \large Pennati & \large Giulia & \large 882962\\
 \end{tabular}
 
-\vspace{40pt} % Some vertical space between the author block and abstract
+\vspace{40pt} 
 \end{flushright}
 \centering
 \textsl{\large Advanced User Interface Project}\\
@@ -58,10 +58,9 @@
 \title{\textbf{GEA}\\[3mm]
 Gioco Educazione Alimentare}
 
-\author{Blanco Federica\\Pennati Giulia%\textsc{Nomi} % Author -> fix with more names
-} 
+\author{Blanco Federica\\Pennati Giulia} 
 
-\date{01 Febbraio 2018} % Date
+\date{01 Febbraio 2018}
 
 %----------------------------------------------------------------------------------------
 
@@ -71,7 +70,7 @@ Gioco Educazione Alimentare}
 \begin{titlepage}
 
 \thispagestyle{empty}
-\maketitle % Print the title section
+\maketitle 
 
 \end{titlepage}
 
@@ -79,7 +78,7 @@ Gioco Educazione Alimentare}
 \begin{center}
 \textbf{Abstract}\\
 \end{center}
-This document describes the design of \acs{gea}, a web application for children with \acl{ndd} that has been developed in cooperation with a team of therapists and children themselves. \acs{gea} wants to achieve the objective of teaching the nutrition education through a virtual reality game focused on food pyramid, healthy food and good alimentation avoiding waste of real food. It is developed keeping in mind the real laboratory that children do in the specialized center so we reproduce a smart and confortable space in witch they can play the three different games proposed to them. It is also possible to choose a level of difficulty to make a personalization based on child capacities. \acs{gea} has also a functionality that replicates the smartphone screen on a pc screen in such a way that the therapist can see what the child is doing so he can explain all the dubts or help if there are some difficulties. %154
+This document describes the design of \acs{gea}, a virtual reality application for children with \acl{ndd} that has been designed in collaboration with a team of therapists and children themselves. \acs{gea} wants to teach nutrition education through a virtual reality game focused on recognizing the right food for the right situation and avoiding waste. It is based on real laboratory activities that children do in a local specialized center. We have reproduced these activities in a smart and comfortable space, in which children can play the three different games proposed. The application allows to choose the level of difficulty, in order to customize the game based on each child's skills. \acs{gea} allows also to replicate what the child is watching in the virtual environment on an external device, so that the therapist can see what the child is doing and provide help if there are some difficulties.
 \\
 \\
 \\
@@ -115,8 +114,7 @@ This document describes the design of \acs{gea}, a web application for children 
 \thispagestyle{empty}
 \listoffigures
 \clearpage 
-%\listoftables
-%\clearpage 
+ 
 
 \newpage
 \pagenumbering{arabic}
@@ -126,7 +124,7 @@ This document describes the design of \acs{gea}, a web application for children 
 \newpage
 \input{Sections/BisogniRequisiti.tex}
 \newpage
-\input{Sections/UXDesign.tex}
+\input{Sections/UXDesign.tex} 
 \newpage
 \input{Sections/Implementazione.tex}
 \newpage

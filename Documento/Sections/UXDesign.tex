@@ -3,7 +3,7 @@
 \subsection{Approccio generale} \label{subsec:app}
 In questa sezione mostriamo i diagrammi di flusso rappresentativi dell'intera applicazione e dei singoli giochi.
 
-La Figura \ref{fig:Diagramma di flusso generale} mostra il diagramma di flusso dell'intera applicazione: all'avvio dell'applicazione si hanno in sequenza la scelta del gioco, la scelta del livello di difficoltà e poi l'avvio della partita composta da una sessione di gioco per "Impara con la piramide" mentre da tre sessioni per gli altri due giochi . Al termine delle sessioni la partita viene chiusa mostrando il punteggio totalizzato.
+La Figura \ref{fig:Diagramma di flusso generale} mostra il diagramma di flusso dell'intera applicazione: all'avvio dell'applicazione si hanno in sequenza la scelta del gioco, la scelta del livello di difficoltà e poi l'avvio della partita composta da una sessione di gioco per "Impara con la piramide" mentre da tre sessioni per gli altri due giochi. Al termine delle sessioni la partita viene chiusa mostrando il punteggio totalizzato.
 
 La Figura \ref{fig:Diagramma di flusso del gioco "Impara con la piramide"} mostra il diagramma di flusso del gioco "Impara con la piramide": in sequenza si hanno la visualizzazione dell'intera piramide incompleta e di un puntatore sullo specifico livello da completare con l'apparizione delle tre opzioni tra cui scegliere. Nel caso di scelta corretta verrà mostrato il feedback corrispondente e incrementato il punteggio, nel caso di scelta erronea verrà solamente mostrato il feedback.
 
@@ -41,144 +41,154 @@ Maria, terapista di un centro terapeutico per persone con disabilità, si trova 
 Alessia, bambina con disabilità, si sta recando con la mamma presso il centro terapeutico in cui è in cura piena di gioia perchè è Venerdì e quindi sa che farà laboratorio di alimentazione interattivo usando un gioco chiamato \acs{gea}. Una volta arrivata indossa, come ormai ben sa, il visore passatole dalla sua terapista che aveva precedentemente selezionato il gioco "E' sano o no?" perchè Alessia pasticcia un po' troppo nella sua alimentazione. La schermata che le appare mostra nella parte sinistra due pietanze differenti e sulla parte destra una pattumiera, lo scopo del gioco è quello di "buttare", trascinandolo con lo sguardo, nella pattumiera il piatto ritenuto cibo "spazzatura". Alessia con lo sguardo butta purtroppo il cibo errato e le appare la mascotte con il volto triste ad indicare la scelta erronea.
 \clearpage
 \subsubsection{Scenario 3}
-Il papà di Alberto si reca insieme al figlio disabile presso il centro terapeutico perchè il bambino ha dei seri problemi di alimentazione ossia non riesce ad imparare quale pietanza sia adatta al pasto in considerazione. Sono ormai molte sedute che svolge con la sua terapista Dalila ed è arrivato il momento di rendere questo percorso di cura più interattivo grazie all'uso di \acs{gea}, un gioco per l'educazione alimentare. Dalila avvia l'applicazione, seleziona il gioco "A tavola!", seleziona la difficoltà e fa indossare il visore ad Alberto. Davanti agli occhi del bambino appare l'immagine di un bel piatto di pasta fumante con sotto le due opzioni: colazione e cena. Il bambino preso da entusiasmo esclama ad alta voce cena e con lo sguardo punta la casella corrispondente: appare così la mascotte del gioco con il volto sorridente a conferma della scelta effettuata.
+Il papà di Alberto si reca insieme al figlio disabile presso il centro terapeutico perchè il bambino ha dei seri problemi di alimentazione ossia non riesce ad imparare quale pietanza sia adatta al pasto in considerazione. Sono ormai molte sedute che svolge con la sua terapista Dalila ed è arrivato il momento di rendere questo percorso di cura più interattivo grazie all'uso di \acs{gea}, un gioco per l'educazione alimentare. Dalila avvia l'applicazione, seleziona il gioco "A tavola!", seleziona la difficoltà e fa indossare il visore ad Alberto. Davanti agli occhi del bambino appare l'immagine di un bel piatto di pasta fumante con sotto le quattro opzioni: colazione, pranzo, merenda e cena. Il bambino preso da entusiasmo esclama ad alta voce cena e con lo sguardo punta la casella corrispondente: appare così la mascotte del gioco con il volto sorridente a conferma della scelta effettuata.
 \clearpage
 
-\subsection{Mockup}
-\subsubsection{Schermata principale}
-Il mockup in Figura \ref{fig:Schermata iniziale} mostra la schermata iniziale del gioco \acs{gea} che si presenta all'avvio dell'applicazione. Qui il terapista può scegliere quale delle tre attività proposte far fare al bambino.
+\subsection{Design iniziale: Mockup}
 
-\vspace{70pt}
+Il mockup in \textbf{Figura \ref{fig:Impara con la piramide}} mostra la schermata che comparirà dopo aver scelto di giocare a "Impara con la piramide" e dopo aver selezionato il livello di difficoltà desiderato. La schermata che appare spiega molto brevemente quello che il bambino dovrà fare giocando e quindi l'obiettivo da raggiungere.\\
+Il mockup in \textbf{Figura \ref{fig:Piramide}} mostra la schermata successiva a quella esplicativa per quanto riguarda il gioco "Impara con la piramide". Qui viene mostrata al bambino l'intera piramide alimentare che il bambino dovrà via via completare durante il gioco.\\
+Il mockup in \textbf{Figura \ref{fig:Piramide proseguimento}} viene presentata dopo aver mostrato l'intera piramide. Qui un puntatore indicherà un preciso livello della piramide alimentare che deve essere completato e si mostrano al bambino tre alimenti tra cui dover scegliere per effettuare il corretto completamento.\\
+Il mockup in \textbf{Figura \ref{fig:E' sano o no?}} mostra la schermata che comparirà dopo aver scelto di giocare a "E' sano o no?" e dopo aver selezionato il livello di difficoltà desiderato. La schermata che appare spiega molto brevemente quello che il bambino dovrà fare giocando e quindi l'obiettivo da raggiungere.\\
+Il mockup in \textbf{Figura \ref{fig:Schermata "E' sano o no?"}} mostra la schermata successiva a quella esplicativa per quanto riguarda il gioco "E' sano o no?". Qui vengono mostrati al bambino due pietanze tra le quali deve scegliere il cibo "spazzatura" e "buttarlo" con lo sguardo nella pattumiera presente sulla destra della schermata.\\
+Il mockup in \textbf{Figura \ref{fig:Scelta "E' sano o no?"}} mostra la schermata relativa al compimento di una scelta: nel caso presentato la scelta è errata.\\
+Il mockup in \textbf{Figura \ref{fig:A tavola!}} mostra la schermata che comparirà dopo aver scelto di giocare a "A tavola!" e dopo aver selezionato il livello di difficoltà desiderato. La schermata che appare spiega molto brevemente quello che il bambino dovrà fare giocando e quindi l'obiettivo da raggiungere.\\
+Il mockup in \textbf{Figura \ref{fig:Schermata "A tavola!"}} mostra la schermata successiva a quella esplicativa per quanto riguarda il gioco "A tavola!". Qui vengono mostrati al bambino una pietanza e due possibili pasti del giorno: egli deve scegliere qual è il pasto più adatto per consumare quella pietanza. Il gioco si può presentare anche nella forma opposta ossia scegliere fra due piatti quale sia più adatto per il pasto indicato.\\
+Il mockup in \textbf{Figura \ref{fig:Scelta "A tavola!"}} mostra la schermata relativa al compimento di una scelta: nel caso presentato la scelta è corretta.
 
+\begin{figure*}
+ \begin{minipage}[c]{\columnwidth}
+   \centering
+   \includegraphics[width=8cm]{Images/Mockup/gioco1}
+   \caption{Impara con la piramide mockup}
+   \label{fig:Impara con la piramide}
+ \end{minipage}
+ \ \hspace{8mm} \hspace{8mm} \\\
+ 
+ \begin{minipage}[c]{\columnwidth}
+  \centering
+   \includegraphics[width=8cm]{Images/Mockup/piramide}
+   \caption{Piramide mockup}
+   \label{fig:Piramide}
+ \end{minipage}
+ \ \hspace{8mm} \hspace{8mm} \\\
+ 
+ \begin{minipage}[c]{\columnwidth}
+  \centering
+   \includegraphics[width=8cm]{Images/Mockup/piramide2}
+   \caption{Piramide proseguimento mockup}
+   \label{fig:Piramide proseguimento}
+ \end{minipage}
+\end{figure*}
+\clearpage
+
+\begin{figure*}
+ \begin{minipage}[c]{\columnwidth}
+   \centering
+   \includegraphics[width=8cm]{Images/Mockup/gioco2}
+   \caption{E' sano o no? mockup}
+   \label{fig:E' sano o no?}
+ \end{minipage}
+ \ \hspace{8mm} \hspace{8mm} \\\
+ 
+ \begin{minipage}[c]{\columnwidth}
+  \centering
+   \includegraphics[width=8cm]{Images/Mockup/sano}
+   \caption{Schermata "E' sano o no?" mockup}
+   \label{fig:Schermata "E' sano o no?"}
+ \end{minipage}
+ \ \hspace{8mm} \hspace{8mm} \\\
+ 
+ \begin{minipage}[c]{\columnwidth}
+  \centering
+   \includegraphics[width=8cm]{Images/Mockup/sanoscelta}
+   \caption{Scelta cibo "spazzatura" mockup}
+   \label{fig:Scelta "E' sano o no?"}
+ \end{minipage}
+\end{figure*}
+\clearpage
+
+\begin{figure*}
+ \begin{minipage}[c]{\columnwidth}
+   \centering
+   \includegraphics[width=8cm]{Images/Mockup/gioco3}
+   \caption{A tavola! mockup}
+   \label{fig:A tavola!}
+ \end{minipage}
+ \ \hspace{8mm} \hspace{8mm} \\\
+ 
+ \begin{minipage}[c]{\columnwidth}
+  \centering
+   \includegraphics[width=8cm]{Images/Mockup/atavola}
+   \caption{Schermata "A tavola!" mockup}
+   \label{fig:Schermata "A tavola!"}
+ \end{minipage}
+ \ \hspace{8mm} \hspace{8mm} \\\
+ 
+ \begin{minipage}[c]{\columnwidth}
+  \centering
+   \includegraphics[width=8cm]{Images/Mockup/atavolascelta}
+   \caption{Scelta pasto mockup}
+   \label{fig:Scelta "A tavola!"}
+ \end{minipage}
+\end{figure*}
+\clearpage
+
+
+\subsection{Design attuale}
+Di seguito vengono riportati alcuni screenshot riguardati il design attuale di \acs{gea}.\\
+Le due immagini qui riportate si riferiscono alla schermata di home di \acs{gea} in landascape e in portscape. Qui si può effettuare la scelta riguardante la tipologia di gioco che si vuole effettuare.
+
+\begin{center}
+\begin{minipage}[c]{.40\textwidth}
+\centering
+\includegraphics[width=.70\textwidth]{Images/Design/Game}\\
+\vspace{10px}
+\emph{Schermata iniziale pc}\bigskip
+\end{minipage}
+\hspace{10mm}
+\begin{minipage}[c]{.40\textwidth}
+\centering
+\includegraphics[width=.70\textwidth]{Images/Design/Homesmartphone}\\
+\vspace{10px}
+\emph{Schermata iniziale smartphone}\bigskip
+\end{minipage}
+\end{center}
+
+La prossima immagine si riferisce invece alla schermata successiva alla scelta di gioco che riguarda la possibilità di selezionare il livello di difficoltà desiderato oppure tornare alla schermata precedente.
 \begin{figure}[htbp]
 \centering
-\includegraphics[width=\textwidth]{Images/Mockup/schermatainiziale}
-\caption{Schermata iniziale mockup}
-\label{fig:Schermata iniziale}
+\includegraphics[width=.70\textwidth]{Images/Design/Level}\\
+\vspace{10px}
+\emph{Scelta livello di difficoltà}\bigskip
 \end{figure}
-\clearpage
-\subsubsection{Scelta livello difficoltà}
-Il mockup in Figura \ref{fig:Scelta livello difficoltà} mostra la schermata per la scelta del livello di difficoltà che si presenta dopo avere selezionato qualsiasi dei tre giochi. Qui, in base alla preparazione del bambino, la terapista può decidere se la difficoltà presentata sia di livello "Facile", "Medio" o "Difficile". Vi è inoltre la presenza del tasto "Indietro" per dare la possibilità di tornare alla schermata principale nel caso in cui sia stato selezionato il gioco errato e si voglia compiere nuovamente la scelta. 
 
-\vspace{70pt}
-
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\textwidth]{Images/Mockup/livelli}
-\caption{Scelta livello difficoltà mockup}
-\label{fig:Scelta livello difficoltà}
-\end{figure}
-\clearpage
-\subsubsection{Primo gioco: Impara con la piramide}
-Il mockup in Figura \ref{fig:Impara con la piramide} mostra la schermata che comparirà dopo aver scelto di giocare a "Impara con la piramide" e dopo aver selezionato il livello di difficoltà desiderato. La schermata che appare spiega molto brevemente quello che il bambino dovrà fare giocando e quindi l'obiettivo da raggiungere.
-\vspace{70pt}
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\textwidth]{Images/Mockup/gioco1}
-\caption{Impara con la piramide mockup}
-\label{fig:Impara con la piramide}
-\end{figure}
+I tre screenshot di seguito si riferiscono rispettivamente all'avvio dei tre giochi.
+\begin{center}
+\includegraphics[width=.70\textwidth]{Images/Design/pyramid}\\
+\vspace{5px}
+\emph{Gioco 1: Impara con la piramide!}\bigskip
+\end{center}
+\begin{center}
+\includegraphics[width=.70\textwidth]{Images/Design/Healthy}\\
+\vspace{5px}
+\emph{Gioco 2: E' sano o no?}\bigskip
+\end{center}
+\begin{center}
+\includegraphics[width=.70\textwidth]{Images/Design/Eat}\\
+\vspace{5px}
+\emph{Gioco 3: A tavola!}\bigskip
+\end{center}
 \clearpage
 
-Il mockup in Figura \ref{fig:Piramide} mostra la schermata successiva a quella esplicativa per quanto riguarda il gioco "Impara con la piramide". Qui viene mostrata al bambino l'intera piramide alimentare che il bambino dovrà via via completare durante il gioco.
-\vspace{70pt}
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\textwidth]{Images/Mockup/piramide}
-\caption{Piramide mockup}
-\label{fig:Piramide}
-\end{figure}
-\clearpage
-
-Il mockup in Figura \ref{fig:Piramide proseguimento} viene presentata dopo aver mostrato l'intera piramide. Qui un puntatore indicherà un preciso livello della piramide alimentare che deve essere completato e si mostrano al bambino tre alimenti tra cui dover scegliere per effettuare il corretto completamento.
-\vspace{70pt}
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\textwidth]{Images/Mockup/piramide2}
-\caption{Piramide proseguimento mockup}
-\label{fig:Piramide proseguimento}
-\end{figure}
-\clearpage
-
-\subsubsection{Secondo gioco: E' sano o no?}
-Il mockup in Figura \ref{fig:E' sano o no?} mostra la schermata che comparirà dopo aver scelto di giocare a "E' sano o no?" e dopo aver selezionato il livello di difficoltà desiderato. La schermata che appare spiega molto brevemente quello che il bambino dovrà fare giocando e quindi l'obiettivo da raggiungere.
-\vspace{70pt}
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\textwidth]{Images/Mockup/gioco2}
-\caption{E' sano o no? mockup}
-\label{fig:E' sano o no?}
-\end{figure}
-\clearpage
-
-Il mockup in Figura \ref{fig:Schermata "E' sano o no?"} mostra la schermata successiva a quella esplicativa per quanto riguarda il gioco "E' sano o no?". Qui vengono mostrati al bambino due pietanze tra le quali deve scegliere il cibo "spazzatura" e "buttarlo" con lo sguardo nella pattumiera presente sulla destra della schermata.
-\vspace{70pt}
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\textwidth]{Images/Mockup/sano}
-\caption{Schermata "E' sano o no?" mockup}
-\label{fig:Schermata "E' sano o no?"}
-\end{figure}
-\clearpage
-
-Il mockup in Figura \ref{fig:Scelta "E' sano o no?"} mostra la schermata relativa al compimento di una scelta: nel caso presentato la scelta è errata.
-\vspace{70pt}
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\textwidth]{Images/Mockup/sanoscelta}
-\caption{Scelta cibo "spazzatura" mockup}
-\label{fig:Scelta "E' sano o no?"}
-\end{figure}
-\clearpage
-
-Il mockup in Figura \ref{fig:Feedback scelta errata} mostra il feedback per quanto riguarda una scelta erronea: compare il volto della mascotte con espressione rattristata e scritta esplicativa di risposta errata.
-\vspace{70pt}
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\textwidth]{Images/Mockup/sanofeedback}
-\caption{Feedback scelta errata mockup}
-\label{fig:Feedback scelta errata}
-\end{figure}
-\clearpage
-
-
-\subsubsection{Terzo gioco: A tavola!}
-Il mockup in Figura \ref{fig:A tavola!} mostra la schermata che comparirà dopo aver scelto di giocare a "A tavola!" e dopo aver selezionato il livello di difficoltà desiderato. La schermata che appare spiega molto brevemente quello che il bambino dovrà fare giocando e quindi l'obiettivo da raggiungere.
-\vspace{70pt}
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\textwidth]{Images/Mockup/gioco3}
-\caption{A tavola! mockup}
-\label{fig:A tavola!}
-\end{figure}
-\clearpage
-
-Il mockup in Figura \ref{fig:Schermata "A tavola!"} mostra la schermata successiva a quella esplicativa per quanto riguarda il gioco "A tavola!". Qui vengono mostrati al bambino una pietanza e due possibili pasti del giorno: egli deve scegliere qual è il pasto più adatto per consumare quella pietanza. Il gioco si può presentare anche nella forma opposta ossia scegliere fra due piatti quale sia più adatto per il pasto indicato.
-\vspace{70pt}
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\textwidth]{Images/Mockup/atavola}
-\caption{Schermata "A tavola!" mockup}
-\label{fig:Schermata "A tavola!"}
-\end{figure}
-\clearpage
-
-Il mockup in Figura \ref{fig:Scelta "A tavola!"} mostra la schermata relativa al compimento di una scelta: nel caso presentato la scelta è corretta.
-\vspace{70pt}
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\textwidth]{Images/Mockup/atavolascelta}
-\caption{Scelta pasto mockup}
-\label{fig:Scelta "A tavola!"}
-\end{figure}
-\clearpage
-
-Il mockup in Figura \ref{fig:Feedback scelta corretta} mostra il feedback per quanto riguarda una scelta corretta: compare il volto della mascotte con espressione sorridente e scritta esplicativa di risposta esatta.
-\vspace{70pt}
-\begin{figure}[htbp]
-\centering
-\includegraphics[width=\textwidth]{Images/Mockup/atavolafeedback}
-\caption{Feedback scelta corretta mockup}
-\label{fig:Feedback scelta corretta}
-\end{figure}
-\clearpage
+Le due immagini successive rappresentano i feedback mostrati dopo che una scelta viene effettuata: la mascotte del gioco apparirà con volto felice in caso di risposta corretta e con volto triste nel caso di risposta errata. Per quanto riguarda il primo gioco si avrà inoltre il rispettivo livello della piramide che si colora di verde o rosso a ricordare durante il resto della partita le scelte giuste o sbagliate.
+\begin{center}
+\includegraphics[width=.70\textwidth]{Images/Design/Correct}\\
+\vspace{5px}
+\emph{Feedback risposta corretta}\bigskip
+\end{center}
+\begin{center}
+\includegraphics[width=.70\textwidth]{Images/Design/Wrong}\\
+\vspace{5px}
+\emph{Feedback risposta errata}\bigskip
+\end{center}

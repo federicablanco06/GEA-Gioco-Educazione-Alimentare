@@ -1,20 +1,19 @@
 \select@language {italian}
 \select@language {italian}
-\contentsline {figure}{\numberline {1}{\ignorespaces Diagramma di flusso generale\relax }}{6}
-\contentsline {figure}{\numberline {2}{\ignorespaces Diagramma di flusso del gioco "Impara con la piramide"\relax }}{7}
-\contentsline {figure}{\numberline {3}{\ignorespaces Diagramma di flusso dei giochi "E' sano o no?" e "A tavola!"\relax }}{8}
-\contentsline {figure}{\numberline {4}{\ignorespaces Schermata iniziale mockup\relax }}{11}
-\contentsline {figure}{\numberline {5}{\ignorespaces Scelta livello difficolt\IeC {\`a} mockup\relax }}{12}
-\contentsline {figure}{\numberline {6}{\ignorespaces Impara con la piramide mockup\relax }}{13}
-\contentsline {figure}{\numberline {7}{\ignorespaces Piramide mockup\relax }}{14}
-\contentsline {figure}{\numberline {8}{\ignorespaces Piramide proseguimento mockup\relax }}{15}
-\contentsline {figure}{\numberline {9}{\ignorespaces E' sano o no? mockup\relax }}{16}
-\contentsline {figure}{\numberline {10}{\ignorespaces Schermata "E' sano o no?" mockup\relax }}{17}
-\contentsline {figure}{\numberline {11}{\ignorespaces Scelta cibo "spazzatura" mockup\relax }}{18}
-\contentsline {figure}{\numberline {12}{\ignorespaces Feedback scelta errata mockup\relax }}{19}
-\contentsline {figure}{\numberline {13}{\ignorespaces A tavola! mockup\relax }}{20}
-\contentsline {figure}{\numberline {14}{\ignorespaces Schermata "A tavola!" mockup\relax }}{21}
-\contentsline {figure}{\numberline {15}{\ignorespaces Scelta pasto mockup\relax }}{22}
-\contentsline {figure}{\numberline {16}{\ignorespaces Feedback scelta corretta mockup\relax }}{23}
-\contentsline {figure}{\numberline {17}{\ignorespaces Architettura hardware\relax }}{24}
-\contentsline {figure}{\numberline {18}{\ignorespaces Architettura software\relax }}{25}
+\contentsline {figure}{\numberline {1}{\ignorespaces Diagramma di flusso generale}}{8}
+\contentsline {figure}{\numberline {2}{\ignorespaces Diagramma di flusso del gioco "Impara con la piramide"}}{9}
+\contentsline {figure}{\numberline {3}{\ignorespaces Diagramma di flusso dei giochi "E' sano o no?" e "A tavola!"}}{10}
+\contentsline {figure}{\numberline {4}{\ignorespaces Impara con la piramide mockup}}{14}
+\contentsline {figure}{\numberline {5}{\ignorespaces Piramide mockup}}{14}
+\contentsline {figure}{\numberline {6}{\ignorespaces Piramide proseguimento mockup}}{14}
+\contentsline {figure}{\numberline {7}{\ignorespaces E' sano o no? mockup}}{15}
+\contentsline {figure}{\numberline {8}{\ignorespaces Schermata "E' sano o no?" mockup}}{15}
+\contentsline {figure}{\numberline {9}{\ignorespaces Scelta cibo "spazzatura" mockup}}{15}
+\contentsline {figure}{\numberline {10}{\ignorespaces A tavola! mockup}}{16}
+\contentsline {figure}{\numberline {11}{\ignorespaces Schermata "A tavola!" mockup}}{16}
+\contentsline {figure}{\numberline {12}{\ignorespaces Scelta pasto mockup}}{16}
+\contentsline {figure}{\numberline {13}{\ignorespaces Architettura hardware}}{20}
+\contentsline {figure}{\numberline {14}{\ignorespaces Architettura software}}{21}
+\contentsline {figure}{\numberline {15}{\ignorespaces Prima sessione di test: Una terapeuta prova il gioco alla nostra presenza}}{24}
+\contentsline {figure}{\numberline {16}{\ignorespaces Seconda sessione di test: Una ragazza prova il gioco mentre gli altri osservano il televisore}}{24}
+\contentsline {figure}{\numberline {17}{\ignorespaces Primo piano dello schermo del televisore}}{24}

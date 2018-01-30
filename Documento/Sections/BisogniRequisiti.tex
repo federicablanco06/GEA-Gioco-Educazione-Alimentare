@@ -32,17 +32,58 @@ Vi sono svariati vincoli da dover rispettare:
 \item Necessità di spiegazioni visive in quanto alcuni utenti non sanno leggere
 \end{itemize}
 
-
-\subsection{Requisiti iniziali} \label{subsec:requis}
-Per quanto riguarda i dispositivi necessitiamo di:
-\begin{enumerate}
-\item Smartphone con applicazione \acs{gea} installata
-\item Visore di realtà virtuale
-\item Pc
-\item Google Chromecast
-\end{enumerate}
-
+\subsection{Interazione e funzionalità} \label{subsec:intfun}
 Per quanto riguarda l'interazione con l'applicazione essa avverrà con due modalità differenti: ci sarà un'interazione di tipo touchscreen all'avvio di \acs{gea} per permettere alla terapeuta di scegliere il gioco da far svolgere al ragazzo e con quale difficoltà, l'interazione diventa poi di tipo visivo per la partita vera e propria in quanto le varie risposte verranno date con il movimento oculare.\\
 
 \acs{gea} è un gioco con diverse funzionalità quali l'esercizio della memoria, abilità di problem solving, capacità di decision making e learning tool.
+
+
+\subsection{Requisiti} \label{subsec:requis}
+I requisiti per \acs{gea} sono stati raccolti attraverso incontri con psicologi ed esperti nel campo della \acs{ndd}. Abbiamo anche preso parte ad alcune attività di laboratorio alimentare organizzate nel centro terapeutico che collabora con noi. Abbiamo osservato come vengono svolte le attività e abbiamo discusso con i pazienti (gli individui \acs{ndd} ad alto funzionamento) e i terapeuti del centro sull'idea di realizzare un gioco \acs{vr} con gli stessi contenuti e obiettivi. I primi incontri per la raccolta dei requisiti si sono svolti nel seguente modo:
+\begin{enumerate}
+\item Primo incontro:
+		\begin{itemize}
+		\item Domande: 	\begin{itemize}
+						\item[*] Dove viene svolto il laboratorio di alimentazione?
+						\item[*] In che modo viene svolto il laboratorio di alimentazione?
+						\item[*] Che tipologie di argomenti vengono trattate?
+						\item[*] Quali materiali vengono utilizzati?
+						\item[*] Quale livello di difficoltà viene raggiunto?
+						\item[*] Quali sono gli argomenti in cui si riscontrano maggiori difficoltà?
+						\item[*] Qual è il rapporto dei ragazzi con le nuove tecnologie (es. Visore VR)?
+						\item[*] Che cosa bisogna cercare di evitare o limitare?
+						\item[*] \acs{gea} può risultare utile?
+						\item[*] Come viene reputata la suddivisione in tre mini-giochi?		
+						\end{itemize}
+		\item Partecipanti: Terapiste e ragazzi, affetti da sindrome di \acs{ndd}, del centro "Fraternità 								e amicizia"
+		\item Contesto: Il giorno 8/11/2017 in un'aula del centro "Fraternità e amicizia"
+		\item Esecuzione: Sono state rivolte le domande rispettivamente a terapiste e ragazzi, i quali 								  hanno collaborato attivamente con molto entusiasmo, e in seguito è stata esposta 						  l'idea di \acs{gea} ed espresse le opinioni in merito 
+		\item Risultato: L'idea è stata accolta con molto entusiasmo per cui si decide di proseguire  
+		\end{itemize}
+\item Secondo incontro:
+		\begin{itemize}
+		\item Domande:  Chiesta un'opinione per quanto riguarda grafica, ambientazione, contenuti e 								strutturazione dei giochi
+		\item Partecipanti: Eleonora, terapista del centro "Fraternità e amicizia"
+		\item Contesto: Il giorno 23/11/2017 in un'aula del laboratorio I3Lab presso il Politecnico di 								Milano
+		\item Esecuzione: Sono stati mostrati i mockup, riportati anche in questo documento, ad Eleonora e 						  rivolte le domande in merito
+		\item Risultato: Ci sono stati forniti suggerimenti riguardanti la grafica e sottolineato il fatto 						 che non tutti i ragazzi sono in grado di leggere   
+		\end{itemize}
+\end{enumerate}
+ Dopo questi incontri, abbiamo quindi estratto i seguenti requisiti per l'applicazione da realizzare:
+\begin{enumerate}
+\item \textit{\textbf{Requisito 1: Personalizzazione}}\\
+Il terapeuta deve essere in grado di impostare un livello di difficoltà nel gioco in base alle abilità del bambino in modo da adattare il gioco al suo livello di conoscenza e quindi aumentare gradualmente la difficoltà.
+\item \textit{\textbf{Requisito 2: Contenuti pertinenti}}\\
+Il contenuto del gioco deve essere intrinseco e riflettere quelli utilizzati durante il laboratorio alimentare. Per questo motivo, i giochi sviluppati dovrebbero basarsi sulla piramide alimentare, sul riconoscimento di cibi sani e sulla capacità di associare piatti e pasti della giornata.
+\clearpage
+\item \textit{\textbf{Requisito 3: Ambiente virtuale semplice}}\\
+A causa delle varie disabilità che interessano gli utenti, è necessario tenere conto in particolare della grafica visualizzata: l'ambiente dovrebbe contenere solo elementi essenziali per l'attività specifica e colori freddi che dovrebbero essere evitati, così come animazioni improvvise o flash, in quanto potrebbero innescare reazioni negative.
+\item \textit{\textbf{Requisito 4: Spiegazioni visive}}\\
+I possibili utenti del gioco differiscono per età e gravità della disabilità, quindi c'è la possibilità che alcuni non siano in grado di leggere. Per questo motivo, ogni gioco deve includere spiegazioni visive sull'obiettivo e su come portarlo a compimento.
+\item \textit{\textbf{Requisito 5: Importanza del feedback}}\\
+L'azione di ogni utente durante il gioco deve ricevere il feedback corretto. Dare un feedback positivo quando l'azione giusta è compiuta e un feedback negativo quando viene commesso un errore aiuta a mantenere l'intervallo di attenzione dei bambini e il loro coinvolgimento nel gioco.
+\item \textit{\textbf{Requisito 6: Monitoraggio}}\\
+Il terapeuta deve sempre tenere sotto controllo ciò che il bambino sta facendo durante l'esperienza di gioco, al fine di seguire i suoi miglioramenti e le sue difficoltà ed essere così in grado di fornire le spiegazioni necessarie.
+\end{enumerate}
+
 
