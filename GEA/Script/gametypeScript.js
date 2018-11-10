@@ -1,6 +1,6 @@
 $(function primary() {
-// default behaviour: load homepage
-	$(".contenitore").load( "home.html", function() {
+// default behaviour: load gametpe for choose if vr or touch
+	$(".contenitore").load( "gametype.html", function() {
 		
 		// after loading the page we should load the page manager for links
 		$.getScript('Script/pageManager.js', function() {

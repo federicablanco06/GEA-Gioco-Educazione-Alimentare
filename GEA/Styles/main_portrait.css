@@ -88,7 +88,21 @@ p{
         margin-bottom: 5%;
         height: inherit;
     }
-
+    .scelta1 {
+        background-color: #FFCC66;
+        height: auto;
+        width: 30%;
+        float: left;
+        padding-top: 5%;
+        padding-left: 5%;
+        padding-bottom: 5%;
+        border-width: 2px;
+        border-style: solid;
+        border-color: white;
+        margin-left: 5%;
+        margin-bottom: 5%;
+        height: inherit;
+    }
 
 #diff_text {
         display: block;
