@@ -156,6 +156,64 @@
 
     }
 
+#table_touch {
+    width: 42%;
+    height: auto;
+}
 
+#table {
+    padding-left: 38%;
+    padding-top: 25%;
+    position: absolute;
+    display: block;
+}
+
+#pyramid_container {
+    width: 20%;
+    height:auto;
+    margin-top: 8%;
+    display: none;
+    margin-left: 19%;
+    position: absolute;
+}
+.pyr {
+    width: 94%;
+    height: auto;
+}
+
+#pyr4 {
+    padding-left: 3%;
+
+}
+#pyr5 {
+    padding-bottom: 1%;
+}
+
+#pyr3, #pyr4{
+    width: 92%;
+    height: auto;
+}
+
+#bin {
+    width: 13%;
+    position: absolute;
+    height: auto;
+    display: none;
+    margin-top: 30.5%;
+    margin-left: 63%;
+}
+
+.feedbk {
+    width: 40%;
+    display: none;
+    
+}
+
+#feedback_touch {
+    position: absolute;
+    margin-left: 40%;
+
+    margin-top:3%;
+}
 
 
