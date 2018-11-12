@@ -101,7 +101,7 @@
         display: block;
         color: #FF0000;
         font-size: 20px;
-        margin-left: 15%;
+        margin-left: 10%;
 
     }
     #difficulty {
@@ -136,5 +136,21 @@
         background-color: #CCFFFF;
         border-style: solid;
         border-color: #0033FF;
+    }
+
+#icon_gametype {
+    width: 70%;
+    margin-left: 8%;
+    align-content: center;
+    height: auto;
+}
+
+
+    #gametype_txt {
+        display: block;
+        color: #FF0000;
+        font-size: 20px;
+        margin-left: 8%;
+
     }
 
