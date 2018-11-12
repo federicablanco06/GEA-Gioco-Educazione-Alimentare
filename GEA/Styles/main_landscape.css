@@ -172,13 +172,29 @@
     width: 20%;
     height:auto;
     margin-top: 8%;
-    display: none;
-    margin-left: 19%;
+    margin-left: 17%;
     position: absolute;
 }
 .pyr {
     width: 94%;
     height: auto;
+}
+
+#arrow {
+    width: 80%;
+    margin-top: 40%;
+}
+
+#cursor {
+    float: left;
+    margin-top: 30%;
+    width: 10%;
+    height: auto;
+}
+
+#planes {
+    width: 90%;
+    float: left;
 }
 
 #pyr4 {
@@ -214,6 +230,50 @@
     margin-left: 40%;
 
     margin-top:3%;
+}
+
+#choice_container {
+    position: absolute;
+    margin-left:40%;
+    width:23%;
+    height: auto;
+    text-align: center;
+    margin-top: 20%;
+}
+.choice {
+    width: 27%;
+    height: auto;
+    display: none;
+    margin-right: 1%;
+}
+
+#daytime_container {
+    width: 60%;
+    display: none;
+    margin-left: 17%;
+    margin-top: 6%;
+    position: absolute;
+    height: auto;
+}
+
+.day {
+    width: 18%;
+    margin-left: 1%;
+    height: auto;
+}
+
+.exp {
+    color: white;
+    font-size: 25px;
+    
+}
+
+#explanation {
+    margin-left: 20%;
+    position: absolute;
+    margin-top: 5%;
+    width: 40%;
+    display: none;
 }
 
 
