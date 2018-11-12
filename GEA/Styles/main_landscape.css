@@ -3,6 +3,8 @@
     body {
         background-color: #14e21e;
         font-family: century gothic;
+        margin: 0;
+        height: 100%;
     }
     p {
         display: inline;
@@ -153,4 +155,7 @@
         margin-left: 8%;
 
     }
+
+
+
 

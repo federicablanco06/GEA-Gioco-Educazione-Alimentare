@@ -9,9 +9,17 @@ $(function vrprimary() {
     //estraggo i valori dei due parametri
     var Gioco = gioco.split("=")[1];
     var Diff = diff.split("=")[1];
+    
+    $('body').css('background', 'url(Immagini/touch/background.png)');
+    $('body').css('background-size', 'cover');
+    $('body').css('background-attachment', 'scroll');
+    $('body').css('max-height', '100%');
+    $('body').css('height', 'auto');
+    $('body').css('background-repeat', 'no-repeat');
+    $('body').css('background-position', 'center');
         
     //abilito la scritta di spiegazione in base al gioco selezionato	
-    switch(Gioco) {
+   /* switch(Gioco) {
         case "1":
             document.getElementById("gioco1").setAttribute("visible",true);
             break;
@@ -21,33 +29,15 @@ $(function vrprimary() {
         case "3":
             document.getElementById("gioco3").setAttribute("visible",true);
             break;            
-    }
+    }*/
     
     //frammento per l'estrazione anticipata dei dati da db
-    $.getScript('Script/ajaxCallVr.js', function() {
+    $.getScript('Script/ajaxCallTouch.js', function() {
         getData(Diff, Gioco);
     });
     //frammento di script per passare al game master il contesto gioco-difficoltà da eseguire
-    $.getScript('Script/gameMasterVr.js', function() {
+    $.getScript('Script/gameMasterTouch.js', function() {
         gameSetter(Gioco, Diff);
     });
     
-});
-
-AFRAME.registerComponent('camera-fix', {
-    schema: {
-    },
-
-    init: function () {
-        if(AFRAME.utils.device.isMobile()) {
-        this.onEnterVR = AFRAME.utils.bind(this.onEnterVR, this);
-        this.el.sceneEl.addEventListener('enter-vr', this.onEnterVR);
-        }
-    },
-    //fix camera height that sums 1.6 every time we enter in VR mode
-
-    onEnterVR: function () {
-    this.el.setAttribute("position", "0 0 0");
-    }
-
 });
