@@ -288,7 +288,24 @@
   cursor: default;
   margin-left: 48%;
   margin-top: 18%;
-  visibility: visible;
+}
+
+#mask {
+    margin-top: 5%;
+    width: 15%;
+    height: auto;
+    margin-left: 18%;
+    display: none;
+    position: absolute;
+}
+
+#finalptstouch {
+    color: white;
+    margin-top: 10%;
+    font-size: 25px;
+    font-weight: bold;
+    position: absolute;
+    margin-left: 40%;
 }
 
 

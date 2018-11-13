@@ -22,9 +22,9 @@ function gameStarter() {
     document.getElementById('touch-play').removeAttribute('onclick');
     
     //quando premo play nascondo la descrizione del gioco e il tasto stesso (dopo 1 sec)
-    document.getElementById('giocot' + num_gioco).style.visibility='hidden';
+    $('#giocot' + num_gioco).hide();
     setTimeout(function () {
-        document.getElementById('touch-play').style.visibility='hidden';
+        $("#touch-play").hide();
         }, 1000);
     
     //successivamente carico gli elementi del gioco stesso
@@ -89,15 +89,19 @@ function piramide(live) {
             switch (livello) {
                 case '2':
                     $("#cursor").css('margin-top', "48%");
+                    $("#arrow").show();
                     break;
                 case '3':
                     $("#cursor").css('margin-top', "36%");
+                    $("#arrow").show();
                     break;
                 case '4':
                     $("#cursor").css('margin-top', "25%");
+                    $("#arrow").show();
                     break;
                 case '5':
                     $("#cursor").css('margin-top', "8%");
+                    $("#arrow").show();
                     break;
             }
         }, 500);
@@ -122,9 +126,9 @@ function piramide(live) {
 
             //oggetto contenente l'elemento e il suo identificativo grafico, necessario per il feedback
             alt = [
-                {dbelement: pir1, graphicid: 'pir1'},
-                {dbelement: pir2, graphicid: 'pir2'},
-                {dbelement: pir3, graphicid: 'pir3'}
+                {dbelement: pir1, graphicid: 'choice1'},
+                {dbelement: pir2, graphicid: 'choice2'},
+                {dbelement: pir3, graphicid: 'choice3'}
             ];
         });
     });
@@ -134,32 +138,12 @@ function piramide(live) {
 
 //funzione per la gestione della scelta in piramide
 function choicePiramide(id){
-    //variabili per id non selezionati
-    var aelem1;
-    var aelem2;
     
-    //recupero il numero dell'id che ha generato il click
-    var num = parseInt(id.charAt(id.length-1));
-    
-    if(num == 1){
-        aelem1 = 'pir2';
-        aelem2 = 'pir3';
-    }
-    else{
-        if(num == 2){
-            aelem1 = 'pir1';
-            aelem2 = 'pir3';
-        }
-        else{
-            aelem1 = 'pir1';
-            aelem2 = 'pir2';
-        }
-    }
+    console.log("Ho cliccato l'elemento " + id);
+    //variabili per id non selezionati    
     setTimeout(function() {
-        document.getElementById(id).setAttribute("visible", false);
-        document.getElementById(aelem1).setAttribute("visible", false);
-        document.getElementById(aelem2).setAttribute("visible", false);
-        document.getElementById("cursore").setAttribute("visible",false);
+        $(".choice").hide();
+        $("#arrow").hide();
         }, 1000);
     
     feedbackPiramide(id); 
@@ -180,13 +164,14 @@ function feedbackPiramide(id){
     
     if(element.livello==livello){
 
-        $('#table').after('<a-image class="currentpiramide piramide" id="feedcorrpir"  position="8.2 3.5 2" material="src:Immagini/happy.png" scale="3 3 3" visible="false"></a-image>');
+        $('.feedbk').attr("src", "Immagini/happy.png");
+        
         setTimeout(function() {
-            document.getElementById("feedcorrpir").setAttribute("visible", true);
+             $('.feedbk').show();
         }, 2000);
         
         setTimeout(function() {
-            document.getElementById("lev"+ livello).setAttribute("material", 'src: Immagini/piramide/piano'+livello+'g.png');
+            $("#pyr"+livello).attr("src", "Immagini/piramide/piano"+livello+"g.png");
         }, 3000);
         
         //aggiungo il punteggio 1
@@ -194,13 +179,14 @@ function feedbackPiramide(id){
         
     }
     else{
-        $('#table').after('<a-image class="currentpiramide piramide" id="feedsbapir"  position="8.2 3.5 2" material="src:Immagini/sad.png" scale="3 3 3" visible="false"></a-image>');
+         $('.feedbk').attr("src", "Immagini/sad.png");
+        
         setTimeout(function() {
-            document.getElementById("feedsbapir").setAttribute("visible", true);
+             $('.feedbk').show();
         }, 2000);
         
         setTimeout(function() {
-            document.getElementById("lev"+ livello).setAttribute("material", 'src: Immagini/piramide/piano'+livello+'s.png');
+            $("#pyr"+livello).attr("src", "Immagini/piramide/piano"+livello+"s.png");
         }, 3000);
         
         //aggiungo il punteggio 0
@@ -212,7 +198,7 @@ function feedbackPiramide(id){
     if(piramidePts.length<5) {
         //prima di partire con un altro turno rimuovo gli elementi
        setTimeout(function() {
-            $('.currentpiramide').remove();
+            $('.feedbk').hide();
            var numero = parseInt(livello) + 1;
             livello = numero.toString();
             piramide(livello);
@@ -443,12 +429,10 @@ function feedbackTavola(momentog) {
 
 //funzione per il calcolo del punteggio finale
 function finalPoints(arrayPts, game) {   
-    $('#table').after(' <a-image id="finalpts" position="4 3 2" material="src:Immagini/geamasc.png" scale="3 4.5 1" visible= "false"></a-image>');
-    
     //rimuovo il contesto del gioco in considerazione    
     if(game == '1'){
         setTimeout(function() {
-        $('.piramide').remove();
+        $('.removable').hide();
         }, 4500); 
      }
     else if(game == '2'){
@@ -478,12 +462,14 @@ function finalPoints(arrayPts, game) {
     
     //poi appare la mascotte indicante i punti finali
     setTimeout(function() {
-        document.getElementById("finalpts").setAttribute("visible", true);
-        $('#table').after(' <a-entity id="finalpts" text="value: Hai realizzato: \n' + parseInt(totPts) + ' punti su ' + maxPts + ';" position="10.5 4 2" scale="10 10 10"></a-entity>');
+        $("#mask").show();     
+        $("#result").append('<p id="finalptstouch">Hai realizzato: \n' +parseInt(totPts) + ' punti su ' + maxPts + '; </p>');
     }, 5000);
     
     //fine del gioco
     setTimeout(function() {
+        
+        $("#result").empty();
         location.href='index.html';
     }, 10000);
     

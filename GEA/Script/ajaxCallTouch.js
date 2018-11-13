@@ -156,6 +156,9 @@ function getPiramideAjax(livello, callback) {
             $("#choice1").attr("src", mesco[0].img);
             $("#choice2").attr("src", mesco[1].img);
             $("#choice3").attr("src", mesco[2].img);
+            $("#choice1").attr("onclick", "choicePiramide('choice1')");
+            $("#choice2").attr("onclick", "choicePiramide('choice2')");
+            $("#choice3").attr("onclick", "choicePiramide('choice3')");   
             
             $("#choice1").show();
             $("#choice2").show();
