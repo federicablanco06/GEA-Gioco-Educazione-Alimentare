@@ -27,6 +27,7 @@ function gameStarter() {
         $("#touch-play").hide();
         }, 1000);
     
+    
     //successivamente carico gli elementi del gioco stesso
     if (num_gioco == '1')
         piramide(livello);
