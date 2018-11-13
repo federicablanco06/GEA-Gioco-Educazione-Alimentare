@@ -151,10 +151,20 @@ function getPiramideAjax(livello, callback) {
         $('#table').after('<a-image class="currentpiramide piramide scelta" id="pir3"  position="9.2 1.5 4.5" material="src:'+mesco[2].img+'" scale="0.7 0.7 0.7" visible="false" onclick="choicePiramide(\'pir3\')" crossorigin> </a-image>');*/
 
         setTimeout(function() {
-           document.getElementById('pir1').setAttribute("visible", true);
+            $("#choice1").attr("src", mesco[0].img);
+            $("#choice2").attr("src", mesco[1].img);
+            $("#choice3").attr("src", mesco[2].img);
+            
+            $("#choice1").show();
+            $("#choice2").show();
+            $("#choice3").show();
+            
+            console.log("things");
+            
+           /*document.getElementById('pir1').setAttribute("visible", true);
            document.getElementById('pir2').setAttribute("visible", true);
-           document.getElementById('pir3').setAttribute("visible", true);
-        }, 1000); 
+           document.getElementById('pir3').setAttribute("visible", true);*/
+        }, 1000); */
 
         //e infine le mando al game master
         callback(mesco);

@@ -174,7 +174,6 @@
     margin-top: 8%;
     margin-left: 17%;
     position: absolute;
-    visibility: hidden;
 }
 .pyr {
     width: 94%;
@@ -183,7 +182,7 @@
 
 #arrow {
     width: 80%;
-    margin-top: 40%;
+    display: none;
 }
 
 #cursor {
@@ -200,15 +199,22 @@
 
 #pyr4 {
     padding-left: 3%;
+    display: none;
 
 }
 #pyr5 {
     padding-bottom: 1%;
+    display: none;
 }
 
 #pyr3, #pyr4{
     width: 92%;
     height: auto;
+    display: none;
+}
+
+#pyr1, #pyr2 {
+    display: none;
 }
 
 #bin_container {
@@ -244,8 +250,11 @@
 .choice {
     width: 27%;
     height: auto;
-    visibility: hidden;
     margin-right: 1%;
+}
+
+#choice1, #choice2, #choice3 {
+    display: none;
 }
 
 #daytime_container {

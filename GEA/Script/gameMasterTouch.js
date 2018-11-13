@@ -41,21 +41,44 @@ function gameStarter() {
 
 //funzione coordinatrice del gioco1
 function piramide(live) {   
-    var time = 2500;
     
     
     if(piramidePts.length == 0) {
+        var time = 2500;
         //mostro la piramide
+        
+        console.log("costruzione piramide");
+        setTimeout(function(){
+            $("#pyr5").show();
+            //$("#arrow").show();
+        
+        }, 500);
+        setTimeout(function(){
+            $("#pyr4").show();
+        }, 1000);
+        setTimeout(function(){
+            $("#pyr3").show();
+        }, 1500);
+        setTimeout(function(){
+            $("#pyr2").show();
+        
+        }, 2000);
+        setTimeout(function(){
+            $("#pyr1").show();
+        }, 2500);
+        
         setTimeout(function() {
-        document.getElementById("pyramid_container").style.visibility='visible';
-    }, 1000);
+            $("#cursor").css('margin-top', "58%");
+           $("#arrow").show();
+            
+        }, 2500);
               
-        setTimeout(function() {
+       /* setTimeout(function() {
             var y = document.getElementById("pyr"+livello).getAttribute("position").y;
             document.getElementById("cursore").setAttribute("visible", true);
             document.getElementById("cursore").setAttribute("position", {x: "0.6", y: parseFloat(y), z: "0.2"} );
             document.getElementById("table").setAttribute("visible", true);
-        }, 2500);
+        }, 2500);*/
     
     }
     
@@ -63,19 +86,33 @@ function piramide(live) {
         time = 500;
         //cursore indicante livello in oggetto la sua coordinata y dipende dal livello in considerazione
         setTimeout(function() {
-            var y = document.getElementById("pyr"+livello).getAttribute("position").y;
-            document.getElementById("cursore").setAttribute("visible", true);
-            document.getElementById("cursore").setAttribute("position", {x: "0.6", y: parseFloat(y), z: "0.2"} );
+            switch (livello) {
+                case '2':
+                    $("#cursor").css('margin-top', "48%");
+                    break;
+                case '3':
+                    $("#cursor").css('margin-top', "36%");
+                    break;
+                case '4':
+                    $("#cursor").css('margin-top', "25%");
+                    break;
+                case '5':
+                    $("#cursor").css('margin-top', "8%");
+                    break;
+            }
         }, 500);
         
     }
-    
+    console.log("things3");
+
     setTimeout(function(){
+        console.log("things1");
          $.getScript('Script/ajaxCallTouch.js', function() {
         //risultati contiene tre elementi random, uno corretto e due sbagliati presi dal database con la giusta difficoltà
         var risultati;
         var pir1, pir2, pir3;
         
+        console.log("things2");
         //gestore di estrazione e posizionamento immagini
         getPiramideAjax(livello, function(risultati) {
             pir1 = risultati[0];
