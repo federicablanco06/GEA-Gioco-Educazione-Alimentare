@@ -7,6 +7,7 @@
 
 //estrattore di dati dal database
 function getData(difficulty, num_gioco) {
+    console.log("entri");
     var gameName;
     switch(num_gioco) {
         case '1': gameName="Piramide";
@@ -117,6 +118,7 @@ function getSanoAjax(callback) {
 
 //funzione per la gestione dei valori estratti da database per la piramide
 function getPiramideAjax(livello, callback) { 
+    console.log("things2aj");
         //scrematura oggetti in base al livello corrente
         var corrArray = [];
         var sbaArray = [];
@@ -164,7 +166,7 @@ function getPiramideAjax(livello, callback) {
            /*document.getElementById('pir1').setAttribute("visible", true);
            document.getElementById('pir2').setAttribute("visible", true);
            document.getElementById('pir3').setAttribute("visible", true);*/
-        }, 1000); */
+        }, 1000); 
 
         //e infine le mando al game master
         callback(mesco);
