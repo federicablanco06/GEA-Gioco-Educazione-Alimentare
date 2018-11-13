@@ -19,18 +19,18 @@ $(function vrprimary() {
     $('body').css('background-position', 'center');
         
     //abilito la scritta di spiegazione in base al gioco selezionato	
-   /* switch(Gioco) {
+    switch(Gioco) {
         case "1":
-            document.getElementById("gioco1").setAttribute("visible",true);
+            document.getElementById("giocot1").style.visibility='visible';
             break;
         case "2":
-            document.getElementById("gioco2").setAttribute("visible",true); 
+            document.getElementById("giocot2").style.visibility='visible';
             break;
         case "3":
-            document.getElementById("gioco3").setAttribute("visible",true);
+            document.getElementById("giocot3").style.visibility='visible';
             break;            
-    }*/
-    
+    }
+    document.getElementById('touch-play').style.cursor='pointer';
     //frammento per l'estrazione anticipata dei dati da db
     $.getScript('Script/ajaxCallTouch.js', function() {
         getData(Diff, Gioco);
