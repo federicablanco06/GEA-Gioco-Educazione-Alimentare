@@ -162,14 +162,19 @@ function getPiramideAjax(livello, callback) {
         $('#table').after('<a-image class="currentpiramide piramide scelta" id="pir2"  position="8.4 1.5 4.5" material="src:'+mesco[1].img+'" scale="0.7 0.7 0.7" visible="false" onclick="choicePiramide(\'pir2\')" crossorigin> </a-image>');
         $('#table').after('<a-image class="currentpiramide piramide scelta" id="pir3"  position="9.2 1.5 4.5" material="src:'+mesco[2].img+'" scale="0.7 0.7 0.7" visible="false" onclick="choicePiramide(\'pir3\')" crossorigin> </a-image>');*/
 
-        setTimeout(function() {
-            $("#choice1").attr("src", mesco[0].img);
-            $("#choice2").attr("src", mesco[1].img);
-            $("#choice3").attr("src", mesco[2].img);
+        
+            
+    $(document).ready(function() {
+        $("#choice_container").append('<img class="choice" id="choice1" src='+mesco[0].img+'/>');
+        $("#choice_container").append('<img class="choice" id="choice2" src='+mesco[1].img+'/>');
+        $("#choice_container").append('<img class="choice" id="choice3" src='+mesco[1].img+'/>');
+    });
+
             $("#choice1").attr("onclick", "choicePiramide('choice1')");
             $("#choice2").attr("onclick", "choicePiramide('choice2')");
             $("#choice3").attr("onclick", "choicePiramide('choice3')");   
             
+    setTimeout(function() {
             $("#choice1").show();
             $("#choice2").show();
             $("#choice3").show();

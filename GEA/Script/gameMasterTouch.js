@@ -145,7 +145,7 @@ function choicePiramide(id){
     console.log("Ho cliccato l'elemento " + id);
     //variabili per id non selezionati    
     setTimeout(function() {
-        $(".choice").hide();
+        $(".choice").remove();
         $("#arrow").hide();
         }, 1000);
     
