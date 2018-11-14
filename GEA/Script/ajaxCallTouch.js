@@ -103,13 +103,17 @@ function getSanoAjax(callback) {
     var selms= shuffle(rst);
 
     //variabili di gioco
-    $('#table').after('<a-image class="currentsano sano elms" id="elm1" onmouseenter="choiceSano(\'elm1\')" position="6.7 1.5 4.5" material="src:'+selms[0].img+'" scale="0.7 0.7 0.7" visible="false" crossorigin></a-image>');
-    $('#table').after('<a-image class="currentsano sano elms" id="elm2" onmouseenter="choiceSano(\'elm2\')" position="7.9 1.5 4.5" material="src:'+selms[1].img+'" scale="0.7 0.7 0.7" visible="false" crossorigin></a-image>');
-
-    setTimeout(function() {
-        document.getElementById('elm1').setAttribute("visible", true);
-        document.getElementById('elm2').setAttribute("visible", true);
-    }, 1000);
+            $("#choice1").attr("src", selms[0].img);
+            $("#choice2").attr("src", selms[1].img);
+            $("#choice1").attr("draggable", true);
+            $("#choice2").attr("draggable", true);
+            $("#choice1").attr("ondragstart", "drag(event)");
+            $("#choice2").attr("ondragstart", "drag(event)");
+            $("#choice1").attr("onclick", "choiceSano('choice1')");
+            $("#choice2").attr("onclick", "choiceSano('choice2')");  
+            
+            $("#choice1").show();
+            $("#choice2").show();
 
             //e infine le mando al game master
     callback(selms);

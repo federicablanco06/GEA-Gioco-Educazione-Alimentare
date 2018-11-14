@@ -217,9 +217,7 @@ function sano() {
      //cestino
     if(sanoPts.length==0) {
         setTimeout(function() {
-            document.getElementById("bin_container").style.visibility='visible';
-            document.getElementById("choice1").style.visibility='visible';
-            document.getElementById("choice3").style.visibility='visible';
+            $("#bin").show();
         }, 1000);
     }
     
@@ -237,31 +235,37 @@ function sano() {
 
             //oggetto contenente l'elemento e il suo identificativo grafico, necessario per il feedback
             alt = [
-                {dbelement: elm1, graphicid: 'elm1'},
-                {dbelement: elm2, graphicid: 'elm2'}
+                {dbelement: elm1, graphicid: 'choice1'},
+                {dbelement: elm2, graphicid: 'choice2'}
             ];
 
-            //setto le posizioni originali come variabili globali (array pos1=[x, y, z])
-            pos1= document.getElementById("elm1").getAttribute('position').split(' ');
-            pos2= document.getElementById("elm2").getAttribute('position').split(' ');
         });
     });
+}
+
+function allowDrop(ev) {
+    ev.preventDefault();
+}
+
+function drag(ev) {
+    ev.dataTransfer.setData("text", ev.target.id);
+}
+
+function drop(ev) {
+    ev.preventDefault();
+    var data = ev.dataTransfer.getData("text");
+    ev.target.appendChild(document.getElementById(data));
 }
 
 //funzione per la gestione della scelta in Sano
 function choiceSano(id) {  
     
-    //recupero coordinata x del cestino e dell'elemento cliccato
-    var posizione = document.getElementById(id).getAttribute('position');
-    var xCestino = document.getElementById("cestino").getAttribute("position").x;
-    var xImg = posizione.x;
-    var aelem;
     
     //recupero il numero dell'id che ha generato il click
     var num = parseInt(id.charAt(id.length-1));
 
     //se l'altro elemento è stato spostato torna alla sua posizione originaria
-    if(num==1) {
+   /* if(num==1) {
         document.getElementById("elm2").setAttribute("position", {x: parseFloat(pos2[0]), y: parseFloat(pos2[1]), z: parseFloat(pos2[2])});
         aelem = 'elm2';
     }
@@ -270,7 +274,7 @@ function choiceSano(id) {
         aelem = 'elm1';
     }
     else 
-        console.log('errore');
+        console.log('errore');*/
        
     //sposto se non arriva al cestino, fase di scelta iniziata
     if(xImg < xCestino+0.2)

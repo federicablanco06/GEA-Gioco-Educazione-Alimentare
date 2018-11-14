@@ -217,14 +217,15 @@
     display: none;
 }
 
-#bin_container {
+#bin {
     width: 13%;
     position: absolute;
     height: auto;
-    visibility: hidden;
+    display: none;
     margin-top: 30.5%;
-    margin-left: 19%;
+    margin-left: 63%;
 }
+
 
 .feedbk {
     width: 40%;
