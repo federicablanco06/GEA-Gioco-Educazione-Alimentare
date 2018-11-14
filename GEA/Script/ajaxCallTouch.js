@@ -103,17 +103,23 @@ function getSanoAjax(callback) {
     var selms= shuffle(rst);
 
     //variabili di gioco
-            $("#choice1").attr("src", selms[0].img);
-            $("#choice2").attr("src", selms[1].img);
-            $("#choice1").attr("draggable", true);
-            $("#choice2").attr("draggable", true);
-            $("#choice1").attr("ondragstart", "drag(event)");
-            $("#choice2").attr("ondragstart", "drag(event)");
-            $("#choice1").attr("onclick", "choiceSano('choice1')");
-            $("#choice2").attr("onclick", "choiceSano('choice2')");  
+    $(document).ready(function() {
+        $("#choice_container").append('<img class="choice" id="choice1" src='+selms[0].img+'/>');
+        $("#choice_container").append('<img class="choice" id="choice2" src='+selms[1].img+'/>');
+    });
+
+         $("#choice1").attr("draggable", true);
+         $("#choice2").attr("draggable", true);
+         $("#choice1").attr("ondragstart", "drag(event)");
+         $("#choice2").attr("ondragstart", "drag(event)");
+
             
-            $("#choice1").show();
+    setTimeout(function(){
+         $("#choice1").show();
             $("#choice2").show();
+        
+    }, 1000);
+           
 
             //e infine le mando al game master
     callback(selms);
