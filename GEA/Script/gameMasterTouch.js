@@ -345,6 +345,7 @@ function atavola() {
         var elm;
         getTavolaAjax(function(results) {
             elm = results;
+            console.log("elm in gamemaster "+ elm.id);
             alt = [
                 {dbelement: elm, graphicid: 'choice1'}
             ];
@@ -364,7 +365,7 @@ function choiceTavola(momento) {
     
     setTimeout(function() {
         $("#daytime_container").hide();
-        $("#choice1").hide();
+        $("#choice1").remove();
     }, 1000);
     
     feedbackTavola(momento);

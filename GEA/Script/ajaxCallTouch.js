@@ -206,6 +206,9 @@ function getTavolaAjax(callback) {
     var elm = corrDifficultyArray[rand];
 
     alreadyUsedIds.push(elm.id);
+    console.log(alreadyUsedIds);
+    console.log(corrDifficultyArray);
+    console.log(elm.id +" "+ elm.img);
 
     $(document).ready(function() {
         $("#choice_container").append('<img class="choice" id="choice1" src='+elm.img+'/>');
