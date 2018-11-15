@@ -331,11 +331,14 @@ function feedbackSano(id) {
 
 
 //funzione coordinatrice del gioco 3
-function atavola() {    
+function atavola() {   
+    $("#day1").attr("onclick", "choiceTavola(1)");
+    $("#day2").attr("onclick", "choiceTavola(2)");
+    $("#day3").attr("onclick", "choiceTavola(3)");
+    $("#day4").attr("onclick", "choiceTavola(4)");
+    
     setTimeout(function() {
-        document.getElementById("daytime_container").style.visibility='visible';
-        document.getElementById("choice1").style.visibility='visible';
-        document.getElementById("choice3").style.visibility='visible';
+        $("#daytime_container").show();
     }, 1000);
     
     $.getScript('Script/ajaxCallTouch.js', function() {        
@@ -343,7 +346,7 @@ function atavola() {
         getTavolaAjax(function(results) {
             elm = results;
             alt = [
-                {dbelement: elm, graphicid: 'elem'}
+                {dbelement: elm, graphicid: 'choice1'}
             ];
 
         });
@@ -354,17 +357,14 @@ function atavola() {
 function choiceTavola(momento) {
     
     //rimozione della cliccabilità delle immagini
-    document.getElementById('tav1').removeAttribute('onclick');
-    document.getElementById('tav2').removeAttribute('onclick');
-    document.getElementById('tav3').removeAttribute('onclick');
-    document.getElementById('tav4').removeAttribute('onclick');
+    $("#day1").removeAttr("onclick");
+    $("#day2").removeAttr("onclick");
+    $("#day3").removeAttr("onclick");
+    $("#day4").removeAttr("onclick");
     
     setTimeout(function() {
-        document.getElementById('tav1').setAttribute('visible', false);
-        document.getElementById('tav2').setAttribute('visible', false);
-        document.getElementById('tav3').setAttribute('visible', false);
-        document.getElementById('tav4').setAttribute('visible', false);
-        document.getElementById('elem').setAttribute('visible', false);
+        $("#daytime_container").hide();
+        $("#choice1").hide();
     }, 1000);
     
     feedbackTavola(momento);
@@ -391,25 +391,33 @@ function feedbackTavola(momentog) {
     
     //feedback
     if(corr) {        
-        $('#table').after('<a-image class="atavola" id="feed"  position="8.2 3.5 2" material="src:Immagini/happy.png" scale="3 3 3" visible="false"></a-image>');
+        $('.feedbk').attr("src", "Immagini/happy.png");
+        
         setTimeout(function() {
-            document.getElementById('feed').setAttribute('visible', true);
-        }, 2000);             
+             $('.feedbk').show();
+        }, 2000);
+
+        
+        //aggiungo il punteggio 1
         tavolaPts.push('1');
+        
     }
-    
-    else {
-        $('#table').after('<a-image class="atavola" id="feed" position="8.2 3.5 2" material="src:Immagini/sad.png" scale="3 3 3" visible="false"></a-image>');
+    else{
+         $('.feedbk').attr("src", "Immagini/sad.png");
+        
         setTimeout(function() {
-            document.getElementById('feed').setAttribute('visible', true);
-        }, 2000);             
+             $('.feedbk').show();
+        }, 2000);
+
+        
+        //aggiungo il punteggio 0
         tavolaPts.push('0');
     }
     
     //controllo numero giri fatti
     if (tavolaPts.length<3)
         setTimeout(function() {
-            $('.atavola').remove();
+            $('.feedbk').hide();
             atavola();
         }, 5000);
     else

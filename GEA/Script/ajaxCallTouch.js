@@ -167,7 +167,7 @@ function getPiramideAjax(livello, callback) {
     $(document).ready(function() {
         $("#choice_container").append('<img class="choice" id="choice1" src='+mesco[0].img+'/>');
         $("#choice_container").append('<img class="choice" id="choice2" src='+mesco[1].img+'/>');
-        $("#choice_container").append('<img class="choice" id="choice3" src='+mesco[1].img+'/>');
+        $("#choice_container").append('<img class="choice" id="choice3" src='+mesco[2].img+'/>');
     });
 
             $("#choice1").attr("onclick", "choicePiramide('choice1')");
@@ -207,11 +207,13 @@ function getTavolaAjax(callback) {
 
     alreadyUsedIds.push(elm.id);
 
-    //inserisco l'elemento nella GUI
-    $('#table').after('<a-image class="atavola" id="elem" material="src: '+ elm.img +'" position="7.1 1.52 4.5" scale="0.7 0.7 0.7" visible="false"></a-image>');
+    $(document).ready(function() {
+        $("#choice_container").append('<img class="choice" id="choice1" src='+elm.img+'/>');
+    });
+    
 
     setTimeout(function() {
-        document.getElementById('elem').setAttribute("visible", true);
+        $("#choice1").show();
     }, 1000);
 
 

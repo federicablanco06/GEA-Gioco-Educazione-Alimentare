@@ -260,7 +260,7 @@
 
 #daytime_container {
     width: 60%;
-    visibility: hidden;
+    display: none;
     margin-left: 17%;
     margin-top: 6%;
     position: absolute;
