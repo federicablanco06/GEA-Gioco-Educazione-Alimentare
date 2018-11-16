@@ -244,40 +244,6 @@ function sano() {
 }
 
 
-    
-
-
-
-
-
-
-/*function allowDrop(ev) {
-    ev.preventDefault();
-
-}
-
-function drag(ev) {
-    ev.dataTransfer.setData("text", ev.target.id);
-    draggedId = ev.target.id;
-    
-}
-
-function drop(ev) {
-    ev.preventDefault();
-    var data = ev.dataTransfer.getData("text");
-    ev.target.appendChild(document.getElementById(data));
-    
-    choiceSano(draggedId);
-}*/
-
-
-
-		// just a little helper function
-		function removeClass(e,c) {
-			e.className = e.className.replace(
-				new RegExp('(?:^|\\s)'+c+'(?!\\S)') ,'');
-		}
-
 //funzione per la gestione della scelta in Sano
 function choiceSano(id) {  
     setTimeout(function(){

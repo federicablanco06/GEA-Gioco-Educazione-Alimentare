@@ -1,3 +1,4 @@
+
 $(function vrprimary() {
     //prendo l'url
     var url = window.location.search;
