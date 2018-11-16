@@ -134,6 +134,15 @@ p{
     height: auto;
 }
 
+
+    #gametype_txt {
+        display: block;
+        color: #FF0000;
+        font-size: 20px;
+        margin-left: 8%;
+
+    }
+
     #spiega_text {
         display: block;
         color: #FF0000;
@@ -155,19 +164,4 @@ p{
         border-color: #0033FF;
     }
 
-#icon_gametype {
-    width: 40%;
-    margin-left: 8%;
-    align-content: center;
-    height: auto;
-}
-
-
-    #gametype_txt {
-        display: block;
-        color: #FF0000;
-        font-size: 20px;
-        margin-left: 8%;
-
-    }
 
