@@ -477,7 +477,7 @@ function finalPoints(arrayPts, game) {
     //poi appare la mascotte indicante i punti finali
     setTimeout(function() {
         $("#mask").show();     
-        $("#result").append('<p id="finalptstouch">Hai realizzato: \n' +parseInt(totPts) + ' punti su ' + maxPts + '; </p>');
+        $("#result").append('<p id="finalptstouch">Hai realizzato: \n' +parseInt(totPts) + ' punti su ' + maxPts + '</p>');
     }, 5000);
     
     //fine del gioco
