@@ -21,13 +21,13 @@ $(function vrprimary() {
     //abilito la scritta di spiegazione in base al gioco selezionato	
     switch(Gioco) {
         case "1":
-            document.getElementById("giocot1").style.visibility='visible';
+            $("#giocot1").show();
             break;
         case "2":
-            document.getElementById("giocot2").style.visibility='visible';
+            $("#giocot2").show();
             break;
         case "3":
-            document.getElementById("giocot3").style.visibility='visible';
+            $("#giocot3").show();
             break;            
     }
     document.getElementById('touch-play').style.cursor='pointer';

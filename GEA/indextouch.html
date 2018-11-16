@@ -1,10 +1,14 @@
 <html>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0, maximum-scale=1.0, user-scalable=no" />
     <head>
         <!--CSS-->
         <link rel="stylesheet" type="text/css" href="Styles/main_landscape.css">
         
         <!--JS-->
-        <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+        <!--<script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>-->
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jquery/1.8.2/jquery.min.js"></script>
+        <script type="text/javascript" src="http://ajax.googleapis.com/ajax/libs/jqueryui/1.9.1/jquery-ui.min.js"></script>
+        <script src="Script/jquery.ui.touch-punch.min.js"></script>
         <script src="Script/touchPrimaryScript.js"></script>
         <script src="Script/gameMasterTouch.js"></script>
         <script src="Script/ajaxCallTouch.js"></script>
@@ -29,7 +33,7 @@
             </div>
         </div>
         
-        <div id="bin_container" class ="removable healthy" ondrop="drop(event)" ondragover="allowDrop(event)">
+        <div id="bin_container" class ="removable healthy">
             <img src="Immagini/touch/bin.png" id="bin"/>
         </div>
         
@@ -38,9 +42,7 @@
         </div>
         
         <div id="choice_container" class ="removable">
-           <!-- <img class="choice" id="choice1" src="Immagini/uxPBLIH%20-%20Imgur.png"/>
-            <img class="choice" id="choice2" src="Immagini/uxPBLIH%20-%20Imgur.png"/>
-            <img class="choice" id="choice3" src="Immagini/uxPBLIH%20-%20Imgur.png"/>-->
+
         </div>
         
         <div id="daytime_container" class="removable letseat">
@@ -50,6 +52,14 @@
             <img class="day" id="day4" src="Immagini/atavola/cena.png"/>
         </div>
         
+       <!-- <div id="allergy_choices1" class="removable">
+            <img id="egg" src="Immagini/allergy/eggs.png" class="allergy_choice"/>
+            <img id="soy" src="Immagini/allergy/soybean.png" class="allergy_choice"/>
+            <img id="milk" src="Immagini/allergy/milk.png" class="allergy_choice"/>
+            <img id="peanuts" src="Immagini/allergy/peanuts.png" class="allergy_choice"/>
+            <img id="fish" src="Immagini/allergy/fish.png" class="allergy_choice"/>
+        </div>
+        <div id="allergy_choices2" class="removable"></div>-->
     
             <p class="exp" id="giocot1">Scegli il cibo più adatto <br> al piano della piramide <br> indicato!</p>
             <p class="exp" id="giocot2">Trascina il cibo <br> spazzatura nel cestino!</p>
@@ -65,6 +75,8 @@
         
         <div id="result">
         </div>
+        
+        
         
         
     </body>

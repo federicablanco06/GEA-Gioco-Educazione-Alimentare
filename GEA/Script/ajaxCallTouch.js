@@ -5,6 +5,7 @@
  * Authors: Pennati Giulia, Blanco Federica
  */
 
+var draggedId;
 //estrattore di dati dal database
 function getData(difficulty, num_gioco) {
     console.log("entri");
@@ -108,10 +109,10 @@ function getSanoAjax(callback) {
         $("#choice_container").append('<img class="choice" id="choice2" src='+selms[1].img+'/>');
     });
 
-         $("#choice1").attr("draggable", true);
+        /* $("#choice1").attr("draggable", true);
          $("#choice2").attr("draggable", true);
          $("#choice1").attr("ondragstart", "drag(event)");
-         $("#choice2").attr("ondragstart", "drag(event)");
+         $("#choice2").attr("ondragstart", "drag(event)");*/
 
             
     setTimeout(function(){
@@ -119,6 +120,24 @@ function getSanoAjax(callback) {
             $("#choice2").show();
         
     }, 1000);
+    
+    
+    $(".choice").draggable( {
+        drag: function(event, ui) {
+            draggedId = $(this).attr("id");
+            console.log($(this).attr("id") +" is dragged " + draggedId);
+            
+            
+        },
+        revert : 'invalid'
+    });
+    
+    $("#bin").droppable( {
+        drop: function handleDropEvent(ev, ui) {
+            console.log(draggedId + " was dropped on me");
+            choiceSano(draggedId);
+        }
+    });
            
 
             //e infine le mando al game master

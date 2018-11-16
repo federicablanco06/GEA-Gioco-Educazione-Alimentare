@@ -248,10 +248,11 @@
     text-align: center;
     margin-top: 20%;
 }
+
 .choice {
     width: 27%;
     height: auto;
-    margin-right: 1%;
+    margin-right: 10%;
 }
 
 #choice1, #choice2, #choice3 {
@@ -267,6 +268,19 @@
     height: auto;
 }
 
+/*#allergy_choices {
+    width: 50%;
+    margin-left: 30%;
+    margin-top: 80%;
+    height: auto;
+    position: absolute;
+}
+
+.allergy_choice {
+    width: 7%;
+}*/
+
+
 .day {
     width: 18%;
     margin-left: 1%;
@@ -276,7 +290,7 @@
 .exp {
     color: white;
     font-size: 25px;
-    visibility: hidden;
+    display: none;
     margin-left: 40%;
     margin-top: 10%;
     width: 40%;
