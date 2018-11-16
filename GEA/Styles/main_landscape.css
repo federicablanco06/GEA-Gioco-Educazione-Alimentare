@@ -151,7 +151,6 @@
     #gametype_txt {
         display: block;
         color: #FF0000;
-        font-size: 20px;
         margin-left: 8%;
 
     }
@@ -340,7 +339,6 @@
 #finalptstouch {
     color: white;
     margin-top: 10%;
-    font-size: 25px;
     font-weight: bold;
     position: absolute;
     margin-left: 40%;
