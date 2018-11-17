@@ -20,7 +20,10 @@ $(function vrprimary() {
             break;
         case "3":
             document.getElementById("gioco3").setAttribute("visible",true);
-            break;            
+            break;
+        case "4":
+            document.getElementById("gioco4").setAttribute("visible",true);
+            break;
     }
     
     //frammento per l'estrazione anticipata dei dati da db

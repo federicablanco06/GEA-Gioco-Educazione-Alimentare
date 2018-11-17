@@ -32,8 +32,9 @@ function gameStarter() {
         piramide(livello);
     else if (num_gioco == '2') 
         sano();
-    else 
+    else if (num_gioco == '3') 
         atavola();
+    else allergia();
         
 }
 
@@ -72,13 +73,6 @@ function piramide(live) {
            $("#arrow").show();
             
         }, 2500);
-              
-       /* setTimeout(function() {
-            var y = document.getElementById("pyr"+livello).getAttribute("position").y;
-            document.getElementById("cursore").setAttribute("visible", true);
-            document.getElementById("cursore").setAttribute("position", {x: "0.6", y: parseFloat(y), z: "0.2"} );
-            document.getElementById("table").setAttribute("visible", true);
-        }, 2500);*/
     
     }
     
@@ -405,7 +399,8 @@ function feedbackTavola(momentog) {
         finalPoints(tavolaPts, num_gioco);
 }
 
-
+//funzione coordinatrice del gioco 4
+function allergia(){}
 
 //funzione per il calcolo del punteggio finale
 function finalPoints(arrayPts, game) {   

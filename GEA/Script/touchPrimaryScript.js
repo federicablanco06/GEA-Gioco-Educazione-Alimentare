@@ -29,7 +29,10 @@ $(function vrprimary() {
             break;
         case "3":
             $("#giocot3").show();
-            break;            
+            break;   
+        case "4":
+            $("#giocot4").show();
+            break;
     }
     document.getElementById('touch-play').style.cursor='pointer';
     //frammento per l'estrazione anticipata dei dati da db

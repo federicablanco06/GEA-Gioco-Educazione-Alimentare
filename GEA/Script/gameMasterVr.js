@@ -32,8 +32,9 @@ function gameStarter() {
         piramide(livello);
     else if (num_gioco == '2') 
         sano();
-    else 
+    else if (num_gioco == '3') 
         atavola();
+    else allergia();
         
 }
 
@@ -432,6 +433,8 @@ function feedbackTavola(momentog) {
 }
 
 
+//funzione coordinatrice del gioco 4
+function allergia(){}
 
 //funzione per il calcolo del punteggio finale
 function finalPoints(arrayPts, game) {   
