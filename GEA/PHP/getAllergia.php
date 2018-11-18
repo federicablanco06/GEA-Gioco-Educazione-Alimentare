@@ -21,7 +21,7 @@ else {
     //echo "Successful connection"; // connection ok
 
     //# extract results mysqli_result::fetch_array
-    $query = "SELECT id, img, diff, sedano, molluschi, uova, pesce, latticini, guscio, crostacei, soia, noci, glutine FROM Allergia";
+    $query = "SELECT id, img, diff, sedano, molluschi, uova, pesce, latticini, arachidi, crostacei, soia, guscio, glutine FROM Allergia";
     //query execution
     $result = $mysqli->query($query);
 
