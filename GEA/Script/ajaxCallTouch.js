@@ -16,6 +16,9 @@ function getData(difficulty, num_gioco) {
         case '2': gameName="Sano";
             break;
         case '3': gameName="Tavola";
+            break;
+        case '4': gameName="Allergia";
+            break;
     }
     $.ajax({
         method: "POST",
