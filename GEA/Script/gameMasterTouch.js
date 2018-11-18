@@ -471,9 +471,24 @@ function allergia(){
                 
                 
             });
-    
-    
+
 }
+
+//gestore pressione sulle immagini delle allergie
+$(".allergy_choice").longclick(2000, function() {
+    var id = $(this).attr('id');
+    for(var i=0; i< allergyHandler.length; i++) {
+        if(allergyHandler[i].graphicId == id) {
+            if(!allergyHandler[i].selected) {
+                $(id).css('border-color', '#41fb00');
+                
+            }
+            else
+                $(id).css('border-color', '#ffe192');
+        }
+    }
+    
+});
 
 //CONFIRM è visibile SOLO se counter arriva a 0 (decrementato ogni selezione, incrementato se deseleziono)
 //va chiamata ogni volta che cambia count
