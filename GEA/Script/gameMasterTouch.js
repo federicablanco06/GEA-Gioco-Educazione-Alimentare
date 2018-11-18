@@ -10,7 +10,10 @@ var sanoPts = [];
 var piramidePts = [];
 var tavolaPts = [];
 var allergyPts = [];
+var tot;
 var count=10;
+var lev1a = ['milk', 'egg', 'wheat', 'fish'];
+var lev2a = ['milk', 'egg', 'wheat', 'fish', 'soy', 'nuts'];
 
 function gameSetter(Gioco, Diff) {
     //settaggio variabili globali di gioco
@@ -455,13 +458,39 @@ function allergia(){
                         {graphicId: 'shellfish', selected: false, elementValue: elm.crostacei}
                     ];
                     
-                    //conto il numero di allergeni nel cibo
-                    var temp = 0;
-                    for (var i=0; i<allergyHandler.length; i++) {
-                        if (allergyHandler[i].elementValue == '1')
-                            temp++;
+                    ////conto il numero di allergeni nel cibo in base alla difficoltà
+                    switch (diff) {
+                        case '1':
+                             for (var i=0; i<allergyHandler.length; i++) {
+                                 if (allergyHandler[i].elementValue == '1') {
+                                    for(var j =0; j<lev1a.length; j++) {
+                                        if(allergyHandler[i].graphicId == lev1a[j])
+                                            tot++;
+                                    }
+                                 }
+                             }
+                             break;
+                        case '2':  
+                            for (var i=0; i<allergyHandler.length; i++) {
+                                 if (allergyHandler[i].elementValue == '1') {
+                                    for(var j =0; j<lev2a.length; j++) {
+                                        if(allergyHandler[i].graphicId == lev2a[j])
+                                            tot++;
+                                    }
+                                 }
+                             }
+                             break;
+                        case '3':
+                            for (var i=0; i<allergyHandler.length; i++) {
+                            if (allergyHandler[i].elementValue == '1')
+                            tot++;
+                            
+                            }
+                            break;
+                            
                     }
-                    count = temp;
+                    
+                    count = tot;
                     
                     $("#counter").append(count);
                     $("#counter").show();
@@ -479,12 +508,26 @@ $(".allergy_choice").longclick(2000, function() {
     var id = $(this).attr('id');
     for(var i=0; i< allergyHandler.length; i++) {
         if(allergyHandler[i].graphicId == id) {
+            //cambio colore bordo, decremento il contatore e aggiorno il count visuale
             if(!allergyHandler[i].selected) {
                 $(id).css('border-color', '#41fb00');
+                allergyHandler[i].selected = true;
+                count--;
+                $("#counter").empty();
+                $("#counter").append(count);
                 
             }
-            else
+            else {
                 $(id).css('border-color', '#ffe192');
+                allergyHandler[i].selected = false;
+                count++;
+                $("#counter").empty();
+                $("#counter").append(count);
+                
+            }
+            
+            verifyCount();
+            break;
         }
     }
     
