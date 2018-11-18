@@ -1,6 +1,7 @@
 var num_gioco, diff; //variabili globali gioco
 var pos1, pos2;
 var alt;
+var allergyHandler;
 var corrDifficultyArray = [];
 var sbaDifficultyArray = [];
 var alreadyUsedIds = [];
@@ -8,6 +9,8 @@ var livello = "1";
 var sanoPts = [];
 var piramidePts = [];
 var tavolaPts = [];
+var allergyPts = [];
+var count=10;
 
 function gameSetter(Gioco, Diff) {
     //settaggio variabili globali di gioco
@@ -240,6 +243,7 @@ function sano() {
 
 //funzione per la gestione della scelta in Sano
 function choiceSano(id) {  
+    $(id).hide();
     setTimeout(function(){
         $(".choice").remove();
     }, 1000); 
@@ -400,7 +404,92 @@ function feedbackTavola(momentog) {
 }
 
 //funzione coordinatrice del gioco 4
-function allergia(){}
+function allergia(){
+    if(allergyPts.length == 0) {
+        setTimeout(function() {
+            //default allergies in every level
+            $('#milk').show();
+            $('#egg').show();
+            $('#fish').show();
+            $('#wheat').show();
+        
+            //specific allergies of other levels
+            switch(diff) {
+                case '2':
+                    $('#nuts').show();
+                    $('#soy').show();
+                    break;
+                case '3':
+                    $('#nuts').show();
+                    $('#soy').show();
+                    $('#shellfish').show();
+                    $('#clam').show();
+                    $('#peanuts').show();
+                    $('#celery').show();
+                    break;
+            }
+            
+        }, 1000);
+        }
+    //chiamo l'immagine
+    $.getScript('Script/ajaxCallTouch.js', function() {                
+                var elm;
+                
+                getAllergyAjax(function(risultati) {
+                    elm = risultati;                    
+                    alt = [
+                        {dbelement: elm, graphicid: 'choice1'}
+                    ];
+                    
+                    //mappa di riferimento che contiene tutte le corrispondenze
+                    allergyHandler = [
+                        {graphicId: 'nuts', selected: false, elementValue: elm.guscio},
+                        {graphicId: 'clam', selected: false, elementValue: elm.molluschi},
+                        {graphicId: 'milk', selected: false, elementValue: elm.latticini},
+                        {graphicId: 'celery', selected: false, elementValue: elm.sedano},
+                        {graphicId: 'egg', selected: false, elementValue: elm.uova},
+                        {graphicId: 'peanuts', selected: false, elementValue: elm.arachidi},
+                        {graphicId: 'soy', selected: false, elementValue: elm.soia},
+                        {graphicId: 'wheat', selected: false, elementValue: elm.glutine},
+                        {graphicId: 'fish', selected: false, elementValue: elm.pesce},
+                        {graphicId: 'shellfish', selected: false, elementValue: elm.crostacei}
+                    ];
+                    
+                    //conto il numero di allergeni nel cibo
+                    var temp = 0;
+                    for (var i=0; i<allergyHandler.length; i++) {
+                        if (allergyHandler[i].elementValue == '1')
+                            temp++;
+                    }
+                    count = temp;
+                    
+                    $("#counter").append(count);
+                    $("#counter").show();
+                    
+                    
+                });
+                
+                
+            });
+    
+    
+}
+
+//CONFIRM è visibile SOLO se counter arriva a 0 (decrementato ogni selezione, incrementato se deseleziono)
+//va chiamata ogni volta che cambia count
+function verifyCount() {    
+    if(count == 0) 
+        $("#confirm").show();
+    
+    else
+        $("#confirm").hide();
+    
+});
+
+function choiceAllergy() {
+    //TODO
+}
+
 
 //funzione per il calcolo del punteggio finale
 function finalPoints(arrayPts, game) {   

@@ -219,9 +219,7 @@ function getTavolaAjax(callback) {
     var elm = corrDifficultyArray[rand];
 
     alreadyUsedIds.push(elm.id);
-    console.log(alreadyUsedIds);
-    console.log(corrDifficultyArray);
-    console.log(elm.id +" "+ elm.img);
+
 
     $(document).ready(function() {
         $("#choice_container").append('<img class="choice" id="choice1" src='+elm.img+'/>');
@@ -236,6 +234,31 @@ function getTavolaAjax(callback) {
     //rimando l'elemento al chiamante
     callback(elm);
 
+}
+
+function getAllergyAjax(callback) {
+    usedIdRemover(corrDifficultyArray);
+    var rand;
+    
+    //check sul null
+    do {
+        rand = getRandomInt(0, corrDifficultyArray.length-1);
+    }
+    while (corrDifficultyArray[rand]==null);
+
+    //estraggo dall'array risultante l'elemento del turno corrente
+    var elm = corrDifficultyArray[rand];
+
+    alreadyUsedIds.push(elm.id);
+    
+    $(document).ready(function() {
+        $("#choice_container").append('<img class="choice" id="choice1" src='+elm.img+'/>');
+    });
+    
+
+    setTimeout(function() {
+        $("#choice1").show();
+    }, 1000);
 }
 
 

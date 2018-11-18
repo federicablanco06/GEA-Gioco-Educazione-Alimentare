@@ -295,17 +295,7 @@
 @media only screen and (orientation:landscape){
     #warning-message { display:none; }
  }
-#allergy_choices {
-    width: 50%;
-    margin-left: 30%;
-    margin-top: 80%;
-    height: auto;
-    position: absolute;
-}
 
-.allergy_choice {
-    width: 7%;
-}
 
 
 .day {
@@ -316,7 +306,7 @@
 
 .exp {
     color: white;
-    font-size: 25px;
+    font-size: 2em;
     display: none;
     margin-left: 20%;
     margin-top: 10%;
@@ -345,9 +335,76 @@
     color: white;
     margin-top: 10%;
     font-weight: bold;
+    font-size: 1.5em;
     position: absolute;
-    margin-left: 40%;
+    margin-left: 35%;
 }
+
+
+#allergy_choices1 {
+    text-align: center;
+    width: 40%;
+    margin-left: 16%;
+    margin-top: 5%;
+    height: auto;
+    position: absolute;
+}
+
+#allergy_choices2 {
+    text-align: center;
+    width: 40%;
+    margin-left: 16%;
+    margin-top: 12%;
+    height: auto;
+    position: absolute;
+}
+
+
+.allergy_choice {
+    display: none;
+    margin-right: 2%;
+    border-style: solid;
+    border-color:   #ffe192;
+    border-width: 1%;
+    width: 15%;
+}
+
+#counter_container {
+    width: 10%;
+    display: none;
+    height: auto;
+    text-align: center;
+    position: absolute;
+    margin-left: 55%;
+    margin-top: 8%;
+}
+
+#counter {
+    font-size: 4em;
+    color: white;
+}
+#counter_txt {
+    font-size: 1em;
+    color: white;
+}
+
+#confirm {
+    display: none;
+    position: absolute;
+    width: 10%;
+    text-align: center;
+    color: white;
+    height: auto;
+    border-color: white;
+    border-width: 0.7%;
+    border-style: solid;
+    background-color: #ffaa27;
+    padding: 0.7%;
+    margin-left: 55%;
+    margin-top: 16%;
+}
+
+
 
 
 
