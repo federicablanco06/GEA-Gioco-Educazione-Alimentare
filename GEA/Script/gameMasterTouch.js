@@ -564,7 +564,7 @@ function verifyCount() {
 
 function choiceAllergy() {
     //rendo gli elementi non cliccabili
-    $(".allergy_choices").unbind('taphold');
+    $(".allergy_choices").off('taphold');
     $("#confirm").removeAttr('onclick');
     $(".allergy_choices").css('pointer-events', 'none');
     
