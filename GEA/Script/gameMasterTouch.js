@@ -564,7 +564,8 @@ function verifyCount() {
 
 function choiceAllergy() {
     //rendo gli elementi non cliccabili
-    $(".allergy_choices").unbind('longclick');
+    $(".allergy_choices").unbind('taphold');
+    $("#confirm").removeAttr('onclick');
     $(".allergy_choices").css('pointer-events', 'none');
     
     //faccio sparire il contatore, confirm e la scelta
