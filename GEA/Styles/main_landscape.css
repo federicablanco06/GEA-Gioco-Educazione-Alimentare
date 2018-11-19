@@ -306,7 +306,7 @@
 
 .exp {
     color: white;
-    font-size: 2em;
+    font-size: 1em;
     display: none;
     margin-left: 20%;
     margin-top: 10%;
@@ -344,7 +344,7 @@
 #allergy_choices1 {
     width: 40%;
     margin-left: 18%;
-    margin-top: 3%;
+    margin-top: 5%;
     height: auto;
     position: absolute;
 }
@@ -352,7 +352,7 @@
 #allergy_choices2 {
     width: 40%;
     margin-left: 18%;
-    margin-top: 10%;
+    margin-top: 13%;
     height: auto;
     position: absolute;
 }
@@ -360,7 +360,7 @@
 #allergy_choices3 {
     width: 40%;
     margin-left: 18%;
-    margin-top: 17%;
+    margin-top: 20%;
     height: auto;
     position: absolute;
 }
@@ -368,7 +368,7 @@
 #allergy_choices4 {
     width: 40%;
     margin-left: 18%;
-    margin-top: 24%;
+    margin-top: 27%;
     height: auto;
     position: absolute;
 }
@@ -395,7 +395,7 @@
 }
 
 #counter {
-    font-size: 4em;
+    font-size: 2.5em;
     color: white;
 }
 #counter_txt {
