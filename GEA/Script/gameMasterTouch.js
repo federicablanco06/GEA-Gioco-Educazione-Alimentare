@@ -14,6 +14,11 @@ var tot;
 var count=10;
 var iter;
 
+
+$( document ).on( "mobileinit", function() {
+    $.mobile.loader.prototype.options.disabled = true;
+});
+
 function gameSetter(Gioco, Diff) {
     //settaggio variabili globali di gioco
     num_gioco = Gioco;
