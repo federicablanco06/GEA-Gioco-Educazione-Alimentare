@@ -12,8 +12,7 @@ var tavolaPts = [];
 var allergyPts = [];
 var tot;
 var count=10;
-var lev1a = ['milk', 'egg', 'wheat', 'fish'];
-var lev2a = ['milk', 'egg', 'wheat', 'fish', 'soy', 'nuts'];
+var iter;
 
 function gameSetter(Gioco, Diff) {
     //settaggio variabili globali di gioco
@@ -446,44 +445,40 @@ function allergia(){
                     
                     //mappa di riferimento che contiene tutte le corrispondenze
                     allergyHandler = [
-                        {graphicId: 'nuts', selected: false, elementValue: elm.guscio},
-                        {graphicId: 'clam', selected: false, elementValue: elm.molluschi},
                         {graphicId: 'milk', selected: false, elementValue: elm.latticini},
-                        {graphicId: 'celery', selected: false, elementValue: elm.sedano},
-                        {graphicId: 'egg', selected: false, elementValue: elm.uova},
-                        {graphicId: 'peanuts', selected: false, elementValue: elm.arachidi},
-                        {graphicId: 'soy', selected: false, elementValue: elm.soia},
-                        {graphicId: 'wheat', selected: false, elementValue: elm.glutine},
                         {graphicId: 'fish', selected: false, elementValue: elm.pesce},
+                        {graphicId: 'wheat', selected: false, elementValue: elm.glutine},
+                        {graphicId: 'egg', selected: false, elementValue: elm.uova},
+                        {graphicId: 'nuts', selected: false, elementValue: elm.guscio},
+                        {graphicId: 'soy', selected: false, elementValue: elm.soia},
+                        {graphicId: 'peanuts', selected: false, elementValue: elm.arachidi},
+                        {graphicId: 'celery', selected: false, elementValue: elm.sedano},
+                        {graphicId: 'clam', selected: false, elementValue: elm.molluschi},
                         {graphicId: 'shellfish', selected: false, elementValue: elm.crostacei}
                     ];
                     
                     ////conto il numero di allergeni nel cibo in base alla difficoltà
                     switch (diff) {
                         case '1':
-                             for (var i=0; i<allergyHandler.length; i++) {
+                             for (var i=0; i<4; i++) {
                                  if (allergyHandler[i].elementValue == '1') {
-                                    for(var j =0; j<lev1a.length; j++) {
-                                        if(allergyHandler[i].graphicId == lev1a[j])
-                                            tot++;
+                                        tot++;
                                     }
                                  }
-                             }
+                            
                              break;
                         case '2':  
-                            for (var i=0; i<allergyHandler.length; i++) {
+                            for (var i=0; i<6; i++) {
                                  if (allergyHandler[i].elementValue == '1') {
-                                    for(var j =0; j<lev2a.length; j++) {
-                                        if(allergyHandler[i].graphicId == lev2a[j])
-                                            tot++;
-                                    }
-                                 }
+                                     tot++;
+                                }
                              }
+                         
                              break;
                         case '3':
                             for (var i=0; i<allergyHandler.length; i++) {
-                            if (allergyHandler[i].elementValue == '1')
-                            tot++;
+                                if (allergyHandler[i].elementValue == '1')
+                                tot++;
                             
                             }
                             break;
@@ -498,10 +493,10 @@ function allergia(){
                     
                 });
                 
-                
-            });
-
+        
+        });
 }
+
 
 //gestore pressione sulle immagini delle allergie
 $(".allergy_choice").longclick(2000, function() {
@@ -542,32 +537,109 @@ function verifyCount() {
     else
         $("#confirm").hide();
     
-});
+}
 
 function choiceAllergy() {
-    //TODO
+    //rendo gli elementi non cliccabili
+    $(".allergy_choices").unbind('longclick');
+    $(".allergy_choices").css('pointer-events', 'none');
+    
+    //faccio sparire il contatore, confirm e la scelta
+   setTimeout(function() {
+       $("#counter").hide();
+       $("#confirm").hide();
+       $("#choice1").remove();
+       
+   }, 1000); 
+    
+    feedbackAllergy();    
+    
+}
+
+function feedbackAllergy() {
+    var points;
+    
+    //calcolo i punti in base alle risposte corrette o sbagliate e cambio il bordo in rosso se sbagliate (o mancanti)
+    switch (diff) {
+        case '1': iter =4;
+            break;
+        case '2': iter=6;
+            break;
+        case '3': iter=10;
+            break;            
+    }
+    
+    //ciclo con un numero di iterazioni basato sul livello in quanto i miei elementi nell'handler sono ordinati
+    //possiamo ottenere un numero di punti che va da -iter a +iter, a seconda che sia tutto sbagliato o tutto giusto
+    for (var i=0; i<iter; i++) {
+        if(allergyHandler[i].selected) {
+            if(allergyHandler[i].elementValue == '1')
+                points++;
+            else {
+                points--;
+                $(allergyHandler[i].graphicId).css('border-color', 'red');
+            }
+        }
+
+        else {
+            if(allergyHandler[i].elementValue == '0')
+                points++;
+            else {
+                points--;
+                $(allergyHandler[i].graphicId).css('border-color', 'red');
+            }
+
+        }
+    }
+    
+    //se il punteggio è negativo, lo converto a 0 (per evitare di deprimere troppo i pazienti ahah) 
+    if(points<0) 
+        points = 0;
+    
+    //calcolo il feedback: gea triste se punti <= a iter/2
+    if(points < iter/2) {
+        $(".feedbk").attr('src', 'Immagini/sad.png');
+        
+        setTimeout(function() {
+            $(".feedbk").show();
+        }, 2000);
+        
+    }
+    else {
+        $(".feedbk").attr('src', 'Immagini/happy.png');
+        
+        setTimeout(function() {
+            $(".feedbk").show();
+        }, 2000);
+        
+    }    
+    //aggiungo i punti fatti questo giro
+    allergyPts.push(points);
+    
+    //3 iterazioni, come gli altri giochi
+    if(allergyPts.length<3) {
+        //feedback di 5 secondi per far vedere gli errori
+        setTimeout(function() {
+            $(".feedbk").hide();
+            //reimposto il colore dei bordi a quello standard
+            $(".allergy_choices").css('border-color', '#ffe192');
+            //faccio partire un altro giro
+            allergia();
+        }, 7000);
+    }
+    
+    else
+        finalPoints(allergyPts, num_gioco);
+    
+    
 }
 
 
 //funzione per il calcolo del punteggio finale
 function finalPoints(arrayPts, game) {   
-    //rimuovo il contesto del gioco in considerazione    
-    if(game == '1'){
-        setTimeout(function() {
-        $('.removable').hide();
-        }, 4500); 
-     }
-    else if(game == '2'){
-        setTimeout(function() {
-            $('.removable').hide();
-        }, 4500); 
-    }
-    else{
-        setTimeout(function() {
-            $('.removable').hide();
-        }, 4500); 
-    }
+    //rimuovo il contesto del gioco in considerazione  
     
+    $('.removable').hide();    
     
     
     // calcolo il punteggio totale
@@ -577,15 +649,23 @@ function finalPoints(arrayPts, game) {
     
     //poi vedo il punteggio massimo in base al gioco
     var maxPts;
-    if(game=='1')
-        maxPts=5;
-    else
-        maxPts=3;
-    
+    switch(game) {
+        case '1': 
+            maxPts = 5;
+            break;
+        case '2':
+        case '3':
+            maxPts = 3;
+            break;
+        case '4':
+            maxPts = iter*3;
+            break;
+    }
+
     //poi appare la mascotte indicante i punti finali
     setTimeout(function() {
         $("#mask").show();     
-        $("#result").append('<p id="finalptstouch">Hai realizzato: \n' +parseInt(totPts) + ' punti su ' + maxPts + '</p>');
+        $("#result").append('<p id="finalptstouch">Hai realizzato: \n' +parseInt(totPts) + ' punti <br>su ' + maxPts + '</p>');
     }, 5000);
     
     //fine del gioco

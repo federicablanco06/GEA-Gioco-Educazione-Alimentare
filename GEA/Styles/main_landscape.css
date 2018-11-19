@@ -342,19 +342,33 @@
 
 
 #allergy_choices1 {
-    text-align: center;
     width: 40%;
-    margin-left: 16%;
-    margin-top: 5%;
+    margin-left: 18%;
+    margin-top: 3%;
     height: auto;
     position: absolute;
 }
 
 #allergy_choices2 {
-    text-align: center;
     width: 40%;
-    margin-left: 16%;
-    margin-top: 12%;
+    margin-left: 18%;
+    margin-top: 10%;
+    height: auto;
+    position: absolute;
+}
+
+#allergy_choices3 {
+    width: 40%;
+    margin-left: 18%;
+    margin-top: 17%;
+    height: auto;
+    position: absolute;
+}
+
+#allergy_choices4 {
+    width: 40%;
+    margin-left: 18%;
+    margin-top: 24%;
     height: auto;
     position: absolute;
 }
@@ -364,7 +378,7 @@
     display: none;
     margin-right: 2%;
     border-style: solid;
-    border-color:   #ffe192;
+    border-color: #ffe192;
     border-width: 1%;
     width: 15%;
 }
