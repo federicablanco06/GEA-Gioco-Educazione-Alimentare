@@ -21,7 +21,6 @@ function gameSetter(Gioco, Diff) {
 }
 
 function gameStarter() {
-    
     //evito che play venga cliccato due volte
     document.getElementById('touch-play').removeAttribute('onclick');
     
@@ -433,6 +432,8 @@ function allergia(){
             
         }, 1000);
         }
+    
+    console.log("test1");
     //chiamo l'immagine
     $.getScript('Script/ajaxCallTouch.js', function() {                
                 var elm;
@@ -456,8 +457,10 @@ function allergia(){
                         {graphicId: 'clam', selected: false, elementValue: elm.molluschi},
                         {graphicId: 'shellfish', selected: false, elementValue: elm.crostacei}
                     ];
+                    console.log('inizializzato handler ' + allergyHandler[0]);
                     
                     ////conto il numero di allergeni nel cibo in base alla difficoltà
+                    tot = 0;
                     switch (diff) {
                         case '1':
                              for (var i=0; i<4; i++) {
@@ -485,11 +488,14 @@ function allergia(){
                             
                     }
                     
+                    
                     count = tot;
                     
-                    $("#counter").append(count);
-                    $("#counter").show();
-                    
+                    setTimeout(function() {
+                        $('#counter').empty();
+                        $("#counter").append(count);
+                        $("#counter_container").show();
+                    }, 1000);
                     
                 });
                 
@@ -499,13 +505,15 @@ function allergia(){
 
 
 //gestore pressione sulle immagini delle allergie
-$(".allergy_choice").longclick(2000, function() {
+$(".allergy_choice").longclick(1000, function() {
     var id = $(this).attr('id');
+    console.log("test1 " + id);
     for(var i=0; i< allergyHandler.length; i++) {
         if(allergyHandler[i].graphicId == id) {
             //cambio colore bordo, decremento il contatore e aggiorno il count visuale
             if(!allergyHandler[i].selected) {
-                $(id).css('border-color', '#41fb00');
+                $('#'+id).css('border-color', '#41fb00');
+                //$(id).css('border-color', "#41fb00");
                 allergyHandler[i].selected = true;
                 count--;
                 $("#counter").empty();
@@ -513,7 +521,7 @@ $(".allergy_choice").longclick(2000, function() {
                 
             }
             else {
-                $(id).css('border-color', '#ffe192');
+                $('#'+id).css('border-color', '#ffe192');
                 allergyHandler[i].selected = false;
                 count++;
                 $("#counter").empty();
@@ -546,7 +554,7 @@ function choiceAllergy() {
     
     //faccio sparire il contatore, confirm e la scelta
    setTimeout(function() {
-       $("#counter").hide();
+       $("#counter_container").hide();
        $("#confirm").hide();
        $("#choice1").remove();
        
@@ -557,7 +565,7 @@ function choiceAllergy() {
 }
 
 function feedbackAllergy() {
-    var points;
+    var points=0;
     
     //calcolo i punti in base alle risposte corrette o sbagliate e cambio il bordo in rosso se sbagliate (o mancanti)
     switch (diff) {
@@ -577,7 +585,7 @@ function feedbackAllergy() {
                 points++;
             else {
                 points--;
-                $(allergyHandler[i].graphicId).css('border-color', 'red');
+                $('#'+allergyHandler[i].graphicId).css('border-color', 'red');
             }
         }
 
@@ -586,7 +594,7 @@ function feedbackAllergy() {
                 points++;
             else {
                 points--;
-                $(allergyHandler[i].graphicId).css('border-color', 'red');
+                $('#'+allergyHandler[i].graphicId).css('border-color', 'red');
             }
 
         }
@@ -615,6 +623,7 @@ function feedbackAllergy() {
     }    
     //aggiungo i punti fatti questo giro
     allergyPts.push(points);
+    console.log(allergyPts[0]);
     
     //3 iterazioni, come gli altri giochi
     if(allergyPts.length<3) {
@@ -622,7 +631,16 @@ function feedbackAllergy() {
         setTimeout(function() {
             $(".feedbk").hide();
             //reimposto il colore dei bordi a quello standard
-            $(".allergy_choices").css('border-color', '#ffe192');
+            $("#milk").css('border-color', '#ffe192');
+            $("#soy").css('border-color', '#ffe192');
+            $("#wheat").css('border-color', '#ffe192');
+            $("#egg").css('border-color', '#ffe192');
+            $("#fish").css('border-color', '#ffe192');
+            $("#shellfish").css('border-color', '#ffe192');
+            $("#nuts").css('border-color', '#ffe192');
+            $("#peanuts").css('border-color', '#ffe192');
+            $("#celery").css('border-color', '#ffe192');
+            $("#clam").css('border-color', '#ffe192');
             //faccio partire un altro giro
             allergia();
         }, 7000);
@@ -646,7 +664,6 @@ function finalPoints(arrayPts, game) {
     var totPts = 0;
     for(var i=0; i<arrayPts.length; i++) 
         totPts = totPts+parseInt(arrayPts[i]);
-    
     //poi vedo il punteggio massimo in base al gioco
     var maxPts;
     switch(game) {
@@ -665,8 +682,8 @@ function finalPoints(arrayPts, game) {
     //poi appare la mascotte indicante i punti finali
     setTimeout(function() {
         $("#mask").show();     
-        $("#result").append('<p id="finalptstouch">Hai realizzato: \n' +parseInt(totPts) + ' punti <br>su ' + maxPts + '</p>');
-    }, 5000);
+        $("#result").append('<p id="finalptstouch">Hai realizzato: \n' + parseInt(totPts) + ' punti <br>su ' + maxPts + '</p>');
+    }, 4000);
     
     //fine del gioco
     setTimeout(function() {

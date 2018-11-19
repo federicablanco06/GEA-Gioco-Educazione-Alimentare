@@ -37,6 +37,7 @@ function getData(difficulty, num_gioco) {
             switch (num_gioco){
                 case '1':
                 case '3':
+                case '4':
                     for (var i = 0; i<json.length; i++) 
                         if(json[i].diff == diff) 
                             corrDifficultyArray.push(json[i]);            
@@ -252,8 +253,8 @@ function getAllergyAjax(callback) {
     //estraggo dall'array risultante l'elemento del turno corrente
     var elm = corrDifficultyArray[rand];
 
-    alreadyUsedIds.push(elm.id);
-    
+    alreadyUsedIds.push(elm.id); 
+
     $(document).ready(function() {
         $("#choice_container").append('<img class="choice" id="choice1" src='+elm.img+'/>');
     });
@@ -262,6 +263,8 @@ function getAllergyAjax(callback) {
     setTimeout(function() {
         $("#choice1").show();
     }, 1000);
+    
+    callback(elm);
 }
 
 

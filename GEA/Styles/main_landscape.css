@@ -377,11 +377,12 @@
 .allergy_choice {
     display: none;
     margin-right: 2%;
+    width: 15%;
     border-style: solid;
     border-color: #ffe192;
     border-width: 1%;
-    width: 15%;
 }
+
 
 #counter_container {
     width: 10%;
