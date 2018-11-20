@@ -14,6 +14,9 @@ function getData(difficulty, num_gioco) {
         case '2': gameName="Sano";
             break;
         case '3': gameName="Tavola";
+            break;
+        case '4': gameName="Allergia";
+            break;
     }
     $.ajax({
         method: "POST",
@@ -32,10 +35,12 @@ function getData(difficulty, num_gioco) {
             switch (num_gioco){
                 case '1':
                 case '3':
+                case '4':
                     for (var i = 0; i<json.length; i++) 
                         if(json[i].diff == diff) 
                             corrDifficultyArray.push(json[i]);            
                    break;
+                    
                     
                 case '2': 
                     for (var i = 0; i<json.length; i++) {
@@ -188,6 +193,30 @@ function getTavolaAjax(callback) {
     //rimando l'elemento al chiamante
     callback(elm);
 
+}
+
+function getAllergyAjax(callback) {
+    usedIdRemover(corrDifficultyArray);
+    var rand;
+    
+    //check sul null
+    do {
+        rand = getRandomInt(0, corrDifficultyArray.length-1);
+    }
+    while (corrDifficultyArray[rand]==null);
+
+    //estraggo dall'array risultante l'elemento del turno corrente
+    var elm = corrDifficultyArray[rand];
+
+    alreadyUsedIds.push(elm.id); 
+    
+    $('#table').after('<a-image class="allergia" id="elem" material="src: '+ elm.img +'" position="7.1 1.52 4.5" scale="0.7 0.7 0.7" visible="false"></a-image>');
+    
+    setTimeout(function() {
+        document.getElementById('elem').setAttribute("visible", true);
+    }, 1000);
+    
+    callback(elm);
 }
 
 

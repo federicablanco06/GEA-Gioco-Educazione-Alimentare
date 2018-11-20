@@ -1,6 +1,7 @@
 var num_gioco, diff; //variabili globali gioco
 var pos1, pos2;
 var alt;
+var allergyHandler;
 var corrDifficultyArray = [];
 var sbaDifficultyArray = [];
 var alreadyUsedIds = [];
@@ -8,7 +9,10 @@ var livello = "1";
 var sanoPts = [];
 var piramidePts = [];
 var tavolaPts = [];
-
+var allergyPts = [];
+var tot;
+var count=10;
+var iter
 
 function gameSetter(Gioco, Diff) {
     //settaggio variabili globali di gioco
@@ -434,7 +438,275 @@ function feedbackTavola(momentog) {
 
 
 //funzione coordinatrice del gioco 4
-function allergia(){}
+function allergia(){
+    $('#table').after('<a-image class="allergy clickable" id="milk" material="src: Immagini/allergy/milk.png" position="2 4 0.3" scale="2.2 2.2 0.1" visible="false"></a-image>');
+    $('#table').after('<a-image class="allergy clickable" id="egg" material="src: Immagini/allergy/eggs.png" position="4.5 4 0.3" scale="2.2 2.2 0.1" visible="false"></a-image>');
+    $('#table').after('<a-image class="allergy clickable" id="fish" material="src: Immagini/allergy/fish.png" position="7 4 0.3" scale="2.2 2.2 0.1" visible="false"></a-image>');
+    $('#table').after('<a-image class="allergy clickable" id="wheat" material="src: Immagini/allergy/wheat.png" position="9.5 4 0.3" scale="2.2 2.2 0.1" visible="false"></a-image>');
+    $('#table').after('<a-image class="allergy clickable" id="nuts" material="src: Immagini/allergy/nuts.png" position="2 6 0.3" scale="2.2 2.2 0.1" visible="false"></a-image>');
+    $('#table').after('<a-image class="allergy clickable" id="soy" material="src: Immagini/allergy/soybean.png" position="4.5 6 0.3" scale="2.2 2.2 0.1" visible="false"></a-image>');
+    $('#table').after('<a-image class="allergy clickable" id="shellfish" material="src: Immagini/allergy/shellfish.png" position="7 6 0.3" scale="2.2 2.2 0.1" visible="false"></a-image>');
+    $('#table').after('<a-image class="allergy clickable" id="clamp" material="src: Immagini/allergy/clam.png" position="9.5 6 0.3" scale="2.2 2.2 0.1" visible="false"></a-image>');
+    $('#table').after('<a-image class="allergy clickable" id="peanuts" material="src: Immagini/allergy/peanuts.png" position="2 8 0.3" scale="2.2 2.2 0.1" visible="false"></a-image>');
+    $('#table').after('<a-image class="allergy clickable" id="celery" material="src: Immagini/allergy/celery.png" position="4.5 8 0.3" scale="2.2 2.2 0.1" visible="false"></a-image>');
+    
+    if(allergyPts.length == 0) {
+        setTimeout(function() {
+            //default allergies in every level
+            document.getElementById("milk").setAttribute("visible", true);
+            document.getElementById("egg").setAttribute("visible", true);
+            document.getElementById("fish").setAttribute("visible", true);
+            document.getElementById("wheat").setAttribute("visible", true);
+            document.getElementById("table").setAttribute("visible", true);
+        
+            //specific allergies of other levels
+            switch(diff) {
+                case '2':
+                    document.getElementById("nuts").setAttribute("visible", true);
+                    document.getElementById("soy").setAttribute("visible", true);
+                    break;
+                case '3':
+                    document.getElementById("nuts").setAttribute("visible", true);
+                    document.getElementById("soy").setAttribute("visible", true);
+                    document.getElementById("shellfish").setAttribute("visible", true);
+                    document.getElementById("clam").setAttribute("visible", true);
+                    document.getElementById("peanuts").setAttribute("visible", true);
+                    document.getElementById("celery").setAttribute("visible", true);
+                    break;
+            }
+            
+        }, 1000);
+        }
+    
+    console.log("test1");
+    //chiamo l'immagine
+    $.getScript('Script/ajaxCallVr.js', function() {                
+                var elm;
+                
+                getAllergyAjax(function(risultati) {
+                    elm = risultati;                    
+                    alt = [
+                        {dbelement: elm, graphicid: 'elem'}
+                    ];
+                    
+                    //mappa di riferimento che contiene tutte le corrispondenze
+                    allergyHandler = [
+                        {graphicId: 'milk', selected: false, elementValue: elm.latticini},
+                        {graphicId: 'fish', selected: false, elementValue: elm.pesce},
+                        {graphicId: 'wheat', selected: false, elementValue: elm.glutine},
+                        {graphicId: 'egg', selected: false, elementValue: elm.uova},
+                        {graphicId: 'nuts', selected: false, elementValue: elm.guscio},
+                        {graphicId: 'soy', selected: false, elementValue: elm.soia},
+                        {graphicId: 'peanuts', selected: false, elementValue: elm.arachidi},
+                        {graphicId: 'celery', selected: false, elementValue: elm.sedano},
+                        {graphicId: 'clam', selected: false, elementValue: elm.molluschi},
+                        {graphicId: 'shellfish', selected: false, elementValue: elm.crostacei}
+                    ];
+                    console.log('inizializzato handler ' + allergyHandler[0]);
+                    
+                    ////conto il numero di allergeni nel cibo in base alla difficoltà
+                    tot = 0;
+                    switch (diff) {
+                        case '1':
+                             for (var i=0; i<4; i++) {
+                                 if (allergyHandler[i].elementValue == '1') {
+                                        tot++;
+                                    }
+                                 }
+                            
+                             break;
+                        case '2':  
+                            for (var i=0; i<6; i++) {
+                                 if (allergyHandler[i].elementValue == '1') {
+                                     tot++;
+                                }
+                             }
+                         
+                             break;
+                        case '3':
+                            for (var i=0; i<allergyHandler.length; i++) {
+                                if (allergyHandler[i].elementValue == '1')
+                                tot++;
+                            
+                            }
+                            break;
+                            
+                    }
+                    
+                    
+                    count = tot;
+                    
+                    setTimeout(function() {
+                        $('#counter').empty();
+                        $("#counter").append(count);
+                        $("#counter_container").show();
+                    }, 1000);
+                    
+                });
+                
+        
+        });
+}
+
+
+
+window.oncontextmenu = function(event) {
+     event.preventDefault();
+     event.stopPropagation();
+     return false;
+};
+
+//gestore pressione sulle immagini delle allergie
+$( ".allergy_choice" ).on( "taphold", function( event ){
+    event.preventDefault();
+    $.event.special.tap.tapholdThreshold = 1000;
+    $.event.special.swipe.durationThreshold = 999;
+    var id = $(this).attr('id');
+    console.log("test1 " + id);
+    for(var i=0; i< allergyHandler.length; i++) {
+        if(allergyHandler[i].graphicId == id) {
+            //cambio colore bordo, decremento il contatore e aggiorno il count visuale
+            if(!allergyHandler[i].selected) {
+                $('#'+id).css('border-color', '#41fb00');
+                //$(id).css('border-color', "#41fb00");
+                allergyHandler[i].selected = true;
+                count--;
+                $("#counter").empty();
+                $("#counter").append(count);
+                
+            }
+            else {
+                $('#'+id).css('border-color', '#ffe192');
+                allergyHandler[i].selected = false;
+                count++;
+                $("#counter").empty();
+                $("#counter").append(count);
+                
+            }
+            
+            verifyCount();
+            break;
+        }
+    }
+    
+});
+
+//CONFIRM è visibile SOLO se counter arriva a 0 (decrementato ogni selezione, incrementato se deseleziono)
+//va chiamata ogni volta che cambia count
+function verifyCount() {    
+    if(count == 0)
+        $("#confirm").show();
+    
+    else
+        $("#confirm").hide();
+    
+}
+
+function choiceAllergy() {
+    //rendo gli elementi non cliccabili
+    $(".allergy_choices").off('taphold');
+    $("#confirm").removeAttr('onclick');
+    $(".allergy_choices").css('pointer-events', 'none');
+    
+    //faccio sparire il contatore, confirm e la scelta
+   setTimeout(function() {
+       $("#counter_container").hide();
+       $("#confirm").hide();
+       $("#choice1").remove();
+       
+   }, 1000); 
+    
+    feedbackAllergy();    
+    
+}
+
+function feedbackAllergy() {
+    var points=0;
+    
+    //calcolo i punti in base alle risposte corrette o sbagliate e cambio il bordo in rosso se sbagliate (o mancanti)
+    switch (diff) {
+        case '1': iter =4;
+            break;
+        case '2': iter=6;
+            break;
+        case '3': iter=10;
+            break;            
+    }
+    
+    //ciclo con un numero di iterazioni basato sul livello in quanto i miei elementi nell'handler sono ordinati
+    //possiamo ottenere un numero di punti che va da -iter a +iter, a seconda che sia tutto sbagliato o tutto giusto
+    for (var i=0; i<iter; i++) {
+        if(allergyHandler[i].selected) {
+            if(allergyHandler[i].elementValue == '1')
+                points++;
+            else {
+                points--;
+                $('#'+allergyHandler[i].graphicId).css('border-color', 'red');
+            }
+        }
+
+        else {
+            if(allergyHandler[i].elementValue == '0')
+                points++;
+            else {
+                points--;
+                $('#'+allergyHandler[i].graphicId).css('border-color', 'red');
+            }
+
+        }
+    }
+    
+    //se il punteggio è negativo, lo converto a 0 (per evitare di deprimere troppo i pazienti ahah) 
+    if(points<0) 
+        points = 0;
+    
+    //calcolo il feedback: gea triste se punti <= a iter/2
+    if(points < iter/2) {
+        $(".feedbk").attr('src', 'Immagini/sad.png');
+        
+        setTimeout(function() {
+            $(".feedbk").show();
+        }, 2000);
+        
+    }
+    else {
+        $(".feedbk").attr('src', 'Immagini/happy.png');
+        
+        setTimeout(function() {
+            $(".feedbk").show();
+        }, 2000);
+        
+    }    
+    //aggiungo i punti fatti questo giro
+    allergyPts.push(points);
+    console.log(allergyPts[0]);
+    
+    //3 iterazioni, come gli altri giochi
+    if(allergyPts.length<3) {
+        //feedback di 5 secondi per far vedere gli errori
+        setTimeout(function() {
+            $(".feedbk").hide();
+            //reimposto il colore dei bordi a quello standard
+            $("#milk").css('border-color', '#ffe192');
+            $("#soy").css('border-color', '#ffe192');
+            $("#wheat").css('border-color', '#ffe192');
+            $("#egg").css('border-color', '#ffe192');
+            $("#fish").css('border-color', '#ffe192');
+            $("#shellfish").css('border-color', '#ffe192');
+            $("#nuts").css('border-color', '#ffe192');
+            $("#peanuts").css('border-color', '#ffe192');
+            $("#celery").css('border-color', '#ffe192');
+            $("#clam").css('border-color', '#ffe192');
+            //faccio partire un altro giro
+            allergia();
+        }, 7000);
+    }
+    
+    else
+        finalPoints(allergyPts, num_gioco);
+    
+    
+}
 
 //funzione per il calcolo del punteggio finale
 function finalPoints(arrayPts, game) {   
