@@ -439,20 +439,25 @@ function feedbackTavola(momentog) {
 
 //funzione coordinatrice del gioco 4
 function allergia(){
-    $('#table').after('<a-image class="allergy clickable" id="milk" material="src: Immagini/allergy/milk.png" position="2 4 0.3" scale="2.2 2.2 0.1" visible="false"></a-image>');
-    $('#table').after('<a-image class="allergy clickable" id="egg" material="src: Immagini/allergy/eggs.png" position="4.5 4 0.3" scale="2.2 2.2 0.1" visible="false"></a-image>');
-    $('#table').after('<a-image class="allergy clickable" id="fish" material="src: Immagini/allergy/fish.png" position="7 4 0.3" scale="2.2 2.2 0.1" visible="false"></a-image>');
-    $('#table').after('<a-image class="allergy clickable" id="wheat" material="src: Immagini/allergy/wheat.png" position="9.5 4 0.3" scale="2.2 2.2 0.1" visible="false"></a-image>');
-    $('#table').after('<a-image class="allergy clickable" id="nuts" material="src: Immagini/allergy/nuts.png" position="2 6 0.3" scale="2.2 2.2 0.1" visible="false"></a-image>');
-    $('#table').after('<a-image class="allergy clickable" id="soy" material="src: Immagini/allergy/soybean.png" position="4.5 6 0.3" scale="2.2 2.2 0.1" visible="false"></a-image>');
-    $('#table').after('<a-image class="allergy clickable" id="shellfish" material="src: Immagini/allergy/shellfish.png" position="7 6 0.3" scale="2.2 2.2 0.1" visible="false"></a-image>');
-    $('#table').after('<a-image class="allergy clickable" id="clamp" material="src: Immagini/allergy/clam.png" position="9.5 6 0.3" scale="2.2 2.2 0.1" visible="false"></a-image>');
-    $('#table').after('<a-image class="allergy clickable" id="peanuts" material="src: Immagini/allergy/peanuts.png" position="2 8 0.3" scale="2.2 2.2 0.1" visible="false"></a-image>');
-    $('#table').after('<a-image class="allergy clickable" id="celery" material="src: Immagini/allergy/celery.png" position="4.5 8 0.3" scale="2.2 2.2 0.1" visible="false"></a-image>');
+    $('#table').after('<a-entity id="counter_txt" visible="false" position="16 4.7 0.3" scale="10 10 10" text="value: Rimanenti \n;"></a-entity>');
+    $('#table').after('<a-entity id="counter" visible="false" position="16.5 4 0.3" scale="10 10 10" text="value:viva;"></a-entity>');
+    $('#table').after('<a-entity cursor-listener id="confirm" onmouseenter="choiceAllergy()" text="value: Conferma;" position="14 1.52 3.5" scale="10 10 10" visible="false"></a-entity>');
+    $('#table').after('<a-image class="allergy clickable" id="milk" material="src: Immagini/allergy/milk.png" position="1.3 5.2 0.3" scale="1.5 1.5 0.1" visible="false"></a-image>');
+    $('#table').after('<a-image class="allergy clickable" id="egg" material="src: Immagini/allergy/eggs.png" position="3.3 5.2 0.3" scale="1.5 1.5 0.1" visible="false"></a-image>');
+    $('#table').after('<a-image class="allergy clickable" id="fish" material="src: Immagini/allergy/fish.png" position="5.3 5.2 0.3" scale="1.5 1.5 0.1" visible="false"></a-image>');
+    $('#table').after('<a-image class="allergy clickable" id="wheat" material="src: Immagini/allergy/wheat.png" position="7.3 5.2 0.3" scale="1.5 1.5 0.1" visible="false"></a-image>');
+    $('#table').after('<a-image class="allergy clickable" id="nuts" material="src: Immagini/allergy/nuts.png" position="9.3 5.2 0.3" scale="1.5 1.5 0.1" visible="false"></a-image>');
+    $('#table').after('<a-image class="allergy clickable" id="soy" material="src: Immagini/allergy/soybean.png" position="1.3 3.5 0.3" scale="1.5 1.5 0.1" visible="false"></a-image>');
+    $('#table').after('<a-image class="allergy clickable" id="shellfish" material="src: Immagini/allergy/shellfish.png" position="3.3 3.5 0.3" scale="1.5 1.5 0.1" visible="false"></a-image>');
+    $('#table').after('<a-image class="allergy clickable" id="clam" material="src: Immagini/allergy/clam.png" position="5.3 3.5 0.3" scale="1.5 1.5 0.1" visible="false"></a-image>');
+    $('#table').after('<a-image class="allergy clickable" id="peanuts" material="src: Immagini/allergy/peanuts.png" position="7.3 3.5 0.3" scale="1.5 1.5 0.1" visible="false"></a-image>');
+    $('#table').after('<a-image class="allergy clickable" id="celery" material="src: Immagini/allergy/celery.png" position="9.3 3.5 0.3" scale="1.5 1.5 0.1" visible="false"></a-image>');
     
     if(allergyPts.length == 0) {
         setTimeout(function() {
             //default allergies in every level
+            document.getElementById("fridge").setAttribute("visible", false);
+            //document.getElementById("confirm").setAttribute("visible", true);
             document.getElementById("milk").setAttribute("visible", true);
             document.getElementById("egg").setAttribute("visible", true);
             document.getElementById("fish").setAttribute("visible", true);
@@ -483,8 +488,8 @@ function allergia(){
     $.getScript('Script/ajaxCallVr.js', function() {                
                 var elm;
                 
-                getAllergyAjax(function(risultati) {
-                    elm = risultati;                    
+                getAllergyAjax(function(results) {
+                    elm = results;                    
                     alt = [
                         {dbelement: elm, graphicid: 'elem'}
                     ];
@@ -536,10 +541,12 @@ function allergia(){
                     
                     count = tot;
                     
+                    
                     setTimeout(function() {
-                        $('#counter').empty();
-                        $("#counter").append(count);
-                        $("#counter_container").show();
+                        var count1= String(count);
+                        document.getElementById("counter").setAttribute("text", "value:"+count1+";");
+                        document.getElementById("counter_txt").setAttribute("visible", true);
+                        document.getElementById("counter").setAttribute("visible", true);
                     }, 1000);
                     
                 });
@@ -568,19 +575,18 @@ $( ".allergy_choice" ).on( "taphold", function( event ){
             //cambio colore bordo, decremento il contatore e aggiorno il count visuale
             if(!allergyHandler[i].selected) {
                 $('#'+id).css('border-color', '#41fb00');
-                //$(id).css('border-color', "#41fb00");
                 allergyHandler[i].selected = true;
                 count--;
-                $("#counter").empty();
-                $("#counter").append(count);
+                var count1= String(count);
+                document.getElementById("counter").setAttribute("text", "value:"+count1+";");
                 
             }
             else {
                 $('#'+id).css('border-color', '#ffe192');
                 allergyHandler[i].selected = false;
                 count++;
-                $("#counter").empty();
-                $("#counter").append(count);
+                var count1= String(count);
+                document.getElementById("counter").setAttribute("text", "value:"+count1+";");
                 
             }
             
@@ -595,10 +601,10 @@ $( ".allergy_choice" ).on( "taphold", function( event ){
 //va chiamata ogni volta che cambia count
 function verifyCount() {    
     if(count == 0)
-        $("#confirm").show();
+        document.getElementById("confirm").setAttribute("visible", true);
     
     else
-        $("#confirm").hide();
+        document.getElementById("confirm").setAttribute("visible", false);
     
 }
 
@@ -610,8 +616,9 @@ function choiceAllergy() {
     
     //faccio sparire il contatore, confirm e la scelta
    setTimeout(function() {
-       $("#counter_container").hide();
-       $("#confirm").hide();
+       document.getElementById("counter_txt").setAttribute("visible", false);
+       document.getElementById("counter").setAttribute("visible", false);
+       document.getElementById("confirm").setAttribute("visible", false);
        $("#choice1").remove();
        
    }, 1000); 
