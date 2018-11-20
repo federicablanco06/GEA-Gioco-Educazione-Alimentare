@@ -411,6 +411,7 @@ function feedbackTavola(momentog) {
 
 //funzione coordinatrice del gioco 4
 function allergia(){
+    $('#confirm').attr('onclick', 'choiceAllergy()');
     if(allergyPts.length == 0) {
         setTimeout(function() {
             //default allergies in every level
@@ -554,7 +555,7 @@ $( ".allergy_choice" ).on( "taphold", function( event ){
 //CONFIRM è visibile SOLO se counter arriva a 0 (decrementato ogni selezione, incrementato se deseleziono)
 //va chiamata ogni volta che cambia count
 function verifyCount() {    
-    if(count == 0) 
+    if(count == 0)
         $("#confirm").show();
     
     else
