@@ -663,7 +663,7 @@ function feedbackAllergy() {
         }, 7000);
     }
     
-    else
+    else 
         finalPoints(allergyPts, num_gioco);
     
     
@@ -673,8 +673,10 @@ function feedbackAllergy() {
 //funzione per il calcolo del punteggio finale
 function finalPoints(arrayPts, game) {   
     //rimuovo il contesto del gioco in considerazione  
+    setTimeout(function() {
+         $('.removable').hide();    
     
-    $('.removable').hide();    
+    }, 3000);  
     
     
     // calcolo il punteggio totale
