@@ -439,6 +439,7 @@ function feedbackTavola(momentog) {
 
 //funzione coordinatrice del gioco 4
 function allergia(){
+    $('.allergy_clickable').show();
     $('#table').after('<a-entity id="counter_txt" visible="false" position="16 4.7 0.3" scale="10 10 10" text="value: Rimanenti \n;"></a-entity>');
     $('#table').after('<a-entity id="counter" visible="false" position="16.5 4 0.3" scale="10 10 10" text="value:viva;"></a-entity>');
     $('#table').after('<a-plane cursor-listener id="confirm" color="orange" height="0.5" width="1.5" onclick="choiceAllergy()" position="9 2 3.5"  visible="false"></a-plane>');
@@ -453,6 +454,7 @@ function allergia(){
     $('#table').after('<a-image class="allergy_clickable" onclick="selezionato(\'clam\')" id="clam" material="src: Immagini/allergy/clam.png" position="5.3 3.5 0.3" scale="1.5 1.5 0.1" visible="false"></a-image>');
     $('#table').after('<a-image class="allergy_clickable" onclick="selezionato(\'peanuts\')" id="peanuts" material="src: Immagini/allergy/peanuts.png" position="7.3 3.5 0.3" scale="1.5 1.5 0.1" visible="false"></a-image>');
     $('#table').after('<a-image class="allergy_clickable" onclick="selezionato(\'celery\')" id="celery" material="src: Immagini/allergy/celery.png" position="9.3 3.5 0.3" scale="1.5 1.5 0.1" visible="false"></a-image>');
+    
     
     if(allergyPts.length == 0) {
         setTimeout(function() {
@@ -573,7 +575,7 @@ function selezionato (id){
                 var xi = parseFloat(document.getElementById(id).getAttribute("position").x);
                 var yi = parseFloat(document.getElementById(id).getAttribute("position").y);
                 var zi = parseFloat(document.getElementById(id).getAttribute("position").z);
-                $('#table').after('<a-image id="tick_\'id\'" material="src: Immagini/green-tick.png" scale="1.5 1.5 0.1" visible="true"></a-image>');
+                $('#table').after('<a-image class="tick" id="tick_\'id\'" material="src: Immagini/green-tick.png" scale="1.5 1.5 0.1" visible="true"></a-image>');
                 document.getElementById("tick_\'id\'").setAttribute("position", {x: xi, y: yi, z: zi} );
                 allergyHandler[i].selected = true;
                 count--;
@@ -665,7 +667,7 @@ function feedbackAllergy() {
                     var xi = parseFloat(document.getElementById(selid).getAttribute("position").x);
                     var yi = parseFloat(document.getElementById(selid).getAttribute("position").y);
                     var zi = parseFloat(document.getElementById(selid).getAttribute("position").z);
-                    $('#table').after('<a-image id="tick_\'selid\'" material="src: Immagini/wrong.png" scale="1.5 1.5 0.1" visible="true"></a-image>');
+                    $('#table').after('<a-image class="tick" id="tick_\'selid\'" material="src: Immagini/wrong.png" scale="1.5 1.5 0.1" visible="true"></a-image>');
                     document.getElementById("tick_\'selid\'").setAttribute("position", {x: xi, y: yi, z: zi} );
                 }
                 else
@@ -683,7 +685,7 @@ function feedbackAllergy() {
                     var xi = parseFloat(document.getElementById(selid).getAttribute("position").x);
                     var yi = parseFloat(document.getElementById(selid).getAttribute("position").y);
                     var zi = parseFloat(document.getElementById(selid).getAttribute("position").z);
-                    $('#table').after('<a-image id="tick_\'selid\'" material="src: Immagini/wrong.png" scale="1.5 1.5 0.1" visible="true"></a-image>');
+                    $('#table').after('<a-image class="tick" id="tick_\'selid\'" material="src: Immagini/wrong.png" scale="1.5 1.5 0.1" visible="true"></a-image>');
                     document.getElementById("tick_\'selid\'").setAttribute("position", {x: xi, y: yi, z: zi} );
                 }
                 else
@@ -699,14 +701,14 @@ function feedbackAllergy() {
     
      //feedback
     if(points < iter/2) {        
-        $('#table').after('<a-image class="atavola" id="feed"  position="8.2 3.5 2" material="src:Immagini/sad.png" scale="3 3 3" visible="false"></a-image>');
+        $('#table').after('<a-image class="afeed" id="feed"  position="8.2 3.5 2" material="src:Immagini/sad.png" scale="3 3 3" visible="false"></a-image>');
         setTimeout(function() {
             document.getElementById('feed').setAttribute('visible', true);
         }, 2000);             
     }
     
     else {
-        $('#table').after('<a-image class="atavola" id="feed" position="8.2 3.5 2" material="src:Immagini/happy.png" scale="3 3 3" visible="false"></a-image>');
+        $('#table').after('<a-image class="afeed" id="feed" position="8.2 3.5 2" material="src:Immagini/happy.png" scale="3 3 3" visible="false"></a-image>');
         setTimeout(function() {
             document.getElementById('feed').setAttribute('visible', true);
         }, 2000);             
@@ -720,17 +722,10 @@ function feedbackAllergy() {
     if(allergyPts.length<3) {
         //feedback di 5 secondi per far vedere gli errori
         setTimeout(function() {
-            document.getElementById("feed").setAttribute('visible', false);
+            $('.afeed').remove();
             //reimposto il colore dei bordi a quello standard
-            var divs = document.getElementsByTagName('a-image'),
-            forEach = Array.prototype.forEach,
-            regex = /^tick.*$/;
-
-            forEach.call(divs, function (d) {
-                if (d.id !== undefined && regex.test(d.id)) {
-                    d.parentNode.removeChild(d);
-                }
-            });
+            $('.tick').remove();
+            $('.allergy_clickable').remove();
             //faccio partire un altro giro
             allergia();
         }, 7000);
