@@ -518,10 +518,7 @@ window.oncontextmenu = function(event) {
 };
 
 //gestore pressione sulle immagini delle allergie
-$( ".allergy_choice" ).on( "taphold", function( event ){
-    event.preventDefault();
-    $.event.special.tap.tapholdThreshold = 1000;
-    $.event.special.swipe.durationThreshold = 999;
+$( ".allergy_choice" ).on( "click", function( event ){
     var id = $(this).attr('id');
     console.log("test1 " + id);
     for(var i=0; i< allergyHandler.length; i++) {
