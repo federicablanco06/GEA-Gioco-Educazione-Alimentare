@@ -248,14 +248,14 @@
 #choice_container {
     position: absolute;
     margin-left:40%;
-    width:23%;
+    width:25%;
     height: auto;
     text-align: center;
     margin-top: 20%;
 }
 
 .choice {
-    width: 25%;
+    width: 30%;
     height: auto;
     margin-right: 3%;
 }
