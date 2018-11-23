@@ -525,8 +525,9 @@ $( ".allergy_choice" ).on( "click", function( event ){
         if(allergyHandler[i].graphicId == id) {
             //cambio colore bordo, decremento il contatore e aggiorno il count visuale
             if(!allergyHandler[i].selected) {
-                $('#'+id).css('border-color', '#41fb00');
-                //$(id).css('border-color', "#41fb00");
+                $('#'+id).css('border-style', 'solid');
+                $('#'+id).css('border-width', '1%');
+                $('#'+id).css('border-color', '#e6e600');
                 allergyHandler[i].selected = true;
                 count--;
                 $("#counter").empty();
@@ -534,7 +535,7 @@ $( ".allergy_choice" ).on( "click", function( event ){
                 
             }
             else {
-                $('#'+id).css('border-color', '#ffe192');
+                $('#'+id).css('border-color', '#ffffcc');
                 allergyHandler[i].selected = false;
                 count++;
                 $("#counter").empty();
@@ -562,7 +563,7 @@ function verifyCount() {
 
 function choiceAllergy() {
     //rendo gli elementi non cliccabili
-    $(".allergy_choices").off('taphold');
+    $(".allergy_choices").off('click');
     $("#confirm").removeAttr('onclick');
     $(".allergy_choices").css('pointer-events', 'none');
     
@@ -595,9 +596,13 @@ function feedbackAllergy() {
     //possiamo ottenere un numero di punti che va da -iter a +iter, a seconda che sia tutto sbagliato o tutto giusto
     for (var i=0; i<iter; i++) {
         if(allergyHandler[i].selected) {
-            if(allergyHandler[i].elementValue == '1')
+            if(allergyHandler[i].elementValue == '1') {    
+                //ho selezionato ed è giusto, bordo solid verde
                 points++;
+                $('#'+allergyHandler[i].graphicId).css('border-color', '#66ff33');
+            }
             else {
+                //ho selezionato ed è sbagliato, bordo solid rosso
                 points--;
                 $('#'+allergyHandler[i].graphicId).css('border-color', 'red');
             }
@@ -605,10 +610,13 @@ function feedbackAllergy() {
 
         else {
             if(allergyHandler[i].elementValue == '0')
+                //non ho selezionato e va bene così, nessun bordo
                 points++;
             else {
+                //non ho proprio selezionato, bordo dotted rosso
                 points--;
-                $('#'+allergyHandler[i].graphicId).css('border-color', 'red');
+                $('#'+allergyHandler[i].graphicId).css('border-color', '#66ff33');
+                $('#'+allergyHandler[i].graphicId).css('border-style', 'dotted');
             }
 
         }
@@ -645,16 +653,26 @@ function feedbackAllergy() {
         setTimeout(function() {
             $(".feedbk").hide();
             //reimposto il colore dei bordi a quello standard
-            $("#milk").css('border-color', '#ffe192');
-            $("#soy").css('border-color', '#ffe192');
-            $("#wheat").css('border-color', '#ffe192');
-            $("#egg").css('border-color', '#ffe192');
-            $("#fish").css('border-color', '#ffe192');
-            $("#shellfish").css('border-color', '#ffe192');
-            $("#nuts").css('border-color', '#ffe192');
-            $("#peanuts").css('border-color', '#ffe192');
-            $("#celery").css('border-color', '#ffe192');
-            $("#clam").css('border-color', '#ffe192');
+            $("#milk").css('border-color', '#ffffcc');
+            $("#milk").css('border-style', 'solid');
+            $("#soy").css('border-color', '#ffffcc');
+            $("#soy").css('border-style', 'solid');
+            $("#wheat").css('border-color', '#ffffcc');
+            $("#wheat").css('border-style', 'solid');
+            $("#egg").css('border-color', '#ffffcc');  
+            $("#egg").css('border-style', 'solid');
+            $("#fish").css('border-color', '#ffffcc');
+            $("#fish").css('border-style', 'solid');
+            $("#shellfish").css('border-color', '#ffffcc');
+            $("#shellfish").css('border-style', 'solid');
+            $("#nuts").css('border-color', '#ffffcc');
+            $("#nuts").css('border-style', 'solid');
+            $("#peanuts").css('border-color', '#ffffcc');
+            $("#peanuts").css('border-style', 'solid');
+            $("#celery").css('border-color', '#ffffcc');
+            $("#celery").css('border-style', 'solid');
+            $("#clam").css('border-color', '#ffffcc');
+            $("#clam").css('border-style', 'solid');
             //faccio partire un altro giro
             allergia();
         }, 7000);

@@ -360,7 +360,7 @@
 #allergy_choices3 {
     width: 40%;
     margin-left: 18%;
-    margin-top: 20%;
+    margin-top: 21%;
     height: auto;
     position: absolute;
 }
@@ -368,7 +368,7 @@
 #allergy_choices4 {
     width: 40%;
     margin-left: 18%;
-    margin-top: 27%;
+    margin-top: 29%;
     height: auto;
     position: absolute;
 }
@@ -379,7 +379,7 @@
     margin-right: 2%;
     width: 15%;
     border-style: solid;
-    border-color: #ffe192;
+    border-color: #ffffcc;
     border-width: 1%;
 }
 
