@@ -691,7 +691,7 @@ function finalPoints(arrayPts, game) {
     setTimeout(function() {
          $('.removable').hide();    
     
-    }, 3000);  
+    }, 4000);  
     
     
     // calcolo il punteggio totale

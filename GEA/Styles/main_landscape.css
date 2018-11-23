@@ -247,17 +247,17 @@
 
 #choice_container {
     position: absolute;
-    margin-left:40%;
-    width:25%;
+    margin-left:36%;
+    width:32%;
     height: auto;
     text-align: center;
-    margin-top: 20%;
+    margin-top: 18%;
 }
 
 .choice {
     width: 30%;
     height: auto;
-    margin-right: 3%;
+    margin-right: 2%;
 }
 
 #choice1, #choice2, #choice3 {
