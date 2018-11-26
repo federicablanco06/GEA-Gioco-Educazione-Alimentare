@@ -12,7 +12,7 @@ var tavolaPts = [];
 var allergyPts = [];
 var tot;
 var count=10;
-var iter
+var iter;
 
 function gameSetter(Gioco, Diff) {
     //settaggio variabili globali di gioco
@@ -443,7 +443,7 @@ function allergia(){
     $('#table').after('<a-entity id="counter" visible="false" position="16.5 4 0.3" scale="10 10 10" text="value:viva;"></a-entity>');
     $('#table').after('<a-plane cursor-listener id="confirm" color="orange" height="0.5" width="1.5" onclick="choiceAllergy()" position="9 2 3.5"  visible="false"></a-plane>');
     $('#table').after('<a-entity id="confirm_txt" position="10.9 2 3.5" text="value:Conferma;" visible="false" scale="5 5 5"></a-entity>');
-    $('#table').after('<a-image class="allergy_clickable" id="milk" material="src: Immagini/allergy/milk.png" position="1.3 5.2 0.3" scale="1.5 1.5 0.1" visible="false"></a-image>');
+    $('#table').after('<a-image class="allergy_clickable" id="milk" material="src: Immagini/allergy/milk.png" position="1.3 5.2 0.3" scale="1.5 1.5 0.1" onclick="selezionato(\'milk\')" visible="false"></a-image>');
     $('#table').after('<a-image class="allergy_clickable" id="egg" material="src: Immagini/allergy/eggs.png" position="3.3 5.2 0.3" scale="1.5 1.5 0.1" onclick="selezionato(\'egg\')" visible="false"></a-image>');
     $('#table').after('<a-image class="allergy_clickable" id="fish" material="src: Immagini/allergy/fish.png" position="5.3 5.2 0.3" scale="1.5 1.5 0.1" onclick="selezionato(\'fish\')" visible="false"></a-image>');
     $('#table').after('<a-image class="allergy_clickable" id="wheat" material="src: Immagini/allergy/wheat.png" position="7.3 5.2 0.3" scale="1.5 1.5 0.1" onclick="selezionato(\'wheat\')" visible="false"></a-image>');
@@ -455,7 +455,6 @@ function allergia(){
     $('#table').after('<a-image class="allergy_clickable" id="celery" material="src: Immagini/allergy/celery.png" position="9.3 3.5 0.3" scale="1.5 1.5 0.1" onclick="selezionato(\'celery\')" visible="false"></a-image>');
     
     
-    if(allergyPts.length == 0) {
         setTimeout(function() {
             //default allergies in every level
             document.getElementById("fridge").setAttribute("visible", false);
@@ -482,8 +481,7 @@ function allergia(){
             }
             
         }, 1000);
-        }
-    
+
     console.log("test1");
     //chiamo l'immagine
     $.getScript('Script/ajaxCallVr.js', function() {                
@@ -568,8 +566,8 @@ function selezionato (id){
                 var xi = parseFloat(document.getElementById(id).getAttribute("position").x);
                 var yi = parseFloat(document.getElementById(id).getAttribute("position").y);
                 var zi = parseFloat(document.getElementById(id).getAttribute("position").z);
-                $('#table').after('<a-image class="tick" id="tick_\'id\'" material="src: Immagini/green-tick.png" scale="1.5 1.5 0.1" visible="true"></a-image>');
-                document.getElementById("tick_\'id\'").setAttribute("position", {x: xi, y: yi, z: zi} );
+                $('#table').after('<a-image class="tick" id="tick_'+id+'" material="src: Immagini/green-tick.png" scale="1.5 1.5 0.1" visible="true"></a-image>');
+                document.getElementById("tick_"+id+"").setAttribute("position", {x: xi, y: yi, z: zi} );
                 allergyHandler[i].selected = true;
                 count--;
                 var count1= String(count);
@@ -577,7 +575,7 @@ function selezionato (id){
                 
             }
             else {
-                document.getElementById("tick_\'id\'").setAttribute("visible", false);
+                document.getElementById("tick_"+id+"").setAttribute("visible", false);
                 allergyHandler[i].selected = false;
                 count++;
                 var count1= String(count);
@@ -660,11 +658,11 @@ function feedbackAllergy() {
                     var xi = parseFloat(document.getElementById(selid).getAttribute("position").x);
                     var yi = parseFloat(document.getElementById(selid).getAttribute("position").y);
                     var zi = parseFloat(document.getElementById(selid).getAttribute("position").z);
-                    $('#table').after('<a-image class="tick" id="tick_\'selid\'" material="src: Immagini/wrong.png" scale="1.5 1.5 0.1" visible="true"></a-image>');
-                    document.getElementById("tick_\'selid\'").setAttribute("position", {x: xi, y: yi, z: zi} );
+                    $('#table').after('<a-image class="tick" id="tick_'+selid+'" material="src: Immagini/wrong.png" scale="1.5 1.5 0.1" visible="true"></a-image>');
+                    document.getElementById("tick_"+selid+"").setAttribute("position", {x: xi, y: yi, z: zi} );
                 }
                 else
-                    document.getElementById("tick_"+selid+"").removeAttribute("src");
+                    document.getElementById("tick_"+selid+"").setAttribute("material","src: Immagini/wrong.png;");
             }
         }
 
@@ -678,11 +676,11 @@ function feedbackAllergy() {
                     var xi = parseFloat(document.getElementById(selid).getAttribute("position").x);
                     var yi = parseFloat(document.getElementById(selid).getAttribute("position").y);
                     var zi = parseFloat(document.getElementById(selid).getAttribute("position").z);
-                    $('#table').after('<a-image class="tick" id="tick_\'selid\'" material="src: Immagini/wrong.png" scale="1.5 1.5 0.1" visible="true"></a-image>');
-                    document.getElementById("tick_\'selid\'").setAttribute("position", {x: xi, y: yi, z: zi} );
+                    $('#table').after('<a-image class="tick" id="tick_'+selid+'" material="src: Immagini/wrong.png" scale="1.5 1.5 0.1" visible="true"></a-image>');
+                    document.getElementById("tick_"+selid+"").setAttribute("position", {x: xi, y: yi, z: zi} );
                 }
                 else
-                    document.getElementById("tick_"+selid+"").removeAttribute("src");
+                    document.getElementById("tick_"+selid+"").setAttribute("material","src: Immagini/wrong.png;");
             }
 
         }
@@ -694,14 +692,14 @@ function feedbackAllergy() {
     
      //feedback
     if(points < iter/2) {        
-        $('#table').after('<a-image class="afeed" id="feed"  position="8.2 3.5 2" material="src:Immagini/sad.png" scale="3 3 3" visible="false"></a-image>');
+        $('#table').after('<a-image class="afeed" id="feed"  position="10 4.7 0.3" material="src:Immagini/sad.png" scale="3 3 3" visible="false"></a-image>');
         setTimeout(function() {
             document.getElementById('feed').setAttribute('visible', true);
         }, 2000);             
     }
     
     else {
-        $('#table').after('<a-image class="afeed" id="feed" position="8.2 3.5 2" material="src:Immagini/happy.png" scale="3 3 3" visible="false"></a-image>');
+        $('#table').after('<a-image class="afeed" id="feed" position="10 4.7 0.3" material="src:Immagini/happy.png" scale="3 3 3" visible="false"></a-image>');
         setTimeout(function() {
             document.getElementById('feed').setAttribute('visible', true);
         }, 2000);             
@@ -718,6 +716,7 @@ function feedbackAllergy() {
             $('.afeed').remove();
             //rimuovo i tick
             $('.tick').remove();
+            $('.allergy_clickable').remove();
             //faccio partire un altro giro
             allergia();
         }, 7000);
@@ -743,11 +742,19 @@ function finalPoints(arrayPts, game) {
         }, 4500); 
     }
     else{
-        setTimeout(function() {
-            $('.atavola').remove();
-        }, 4500); 
+        if(game == '3'){
+            setTimeout(function() {
+                $('.atavola').remove();
+            }, 4500); 
+        }
+        else{
+            setTimeout(function() {
+                $('.afeed').remove();
+                $('.tick').remove();
+                $('.allergy_clickable').remove();
+            }, 4500); 
+        }
     }
-    
     
     
     // calcolo il punteggio totale
@@ -757,10 +764,18 @@ function finalPoints(arrayPts, game) {
     
     //poi vedo il punteggio massimo in base al gioco
     var maxPts;
-    if(game=='1')
-        maxPts=5;
-    else
-        maxPts=3;
+    switch(game) {
+        case '1': 
+            maxPts = 5;
+            break;
+        case '2':
+        case '3':
+            maxPts = 3;
+            break;
+        case '4':
+            maxPts = iter*3;
+            break;
+    }
     
     //poi appare la mascotte indicante i punti finali
     setTimeout(function() {
