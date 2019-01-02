@@ -47,13 +47,13 @@ a {
 
 
    .elements {
-        width: 60%;
+       width: 60%;
        overflow: auto;
        margin: auto;
     }
 
      #mascotte {
-        width: 38%;
+        width: 50%;
         padding-top: 30%;
         height: auto;
         display: block;
@@ -97,14 +97,14 @@ p{
         background-color: #FFCC66;
         height: auto;
         width: 60%;
-        float: left;
         padding-top: 5%;
         padding-left: 5%;
+        padding-right: 5%;
         padding-bottom: 5%;
         border-width: 2px;
         border-style: solid;
         border-color: white;
-        margin-left: 5%;
+        margin: auto;
         margin-bottom: 5%;
         height: inherit;
     }
@@ -138,7 +138,7 @@ p{
     #gametype_txt {
         display: block;
         color: #FF0000;
-        font-size: 20px;
+        font-size: 1em;
         margin-left: 8%;
 
     }
