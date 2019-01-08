@@ -5,6 +5,8 @@
  * Authors: Pennati Giulia, Blanco Federica
  */
 
+var int00;
+
 //estrattore di dati dal database
 function getData(difficulty, num_gioco) {
     var gameName;
@@ -107,17 +109,31 @@ function getSanoAjax(callback) {
     var selms= shuffle(rst);
 
     //variabili di gioco
-    $('#table').after('<a-image class="currentsano sano elms" id="elm1" onmouseenter="choiceSano(\'elm1\')" position="6.7 1.5 4.5" material="src:'+selms[0].img+'" scale="0.7 0.7 0.7" visible="false" crossorigin></a-image>');
-    $('#table').after('<a-image class="currentsano sano elms" id="elm2" onmouseenter="choiceSano(\'elm2\')" position="7.9 1.5 4.5" material="src:'+selms[1].img+'" scale="0.7 0.7 0.7" visible="false" crossorigin></a-image>');
+    $('#table').after('<a-image class="currentsano sano elms" onmouseenter="sanoEnterHandler(\'elm1\')" onmouseleave="sanoLeaveHandler()" id="elm1" position="6.7 1.5 4.5" material="src:'+selms[0].img+'" scale="0.7 0.7 0.7" visible="false" crossorigin></a-image>');
+    $('#table').after('<a-image class="currentsano sano elms" onmouseenter="sanoEnterHandler(\'elm2\')" onmouseleave="sanoLeaveHandler()" id="elm2" position="7.9 1.5 4.5" material="src:'+selms[1].img+'" scale="0.7 0.7 0.7" visible="false" crossorigin></a-image>');
 
+    
     setTimeout(function() {
         document.getElementById('elm1').setAttribute("visible", true);
         document.getElementById('elm2').setAttribute("visible", true);
     }, 1000);
-
+    
+    console.log("messi");
+    
             //e infine le mando al game master
     callback(selms);
+    
 
+}
+
+function sanoEnterHandler(id) {
+    console.log('mouse enter ' + id);
+    int00 = setInterval(function() { choiceSano(id); }, 500);
+}
+
+function sanoLeaveHandler() {
+    console.log('mouse leave ');
+    clearInterval(int00);
 }
 
 //funzione per la gestione dei valori estratti da database per la piramide

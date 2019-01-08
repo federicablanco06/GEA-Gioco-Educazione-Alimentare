@@ -9,6 +9,8 @@
   <script src="Script/aframe.min.js"></script> 
   <script src="https://unpkg.com/aframe-room-component/dist/aframe-room-component.min.js"></script>
   <script src="http://code.jquery.com/jquery-2.1.4.min.js"></script>
+  <script src="https://rawgit.com/mayognaise/aframe-mouse-cursor-component/master/dist/aframe-mouse-cursor-component.min.js"></script>
+    <script type="text/javascript" src="Script/jquery.longclick-min.js"></script>
   <script src="Script/vrprimaryScript.js"></script>
   <script src="Script/gameMasterVr.js"></script>
 </head>
@@ -78,7 +80,7 @@
         
         
         <!--cursore-->
-         <a-camera position="0 1.6 0" user-height="0" camera-fix>
+         <a-camera position="0 1.6 0" user-height="0" camera-fix mouse-cursor>
             <a-cursor cursor="fuse: true; fuseTimeout: 2000" material="color:red" geometry="primitive:ring; radius-outer: 0.02"></a-cursor>
         </a-camera> 
     </a-scene>

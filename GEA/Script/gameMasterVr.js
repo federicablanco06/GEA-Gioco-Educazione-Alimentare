@@ -294,6 +294,7 @@ function choiceSano(id) {
  
 }
 
+
 //funzione controllore del risultato di sano
 function feedbackSano(id) {    
     //faccio sparire le scelte prima di dare feedback
