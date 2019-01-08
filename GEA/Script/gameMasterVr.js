@@ -12,12 +12,26 @@ var tavolaPts = [];
 var allergyPts = [];
 var tot;
 var count=10;
+var timeout=0;
 var iter;
 
 function gameSetter(Gioco, Diff) {
     //settaggio variabili globali di gioco
     num_gioco = Gioco;
     diff = Diff;  
+}
+
+function starterDelayerEnter() {
+    console.log('ho iniziato a schiacchiare play ' + timeout);
+    timeout = setTimeout(function() {
+        gameStarter();
+    }, 3000);
+}
+
+function starterDelayerExit() {
+    console.log('ho smesso di schiacchiare play ' + timeout);
+    clearTimeout(timeout);
+    timeout = 0;
 }
 
 function gameStarter() {
@@ -27,9 +41,7 @@ function gameStarter() {
     
     //quando premo play nascondo la descrizione del gioco e il tasto stesso (dopo 1 sec)
     document.getElementById('gioco' + num_gioco).setAttribute("visible", false);
-    setTimeout(function () {
-        document.getElementById('playbutton').setAttribute("visible", false);
-    }, 1000);
+    document.getElementById('playbutton').setAttribute("visible", false);
     
     //successivamente carico gli elementi del gioco stesso
     if (num_gioco == '1')
