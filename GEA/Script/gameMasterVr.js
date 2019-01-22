@@ -394,10 +394,10 @@ function feedbackSano(id) {
 //funzione coordinatrice del gioco 3
 function atavola() {    
     //aggiungo i poster delle scelte
-    $('#table').after('<a-image class="atavola clickable" id="tav1" material="src: Immagini/atavola/colazione.png" position="2 4 0.3" scale="2.2 2.2 0.1" onclick="choiceTavola(\'1\')" visible="false"></a-image>');
-    $('#table').after('<a-image class="atavola clickable" id="tav2" material="src: Immagini/atavola/pranzo.png" position="4.5 4 0.3" scale="2.2 2.2 0.1" onclick="choiceTavola(\'2\')" visible="false"></a-image>');
-    $('#table').after('<a-image class="atavola clickable" id="tav3" material="src: Immagini/atavola/merenda.png" position="7 4 0.3" scale="2.2 2.2 0.5" onclick="choiceTavola(\'3\')" visible="false"></a-image>');
-    $('#table').after('<a-image class="atavola clickable" id="tav4" material="src: Immagini/atavola/cena.png" position="9.5 4 0.3" scale="2.2 2.2 0.7" onclick="choiceTavola(\'4\')" visible="false"></a-image>');
+    $('#table').after('<a-image class="atavola clickable" id="tav1" material="src: Immagini/atavola/colazione.png" position="2 4.5 0.3" scale="2.2 2.2 0.1" onclick="choiceTavola(\'1\')" visible="false"></a-image>');
+    $('#table').after('<a-image class="atavola clickable" id="tav2" material="src: Immagini/atavola/pranzo.png" position="4.5 4.5 0.3" scale="2.2 2.2 0.1" onclick="choiceTavola(\'2\')" visible="false"></a-image>');
+    $('#table').after('<a-image class="atavola clickable" id="tav3" material="src: Immagini/atavola/merenda.png" position="7 4.5 0.3" scale="2.2 2.2 0.5" onclick="choiceTavola(\'3\')" visible="false"></a-image>');
+    $('#table').after('<a-image class="atavola clickable" id="tav4" material="src: Immagini/atavola/cena.png" position="9.5 4.5 0.3" scale="2.2 2.2 0.7" onclick="choiceTavola(\'4\')" visible="false"></a-image>');
     setTimeout(function() {
         document.getElementById("tav1").setAttribute("visible", true);
         document.getElementById("tav2").setAttribute("visible", true);
@@ -427,13 +427,13 @@ function choiceTavola(momento) {
     document.getElementById('tav3').removeAttribute('onclick');
     document.getElementById('tav4').removeAttribute('onclick');
     
-    setTimeout(function() {
+   /* setTimeout(function() {
         document.getElementById('tav1').setAttribute('visible', false);
         document.getElementById('tav2').setAttribute('visible', false);
         document.getElementById('tav3').setAttribute('visible', false);
         document.getElementById('tav4').setAttribute('visible', false);
         document.getElementById('elem').setAttribute('visible', false);
-    }, 1000);
+    }, 1000);*/
     
     feedbackTavola(momento);
     
@@ -458,8 +458,15 @@ function feedbackTavola(momentog) {
         }
     
     //feedback
-    if(corr) {        
-        $('#table').after('<a-image class="atavola" id="feed"  position="8.2 3.5 2" material="src:Immagini/happy.png" scale="3 3 3" visible="false"></a-image>');
+    if(corr) {  
+        //tick verde sulla selezione corretta
+        var xi = parseFloat(document.getElementById('tav'+momentog).getAttribute("position").x);
+        var yi = parseFloat(document.getElementById('tav'+momentog).getAttribute("position").y);
+        var zi = parseFloat(document.getElementById('tav'+momentog).getAttribute("position").z);
+        $('#table').after('<a-image class="tick atavola" id="tick_tav'+momentog+'" material="src: Immagini/green-tick.png" scale="1.5 1.5 0.1" visible="true"></a-image>');
+        document.getElementById("tick_tav"+momentog+"").setAttribute("position", {x: xi, y: yi, z: zi+0.1} ); 
+        
+        $('#table').after('<a-image class="atavola" id="feed"  position="8.5 2 2" material="src:Immagini/happy.png" scale="2.2 2.2 2.2" visible="false"></a-image>');
         setTimeout(function() {
             document.getElementById('feed').setAttribute('visible', true);
         }, 2000);             
@@ -467,7 +474,23 @@ function feedbackTavola(momentog) {
     }
     
     else {
-        $('#table').after('<a-image class="atavola" id="feed" position="8.2 3.5 2" material="src:Immagini/sad.png" scale="3 3 3" visible="false"></a-image>');
+        //green tick su quelli giusti
+        for(var i = 0; i<mom.length; i++) {
+            var xi = parseFloat(document.getElementById('tav'+mom[i]).getAttribute("position").x);
+            var yi = parseFloat(document.getElementById('tav'+mom[i]).getAttribute("position").y);
+            var zi = parseFloat(document.getElementById('tav'+mom[i]).getAttribute("position").z);
+            $('#table').after('<a-image class="tick atavola" id="tick_tav'+mom[i]+'" material="src: Immagini/green-tick.png" scale="1.5 1.5 0.1" visible="true"></a-image>');
+            document.getElementById("tick_tav"+mom[i]+"").setAttribute("position", {x: xi, y: yi, z: zi+0.1} ); 
+        }
+        
+        //red tick su quello selezionato sbagliato
+        var xi = parseFloat(document.getElementById('tav'+momentog).getAttribute("position").x);
+        var yi = parseFloat(document.getElementById('tav'+momentog).getAttribute("position").y);
+        var zi = parseFloat(document.getElementById('tav'+momentog).getAttribute("position").z);
+        $('#table').after('<a-image class="tick atavola" id="tick_tav'+momentog+'" material="src: Immagini/wrong.png" scale="1.5 1.5 0.1" visible="true"></a-image>');
+        document.getElementById("tick_tav"+momentog+"").setAttribute("position", {x: xi, y: yi, z: zi+0.1} ); 
+        
+        $('#table').after('<a-image class="atavola" id="feed" position="8.5 2 2" material="src:Immagini/sad.png" scale="2.2 2.2 2.2" visible="false"></a-image>');
         setTimeout(function() {
             document.getElementById('feed').setAttribute('visible', true);
         }, 2000);             
