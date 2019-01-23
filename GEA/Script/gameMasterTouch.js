@@ -145,7 +145,7 @@ function choicePiramide(id){
     console.log("Ho cliccato l'elemento " + id);
     //variabili per id non selezionati    
     setTimeout(function() {
-        $(".choice").remove();
+        //$(".choice").remove();
         $("#arrow").hide();
         }, 1000);
     
@@ -156,6 +156,7 @@ function choicePiramide(id){
 function feedbackPiramide(id){
      //faccio sparire le scelte prima di dare feedback
     var element;
+    var elm_number = id[id.length-1];
     
     //innanzitutto ripesco l'elemento associato alla scelta grazie alla variabile alt
     for(var i=0; i< alt.length; i++) {
@@ -165,12 +166,23 @@ function feedbackPiramide(id){
         }        
     }
     
+    var corr_elm;    
+    //ripesco l'id dell'elemento corretto
+    for (var i=0; i<alt.length; i++)
+        if(alt[i].dbelement.livello == livello)
+            corr_elm = alt[i].graphicid[alt[i].graphicid.length-1];
+
     if(element.livello==livello){
 
         $('.feedbk').attr("src", "Immagini/happy.png");
+        $('#tick'+elm_number).attr("src", "Immagini/green-tick_touch.png");
         
         setTimeout(function() {
-             $('.feedbk').show();
+            $('.feedbk').show();
+            $('#tick1').show();
+            $('#tick2').show();
+            $('#tick3').show();
+            
         }, 2000);
         
         setTimeout(function() {
@@ -183,9 +195,15 @@ function feedbackPiramide(id){
     }
     else{
          $('.feedbk').attr("src", "Immagini/sad.png");
+        $('#tick'+elm_number).attr('src', "Immagini/wrong_touch.png");
+        $('#tick'+corr_elm).attr('src', "Immagini/green-tick_touch.png");
+        
         
         setTimeout(function() {
-             $('.feedbk').show();
+            $('.feedbk').show();
+            $('#tick1').show();
+            $('#tick2').show();
+            $('#tick3').show();
         }, 2000);
         
         setTimeout(function() {
@@ -202,6 +220,8 @@ function feedbackPiramide(id){
         //prima di partire con un altro turno rimuovo gli elementi
        setTimeout(function() {
             $('.feedbk').hide();
+           $('.choice').remove();
+           $('.ticks').remove();
            var numero = parseInt(livello) + 1;
             livello = numero.toString();
             piramide(livello);

@@ -185,6 +185,10 @@ function getPiramideAjax(livello, callback) {
         $("#choice_container").append('<img class="choice" id="choice1" src='+mesco[0].img+'/>');
         $("#choice_container").append('<img class="choice" id="choice2" src='+mesco[1].img+'/>');
         $("#choice_container").append('<img class="choice" id="choice3" src='+mesco[2].img+'/>');
+        
+        $("#tick_container").append('<img class="ticks" id="tick1" src="Immagini/nothing.png"/>');
+        $("#tick_container").append('<img class="ticks" id="tick2" src="Immagini/nothing.png"/>');
+        $("#tick_container").append('<img class="ticks" id="tick3" src="Immagini/nothing.png"/>');
     });
 
             $("#choice1").attr("onclick", "choicePiramide('choice1')");

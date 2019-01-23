@@ -239,7 +239,7 @@
     margin-top:5%;
 }
 
-#choice_container {
+#choice_container, #tick_container {
     position: absolute;
     margin-left:36%;
     width:32%;
@@ -248,13 +248,14 @@
     margin-top: 21%;
 }
 
-.choice {
+.choice, .ticks {
     width: 30%;
     height: auto;
     margin-right: 2%;
 }
 
-#choice1, #choice2, #choice3 {
+
+#choice1, #choice2, #choice3, #tick1, #tick2, #tick3 {
     display: none;
 }
 
