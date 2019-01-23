@@ -341,6 +341,9 @@ function atavola() {
     $("#day3").attr("onclick", "choiceTavola(3)");
     $("#day4").attr("onclick", "choiceTavola(4)");
     
+    $("#feedback_touch").css("margin-top", "17%");
+    $("#feedback_touch").css("margin-left", "20%");
+    
     setTimeout(function() {
         $("#daytime_container").show();
     }, 1000);
@@ -367,11 +370,6 @@ function choiceTavola(momento) {
     $("#day3").removeAttr("onclick");
     $("#day4").removeAttr("onclick");
     
-    setTimeout(function() {
-        $("#daytime_container").hide();
-        $("#choice1").remove();
-    }, 1000);
-    
     feedbackTavola(momento);
     
     
@@ -397,9 +395,15 @@ function feedbackTavola(momentog) {
     //feedback
     if(corr) {        
         $('.feedbk').attr("src", "Immagini/happy.png");
+        $('#tick_tav'+momentog).attr("src", "Immagini/green-tick_touch.png");
         
         setTimeout(function() {
-             $('.feedbk').show();
+            $('.feedbk').show();
+            $('#tick_tav1').show();
+            $('#tick_tav2').show();
+            $('#tick_tav3').show();
+            $('#tick_tav4').show();
+            
         }, 2000);
 
         
@@ -408,10 +412,17 @@ function feedbackTavola(momentog) {
         
     }
     else{
-         $('.feedbk').attr("src", "Immagini/sad.png");
+        $('.feedbk').attr("src", "Immagini/sad.png");
+        for(var i=0; i<mom.length; i++) 
+            $("#tick_tav"+mom[i]).attr('src', 'Immagini/green-tick_touch.png');
+        $("#tick_tav"+momentog).attr('src', 'Immagini/wrong_touch.png');
         
         setTimeout(function() {
-             $('.feedbk').show();
+            $('.feedbk').show();
+            $('#tick_tav1').show();
+            $('#tick_tav2').show();
+            $('#tick_tav3').show();
+            $('#tick_tav4').show();
         }, 2000);
 
         
@@ -423,6 +434,15 @@ function feedbackTavola(momentog) {
     if (tavolaPts.length<3)
         setTimeout(function() {
             $('.feedbk').hide();
+            $('#tick_tav1').hide();
+            $('#tick_tav1').attr('src', 'Immagini/nothing.png');
+            $('#tick_tav2').hide();
+            $('#tick_tav2').attr('src', 'Immagini/nothing.png');
+            $('#tick_tav3').hide();
+            $('#tick_tav3').attr('src', 'Immagini/nothing.png');
+            $('#tick_tav4').hide();
+            $('#tick_tav4').attr('src', 'Immagini/nothing.png');
+            $('#choice1').remove();
             atavola();
         }, 5000);
     else

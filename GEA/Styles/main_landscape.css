@@ -268,6 +268,14 @@
     height: auto;
 }
 
+#tick_daytime {
+    width: 60%;
+    margin-left: 17%;
+    margin-top: 6%;
+    position: absolute;
+    height: auto;
+}
+
 #warning-message {
     display: none; 
 }
@@ -298,6 +306,16 @@
     width: 18%;
     margin-left: 1%;
     height: auto;
+}
+
+.tick {
+    width: 18%;
+    margin-left: 1%;
+    height: auto;
+}
+
+#tick_tav1, #tick_tav2, #tick_tav3, #tick_tav4 {
+    display: none;
 }
 
 .exp {
