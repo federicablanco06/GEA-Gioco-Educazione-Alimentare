@@ -196,13 +196,16 @@ function feedbackPiramide(id){
         var xi = parseFloat(document.getElementById(id).getAttribute("position").x);
         var yi = parseFloat(document.getElementById(id).getAttribute("position").y);
         var zi = parseFloat(document.getElementById(id).getAttribute("position").z);
-        $('#table').after('<a-image class="tick currentpiramide piramide" id="tick_'+id+'" material="src: Immagini/green-tick.png" scale="0.5 0.5 0.1" visible="true"></a-image>');
+        $('#table').after('<a-image class="tick currentpiramide piramide" id="tick_'+id+'" material="src: Immagini/green-tick.png" scale="0.5 0.5 0.1" visible="false"></a-image>');
         document.getElementById("tick_"+id+"").setAttribute("position", {x: xi, y: yi, z: zi+0.1} ); 
         console.log("giusto " + id + " giusto " + idcorr);
 
         $('#table').after('<a-image class="currentpiramide piramide" id="feedcorrpir"  position="8.2 3.5 2" material="src:Immagini/happy.png" scale="3 3 3" visible="false"></a-image>');
         setTimeout(function() {
             document.getElementById("feedcorrpir").setAttribute("visible", true);
+            document.getElementById("tick_"+id).setAttribute("visible", true);
+            
+            
         }, 2000);
         
         setTimeout(function() {
@@ -219,20 +222,23 @@ function feedbackPiramide(id){
         var yi = parseFloat(document.getElementById(id).getAttribute("position").y);
         var zi = parseFloat(document.getElementById(id).getAttribute("position").z);
         console.log("sbagliato " + id + " giusto " + idcorr);
-        $('#table').after('<a-image class="tick currentpiramide piramide" id="tick_'+id+'" material="src: Immagini/wrong.png" scale="0.5 0.5 0.1" visible="true"></a-image>');
+        $('#table').after('<a-image class="tick currentpiramide piramide" id="tick_'+id+'" material="src: Immagini/wrong.png" scale="0.5 0.5 0.1" visible="false"></a-image>');
         document.getElementById("tick_"+id+"").setAttribute("position", {x: xi, y: yi, z: zi+0.1} ); 
         
         //e poi metto un green tick sull'immagine giusta
         var xi = parseFloat(document.getElementById(idcorr).getAttribute("position").x);
         var yi = parseFloat(document.getElementById(idcorr).getAttribute("position").y);
         var zi = parseFloat(document.getElementById(idcorr).getAttribute("position").z);
-        $('#table').after('<a-image class="tick currentpiramide piramide" id="tick_'+idcorr+'" material="src: Immagini/green-tick.png" scale="0.5 0.5 0.1" visible="true"></a-image>');
+        $('#table').after('<a-image class="tick currentpiramide piramide" id="tick_'+idcorr+'" material="src: Immagini/green-tick.png" scale="0.5 0.5 0.1" visible="false"></a-image>');
         document.getElementById("tick_"+idcorr+"").setAttribute("position", {x: xi, y: yi, z: zi+0.1} ); 
         
         
         $('#table').after('<a-image class="currentpiramide piramide" id="feedsbapir"  position="8.2 3.5 2" material="src:Immagini/sad.png" scale="3 3 3" visible="false"></a-image>');
         setTimeout(function() {
             document.getElementById("feedsbapir").setAttribute("visible", true);
+            document.getElementById("tick_"+id).setAttribute("visible", true);
+            document.getElementById("tick_"+idcorr).setAttribute("visible", true);
+
         }, 2000);
         
         setTimeout(function() {
@@ -463,12 +469,14 @@ function feedbackTavola(momentog) {
         var xi = parseFloat(document.getElementById('tav'+momentog).getAttribute("position").x);
         var yi = parseFloat(document.getElementById('tav'+momentog).getAttribute("position").y);
         var zi = parseFloat(document.getElementById('tav'+momentog).getAttribute("position").z);
-        $('#table').after('<a-image class="tick atavola" id="tick_tav'+momentog+'" material="src: Immagini/green-tick.png" scale="1.5 1.5 0.1" visible="true"></a-image>');
+        $('#table').after('<a-image class="tick atavola" id="tick_tav'+momentog+'" material="src: Immagini/green-tick.png" scale="1.5 1.5 0.1" visible="false"></a-image>');
         document.getElementById("tick_tav"+momentog+"").setAttribute("position", {x: xi, y: yi, z: zi+0.1} ); 
+
         
         $('#table').after('<a-image class="atavola" id="feed"  position="8.5 2 2" material="src:Immagini/happy.png" scale="2.2 2.2 2.2" visible="false"></a-image>');
         setTimeout(function() {
             document.getElementById('feed').setAttribute('visible', true);
+            document.getElementById('tick_tav'+momentog).setAttribute('visible', true);
         }, 2000);             
         tavolaPts.push('1');
     }
@@ -479,7 +487,7 @@ function feedbackTavola(momentog) {
             var xi = parseFloat(document.getElementById('tav'+mom[i]).getAttribute("position").x);
             var yi = parseFloat(document.getElementById('tav'+mom[i]).getAttribute("position").y);
             var zi = parseFloat(document.getElementById('tav'+mom[i]).getAttribute("position").z);
-            $('#table').after('<a-image class="tick atavola" id="tick_tav'+mom[i]+'" material="src: Immagini/green-tick.png" scale="1.5 1.5 0.1" visible="true"></a-image>');
+            $('#table').after('<a-image class="tick atavola" id="tick_tav'+mom[i]+'" material="src: Immagini/green-tick.png" scale="1.5 1.5 0.1" visible="false"></a-image>');
             document.getElementById("tick_tav"+mom[i]+"").setAttribute("position", {x: xi, y: yi, z: zi+0.1} ); 
         }
         
@@ -489,10 +497,14 @@ function feedbackTavola(momentog) {
         var zi = parseFloat(document.getElementById('tav'+momentog).getAttribute("position").z);
         $('#table').after('<a-image class="tick atavola" id="tick_tav'+momentog+'" material="src: Immagini/wrong.png" scale="1.5 1.5 0.1" visible="true"></a-image>');
         document.getElementById("tick_tav"+momentog+"").setAttribute("position", {x: xi, y: yi, z: zi+0.1} ); 
+        $("#tick_tav"+momentog).hide();
         
         $('#table').after('<a-image class="atavola" id="feed" position="8.5 2 2" material="src:Immagini/sad.png" scale="2.2 2.2 2.2" visible="false"></a-image>');
         setTimeout(function() {
             document.getElementById('feed').setAttribute('visible', true);
+            document.getElementById('tick_tav'+momentog).setAttribute('visible', true);
+            for(var i = 0; i<mom.length; i++)
+                document.getElementById('tick_tav'+mom[i]).setAttribute('visible', true);
         }, 2000);             
         tavolaPts.push('0');
     }
