@@ -227,7 +227,7 @@
 
 
 .feedbk {
-    width: 45%;
+    width: 30%;
     display: none;
     
 }
@@ -236,7 +236,7 @@
     position: absolute;
     margin-left: 40%;
 
-    margin-top:5%;
+    margin-top:6%;
 }
 
 #choice_container, #tick_container {
