@@ -342,7 +342,7 @@ function atavola() {
     $("#day4").attr("onclick", "choiceTavola(4)");
     
     $("#feedback_touch").css("margin-top", "17%");
-    $("#feedback_touch").css("margin-left", "20%");
+    $("#feedback_touch").css("margin-left", "15%");
     
     setTimeout(function() {
         $("#daytime_container").show();
