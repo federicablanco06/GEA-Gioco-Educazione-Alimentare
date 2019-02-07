@@ -143,6 +143,9 @@ function piramide(live) {
 function choicePiramide(id){
     
     console.log("Ho cliccato l'elemento " + id);
+    $("#choice1").removeAttr('onclick');
+    $("#choice2").removeAttr('onclick');
+    $("#choice3").removeAttr('onclick');
     //variabili per id non selezionati    
     setTimeout(function() {
         //$(".choice").remove();
@@ -183,11 +186,11 @@ function feedbackPiramide(id){
             $('#tick2').show();
             $('#tick3').show();
             
-        }, 2000);
+        }, 1000);
         
         setTimeout(function() {
             $("#pyr"+livello).attr("src", "Immagini/piramide/piano"+livello+"g.png");
-        }, 3000);
+        }, 2000);
         
         //aggiungo il punteggio 1
         piramidePts.push('1');
@@ -204,11 +207,11 @@ function feedbackPiramide(id){
             $('#tick1').show();
             $('#tick2').show();
             $('#tick3').show();
-        }, 2000);
+        }, 1000);
         
         setTimeout(function() {
             $("#pyr"+livello).attr("src", "Immagini/piramide/piano"+livello+"s.png");
-        }, 3000);
+        }, 2000);
         
         //aggiungo il punteggio 0
         piramidePts.push('0');
@@ -270,6 +273,7 @@ function sano() {
 //funzione per la gestione della scelta in Sano
 function choiceSano(id) {  
     $(id).hide();
+    $(".choice").draggable('destroy');
     setTimeout(function(){
         $(".choice").remove();
     }, 1000); 
@@ -301,7 +305,7 @@ function feedbackSano(id) {
         
         setTimeout(function() {
              $('.feedbk').show();
-        }, 2000);
+        }, 1000);
 
         
         //aggiungo il punteggio 1
@@ -313,7 +317,7 @@ function feedbackSano(id) {
         
         setTimeout(function() {
              $('.feedbk').show();
-        }, 2000);
+        }, 1000);
 
         
         //aggiungo il punteggio 0
@@ -404,7 +408,7 @@ function feedbackTavola(momentog) {
             $('#tick_tav3').show();
             $('#tick_tav4').show();
             
-        }, 2000);
+        }, 1000);
 
         
         //aggiungo il punteggio 1
@@ -423,7 +427,7 @@ function feedbackTavola(momentog) {
             $('#tick_tav2').show();
             $('#tick_tav3').show();
             $('#tick_tav4').show();
-        }, 2000);
+        }, 1000);
 
         
         //aggiungo il punteggio 0
